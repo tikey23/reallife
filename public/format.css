@@ -1,0 +1,40 @@
+.head
+{
+    background-color: yellow;
+    display: flex;
+}
+
+.headleft
+{
+    padding: 5px;
+    margin: 10px;
+}
+
+.headright
+{
+    margin: 10px;
+    width: 80%;
+}
+
+.navigation
+{
+    background-color: lightgreen;
+    display: block;
+    align-content: end;
+    width: 200px;
+    padding: 5px;
+    margin: 10px;     
+}
+
+.main
+{
+    background-color: lightblue;
+    color: lightblue;
+}
+
+.foot
+{
+    background-color: orange;
+    text-align: center;
+    font-size: 0.8em;
+}
