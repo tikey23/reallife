@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["/zody/reallife/css/ {html, css, js}"],
+  content: ["./public/**/*.{html,js}"],
   theme: {
     extend: {},
   },
