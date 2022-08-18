@@ -1,5 +1,6 @@
 .head
 {
+    font-family: 'Varela Round', sans-serif;
     background-color: yellow;
     display: flex;
 }
@@ -16,7 +17,7 @@
     width: 80%;
 }
 
-.navigation
+#navigation
 {
     background-color: lightgreen;
     display: block;
