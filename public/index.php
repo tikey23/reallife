@@ -24,12 +24,12 @@
     </div>
 
    <div class= "text-2xl" id="navigation">
-        <p><a href="">Home</a></p>
-        <p><a href="">Galerie</a></p>
-        <p><a href="">Wer sind wir?</a></p>
-        <p><a href="">Regel</a></p>
-        <p><a href="">Helfer werden</a></p>
-        <p><a href="">Über uns</a></p>
+        <p><a href="index.php">Home</a></p>
+        <p><a href="index.php?page=galerie">Galerie</a></p>
+        <p><a href="index.php?page=wersindwir">Wer sind wir?</a></p>
+        <p><a href="index.php?page=regeln">Regeln</a></p>
+        <p><a href="index.php?page=helferwerden">Helfer werden</a></p>
+        <p><a href="index.php?page=ueberuns">Über uns</a></p>
     </div>    
 </div>
 
@@ -38,6 +38,26 @@
 
 
 <div class="main">
+
+<?php
+
+if(isset($_GET['page']))
+{
+    if($_GET['page'] == "galerie"){include "galerie.php";}
+    else if($_GET['page'] == "wersindwir") {include "wersindwir.php";}
+    else if($_GET['page'] == "regeln") {include "regeln.php";}
+    else if($_GET['page'] == "helferwerden") {include "helferwerden.php";}
+    else if($_GET['page'] == "ueberuns") {include "ueberuns.php";}   
+}
+else
+{
+    $titel = "Home";
+    $text = "Nächster Termin: 19.08.2022";
+}
+
+echo "<h1 class='text-3xl font-bold text-center m-10 block'>$titel</h1>";
+echo "<p>$text</p>";
+?>
 
 <?php
     $text = "";
