@@ -24,13 +24,26 @@
     align-content: end;
     width: 200px;
     padding: 5px;
-    margin: 10px;     
+    margin: 10px;    
+    border: 1px solid black; 
+}
+
+#navigation a
+{
+    display: block;
+    padding: 2px;
+}
+
+#navigation a:hover
+{
+
+    background-color: green;
+    padding: 2px;
 }
 
 .main
 {
     background-color: lightblue;
-    color: lightblue;
 }
 
 .foot
