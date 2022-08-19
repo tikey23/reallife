@@ -3,8 +3,8 @@
 <head>
     <meta charset="utf-8">
     <title>Real Life Café</title>
-    <link rel="stylesheet" href="format.css">
-    <link href="/zody/reallife/css/output.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/format.css">
+    <link href="/css/output.css" rel="stylesheet">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,7 +14,7 @@
 
 <div class="head">
     <div class="headleft">
-        <img src="img/logo.jpg"></img>
+        <img src="/img/logo.jpg"></img>
     </div>
 
     <div class="headright">
@@ -24,12 +24,12 @@
     </div>
 
    <div class= "text-2xl" id="navigation">
-        <p><a href="index.php">Home</a></p>
-        <p><a href="index.php?page=galerie">Galerie</a></p>
-        <p><a href="index.php?page=wersindwir">Wer sind wir?</a></p>
-        <p><a href="index.php?page=regeln">Regeln</a></p>
-        <p><a href="index.php?page=helferwerden">Helfer werden</a></p>
-        <p><a href="index.php?page=ueberuns">Über uns</a></p>
+        <p><a href="/index.php">Home</a></p>
+        <p><a href="/index.php?page=galerie">Galerie</a></p>
+        <p><a href="/index.php?page=wersindwir">Wer sind wir?</a></p>
+        <p><a href="/index.php?page=regeln">Regeln</a></p>
+        <p><a href="/index.php?page=helferwerden">Helfer werden</a></p>
+        <p><a href="/index.php?page=ueberuns">Über uns</a></p>
     </div>    
 </div>
 
@@ -51,12 +51,13 @@ if(isset($_GET['page']))
 }
 else
 {
+    include "home.php";
     $titel = "Home";
     $text = "Nächster Termin: 19.08.2022";
 }
 
-echo "<h1 class='text-3xl font-bold text-center m-10 block'>$titel</h1>";
-echo "<p>$text</p>";
+echo "<h1 class='text-4xl font-bold text-center m-10 block'>$titel</h1>";
+echo "<p class='text-center'>$text</p>";
 ?>
 
 <?php
