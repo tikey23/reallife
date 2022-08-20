@@ -6,9 +6,9 @@
     <link rel="stylesheet" href="/css/format.css">
     <link href="/css/output.css" rel="stylesheet">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+  <!--  <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet"> -->
 </head>
 <body>
 
@@ -37,28 +37,24 @@
 
 
 
-<div class="main">
+<div class="text-center m-2 p-2" id="main">
 
-<?php
+    <?php
 
-if(isset($_GET['page']))
-{
-    if($_GET['page'] == "galerie"){include "galerie.php";}
-    else if($_GET['page'] == "wersindwir") {include "wersindwir.php";}
-    else if($_GET['page'] == "regeln") {include "regeln.php";}
-    else if($_GET['page'] == "helferwerden") {include "helferwerden.php";}
-    else if($_GET['page'] == "ueberuns") {include "ueberuns.php";}   
-}
-else
-{
-    include "home.php";
-    $titel = "Home";
-    $text = "Nächster Termin: 19.08.2022";
-}
+        if(isset($_GET['page']))
+        {
+            if($_GET['page'] == "galerie"){include "galerie.php";}
+            else if($_GET['page'] == "wersindwir") {include "wersindwir.php";}
+            else if($_GET['page'] == "regeln") {include "regeln.php";}
+            else if($_GET['page'] == "helferwerden") {include "helferwerden.php";}
+            else if($_GET['page'] == "ueberuns") {include "ueberuns.php";}   
+        }
+        else
+        {
+            include "home.php";
+        }
 
-echo "<h1 class='text-4xl font-bold text-center m-10 block'>$titel</h1>";
-echo "<p class='text-center'>$text</p>";
-?>
+    ?>
 
 <?php
     $text = "";
