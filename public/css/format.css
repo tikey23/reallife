@@ -9,12 +9,14 @@
 {
     padding: 5px;
     margin: 10px;
+    width: 300px;
 }
+
 
 .headright
 {
     margin: 10px;
-    width: 80%;
+    width: 60%;
 }
 
 #navigation
@@ -41,7 +43,7 @@
     padding: 2px;
 }
 
-.main
+#main
 {
     background-color: lightblue;
 }
