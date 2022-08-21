@@ -34,9 +34,6 @@
 </div>
 
 
-
-
-
 <div class="text-center m-2 p-2" id="main">
 
     <?php
