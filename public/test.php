@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
- <link href="/zody/reallife/css/output.css" rel="stylesheet">
+  <link href="/css/output.css" rel="stylesheet">
 </head>
 <body>
-  <h1 class="text-3xl font-bold underline bg-slate-50">
+  <h1 class="text-3xl font-bold underline bg-sky-50">
     Hello world!
   </h1>
 
