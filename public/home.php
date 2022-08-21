@@ -56,5 +56,5 @@
     </div>
 </div>
 <div class="mainpart2">
-    <p>Text</p>
+    <p>Update 21.08.2022</p>
 </div>
