@@ -34,7 +34,7 @@
 </div>
 
 
-<div class="text-center m-2 p-2" id="main">
+<div class="text-center p-2" id="main">
 
     <?php
 
@@ -53,14 +53,6 @@
 
     ?>
 
-<?php
-    $text = "";
-    for ($i=1; $i < 30; $i++)
-    {
-        $text .= "text<br>";
-    }
-    echo "<p>$text</p>";
-?>
 
 </div>
 

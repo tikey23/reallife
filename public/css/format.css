@@ -1,7 +1,11 @@
+body
+{
+    background-color: #c4b5fd; /* bg-viloet-300 */
+}
+
 .head
 {
     font-family: 'Varela Round', sans-serif;
-    background-color: yellow;
     display: flex;
 }
 
@@ -16,18 +20,20 @@
 .headright
 {
     margin: 10px;
-    width: 60%;
+    width: 70%;
 }
 
 #navigation
 {
-    background-color: lightgreen;
+    background-color: #ddd6fe; /* bg-viloet-200 */
     display: block;
     align-content: end;
     width: 200px;
     padding: 5px;
     margin: 10px;    
-    border: 1px solid black; 
+    border-radius: 10px;
+    border: 1px solid black;
+    
 }
 
 #navigation a
@@ -45,12 +51,15 @@
 
 #main
 {
-    background-color: lightblue;
+    background-color: #ddd6fe; /* bg-viloet-200 */
+    margin: 20px;
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid black;
 }
 
 .foot
 {
-    background-color: orange;
     text-align: center;
     font-size: 0.8em;
 }
