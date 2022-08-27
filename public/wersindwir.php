@@ -4,6 +4,7 @@
         border: 1px solid black;
         padding: 0.5em;
     }
+
 </style>
 
 
@@ -63,6 +64,17 @@ $person3->anzeigen();
 $person4->anzeigen();
 
 ?>
-
 </table>
+
+<br>
+<p class="text-2xl">
+Wir sind ständig auf der Suche nach neuen Helfern!<br>
+Hast du Interesse im RL zusammen mit netten Leuten zu arbeiten?<br>
+Wir freuen uns auf dich!<br><br>
+
+Für eine Kontaktaufnahme, einfach <a href='helferwerden.php'><b>hier</b></a> klicken.
+</p>
+
+
+
 
