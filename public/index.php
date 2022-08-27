@@ -27,8 +27,8 @@
         <p><a href="/index.php">Home</a></p>
         <p><a href="/index.php?page=galerie">Galerie</a></p>
         <p><a href="/index.php?page=wersindwir">Wer sind wir?</a></p>
-        <p><a href="/index.php?page=regeln">Regeln</a></p>
         <p><a href="/index.php?page=helferwerden">Helfer werden</a></p>
+        <p><a href="/index.php?page=regeln">Regeln</a></p>
         <p><a href="/index.php?page=ueberuns">Über uns</a></p>
     </div>    
 </div>
