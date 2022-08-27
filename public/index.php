@@ -57,7 +57,7 @@
 </div>
 
 <div class="foot">
-<p>Version 0.01</p>
+<p>Version 0.02</p>
 </div>
 
 
