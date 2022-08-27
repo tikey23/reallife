@@ -48,9 +48,9 @@
         echo "<p class='text-3xl font-bold text-center'>Nächster Termin: $termin</p>";
         echo "<br>";
         echo "<p class='text-2xl text-center font-bold'><u>Weitere Termine:</u></p>";
-        echo "<p class='text-1xl text-center'>$weiteretermin1</p>";
-        echo "<p class='text-1xl text-center'>$weiteretermin2</p>";
-        echo "<p class='text-1xl text-center'>$weiteretermin3</p>";
+        echo "<p class='text-xl text-center'>$weiteretermin1</p>";
+        echo "<p class='text-xl text-center'>$weiteretermin2</p>";
+        echo "<p class='text-xl text-center'>$weiteretermin3</p>";
         ?>
     </div>
 
