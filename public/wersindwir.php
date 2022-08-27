@@ -1,6 +1,9 @@
 <style>
     table,td
-    {border: 1px solid black}
+    {
+        border: 1px solid black;
+        padding: 0.5em;
+    }
 </style>
 
 
@@ -21,13 +24,13 @@ class Mitglied
     function anzeigen()
     {
         echo "<tr>";
-        echo "<td><img src='" . $this->avatar. "'></img></td>";
-        echo "<td>" . $this->name . "</td>";
+        echo "<td><img src='" . $this->avatar. "' style='width:100px; height:100px; border-radius:100%'></img></td>";
+        echo "<td><b>" . $this->name . "<b></td>";
         echo "<td>" . $this->funktion . "</td>";
         echo "<td>" . $this->mobile . "</td>";
         echo "<td>" . $this->email . "</td>";
         echo "<td>" . $this->eintrittseit . "</td>";
-        echo "<td>" . $this->accountlink . "</td>";
+        echo "<td><a href='" . $this->accountlink . "'>" . $this->accountlink . "</a></td>";
         echo "</tr>";
     }
 }
@@ -35,23 +38,29 @@ class Mitglied
 ?>
 
 <h1 class='text-3xl font-bold text-center'>Wer sind wir?</h1>
+<br>
 <table align='center'>
     <tr>
         <td> </td>
-        <td>Name</td>
-        <td>Funktion</td>
-        <td>Mobile</td>
-        <td>E-Mail</td>
-        <td>Dabei seit:</td>
-        <td>Little Akiba</td>
+        <td style='width:10em'>Name</td>
+        <td style='width:10em'>Funktion</td>
+        <td style='width:10em'>Mobile</td>
+        <td style='width:10em'>E-Mail</td>
+        <td style='width:10em'>Dabei seit:</td>
+        <td style='width:10em'>Little Akiba</td>
     </tr>
 <?php
-$darki = new Mitglied("Dark Columbia", "Vorsteher", "079 888 88 88", "darki@gmx.ch", "01.01.2005", "avatar.jpg", "unknown");
-$frankie = new Mitglied("Frankie", "Vorsteher", "079 888 88 88", "darki@gmx.ch", "01.01.2005", "avatar.jpg", "unknown");
+$darki = new Mitglied("dark_columbia", "Leiterin", "*Streng geheim*", "*geheimnisvoll*", "01.01.2005", "https://www.littleakiba.ch/assets/avatars/6229a198a8e55.png", "https://www.littleakiba.ch/portal/profile/201");
+$frankie = new Mitglied("Frankie", "Leitern", "*Streng geheim*", "*geheimnisvoll*", "01.01.2005", "darki.jpg", "unknown");
+$person3 = new Mitglied("Person3", "Leiterin", "*Streng geheim*", "*geheimnisvoll*", "01.01.2005", "darki.jpg", "unknown");
+$person4 = new Mitglied("Person4", "Leiterin", "*Streng geheim*", "*geheimnisvoll*", "01.01.2005", "darki.jpg", "unknown");
+
 
 
 $darki->anzeigen();
 $frankie->anzeigen();
+$person3->anzeigen();
+$person4->anzeigen();
 
 ?>
 
