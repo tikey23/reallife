@@ -1,6 +1,6 @@
 <style>
 
-    #pics img
+    #main img
     {
         width: 300px;
         margin: 10px;
@@ -9,7 +9,6 @@
 
 </style>
 
-<div id="pics">
 <?php
 
 $thema = $_POST['thema'];
@@ -38,5 +37,5 @@ for($i=0; $i<count($inhalt); $i++)
 }
 
     ?>
-</div>
+
 
