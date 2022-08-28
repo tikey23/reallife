@@ -45,6 +45,7 @@
             else if($_GET['page'] == "regeln") {include "regeln.php";}
             else if($_GET['page'] == "helferwerden") {include "helferwerden.php";}
             else if($_GET['page'] == "ueberuns") {include "ueberuns.php";}   
+            else if($_GET['page'] == "galeriebilder") {include "galeriebilder.php";}  
         }
         else
         {

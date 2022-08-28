@@ -1,6 +1,6 @@
 body
 {
-    background-color: #c4b5fd; /* bg-viloet-300 */
+    background-color: #c4b5fd; /* bg-violet-300 */
 }
 
 .head
@@ -25,7 +25,7 @@ body
 
 #navigation
 {
-    background-color: #ddd6fe; /* bg-viloet-200 */
+    background-color: #ddd6fe; /* bg-violet-200 */
     display: block;
     align-content: end;
     width: 200px;
@@ -45,13 +45,13 @@ body
 #navigation a:hover
 {
 
-    background-color: #c4b5fd; /* bg-viloet-300 */
+    background-color: #c4b5fd; /* bg-violet-300 */
     padding: 2px;
 }
 
 #main
 {
-    background-color: #ddd6fe; /* bg-viloet-200 */
+    background-color: #ddd6fe; /* bg-violet-200 */
     margin: 20px;
     padding: 20px;
     border-radius: 10px;
@@ -61,7 +61,7 @@ body
 #main a:hover
 {
 
-    background-color: #c4b5fd; /* bg-viloet-300 */
+    background-color: #c4b5fd; /* bg-violet-300 */
     padding: 2px;
 }
 

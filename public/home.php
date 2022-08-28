@@ -16,7 +16,7 @@
         width: 300px;
         height: 300px;
         display: block;
-        background-color: #8b5cf6; /* bg-viloet-500 */
+        background-color: #8b5cf6; /* bg-violet-500 */
         padding: 20px;
         margin: 20px;
         border-radius: 10px;
