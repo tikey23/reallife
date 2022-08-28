@@ -1,6 +1,6 @@
 <style>
 
-    #main img
+    #pics img
     {
         width: 300px;
         margin: 10px;
@@ -9,6 +9,7 @@
 
 </style>
 
+<div id="pics">
 <?php
 
 $thema = $_POST['thema'];
@@ -33,8 +34,9 @@ switch($thema)
 
 for($i=0; $i<count($inhalt); $i++)
 {
-    echo "<img src='$bilderlink" . $inhalt[$i] . "'></img>";
+    echo "<a href=''><img src='$bilderlink" . $inhalt[$i] . "'></img></a>";
 }
 
     ?>
+</div>
 

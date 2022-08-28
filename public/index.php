@@ -36,6 +36,7 @@
 
 <div class="text-center p-2" id="main">
 
+
     <?php
 
         if(isset($_GET['page']))
