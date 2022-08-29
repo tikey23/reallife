@@ -47,6 +47,8 @@
             else if($_GET['page'] == "helferwerden") {include "helferwerden.php";}
             else if($_GET['page'] == "ueberuns") {include "ueberuns.php";}   
             else if($_GET['page'] == "galeriebilder") {include "galeriebilder.php";}  
+            else if($_GET['page'] == "anmeldung") {include "anmeldung.php";}  
+            else if($_GET['page'] == "admin") {include "./admin.php";}  
         }
         else
         {
@@ -60,6 +62,7 @@
 
 <div class="foot">
 <p>Version 0.02</p>
+<p><a href="/index.php?page=anmeldung">Anmeldung Administrator</a></p>
 </div>
 
 

@@ -60,15 +60,5 @@
     </div>
 </div>
 <div class="mainpart2">
-
-<?php
-    for($i=1; $i<20; $i++)
-    {
-        for($j=1; $j<50; $j++)
-        {
-            echo "text ";
-        }
-        echo "<br>";
-    }
-?>
+<p>Text</p>
 </div>
