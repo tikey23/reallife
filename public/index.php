@@ -48,7 +48,8 @@
             else if($_GET['page'] == "ueberuns") {include "ueberuns.php";}   
             else if($_GET['page'] == "galeriebilder") {include "galeriebilder.php";}  
             else if($_GET['page'] == "anmeldung") {include "anmeldung.php";}  
-            else if($_GET['page'] == "admin") {include "./admin.php";}  
+            else if($_GET['page'] == "admin") {include "./admin/admin.php";}
+            else if($_GET['page'] == "termin") {include "./admin/termin.php";}   
         }
         else
         {
