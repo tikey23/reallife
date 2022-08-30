@@ -1,11 +1,11 @@
 body
 {
     background-color: #c4b5fd; /* bg-violet-300 */
+    font-family: 'Varela Round', sans-serif;
 }
 
 .head
 {
-    font-family: 'Varela Round', sans-serif;
     display: flex;
 }
 

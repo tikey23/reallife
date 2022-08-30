@@ -1,16 +1,6 @@
 <?php
-//Declare the array
-$flowers = array(
-                "Rose",
-                "Lili",
-                "Jasmine",
-                "Hibiscus",
-                "Tulip",
-                "Sun Flower",
-                "Daffodil",
-                "Daisy");
+$termin = array("2022-10-10", "2022-11-11");
 
-unset($flowers[1]);
-echo "The array is:\n";
-print_r($flowers);
+$inhalt = serialize($termin);
+file_put_contents("admin/termine.dat", $inhalt);
 ?>
