@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="/css/format.css">
     <link href="/css/output.css" rel="stylesheet">
 
-  <!--  <link rel="preconnect" href="https://fonts.googleapis.com">
+    <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet"> -->
 </head>
@@ -14,7 +14,7 @@
 
 <div class="head">
     <div class="headleft">
-        <img src="/img/logo.jpg"></img>
+        <img src="/img/logo.png"></img>
     </div>
 
     <div class="headright">
@@ -49,7 +49,7 @@
             else if($_GET['page'] == "galeriebilder") {include "galeriebilder.php";}  
             else if($_GET['page'] == "anmeldung") {include "anmeldung.php";}  
             else if($_GET['page'] == "admin") {include "./admin/admin.php";}
-            else if($_GET['page'] == "termin") {include "./admin/termin.php";}   
+            else if($_GET['page'] == "logout") {include "./admin/logout.php";}   
         }
         else
         {

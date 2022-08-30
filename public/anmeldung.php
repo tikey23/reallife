@@ -17,5 +17,5 @@
 <form action='/index.php?page=admin' method='post'>
     <h2>Bitte Kennwort eingeben:</h2>
     <p><input name='kennwort'></p>
-    <p><b><input type='submit' value='Absenden'></b></p>
+    <p><b><input type='submit' value='Anmelden'></b></p>
 </form>

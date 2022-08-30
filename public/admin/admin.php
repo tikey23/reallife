@@ -35,21 +35,29 @@ class Korrektur
         file_put_contents("admin/termine.dat", $inhalt);
     }
 
-    function loschen()
+    function loschen() // Noch Fehlerhaft -> Im Bearbeitung
     {
         unset ($this->termin[$this->id]);
         
-        for($id=$this->id; $id<count($this->termin); $id++)
+        $j = 0;
+        for($i=0; $i<count($this->termin); $i++)
         {
-            $newid = $id+1;
-            $this->termin[$id] = $this->termin[$newid];
-        }
+           if(isset($this->termin[$j]))
+           {
+                $newtermin[$i] = $this->termin[$j];
+                $j++;
+           }
+           else
+           {
+                $newtermin[$i] = $this->termin[$j+1];
+                $j++;
+           }
+        } 
 
-        $inhalt = serialize($this->termin);
+        $inhalt = serialize($newtermin);
         file_put_contents("admin/termine.dat", $inhalt); 
     }
-
-    
+ 
 }
     echo "<form action='/index.php?page=admin' method='post'>";
 
@@ -62,11 +70,8 @@ class Korrektur
 
         if($_SESSION['password'] === "reallifecafe")
         {
-            echo "<p>Anmeldung erfolgreich</p>";
+            echo "<h1 class='text-3xl font-bold'><u>Administrator Bereich</u></h1>";
             echo "<br>";
-
-            
-            // $termin = array("2022-10-10", "2022-11-11");
 
             $inhalt = file_get_contents("admin/termine.dat");
             $termin = unserialize($inhalt);
@@ -105,7 +110,7 @@ class Korrektur
 
             //Eingetragene Termine anzeigen:
             
-            echo "<p><b>Eingetragene Termine: (yyyy-mm-dd)</b></p>";
+            echo "<p><b>Eingetragene Termine (yyyy-mm-dd):</b></p>";
             echo "<table align='center'>";
 
             for($i=0; $i<count($termin); $i++)
@@ -115,40 +120,13 @@ class Korrektur
                     $id = $_POST['andern'];
                     if($i == $id)
                     {
-                        // Spätere Version
-                        /*echo "<tr><td>";
-                        
-                        //Eingabe Tag
-                        echo "<p><select name='day'>";
-                        for($d=1; $d<=31; $d++)
-                        {
-                            echo "<option value='$d'>$d</option>";
-                        }
-                        echo "</select>";
-
-                        //Eingabe Monat
-                        $months = array("Januar", "Februar", "März", "April", "Mai", "Juni", "Juli", "August", "September", "Oktober", "November", "Dezember");
-                        echo "<select name='month'>";
-                        for($m=0; $m<12; $m++)
-                        {
-                        echo "<option value='". $m+1 . "'>" . $months[$m] . "</option>";
-                        }
-                        echo "</select>";
-
-                        //Eingabe Jahr
-                        echo "<select name='year'>";
-                        for($y=2022; $y<2032; $y++)
-                        {
-                            echo "<option value='$y'>$y</option>";
-                        }
-                        echo "</select>";
-                        
-                        echo "</td><td><button name='aktualisieren' value='$id'>aktualisieren</button></td></tr>"; */
-
                         echo "<tr><td><input name='korrektur' value='" . $termin[$id] . "' size='10'></td><td><button name='aktualisieren' value='$id'>aktualisieren</button></td></tr>";
                     }
                 }
-                echo "<tr><td>$termin[$i]</td><td><button name='andern' value='$i'>ändern</button></td><td><button name='loschen' value='$i'>löschen</button></td></tr>";
+                else
+                {
+                    echo "<tr><td>$termin[$i]</td><td><button name='andern' value='$i'>ändern</button></td><td><button name='loschen' value='$i'>löschen</button></td></tr>";
+                }
             }
             echo "</table>";
             echo "<br>";
@@ -184,8 +162,12 @@ class Korrektur
                 echo "</p>";
 
                 //echo "<p><b><input type='submit' value='Absenden'></b></p>";
-                echo "<p><b><button name='erstellen'>Absenden</button></b></p>";
+                echo "<p><b><button name='erstellen'>Termin erfassen</button></b></p>";
                 echo "</form>";
+
+                echo "<br>";
+                echo "<form action='/index.php?page=logout' method='post'>";
+                echo "<p><b><input type='submit' value='Abmelden'></b></p>";
         }
         else
         {
