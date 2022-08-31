@@ -1,9 +1,4 @@
-<?php
-    $termin = "20. August 2022";
-    $weiteretermin1 = "01. September 2022";
-    $weiteretermin2 = "15. September 2022";
-    $weiteretermin3 = " ";
-?>
+
 <style>
     .mainpart1
     {
@@ -47,7 +42,7 @@
 <div class="mainpart1">
     <div class="w-80 h-80 block bg-violet-500 p-10 rounded-xl" id="next">
         <?php  
-
+ 
         $inhalt = file_get_contents("admin/termine.dat");
         $termin = unserialize($inhalt);
 

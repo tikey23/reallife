@@ -51,6 +51,7 @@ class Mitglied
         <td><b>Little Akiba</b></td>
     </tr>
 <?php
+
 $darki = new Mitglied("dark_columbia", "Leiterin", "07x xxx xx xx", "dark_columbia@littleakiba.ch", "01.01.2005", "https://www.littleakiba.ch/assets/avatars/6229a198a8e55.png", "https://www.littleakiba.ch/portal/profile/201");
 $swissfrankie = new Mitglied("Swissfrankie", "Mr. President", "07x xxx xx xx", "swissfrankie@littleakiba.ch", "01.01.2005", "https://www.littleakiba.ch/assets/avatars/SzVdpCcKEx5JSQci.png", "https://www.littleakiba.ch/portal/profile/Swissfrankie");
 $mii = new Mitglied("mii-chan", "Leiterin", "07x xxx xx xx", "mii-chan@littleakiba.ch", "01.01.2005", "https://www.littleakiba.ch/assets/avatars/QZn69JpuvfACuml0.png", "https://www.littleakiba.ch/portal/profile/137");

@@ -12,6 +12,7 @@
 
 </style>
 <!-- <form action="/galeriebilder.php" method='post'> -->
+
 <form action="/index.php?page=galeriebilder" method='post'>
 
 <button name='thema' value='unterwasser'><div class="text-xl" style="width: 220px; height: 300px; padding: 10px; margin: 10px; border-radius: 20px; background-color: #8b5cf6; /* bg-viloet-500 */; border: 1px solid black">
