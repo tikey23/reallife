@@ -1,0 +1,52 @@
+Options -Indexes
+
+
+<Files anmeldung.php>
+    Order Deny,Allow
+    Deny from all
+</Files>
+
+<Files galerie.php>
+    Order Deny,Allow
+    Deny from all
+</Files>
+
+<Files galeriebilder.php>
+    Order Deny,Allow
+    Deny from all
+</Files>
+
+<Files helferwerden.php>
+    Order Deny,Allow
+    Deny from all
+</Files>
+
+<Files home.php>
+    Order Deny,Allow
+    Deny from all
+</Files>
+
+<Files regeln.php>
+    Order Deny,Allow
+    Deny from all
+</Files>
+
+<Files ueberuns.php>
+    Order Deny,Allow
+    Deny from all
+</Files>
+
+<Files wersindwir.php>
+    Order Deny,Allow
+    Deny from all
+</Files>
+
+<Files admin.php>
+    Order Deny,Allow
+    Deny from all
+</Files>
+
+<Files logout.php>
+    Order Deny,Allow
+    Deny from all
+</Files>
