@@ -14,7 +14,7 @@
 
 <div class="head">
     <div class="headleft">
-        <img src="/img/logo.png"></img>
+        <img src="/img/logo.png" width="350"></img>
     </div>
 
     <div class="headright">
@@ -62,8 +62,18 @@
 </div>
 
 <div class="foot">
-<p>Version 0.02</p>
-<p><a href="/index.php?page=anmeldung">Anmeldung Administrator</a></p>
+<p>Version 0.03</p>
+<?php
+    if(isset($_SESSION['password']))
+    {
+        echo "<p><a href='/index.php?page=admin'>Admin Bereich</a></p>";
+    }
+    else
+    {
+        echo "<p><a href='/index.php?page=anmeldung'>Administrator Anmeldung</a></p>";
+    }
+?>
+
 </div>
 
 
