@@ -1,3 +1,13 @@
+
+/*@import url('/fonts/VarelaRound-Regular.ttf'); */
+
+@font-face{
+    font-family: 'Varela Round';
+    src:url('/fonts/VarelaRound-Regular.ttf');
+}
+
+
+
 body {
     background-color: #c4b5fd; /* bg-violet-300 */
     font-family: 'Varela Round', sans-serif;

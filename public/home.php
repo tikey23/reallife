@@ -40,18 +40,29 @@
 
 		$inhalt = file_get_contents("admin/termine.dat");
 		$termin = unserialize($inhalt);
+        $aktuelldatum = date("Y-m-d");
+        echo "Aktuell: $aktuelldatum<br>";
 
+        sort($termin);
 		$datum[0] = date_create($termin[0]);
-
-		echo "<p class='text-3xl font-bold text-center'>Nächster Termin:<br>" . date_format($datum[0], 'd. F Y') . "</p>";
-		echo "<br>";
-		echo "<p class='text-2xl font-bold text-center'>18 - 22Uhr</p>";
-		echo "<br>";
-		echo "<p class='text-2xl text-center font-bold'><u>Weitere Termine:</u></p>";
-
-		for ($i = 1; $i < count($termin); $i++) {
-			if (isset($termin[$i])) $datum[$i] = date_create($termin[$i]);
-			echo "<p class='text-xl text-center'>" . date_format($datum[$i], 'd. F Y') . "</p>";
+        
+        echo "Termin0: ". $termin[0] . "<br>";
+var_dump($termin);
+		foreach($termin AS $t) {
+            if($aktuelldatum > $t)
+            {
+                continue;
+            }
+          
+            echo "<p class='text-3xl font-bold text-center'>
+            Nächster Termin:<br>" . $t . "</p>";
+            echo "<br>";
+            echo "<p class='text-2xl font-bold text-center'>18 - 22Uhr</p>";
+            echo "<br>";
+            echo "<p class='text-2xl text-center font-bold'><u>Weitere Termine:</u></p>";
+            
+            
+            echo "<p class='text-xl text-center'>" . $t. "</p>";
 		}
 
 		?>
@@ -62,7 +73,7 @@
 		<p class="text.left">Z.B. Roger's Karaokezebra</p>
 	</div>
 </div>
-<div class="mainpart2">
+<!--<div class="mainpart2">
 	<p class='text-xl text-center'><u>Adresse:</u></p>
 	<p class='text-xl text-center'>Bitwäscherei<br>Neue Hard 12<br>8005 Zürich<br>3. Stock</p>
 	<center>
@@ -85,5 +96,5 @@
                     }</style>
 			</div>
 		</div>
-	</center>
+	</center>-->
 </div>

@@ -3974,6 +3974,16 @@ textarea.form-control.is-invalid {
   background-color: transparent;
 }
 
+.bg-sky-500 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(14 165 233 / var(--tw-bg-opacity));
+}
+
+.bg-red-500 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(239 68 68 / var(--tw-bg-opacity));
+}
+
 .p-10 {
   padding: 2.5rem;
 }

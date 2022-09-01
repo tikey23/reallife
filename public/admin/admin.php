@@ -21,37 +21,7 @@
 
 <?php
 
-class Korrektur {
-	function __construct(private $korrektur, private $id, private $termin) {
-	}
-
-	function korrigieren() {
-		$this->termin[$this->id] = $this->korrektur;
-
-		$inhalt = serialize($this->termin);
-		file_put_contents("admin/termine.dat", $inhalt);
-	}
-
-	function loschen() // Noch Fehlerhaft -> Im Bearbeitung
-	{
-		unset ($this->termin[$this->id]);
-
-		$j = 0;
-		for ($i = 0; $i < count($this->termin); $i++) {
-			if (isset($this->termin[$j])) {
-				$newtermin[$i] = $this->termin[$j];
-				$j++;
-			} else {
-				$newtermin[$i] = $this->termin[$j + 1];
-				$j++;
-			}
-		}
-
-		$inhalt = serialize($newtermin);
-		file_put_contents("admin/termine.dat", $inhalt);
-	}
-
-}
+require_once('classes/event.php');
 
 echo "<form action='/index.php?page=admin' method='post'>";
 
@@ -67,12 +37,12 @@ if ($_SESSION['password'] === "reallifecafe") {
 	$termin = unserialize($inhalt);
 
 	if (isset($_POST['aktualisieren'])) {
-		$korrektur = new Korrektur($_POST['korrektur'], $_POST['aktualisieren'], $termin);
+		$korrektur = new Event($_POST['korrektur'], $_POST['aktualisieren'], $termin);
 		$korrektur->korrigieren();
 	}
 
 	if (isset($_POST['loschen'])) {
-		$korrektur = new Korrektur("0", $_POST['loschen'], $termin);
+		$korrektur = new Event("0", $_POST['loschen'], $termin);
 		$korrektur->loschen();
 
 	}
