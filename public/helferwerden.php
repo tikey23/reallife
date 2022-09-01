@@ -1,4 +1,4 @@
 <?php
-    $titel = "Helfer werden";
-    $text = "Under construction";
+$titel = "Helfer werden";
+$text = "Under construction";
 ?>
