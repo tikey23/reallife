@@ -48,7 +48,7 @@ session_start();
 	?>
 </div>
 
-<div class="foot">
+<div class="foot mb-8">
 	<p>Version 0.03</p>
 	<?php
 	if (isset($_SESSION['password'])) {
