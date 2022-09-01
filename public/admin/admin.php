@@ -61,14 +61,13 @@ class Korrektur
 }
     echo "<form action='/index.php?page=admin' method='post'>";
 
-    session_start();
-
         if(isset($_POST['kennwort']))
         {
-            $_SESSION["password"] = $_POST["kennwort"];
+                $_SESSION["password"] = $_POST["kennwort"];
         }
 
         if($_SESSION['password'] === "reallifecafe")
+
         {
             echo "<h1 class='text-3xl font-bold'><u>Administrator Bereich</u></h1>";
             echo "<br>";
@@ -172,5 +171,7 @@ class Korrektur
         else
         {
             echo "<p>Fehlgeschlagen</p>";
+            session_destroy();
         }
+    
 ?>
