@@ -1,0 +1,72 @@
+body
+{
+    background-color: #c4b5fd; /* bg-violet-300 */
+    font-family: 'Varela Round', sans-serif;
+}
+
+.head
+{
+    display: flex;
+}
+
+.headleft
+{
+    padding: 5px;
+    margin: 10px;
+    width: 300px;
+}
+
+
+.headright
+{
+    margin: 10px;
+    width: 70%;
+}
+
+#navigation
+{
+    background-color: #ddd6fe; /* bg-violet-200 */
+    display: block;
+    align-content: end;
+    width: 200px;
+    padding: 5px;
+    margin: 10px;    
+    border-radius: 10px;
+    border: 1px solid black;
+    
+}
+
+#navigation a
+{
+    display: block;
+    padding: 2px;
+}
+
+#navigation a:hover
+{
+
+    background-color: #c4b5fd; /* bg-violet-300 */
+    padding: 2px;
+}
+
+#main
+{
+    background-color: #ddd6fe; /* bg-violet-200 */
+    margin: 20px;
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid black;
+}
+
+#main a:hover
+{
+
+    background-color: #c4b5fd; /* bg-violet-300 */
+    padding: 2px;
+}
+
+.foot
+{
+    text-align: center;
+    font-size: 0.8em;
+}
