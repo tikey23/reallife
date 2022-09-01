@@ -1,5 +1,7 @@
 <?php
 
+require_once('functions/pageHandling.php');
+
 session_start();
 
 ?>
@@ -38,38 +40,12 @@ session_start();
 	</div>
 </div>
 
-
 <div class="text-center p-2" id="main">
-
-
 	<?php
-	if (isset($_GET['page'])) {
-		if ($_GET['page'] == "galerie") {
-			include "galerie.php";
-		} elseif ($_GET['page'] == "wersindwir") {
-			include "wersindwir.php";
-		} elseif ($_GET['page'] == "regeln") {
-			include "regeln.php";
-		} elseif ($_GET['page'] == "helferwerden") {
-			include "helferwerden.php";
-		} elseif ($_GET['page'] == "ueberuns") {
-			include "ueberuns.php";
-		} elseif ($_GET['page'] == "galeriebilder") {
-			include "galeriebilder.php";
-		} elseif ($_GET['page'] == "anmeldung") {
-			include "anmeldung.php";
-		} elseif ($_GET['page'] == "admin") {
-			include "./admin/admin.php";
-		} elseif ($_GET['page'] == "logout") {
-			include "./admin/logout.php";
-		}
-	} else {
-		include "home.php";
-	}
+
+	includePage($_GET['page']);
 
 	?>
-
-
 </div>
 
 <div class="foot">
