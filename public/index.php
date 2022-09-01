@@ -13,14 +13,13 @@
 <body>
 
 <div class="head">
-    <div class="headleft">
+    <a href="/" class="headleft">
         <img src="/img/logo.png" width="350"></img>
-    </div>
+    </a>
 
-    <div class="headright">
-        <h1 class="text-5xl font-bold bg-transparent">Real Life Café</h1>
-        <h1 class="text-3xl">Herzlich Willkommen!</h1>
-        <h1 class="text-3xl">ようこそ</h1>
+    <div class="headright mt-8">
+        <a class="text-5xl font-bold bg-transparent" href="/">Real Life Café</a>
+        <h1 class="text-3xl text-gray-700">Herzlich Willkommen!<br/>ようこそ</h1>
     </div>
 
    <div class= "text-2xl" id="navigation">
