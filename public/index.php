@@ -1,3 +1,9 @@
+<?php
+
+    session_start();
+
+?>
+
 <!DOCTYPE html>
 <html lang="de">
 <head>
@@ -37,10 +43,7 @@
 
 
     <?php
-    
-    session_start();
-
-        if(isset($_GET['page']))
+		if(isset($_GET['page']))
         {
             if($_GET['page'] == "galerie"){include "galerie.php";}
             else if($_GET['page'] == "wersindwir") {include "wersindwir.php";}
