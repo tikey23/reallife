@@ -37,7 +37,7 @@
 <div class="mainpart1">
 	<div class="w-80 h-80 block bg-violet-500 p-10 rounded-xl" id="next">
 		<?php
-
+/*
 		$inhalt = file_get_contents("admin/termine.dat");
 		$termin = unserialize($inhalt);
         $aktuelldatum = date("Y-m-d");
@@ -53,17 +53,35 @@ var_dump($termin);
             {
                 continue;
             }
-          
+                 } */
+
+            $con = new mysqli("", "root", "", "reallife");
+            $res = $con->query("SELECT * FROM event ORDER BY termin");
+            $termin = $res->fetch_assoc();
+            $heute = date("Y-m-d");
+            
+            if($heute > $termin['termin'])
+            {
+                echo "<p>Vergangenes Datum</p>";
+            }
+            
+         
+            $terminanzeige = date_create($termin['termin']);
             echo "<p class='text-3xl font-bold text-center'>
-            Nächster Termin:<br>" . $t . "</p>";
+            Nächster Termin:<br>" . date_format($terminanzeige, "d. F Y") . "</p>";
             echo "<br>";
             echo "<p class='text-2xl font-bold text-center'>18 - 22Uhr</p>";
             echo "<br>";
             echo "<p class='text-2xl text-center font-bold'><u>Weitere Termine:</u></p>";
+            while($termin = $res->fetch_assoc())
+            {
+                $terminanzeige = date_create($termin['termin']);
+                echo date_format($terminanzeige, "d. F Y") . "<br>";
+            }
+        
             
-            
-            echo "<p class='text-xl text-center'>" . $t. "</p>";
-		}
+//            echo "<p class='text-xl text-center'>" . $t. "</p>";
+		
 
 		?>
 	</div>
