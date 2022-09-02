@@ -22,6 +22,7 @@
 <?php
 
 require_once('classes/event.php');
+require_once('functions/eventfunctions.php');
 
 echo "<form action='/index.php?page=admin' method='post'>";
 
@@ -33,7 +34,19 @@ if ($_SESSION['password'] === "reallifecafe") {
 	echo "<h1 class='text-3xl font-bold'><u>Administrator Bereich</u></h1>";
 	echo "<br>";
 
-	$inhalt = file_get_contents("admin/termine.dat");
+	echo "<p><b>Eingetragene Termine (yyyy-mm-dd):</b></p>";
+
+	if(isset($_POST['modifyEvent'])){
+		modifyEvent($_POST['newdate'], $_POST['modifyEvent']);
+	}
+
+	if(isset($_POST['deleteEvent'])){
+		deleteEvent($_POST['deleteEvent']);
+	}
+
+	showEvent();
+
+	/*$inhalt = file_get_contents("admin/termine.dat");
 	$termin = unserialize($inhalt);
 
 	if (isset($_POST['aktualisieren'])) {
@@ -125,7 +138,7 @@ if ($_SESSION['password'] === "reallifecafe") {
 
 	//echo "<p><b><input type='submit' value='Absenden'></b></p>";
 	echo "<p><b><button name='erstellen'>Termin erfassen</button></b></p>";
-	echo "</form>";
+	echo "</form>"; */
 
 	echo "<br>";
 	echo "<form action='/index.php?page=logout' method='post'>";
