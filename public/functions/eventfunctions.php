@@ -1,5 +1,25 @@
 <?php
 
+function showActualEvent($con){
+
+$res = $con->query("SELECT * FROM event WHERE termin >= NOW() ORDER BY termin");
+$termin = $res->fetch_assoc();
+$terminanzeige = date_create($termin['termin']);
+
+echo "<p class='text-3xl font-bold text-center'>
+Nächster Termin:<br>" . date_format($terminanzeige, "d. F Y") . "</p>";
+echo "<br>";
+echo "<p class='text-2xl font-bold text-center'>18 - 22Uhr</p>";
+echo "<br>";
+echo "<p class='text-2xl text-center font-bold'><u>Weitere Termine:</u></p>";
+while($termin = $res->fetch_assoc())
+{
+    $terminanzeige = date_create($termin['termin']);
+    echo date_format($terminanzeige, "d. F Y") . "<br>";
+}
+}
+
+
 function showEvent($con){
         //$con = new mysqli("", "root", "", "reallife");
         $res = $con->query("SELECT * FROM event ORDER BY termin");

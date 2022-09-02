@@ -3,6 +3,7 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
 require_once('functions/pageHandling.php');
+require_once('functions/eventfunctions.php');
 
 session_start();
 
