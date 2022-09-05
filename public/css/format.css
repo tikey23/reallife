@@ -60,11 +60,11 @@ body {
     border: 1px solid black;
 }
 
-#main a:hover {
+/*#main a:hover {
 
-    background-color: #c4b5fd; /* bg-violet-300 */
+    background-color: #c4b5fd; /* bg-violet-300 
     padding: 2px;
-}
+}*/
 
 .foot {
     text-align: center;
