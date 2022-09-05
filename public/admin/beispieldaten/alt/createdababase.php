@@ -13,10 +13,14 @@
 
     $sql = "CREATE TABLE IF NOT EXISTS gallery (
         id INT(10) NOT NULL AUTO_INCREMENT, 
-        thema VARCHAR(50) NOT NULL,
         folder VARCHAR(50) NOT NULL,
         dateiname VARCHAR(50) NOT NULL,
         PRIMARY KEY (id)
+        )ENGINE=InnoDB, DEFAULT CHARSET=UTF8";
+    $con ->query($sql);
+
+    $sql = "CREATE TABLE IF NOT EXISTS gallerycategory (
+        folder VARCHAR(50) NOT NULL
         )ENGINE=InnoDB, DEFAULT CHARSET=UTF8";
     $con ->query($sql);
 

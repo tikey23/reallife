@@ -43,7 +43,7 @@ function showEvent($con){
             echo "<br>";
 
             // Neue Termin erstellen
-            echo "<p><b>Neuer Termin erstellen:</b></p>";
+            echo "<p class='font-bold'>Neuer Termin erstellen:</p>";
             newTermin();
 
 }

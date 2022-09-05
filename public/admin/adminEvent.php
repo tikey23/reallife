@@ -1,7 +1,7 @@
 <div class='adminevent'>
 <?php
-    echo "<form action='/index.php?page=admin' method='post'>";
-	echo "<p><b>Eingetragene Termine:</b></p>";
+    echo "<h2 class='text-2xl font-bold underline'>Termine:</h2>";
+	echo "<p class='font-bold'>Eingetragene Termine:</p>";
 
 	if(isset($_POST['modifyEvent'])){
 		modifyEvent($con, $_POST['newdate'], $_POST['modifyEvent']);
@@ -16,8 +16,6 @@
 	}
 
 	showEvent($con);
-
-	echo "</form>";
 
 ?>
 </div>

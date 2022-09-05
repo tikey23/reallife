@@ -3886,6 +3886,10 @@ textarea.form-control.is-invalid {
   display: table;
 }
 
+.grid {
+  display: grid;
+}
+
 .hidden {
   display: none;
 }
@@ -3904,10 +3908,6 @@ textarea.form-control.is-invalid {
 
 .w-full {
   width: 100%;
-}
-
-.w-11 {
-  width: 2.75rem;
 }
 
 .transform {
@@ -3952,6 +3952,15 @@ textarea.form-control.is-invalid {
 
 .border {
   border-width: 1px;
+}
+
+.border-solid {
+  border-style: solid;
+}
+
+.border-black {
+  --tw-border-opacity: 1;
+  border-color: rgb(0 0 0 / var(--tw-border-opacity));
 }
 
 .bg-violet-300 {
@@ -4017,6 +4026,11 @@ textarea.form-control.is-invalid {
 .text-gray-700 {
   --tw-text-opacity: 1;
   color: rgb(55 65 81 / var(--tw-text-opacity));
+}
+
+.underline {
+  -webkit-text-decoration-line: underline;
+          text-decoration-line: underline;
 }
 
 .outline {

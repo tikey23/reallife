@@ -70,14 +70,12 @@ body {
     text-align: center;
     font-size: 0.8em;
 }
-/*
-.adminevent {
-    width: 100%;
-    transform: translate3d(-5000px, 0, 0);
-    transition: transform 1s;
-}
 
-.event-checkbox:checked + .adminevent{
-    transform: translate3d(0, 0, 0);
- }
-*/
+/*.galerie {
+    display: flex;
+}*/
+
+.galerie div:hover {
+    transform: scale(1.1);
+    background-color: #ddd6fe; /* bg-violet-200 */
+}
