@@ -1,38 +1,33 @@
 <style>
 
-    #main img {
+#galeriebilder {
+	width: 100%;
+}
+
+    #galeriebilder img {
         width: 300px;
         margin: 10px;
         border-radius: 10px;
     }
 
 </style>
-
+<div id="galeriebilder">
 <?php
 
-$thema = $_POST['thema'];
+//$folder = $_POST['folder'];
 
-switch ($thema) {
-	case "unterwasser":
-	{
-		$titel = "Unterwasser";
-		$bilderlink = "/img/galerie/unterwasser_abend/";
-		$inhalt = [
-			"1.jpg",
-			"2.jpg",
-			"3.jpg",
-			"4.jpg",
-			"5.jpg",
-		];
-		break;
-	}
-}
+$folder = "cosplay_abend";
 
+$con = new mysqli("", "root", "", "reallife");
+$sql = "SELECT * FROM gallery WHERE folder = '$folder'";
+$res = $con->query($sql);
 
-for ($i = 0; $i < count($inhalt); $i++) {
-	echo "<a href=''><img src='$bilderlink" . $inhalt[$i] . "'></img></a>";
+while($data = $res->fetch_assoc()) {
+	echo "<a href=''><img src='/img/galerie/" . $data['folder'] . "/" . $data['dateiname'] . "'></img></a>";
 }
 
 ?>
+
+</div>
 
 

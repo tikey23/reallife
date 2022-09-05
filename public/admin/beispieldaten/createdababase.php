@@ -11,8 +11,15 @@
         )ENGINE=InnoDB, DEFAULT CHARSET=UTF8";
     $con ->query($sql);
 
-    $sql = "INSERT INTO event (termin) values ('2022-12-1'), ('2022-9-1'), ('2022-5-12')";
+    $sql = "CREATE TABLE IF NOT EXISTS gallery (
+        id INT(10) NOT NULL AUTO_INCREMENT, 
+        thema VARCHAR(50) NOT NULL,
+        folder VARCHAR(50) NOT NULL,
+        dateiname VARCHAR(50) NOT NULL,
+        PRIMARY KEY (id)
+        )ENGINE=InnoDB, DEFAULT CHARSET=UTF8";
     $con ->query($sql);
+
 ?>
 
-<h2>Datensätze erstellt</h2>
+<h2>Tabellen Termine und Gallery erstellt</h2>

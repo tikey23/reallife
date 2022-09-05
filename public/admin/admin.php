@@ -19,11 +19,12 @@
     }
 </style>
 
+<div class="admin">
 <?php
 
 require_once('functions/eventfunctions.php');
 
-echo "<form action='/index.php?page=admin' method='post'>";
+
 $con = new mysqli("", "root", "", "reallife");
 
 if (isset($_POST['kennwort'])) {
@@ -34,23 +35,10 @@ if ($_SESSION['password'] === "reallifecafe") {
 	echo "<h1 class='text-3xl font-bold'><u>Administrator Bereich</u></h1>";
 	echo "<br>";
 
-	echo "<p><b>Eingetragene Termine:</b></p>";
+	//echo "<input type='checkbox' id='check-event' class='event-checkbox'>";
+	// echo "<label for='check-event'><button>Event</button></label>";
+	include "adminEvent.php";
 
-	if(isset($_POST['modifyEvent'])){
-		modifyEvent($con, $_POST['newdate'], $_POST['modifyEvent']);
-	}
-
-	if(isset($_POST['deleteEvent'])){
-		deleteEvent($con, $_POST['deleteEvent']);
-	}
-
-	if(isset($_POST['createEvent'])){
-		createEvent($con, $_POST['day'], $_POST['month'], $_POST['year'], );
-	}
-
-	showEvent($con);
-
-	echo "</form>";
 	echo "<br>";
 	echo "<form action='/index.php?page=logout' method='post'>";
 	echo "<p><b><input type='submit' value='Abmelden'></b></p>";
@@ -62,3 +50,4 @@ if ($_SESSION['password'] === "reallifecafe") {
 }
 
 ?>
+</div>
