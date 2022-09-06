@@ -1,15 +1,17 @@
 
 <div class="galerie">
-<form action="/index.php?page=galeriebilder" method='post'>
+<form action='/index.php?page=galeriebilder' method='post'>
     <?php
         require_once('functions/galleryfunctions.php');
         $con = new mysqli("", "root", "", "reallife");
 
         showGallery($con);
-        addGallerycategory($con);
-             
+        addGallerycategoryicon($con);
+       
     ?>
-</form>
+
 </div>
+
+</form>
 
 
