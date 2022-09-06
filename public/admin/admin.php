@@ -26,7 +26,7 @@ require_once('functions/eventfunctions.php');
 //require_once('functions/galleryfunctions.php');
 
 
-
+global $con;
 // $con = new mysqli("", "root", "", "reallife");
 
 if (isset($_POST['kennwort'])) {

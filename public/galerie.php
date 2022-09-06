@@ -5,8 +5,8 @@
         require_once('functions/galleryfunctions.php');
         // $con = new mysqli("", "root", "", "reallife");
 
-        showGallery($con);
-        addGallerycategoryicon($con);
+        showGallery();
+        addGallerycategoryicon();
        
     ?>
 

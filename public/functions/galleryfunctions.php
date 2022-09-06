@@ -1,6 +1,7 @@
 <?php
 
-function showGallery($con) {
+function showGallery() {
+    global $con;
     $sql ="SELECT * FROM gallerycategory";
         $res = $con->query($sql);
         while($data = $res->fetch_assoc()) {
@@ -19,7 +20,8 @@ function addGallerycategoryicon() {
     }
 }
 
-function addpic($con, $folder) {
+function addpic($folder) {
+    global $con;
     echo $folder . "<br>";
     echo "<form action='/index.php?page=galeriebilder' method='post' enctype='multipart/form-data'>";
     //Select image to upload:

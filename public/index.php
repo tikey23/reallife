@@ -5,6 +5,7 @@ ini_set('display_errors', 1);
 require_once('functions/pageHandling.php');
 require_once('functions/eventfunctions.php');
 
+$con = new mysqli("", "root", "", "reallife");
 session_start();
 
 ?>
@@ -45,10 +46,7 @@ session_start();
 
 <div class="text-center p-2" id="main">
 	<?php
-	
-	includePage(@$_GET['page']);
-	$con = new mysqli("", "root", "", "reallife");
-
+		includePage(@$_GET['page']);
 	?>
 </div>
 

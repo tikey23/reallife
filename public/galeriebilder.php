@@ -1,28 +1,4 @@
-<style>
-    /*.galeriebilder {
-        display: flex;
-    }*/
 
-    .galeriebilder img {
-        display: inline;
-        width: 300px;
-        margin: 10px;
-        border-radius: 10px;
-    }
-
-    .galeriebilder button {
-        border: 1px solid black;
-        padding: 2px;
-        margin: 2px;
-    }
-
-    .galeriebilder button:hover {
-        background-color: #c4b5fd; /* bg-violet-300 */
-    }
-
-
-
-</style>
 <div class="galeriebilder">
 <?php
 require_once('functions/galleryfunctions.php');
@@ -35,6 +11,7 @@ if(isset($_POST['folder'])) {
 }
 
 $folder = $_SESSION['folder'];
+global $con;
 // $con = new mysqli("", "root", "", "reallife");
 
 if($folder == "neu") {
@@ -46,7 +23,8 @@ if($folder == "neu") {
 
 if(isset($_SESSION['password'])) {
 
-    addpic($con, $folder);
+    addpic($folder);
+    global $con;
     echo "<p><a target='_blank' href='admin/gallerydelete.php'>Löschen</a></p>";
     
     if(isset($_POST['picupload'])) {
