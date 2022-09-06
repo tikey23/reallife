@@ -27,7 +27,7 @@ require_once('functions/eventfunctions.php');
 
 
 
-$con = new mysqli("", "root", "", "reallife");
+// $con = new mysqli("", "root", "", "reallife");
 
 if (isset($_POST['kennwort'])) {
 	$_SESSION["password"] = $_POST["kennwort"];

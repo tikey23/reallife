@@ -45,8 +45,9 @@ session_start();
 
 <div class="text-center p-2" id="main">
 	<?php
-
+	
 	includePage(@$_GET['page']);
+	$con = new mysqli("", "root", "", "reallife");
 
 	?>
 </div>

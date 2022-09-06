@@ -1,7 +1,10 @@
 <style>
-
+    /*.galeriebilder {
+        display: flex;
+    }*/
 
     .galeriebilder img {
+        display: inline;
         width: 300px;
         margin: 10px;
         border-radius: 10px;
@@ -32,12 +35,13 @@ if(isset($_POST['folder'])) {
 }
 
 $folder = $_SESSION['folder'];
-$con = new mysqli("", "root", "", "reallife");
+// $con = new mysqli("", "root", "", "reallife");
 
 if($folder == "neu") {
     $_SESSION['folder'] = $_POST['titel'];
     $folder = $_SESSION['folder'];
     $con->query("INSERT INTO gallerycategory (folder) VALUES ('$folder')");
+    mkdir("img/galerie/" . $folder . "/", 0777);
 }
 
 if(isset($_SESSION['password'])) {
