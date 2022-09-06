@@ -11,6 +11,7 @@ function includePage($page = "") {
 		"anmeldung" => "",
 		"admin" => "admin",
 		"logout" => "admin",
+		"adminGallery" => "admin",
 	];
 
 	if (isset($pages[$page])) {

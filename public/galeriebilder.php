@@ -23,9 +23,8 @@ if($folder == "neu") {
 
 if(isset($_SESSION['password'])) {
 
-    addpic($folder);
-    global $con;
-    echo "<p><a target='_blank' href='admin/gallerydelete.php'>Löschen</a></p>";
+    addpic();
+    adminGallery();
     
     if(isset($_POST['picupload'])) {
         
@@ -46,7 +45,7 @@ if(isset($_SESSION['password'])) {
     }
 }
 
-showpics($con, $folder);
+showpics($folder);
 
 
 

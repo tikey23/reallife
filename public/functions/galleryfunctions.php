@@ -20,18 +20,23 @@ function addGallerycategoryicon() {
     }
 }
 
-function addpic($folder) {
-    global $con;
-    echo $folder . "<br>";
+function addpic() {
     echo "<form action='/index.php?page=galeriebilder' method='post' enctype='multipart/form-data'>";
     //Select image to upload:
     echo "<input type='file' name='fileToUpload' id='fileToUpload'><br>";
-    echo "<input type='hidden' value='$folder'>";
+    //echo "<input type='hidden' value='$folder'>";
     echo "<button name='picupload' value='1'>Hochladen</button>";
     echo "</form>";
 }
 
-function showpics($con, $folder) {
+function adminGallery() {
+    echo "<form action='/index.php?page=adminGallery' method='post'>";
+    echo "<button name='adminGallery' value='1'>Galerie bearbeiten</button>";
+    echo "</form>";
+}
+
+function showpics($folder) {
+    global $con;
   $res = $con->query("SELECT * FROM gallery WHERE folder = '$folder'");
 
    

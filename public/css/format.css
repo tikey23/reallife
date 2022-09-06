@@ -71,6 +71,7 @@ body {
     font-size: 0.8em;
 }
 
+/* Galerie */
 .galerie {
     display: inline;
 }
@@ -80,6 +81,7 @@ body {
     background-color: #ddd6fe; /* bg-violet-200 */
 }
 
+/* Galeriebilder */
 .galeriebilder img {
     display: inline;
     width: 300px;
@@ -94,5 +96,30 @@ body {
 }
 
 .galeriebilder button:hover {
+    background-color: #c4b5fd; /* bg-violet-300 */
+}
+
+/* adminGallery */
+.admingallery input {
+    border: 1px solid black;
+    padding: 2px;
+    margin: 2px;
+}
+
+.admingallery input:hover {
+    background-color: #c4b5fd; /* bg-violet-300 */
+}
+
+.admingallery table,td {
+    border: 1px solid black;
+}
+
+.admingallery button {
+    border: 1px solid black;
+    padding: 2px;
+    margin: 2px;
+}
+
+.admingallery button:hover {
     background-color: #c4b5fd; /* bg-violet-300 */
 }
