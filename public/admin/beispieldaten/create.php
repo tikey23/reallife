@@ -5,22 +5,22 @@
     $con->select_db("reallife");
 
     $sql = "CREATE TABLE IF NOT EXISTS event (
-        id INT(10) NOT NULL AUTO_INCREMENT, 
+        id INT(100) NOT NULL AUTO_INCREMENT, 
         termin DATE NULL DEFAULT NULL,
         PRIMARY KEY (id)
         )ENGINE=InnoDB, DEFAULT CHARSET=UTF8";
     $con ->query($sql);
 
     $sql = "CREATE TABLE IF NOT EXISTS gallery (
-        id INT(10) NOT NULL AUTO_INCREMENT, 
-        folder VARCHAR(50) NOT NULL,
-        dateiname VARCHAR(50) NOT NULL,
+        id INT(100) NOT NULL AUTO_INCREMENT, 
+        folder VARCHAR(255) NOT NULL,
+        dateiname VARCHAR(255) NOT NULL,
         PRIMARY KEY (id)
         )ENGINE=InnoDB, DEFAULT CHARSET=UTF8";
     $con ->query($sql);
 
     $sql = "CREATE TABLE IF NOT EXISTS gallerycategory (
-        folder VARCHAR(50) NOT NULL
+        folder VARCHAR(255) NOT NULL
         )ENGINE=InnoDB, DEFAULT CHARSET=UTF8";
     $con ->query($sql);
 
