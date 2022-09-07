@@ -110,9 +110,9 @@ body {
     background-color: #c4b5fd; /* bg-violet-300 */
 }
 
-.admingallery table,td {
+/*.admingallery table,td {
     border: 1px solid black;
-}
+}*/
 
 .admingallery button {
     border: 1px solid black;

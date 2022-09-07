@@ -41,11 +41,6 @@ if ($_SESSION['password'] === "reallifecafe") {
     // Events
     include 'admin/adminEvent.php';
 
-    //echo "<br>";
-    
-    //Gallery
-    //include 'admin/adminGallery.php';
-    
     echo "</form>";
 	echo "<br>";
 

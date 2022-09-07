@@ -24,7 +24,6 @@ if($folder == "neu") {
 if(isset($_SESSION['password'])) {
 
     addpic();
-    adminGallery();
     
     if(isset($_POST['picupload'])) {
         
@@ -41,6 +40,14 @@ if(isset($_SESSION['password'])) {
         $sql = "INSERT INTO gallery (folder, dateiname) values 
         ('" . $_SESSION['folder'] . "', '$file')";
         $con->query($sql);
+        }
+
+        $resul = $con->query("SELECT * FROM gallerycategory WHERE folder = '" . $_SESSION['folder'] . "'");
+        $titeldata = $resul->fetch_assoc();
+
+        if ($titeldata['titel'] == "") {
+            echo $file . "<br>";
+            $con->query("UPDATE gallerycategory SET titel = '$file' WHERE folder = '" . $_SESSION['folder'] . "'");
         }
     }
 }
