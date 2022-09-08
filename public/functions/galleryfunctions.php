@@ -120,4 +120,45 @@ function deletepics() {
     echo "</table>";
     echo "</form>";
 }
+
+function uploadpic($folder) {  
+    global $con;
+    if(isset($_POST['picupload'])) {  
+        $target_dir = "img/galerie/" . $folder . "/";
+        $uploadfile = $target_dir . basename($_FILES['fileToUpload']['name']);
+        $type = strtolower(pathinfo($uploadfile,PATHINFO_EXTENSION));
+        $uploadok = 0;
+
+        if (file_exists($uploadfile)) {
+            echo "<br><p class='font-bold'>Fehler! Bild existiert bereits im Dateiordner!</p>";
+            $uploadok++;
+        }
+
+        if ($type != "jpg"
+        && $type != "jpeg"
+        && $type != "png"
+        && $type != "gif") {
+            echo "<br><p class='font-bold'>Fehler! Nur \"JPG\",  \"JPEG\", \"PNG\" und \"GIF\" Dateien erlaubt</p>";
+            $uploadok++;
+        }
+
+        
+        if ($uploadok == 0) {
+        move_uploaded_file($_FILES['fileToUpload']['tmp_name'], $uploadfile);
+        $file = basename($_FILES['fileToUpload']['name']);
+        
+        $sql = "INSERT INTO gallery (folder, dateiname) values 
+        ('" . $_SESSION['folder'] . "', '$file')";
+        $con->query($sql);
+        }
+
+        $resul = $con->query("SELECT * FROM gallerycategory WHERE folder = '" . $_SESSION['folder'] . "'");
+        $titeldata = $resul->fetch_assoc();
+
+        if ($titeldata['titel'] == "") {
+            echo $file . "<br>";
+            $con->query("UPDATE gallerycategory SET titel = '$file' WHERE folder = '" . $_SESSION['folder'] . "'");
+        }
+    }
+}
 ?>
