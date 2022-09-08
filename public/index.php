@@ -17,10 +17,6 @@ session_start();
 	<title>Real Life Café</title>
 	<link rel="stylesheet" href="/css/format.css">
 	<link href="/css/output.css" rel="stylesheet">
-
-	<!--<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="fonts/VarelaRound-Regular" rel="stylesheet"> -->
 </head>
 <body>
 

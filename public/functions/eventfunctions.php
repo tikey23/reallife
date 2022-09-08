@@ -1,7 +1,8 @@
 <?php
 
-function showActualEvent($con){
+function showActualEvent(){
 
+global $con;
 $res = $con->query("SELECT * FROM event WHERE termin >= NOW() ORDER BY termin");
 $termin = $res->fetch_assoc();
 $terminanzeige = date_create($termin['termin']);
@@ -20,8 +21,8 @@ while($termin = $res->fetch_assoc())
 }
 
 
-function showEvent($con){
-        //$con = new mysqli("", "root", "", "reallife");
+function showEvent(){
+        global $con;
         $res = $con->query("SELECT * FROM event ORDER BY termin");
         while($termin = $res->fetch_assoc())
         {
@@ -49,12 +50,10 @@ function showEvent($con){
 }
 
 function modifyEvent($con, $newdate, $id){
-    //$con = new mysqli("", "root", "", "reallife");
     $con->query("UPDATE event SET termin = '$newdate' WHERE id='$id'");
 }
 
 function deleteEvent($con, $id){
-    //$con = new mysqli("", "root", "", "reallife");
     $con->query("DELETE FROM event WHERE id='$id'");
 }
 

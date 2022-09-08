@@ -15,7 +15,7 @@
 		createEvent($con, $_POST['day'], $_POST['month'], $_POST['year'], );
 	}
 
-	showEvent($con);
+	showEvent();
 
 ?>
 </div>
