@@ -31,7 +31,10 @@ if (isset($_POST['kennwort'])) {
 	$_SESSION["password"] = $_POST["kennwort"];
 }
 
-if ($_SESSION['password'] === "reallifecafe") {
+if ($ADMINPASSWORD == "") {
+        die('Passwort nicht gesetzt');
+}
+if ($_SESSION['password'] === "$ADMINPASSWORD") {
     echo "<form action='/index.php?page=admin' method='post'>";
 	echo "<h1 class='text-3xl font-bold underline'>Administrator Bereich</h1>";
 	echo "<br>";

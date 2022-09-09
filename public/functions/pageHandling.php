@@ -1,6 +1,7 @@
 <?php
 
 function includePage($page = "") {
+	global $ADMINPASSWORD;
 	$pages = [
 		"galerie" => "",
 		"wersindwir" => "",
