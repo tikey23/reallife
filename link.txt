@@ -1,1 +1,3 @@
 http://localhost/zody/reallife/public/index.php
+
+ npx tailwindcss -i public/input.css -o public/css/output.css --watch

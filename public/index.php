@@ -1,7 +1,11 @@
 <?php
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 
 require_once('functions/pageHandling.php');
+require_once('functions/eventfunctions.php');
 
+$con = new mysqli("", "root", "", "reallife");
 session_start();
 
 ?>
@@ -13,10 +17,6 @@ session_start();
 	<title>Real Life Café</title>
 	<link rel="stylesheet" href="/css/format.css">
 	<link href="/css/output.css" rel="stylesheet">
-
-	<!-- <link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet"> -->
 </head>
 <body>
 
@@ -42,9 +42,7 @@ session_start();
 
 <div class="text-center p-2" id="main">
 	<?php
-
-	includePage($_GET['page']);
-
+		includePage(@$_GET['page']);
 	?>
 </div>
 

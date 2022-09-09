@@ -50,3 +50,8 @@ Options -Indexes
     Order Deny,Allow
     Deny from all
 </Files>
+
+<Files adminGallery.php>
+    Order Deny,Allow
+    Deny from all
+</Files>

@@ -1,3 +1,13 @@
+
+/*@import url('/fonts/VarelaRound-Regular.ttf'); */
+
+@font-face{
+    font-family: 'Varela Round';
+    src:url('/fonts/VarelaRound-Regular.ttf');
+}
+
+
+
 body {
     background-color: #c4b5fd; /* bg-violet-300 */
     font-family: 'Varela Round', sans-serif;
@@ -50,13 +60,99 @@ body {
     border: 1px solid black;
 }
 
-#main a:hover {
 
-    background-color: #c4b5fd; /* bg-violet-300 */
-    padding: 2px;
+.mainpart1 {
+    display: flex;
+    justify-content: center;
 }
+
+#next {
+    width: 350px;
+    height: 350px;
+    display: block;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 10px;
+    border: 1px solid black;
+}
+
+
+#special {
+    width: 350px;
+    height: 350px;
+    display: block;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 10px;
+    border: 1px solid black;
+}
+
+.mainpart2 {
+    text-align: justify-all;
+}
+
+/* Foot */
 
 .foot {
     text-align: center;
     font-size: 0.8em;
+}
+
+/* Galerie */
+.galerie {
+    display: inline;
+}
+
+.galerie div:hover {
+    transform: scale(1.1);
+    background-color: #ddd6fe; /* bg-violet-200 */
+}
+
+/* Galeriebilder */
+.galeriebilder img {
+    display: inline;
+    width: 300px;
+    margin: 10px;
+    border-radius: 10px;
+    box-shadow: 5px 5px 5px rgba(0,0,0,0.1);
+}
+
+.galeriebilder img:hover {
+    box-shadow: 10px 10px 10px rgba(0,0,0,0.1);
+    transform: scale(1.1);
+}
+
+.galeriebilder button {
+    border: 1px solid black;
+    padding: 2px;
+    margin: 2px;
+}
+
+.galeriebilder button:hover {
+    background-color: #c4b5fd; /* bg-violet-300 */
+}
+
+/* adminGallery */
+.admingallery input {
+    border: 1px solid black;
+    padding: 2px;
+    margin: 2px;
+}
+
+.admingallery input:hover {
+    background-color: #c4b5fd; /* bg-violet-300 */
+}
+
+/*.admingallery table,td {
+    border: 1px solid black;
+}*/
+
+.admingallery button {
+    border: 1px solid black;
+    padding: 2px;
+    margin: 2px;
+}
+
+.admingallery button:hover {
+    background-color: #c4b5fd; /* bg-violet-300 */
 }

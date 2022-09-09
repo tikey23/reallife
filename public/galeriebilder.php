@@ -1,38 +1,36 @@
-<style>
 
-    #main img {
-        width: 300px;
-        margin: 10px;
-        border-radius: 10px;
-    }
-
-</style>
-
+<div class="galeriebilder">
 <?php
+require_once('functions/galleryfunctions.php');
 
-$thema = $_POST['thema'];
 
-switch ($thema) {
-	case "unterwasser":
-	{
-		$titel = "Unterwasser";
-		$bilderlink = "/img/galerie/unterwasser_abend/";
-		$inhalt = [
-			"1.jpg",
-			"2.jpg",
-			"3.jpg",
-			"4.jpg",
-			"5.jpg",
-		];
-		break;
-	}
+
+if(isset($_POST['folder'])) {
+    $_SESSION['folder'] = $_POST['folder'];
+    $folder = $_POST['folder'];
 }
 
+$folder = $_SESSION['folder'];
+global $con;
 
-for ($i = 0; $i < count($inhalt); $i++) {
-	echo "<a href=''><img src='$bilderlink" . $inhalt[$i] . "'></img></a>";
+if($folder == "neu") {
+    $_SESSION['folder'] = $_POST['titel'];
+    $folder = $_SESSION['folder'];
+    $con->query("INSERT INTO gallerycategory (folder) VALUES ('$folder')");
+    mkdir("img/galerie/" . $folder . "/", 0777);
 }
+
+if(isset($_SESSION['password'])) {
+    addpic();
+    uploadpic($folder);
+}
+
+showpics($folder);
+
+
 
 ?>
+
+</div>
 
 
