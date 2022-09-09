@@ -13,6 +13,8 @@ if(isset($_POST['folder'])) {
 $folder = $_SESSION['folder'];
 global $con;
 
+echo "<h1 class='text-3xl font-bold underline'>$folder</h1>";
+
 if($folder == "neu") {
     $_SESSION['folder'] = $_POST['titel'];
     $folder = $_SESSION['folder'];
