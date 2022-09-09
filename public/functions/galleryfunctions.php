@@ -5,30 +5,25 @@ function showGallery() {
     global $con;
     $sql ="SELECT * FROM gallerycategory";
     $res = $con->query($sql);
+    echo "<form action='/index.php?page=galeriebilder' method='post'>";
         while($data = $res->fetch_assoc()) {
             echo "<button name='folder' value='" . $data['folder'] . "'>";
             echo "<div class='text-xl' style='width: 220px; height: 300px; padding: 10px; margin: 10px; border-radius: 20px; background-color: #8b5cf6; border: 1px solid black'>";
             echo "<img src='/img/galerie/". $data['folder'] . "/" . $data['titel'] . "' style='height: 200px; width: 100%; object-fit: cover; object-position: top center; border-radius: 10px;'></img><br>";
             echo "<p>" . $data['folder'] . "</p></div></button>";
         }
+    echo "</form>";
 }
 
 function addGallerycategoryicon() {
     if (isset($_SESSION['password'])) {
-        echo "<div class='text-xl' style='width: 220px; height: 300px; padding: 10px; margin: 10px; border-radius: 20px; background-color: #8b5cf6; border: 1px solid black'>";
-        echo "<button name='folder' value='neu'>";
-        echo "<img src='/img/galerie/add_box.png' style='height: 200px; width: 100%; object-fit: cover; object-position: top center; border-radius: 10px;'></img>";
-        echo "</button><br>";
-        echo "<p><input name='titel' value='Neue Kategorie' size='12'></p></div>";
+        include("./template/gallery/categoryicon.html");
     }
 }
 
 function addpic() {
-    echo "<form action='/index.php?page=galeriebilder' method='post' enctype='multipart/form-data'>";
-    //Select image to upload:
-    echo "<input type='file' name='fileToUpload' id='fileToUpload'><br>";
-    echo "<button name='picupload' value='1'>Hochladen</button>";
-    echo "</form>";
+    include ("./template/gallery/addpic.html");
+   
 }
 
 
@@ -155,7 +150,7 @@ function uploadpic($folder) {
         $resul = $con->query("SELECT * FROM gallerycategory WHERE folder = '" . $_SESSION['folder'] . "'");
         $titeldata = $resul->fetch_assoc();
 
-        if ($titeldata['titel'] == "") {
+        if ($titeldata['titel'] == "empty") {
             echo $file . "<br>";
             $con->query("UPDATE gallerycategory SET titel = '$file' WHERE folder = '" . $_SESSION['folder'] . "'");
         }

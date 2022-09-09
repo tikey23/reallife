@@ -16,8 +16,13 @@ global $con;
 if($folder == "neu") {
     $_SESSION['folder'] = $_POST['titel'];
     $folder = $_SESSION['folder'];
-    $con->query("INSERT INTO gallerycategory (folder) VALUES ('$folder')");
-    mkdir("img/galerie/" . $folder . "/", 0777);
+
+    if(file_exists("img/galerie/" . $folder)) {
+        echo "<p>Kategorie existiert bereits</p>";
+    } else {
+        $con->query("INSERT INTO gallerycategory (folder, titel) VALUES ('$folder', 'empty')");
+        mkdir("img/galerie/" . $folder . "/", 0777);
+    }
 }
 
 if(isset($_SESSION['password'])) {
