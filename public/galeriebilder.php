@@ -13,19 +13,19 @@ if(isset($_POST['folder'])) {
 $folder = $_SESSION['folder'];
 global $con;
 
-echo "<h1 class='text-3xl font-bold underline'>$folder</h1>";
-
 if($folder == "neu") {
-    $_SESSION['folder'] = $_POST['titel'];
+    $_SESSION['folder'] = $_POST['categoryname'];
     $folder = $_SESSION['folder'];
 
     if(file_exists("img/galerie/" . $folder)) {
         echo "<p>Kategorie existiert bereits</p>";
     } else {
-        $con->query("INSERT INTO gallerycategory (folder, titel) VALUES ('$folder', 'empty')");
+        $con->query("INSERT INTO gallerycategory (folder, categoryname) VALUES ('$folder', '')");
         mkdir("img/galerie/" . $folder . "/", 0777);
     }
 }
+
+echo "<h1 class='text-3xl font-bold underline'>$folder</h1>";
 
 if(isset($_SESSION['password'])) {
     addpic();
