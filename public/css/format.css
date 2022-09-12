@@ -62,8 +62,7 @@ body {
 
 
 .mainpart1 {
-    display: flex;
-    justify-content: center;
+    display: inline-block;
 }
 
 #next {
@@ -79,7 +78,7 @@ body {
 
 #special {
     width: 350px;
-    height: 350px;
+    /*height: 350px;*/
     display: block;
     padding: 20px;
     margin: 20px;

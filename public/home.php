@@ -5,10 +5,10 @@
 		?>
 	</div>
 
-    <div class=" bg-red-400" id="special">
-		<h1 class="text-3xl font-bold text-center">Spezial Event:</h1>
-		<p class="text.left">Z.B. Roger's Karaokezebra</p>
-	</div>
+	<?php
+		showSpecialEvents();
+	?>
+
 </div>
 <!--<div class="mainpart2">
 	<p class='text-xl text-center'><u>Adresse:</u></p>
