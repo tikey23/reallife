@@ -49,11 +49,13 @@ function showEvent(){
 
 }
 
-function modifyEvent($con, $newdate, $id){
+function modifyEvent($newdate, $id){
+    global $con;
     $con->query("UPDATE event SET eventdate = '$newdate' WHERE id='$id'");
 }
 
-function deleteEvent($con, $id){
+function deleteEvent($id){
+    global $con;
     $con->query("DELETE FROM event WHERE id='$id'");
 }
 
@@ -98,7 +100,8 @@ function neweventdate(){
     echo "</table>";
 }
 
-function createEvent($con, $day, $month, $year){
+function createEvent($day, $month, $year){
+    global $con;
     $neweventdate = $year . "-" . $month . "-" . $day;
     $con->query("INSERT INTO event (eventdate) VALUES ('$neweventdate')");
 }

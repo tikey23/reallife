@@ -8,7 +8,6 @@
 	<?php
 		showSpecialEvents();
 	?>
-
 </div>
 <!--<div class="mainpart2">
 	<p class='text-xl text-center'><u>Adresse:</u></p>

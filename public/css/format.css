@@ -162,6 +162,10 @@ body {
         border: 1px solid black;
 }
 
+#admin button:hover {
+    background-color: #c4b5fd; /* bg-violet-300 */
+}
+
 
 /* adminGallery */
 .admingallery input {
@@ -185,5 +189,22 @@ body {
 }
 
 .admingallery button:hover {
+    background-color: #c4b5fd; /* bg-violet-300 */
+}
+
+/* adminSpecialEvents */
+
+#adminspecialevents table,td{
+    text-align: left;
+}
+
+#adminspecialevents button {
+    padding: 2px;
+    margin: 2px;
+    border-radius: 2px;
+    border: 1px solid black;
+}
+
+#adminspecialevents button:hover {
     background-color: #c4b5fd; /* bg-violet-300 */
 }
