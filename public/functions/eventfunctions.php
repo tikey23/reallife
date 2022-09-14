@@ -60,12 +60,7 @@ function deleteEvent($id){
 }
 
 function neweventdate(){
-    echo "<table align='center'>";
-
-    selectdate();
-    
-    echo "<td><td><input type='submit' name='createEvent' value='erstellen'></td></tr>";
-    echo "</table>";
+    include "template/admin/adminNewEventDate.php";
 }
 
 function createEvent($day, $month, $year){
