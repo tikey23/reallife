@@ -151,4 +151,27 @@ function uploadpic($folder) {
         }
     }
 }
+
+function newcategory($folder) {
+    global $con;
+
+    if($folder == "neu") {
+        $_SESSION['folder'] = $con->real_escape_string($_POST['categoryname']);
+        $folder = $_SESSION['folder'];
+
+        if(!preg_match("/^[a-z0-9äöü]+$/i", $folder)) {
+            echo "<p>Fehler! Bitte keine Sonderzeichen benutzen.</p>";
+            echo "<p><a href='/index.php?page=galerie'>Zurück</a></p>";
+            die;
+        }
+
+        if(file_exists("img/galerie/" . $folder)) {
+            echo "<p>Kategorie existiert bereits</p>";
+        } else {
+            $con->query("INSERT INTO gallerycategory (folder, categoryname) VALUES ('$folder', '')");
+            mkdir("img/galerie/" . $folder . "/", 0777);
+        }
+
+    }
+}
 ?>
