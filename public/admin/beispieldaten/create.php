@@ -1,5 +1,10 @@
 <?php
-    $con = new mysqli ("", "root");
+    //$con = new mysqli ("", "root");
+
+
+    require_once('../../../config/config.php');
+    $con = new mysqli($DB['hostname'], $DB['username']);
+
     $sql = "CREATE DATABASE IF NOT EXISTS reallife";
     $con ->query($sql);
     $con->select_db("reallife");

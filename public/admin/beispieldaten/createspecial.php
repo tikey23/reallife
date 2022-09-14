@@ -1,9 +1,9 @@
 <?php
 
-/*require_once('../config/config.php');
+require_once('../../../config/config.php');
 
-$con = new mysqli($DB['hostname'], $DB['username'], $DB['password'], $DB['database']);*/
-$con = new mysqli ("", "root", "", "reallife");
+$con = new mysqli($DB['hostname'], $DB['username'], $DB['password'], $DB['database']);
+//$con = new mysqli ("", "root", "", "reallife");
 
     $sql = "CREATE TABLE IF NOT EXISTS specialevents (
         id INT(100) NOT NULL AUTO_INCREMENT,
