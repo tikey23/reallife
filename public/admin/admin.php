@@ -1,24 +1,3 @@
-<style>
-    input {
-        padding: 2px;
-        margin: 2px;
-        border-radius: 2px;
-        border: 1px solid black;
-    }
-
-    input:hover {
-        background-color: #c4b5fd; /* bg-violet-300 */
-        padding: 2px;
-    }
-
-    button {
-        padding: 2px;
-        margin: 2px;
-        border-radius: 2px;
-        border: 1px solid black;
-    }
-</style>
-
 <div class="text-center" id="admin">
 <?php
 
@@ -27,31 +6,28 @@ require_once('functions/eventfunctions.php');
 
 global $con;
 
-if (isset($_POST['kennwort'])) {
-	$_SESSION["password"] = $_POST["kennwort"];
+if (isset($_POST['password'])) {
+	$_SESSION["password"] = $_POST["password"];
 }
 
-if ($_SESSION['password'] === "reallifecafe") {
-    echo "<form action='/index.php?page=admin' method='post'>";
-	echo "<h1 class='text-3xl font-bold underline'>Administrator Bereich</h1>";
-	echo "<br>";
-    
-    // Events
-    include 'admin/adminEvent.php';
+if ($ADMINPASSWORD == "") {
+        die('Passwort nicht gesetzt');
+}
+if ($_SESSION['password'] === "$ADMINPASSWORD") {
 
-    echo "</form>";
-	echo "<br>";
+	// Events
+	include 'template/admin/adminEventList.php';
+
+	// Special Events
+	include 'template/admin/adminSpecialEventsbutton.html';
 
     //Logout
-	echo "<form action='/index.php?page=logout' method='post'>";
-	echo "<p><b><input type='submit' value='Abmelden'></b></p>";
-	echo "</form>";
+	include 'template/admin/logout.html';
+	
 } else {
 
     // Login failed
-	echo "<p>Fehlgeschlagen</p>";
-	echo "<p><a href='/index.php?page=anmeldung'>Nochmals anmelden</a></p>";
-	session_destroy();
+	include 'template/admin/loginfailed.php';
 }
 
 ?>

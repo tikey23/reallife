@@ -5,41 +5,31 @@ function showGallery() {
     global $con;
     $sql ="SELECT * FROM gallerycategory";
     $res = $con->query($sql);
+    echo "<form action='/index.php?page=galeriebilder' method='post'>";
         while($data = $res->fetch_assoc()) {
             echo "<button name='folder' value='" . $data['folder'] . "'>";
             echo "<div class='text-xl' style='width: 220px; height: 300px; padding: 10px; margin: 10px; border-radius: 20px; background-color: #8b5cf6; border: 1px solid black'>";
-            echo "<img src='/img/galerie/". $data['folder'] . "/" . $data['titel'] . "' style='height: 200px; width: 100%; object-fit: cover; object-position: top center; border-radius: 10px;'></img><br>";
+            echo "<img src='/img/galerie/". $data['folder'] . "/" . $data['categoryname'] . "' style='height: 200px; width: 100%; object-fit: cover; object-position: top center; border-radius: 10px;'></img><br>";
             echo "<p>" . $data['folder'] . "</p></div></button>";
         }
+    echo "</form>";
 }
 
 function addGallerycategoryicon() {
     if (isset($_SESSION['password'])) {
-        echo "<div class='text-xl' style='width: 220px; height: 300px; padding: 10px; margin: 10px; border-radius: 20px; background-color: #8b5cf6; border: 1px solid black'>";
-        echo "<button name='folder' value='neu'>";
-        echo "<img src='/img/galerie/add_box.png' style='height: 200px; width: 100%; object-fit: cover; object-position: top center; border-radius: 10px;'></img>";
-        echo "</button><br>";
-        echo "<p><input name='titel' value='Neue Kategorie' size='12'></p></div>";
+        include("./template/gallery/categoryicon.html");
     }
 }
 
 function addpic() {
-    echo "<form action='/index.php?page=galeriebilder' method='post' enctype='multipart/form-data'>";
-    //Select image to upload:
-    echo "<input type='file' name='fileToUpload' id='fileToUpload'><br>";
-    echo "<button name='picupload' value='1'>Hochladen</button>";
-    echo "</form>";
+    include ("./template/gallery/addpic.html");
+   
 }
 
 
 function adminGallery() {
     if (isset($_SESSION['password'])) {
-        echo "<form action='/index.php?page=adminGallery' method='post'>";
-
-        echo "<div class='text-xl' style='width: 220px; height: 300px; padding: 10px; margin: 10px; border-radius: 20px; background-color: #8b5cf6; border: 1px solid black'>";
-        echo "<button><img src='/img/galerie/settings_box.png' style='height: 200px; width: 100%; object-fit: cover; object-position: top center; border-radius: 10px;'></img><br>";
-        echo "<p>Galerie Einstellungen</p></div></button>";
-        echo "</form>";
+        include ("./template/gallery/adminGallery.html");
     }
 }
 
@@ -49,8 +39,8 @@ function showpics($folder) {
 
    
   while($data = $res->fetch_assoc()) {
-      echo "<a target='_blank' href='/img/galerie/" . $data['folder'] . "/" . $data['dateiname'] . "'>
-      <img src='/img/galerie/" . $data['folder'] . "/" . $data['dateiname'] . "'></img></a>";
+      echo "<a target='_blank' href='/img/galerie/" . $data['folder'] . "/" . $data['picname'] . "'>
+      <img src='/img/galerie/" . $data['folder'] . "/" . $data['picname'] . "'></img></a>";
   }
 }
 
@@ -77,14 +67,14 @@ function deletecategory() {
 
     $res = $con->query("SELECT * FROM gallerycategory");
     echo "<select name='deletecategory'>";
-    while($data = $res->fetch_assoc()) {
-        echo "<option value='" . $data['folder'] . "'>" . $data['folder'] . "</option>";
-    }
+        while($data = $res->fetch_assoc()) {
+            echo "<option value='" . $data['folder'] . "'>" . $data['folder'] . "</option>";
+        }
     echo "</select>";
     echo "<input type='submit' value='Löschen' onclick=\"return confirm('Bist du sicher?');\">";
     echo "<br>";
     echo "</form>";
-    }
+}
 
 function deletepics() {
     echo "<form action='/index.php?page=adminGallery' method='post'>";
@@ -98,8 +88,8 @@ function deletepics() {
         $res = $con->query("SELECT * FROM gallery WHERE id = '$id'");
         $data = $res->fetch_assoc();
         $folder = $data['folder'];
-        $dateiname = $data['dateiname'];
-        $link = "img/galerie/" . $folder . "/" . $dateiname;
+        $picname = $data['picname'];
+        $link = "img/galerie/" . $folder . "/" . $picname;
 
         $con->query("DELETE FROM gallery WHERE id = '$id'");
         unlink($link);
@@ -111,9 +101,9 @@ function deletepics() {
     echo "<tr style='border: 1px solid black'><td>Bild</td><td>Kategorie</td><td>Dateiname</td><td>Löschen?</td></tr>";
     while($data = $res->fetch_assoc()) {
         echo "<tr style='border: 1px solid black'>";
-        echo "<td><img src='img/galerie/" . $data['folder'] . "/" . $data['dateiname'] . "' style='width:100px'></img></td>
+        echo "<td><img src='img/galerie/" . $data['folder'] . "/" . $data['picname'] . "' style='width:100px'></img></td>
         <td>" . $data['folder'] . "</td>
-        <td>" . $data['dateiname'] . "</td>
+        <td>" . $data['picname'] . "</td>
         <td><button name='deletepic' value='" . $data['id'] . "' onclick=\"return confirm('Bist du sicher?');\">Löschen</button></td>";
         echo "</tr>";
     }
@@ -147,17 +137,17 @@ function uploadpic($folder) {
         move_uploaded_file($_FILES['fileToUpload']['tmp_name'], $uploadfile);
         $file = basename($_FILES['fileToUpload']['name']);
         
-        $sql = "INSERT INTO gallery (folder, dateiname) values 
+        $sql = "INSERT INTO gallery (folder, picname) values 
         ('" . $_SESSION['folder'] . "', '$file')";
         $con->query($sql);
         }
 
         $resul = $con->query("SELECT * FROM gallerycategory WHERE folder = '" . $_SESSION['folder'] . "'");
-        $titeldata = $resul->fetch_assoc();
+        $titledata = $resul->fetch_assoc();
 
-        if ($titeldata['titel'] == "") {
+        if ($titledata['categoryname'] == "") {
             echo $file . "<br>";
-            $con->query("UPDATE gallerycategory SET titel = '$file' WHERE folder = '" . $_SESSION['folder'] . "'");
+            $con->query("UPDATE gallerycategory SET categoryname = '$file' WHERE folder = '" . $_SESSION['folder'] . "'");
         }
     }
 }

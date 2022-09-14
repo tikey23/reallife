@@ -3,61 +3,63 @@
 function showActualEvent(){
 
 global $con;
-$res = $con->query("SELECT * FROM event WHERE termin >= NOW() ORDER BY termin");
-$termin = $res->fetch_assoc();
-$terminanzeige = date_create($termin['termin']);
+$res = $con->query("SELECT * FROM event WHERE eventdate >= NOW() ORDER BY eventdate");
+$eventdate = $res->fetch_assoc();
+$showeventdate = date_create($eventdate['eventdate']);
 
 echo "<p class='text-3xl font-bold text-center'>
-Nächster Termin:<br>" . date_format($terminanzeige, "d. F Y") . "</p>";
+Nächster Termin:<br>" . date_format($showeventdate, "d. F Y") . "</p>";
 echo "<br>";
 echo "<p class='text-2xl font-bold text-center'>18 - 22Uhr</p>";
 echo "<br>";
 echo "<p class='text-2xl text-center font-bold'><u>Weitere Termine:</u></p>";
-while($termin = $res->fetch_assoc())
+while($eventdate = $res->fetch_assoc())
 {
-    $terminanzeige = date_create($termin['termin']);
-    echo date_format($terminanzeige, "d. F Y") . "<br>";
+    $showeventdate = date_create($eventdate['eventdate']);
+    echo date_format($showeventdate, "d. F Y") . "<br>";
 }
 }
 
 
 function showEvent(){
         global $con;
-        $res = $con->query("SELECT * FROM event ORDER BY termin");
-        while($termin = $res->fetch_assoc())
+        $res = $con->query("SELECT * FROM event ORDER BY eventdate");
+        while($eventdate = $res->fetch_assoc())
         {
             echo "<table align='center'>";
-            // Wenn button "ändern" betätigt
-            if(@$_POST['modifypick'] == $termin['id']){
-                echo "<tr><td><input name='newdate' value='" . $termin['termin'] . "'></td>
-                <td><button name='modifyEvent' value='" . $termin['id'] . "']>aktualisieren</button></td></tr>";
+            // when click on button "ändern"
+            if(@$_POST['modifypick'] == $eventdate['id']){
+                echo "<tr><td><input name='newdate' value='" . $eventdate['eventdate'] . "'></td>
+                <td><button name='modifyEvent' value='" . $eventdate['id'] . "']>aktualisieren</button></td></tr>";
             }
             else {
-            // Alle Termine auflisten
-            $terminanzeige = date_create($termin['termin']);
-            echo "<tr><td>" . date_format($terminanzeige, 'd. M. Y') . "</td>
-            <td><button name='modifypick' value='" . $termin['id'] . "']>ändern</button></td>
-            <td><button name='deleteEvent' value='" . $termin['id'] . "'>löschen</button></td></tr>";
+            // List all eventdates
+            $showeventdate = date_create($eventdate['eventdate']);
+            echo "<tr><td>" . date_format($showeventdate, 'd. M. Y') . "</td>
+            <td><button name='modifypick' value='" . $eventdate['id'] . "']>ändern</button></td>
+            <td><button name='deleteEvent' value='" . $eventdate['id'] . "'>löschen</button></td></tr>";
             }
         }
             echo "</table>";
             echo "<br>";
 
-            // Neue Termin erstellen
+            // create new eventdate
             echo "<p class='font-bold'>Neuer Termin erstellen:</p>";
-            newTermin();
+            neweventdate();
 
 }
 
-function modifyEvent($con, $newdate, $id){
-    $con->query("UPDATE event SET termin = '$newdate' WHERE id='$id'");
+function modifyEvent($newdate, $id){
+    global $con;
+    $con->query("UPDATE event SET eventdate = '$newdate' WHERE id='$id'");
 }
 
-function deleteEvent($con, $id){
+function deleteEvent($id){
+    global $con;
     $con->query("DELETE FROM event WHERE id='$id'");
 }
 
-function newTermin(){
+function neweventdate(){
     echo "<table align='center'>";
     // Tag
     $d = date("d");
@@ -98,9 +100,10 @@ function newTermin(){
     echo "</table>";
 }
 
-function createEvent($con, $day, $month, $year){
-    $newtermin = $year . "-" . $month . "-" . $day;
-    $con->query("INSERT INTO event (termin) VALUES ('$newtermin')");
+function createEvent($day, $month, $year){
+    global $con;
+    $neweventdate = $year . "-" . $month . "-" . $day;
+    $con->query("INSERT INTO event (eventdate) VALUES ('$neweventdate')");
 }
 
 ?>

@@ -4,15 +4,15 @@
 	echo "<p class='font-bold'>Eingetragene Termine:</p>";
 
 	if(isset($_POST['modifyEvent'])){
-		modifyEvent($con, $_POST['newdate'], $_POST['modifyEvent']);
+		modifyEvent($_POST['newdate'], $_POST['modifyEvent']);
 	}
 
 	if(isset($_POST['deleteEvent'])){
-		deleteEvent($con, $_POST['deleteEvent']);
+		deleteEvent($_POST['deleteEvent']);
 	}
 
 	if(isset($_POST['createEvent'])){
-		createEvent($con, $_POST['day'], $_POST['month'], $_POST['year'], );
+		createEvent($_POST['day'], $_POST['month'], $_POST['year'], );
 	}
 
 	showEvent();

@@ -1,6 +1,7 @@
 <?php
 
 function includePage($page = "") {
+	global $ADMINPASSWORD;
 	$pages = [
 		"galerie" => "",
 		"wersindwir" => "",
@@ -12,6 +13,7 @@ function includePage($page = "") {
 		"admin" => "admin",
 		"logout" => "admin",
 		"adminGallery" => "admin",
+		"adminSpecialEvents" => "admin"
 	];
 
 	if (isset($pages[$page])) {

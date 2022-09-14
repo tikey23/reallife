@@ -62,8 +62,7 @@ body {
 
 
 .mainpart1 {
-    display: flex;
-    justify-content: center;
+    display: inline-block;
 }
 
 #next {
@@ -79,7 +78,7 @@ body {
 
 #special {
     width: 350px;
-    height: 350px;
+    /*height: 350px;*/
     display: block;
     padding: 20px;
     margin: 20px;
@@ -96,6 +95,18 @@ body {
 .foot {
     text-align: center;
     font-size: 0.8em;
+}
+
+#login input {
+    padding: 2px;
+    margin: 2px;
+    border-radius: 2px;
+    border: 1px solid black;
+}
+
+#login input:hover {
+    background-color: #c4b5fd; /* bg-violet-300 */
+    padding: 2px;
 }
 
 /* Galerie */
@@ -132,6 +143,30 @@ body {
     background-color: #c4b5fd; /* bg-violet-300 */
 }
 
+#admin input {
+        padding: 2px;
+        margin: 2px;
+        border-radius: 2px;
+        border: 1px solid black;
+}
+
+#admin input:hover {
+        background-color: #c4b5fd; /* bg-violet-300 */
+        padding: 2px;
+}
+
+#admin button {
+        padding: 2px;
+        margin: 2px;
+        border-radius: 2px;
+        border: 1px solid black;
+}
+
+#admin button:hover {
+    background-color: #c4b5fd; /* bg-violet-300 */
+}
+
+
 /* adminGallery */
 .admingallery input {
     border: 1px solid black;
@@ -154,5 +189,22 @@ body {
 }
 
 .admingallery button:hover {
+    background-color: #c4b5fd; /* bg-violet-300 */
+}
+
+/* adminSpecialEvents */
+
+#adminspecialevents table,td{
+    text-align: left;
+}
+
+#adminspecialevents button {
+    padding: 2px;
+    margin: 2px;
+    border-radius: 2px;
+    border: 1px solid black;
+}
+
+#adminspecialevents button:hover {
     background-color: #c4b5fd; /* bg-violet-300 */
 }

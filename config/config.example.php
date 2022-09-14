@@ -7,3 +7,5 @@ $DB = [
 	"database" => "reallife",
 	"port" => 3306,
 ];
+
+$ADMINPASSWORD = "";

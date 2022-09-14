@@ -1,14 +1,13 @@
 <div class="mainpart1">
-	<div class="w-80 h-80 block bg-violet-500 p-10 rounded-xl" id="next">
+	<div class=" bg-violet-500" id="next">
 		<?php
             showActualEvent();
 		?>
 	</div>
 
-    <div class="w-80 h-80 block bg-red-400 p-10 rounded-xl" id="special">
-		<h1 class="text-3xl font-bold text-center">Spezial Event:</h1>
-		<p class="text.left">Z.B. Roger's Karaokezebra</p>
-	</div>
+	<?php
+		showSpecialEvents();
+	?>
 </div>
 <!--<div class="mainpart2">
 	<p class='text-xl text-center'><u>Adresse:</u></p>

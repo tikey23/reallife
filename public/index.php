@@ -6,6 +6,7 @@ require_once('../config/config.php');
 
 require_once('functions/pageHandling.php');
 require_once('functions/eventfunctions.php');
+require_once('functions/specialeventsfunctions.php');
 
 $con = new mysqli($DB['hostname'], $DB['username'], $DB['password'], $DB['database']);
 session_start();
