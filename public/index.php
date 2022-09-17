@@ -57,7 +57,13 @@ session_start();
 	if (isset($_SESSION['password'])) {
 		echo "<p><a href='/index.php?page=admin'>Admin Bereich</a></p>";
 	} else {
-		echo "<p><a href='/index.php?page=anmeldung'>Administrator Anmeldung</a></p>";
+		echo "<p><a href='/index.php?page=admin'>Administrator Anmeldung</a></p>";
+	}
+
+	if (isset($_SESSION['memberpassword']) || isset($_SESSION['password'])) {
+		echo "<p><a href='/index.php?page=member'>Mitarbeiter Bereich</a></p>";
+	} else {
+		echo "<p><a href='/index.php?page=member'>Mitarbeiter Anmeldung</a></p>";
 	}
 	?>
 

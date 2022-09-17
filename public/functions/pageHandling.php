@@ -9,9 +9,9 @@ function includePage($page = "") {
 		"helferwerden" => "",
 		"ueberuns" => "",
 		"galeriebilder" => "",
-		"anmeldung" => "",
+		"logoutconfirm" => "",
+		"member" => "member",
 		"admin" => "admin",
-		"logout" => "admin",
 		"adminGallery" => "admin",
 		"adminSpecialEvents" => "admin"
 	];
