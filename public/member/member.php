@@ -19,17 +19,17 @@ global $MEMBERPASSWORD;
     if(isset($_SESSION['memberpassword'])){    
         if ($_SESSION['memberpassword'] === "$MEMBERPASSWORD" || $_SESSION['memberpassword'] === "$ADMINPASSWORD") {
         // Member Login
-            include 'template/member/membershift.php';
-            include 'template/logout.html';
-                        
+            echo $twig->render('member/membershift.twig');
+            echo $twig->render('logout.twig');
         } else {
         // Login failed
-            include 'template/member/memberloginfailed.php';
+            session_destroy();
+            echo $twig->render('member/memberloginfailed.twig');
         }
     }
                 
     if(!isset($_SESSION['memberpassword'])){
-        include 'template/member/memberloginform.html';
+        echo $twig->render('member/memberloginform.twig');
     }
     
 

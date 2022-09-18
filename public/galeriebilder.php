@@ -15,8 +15,8 @@
         echo "<h1 class='text-3xl font-bold underline'>$folder</h1>";
 
         if(isset($_SESSION['password'])) {
-            addpic();
-            uploadpic($folder);
+			echo $twig->render("gallery/addpic.twig");
+			uploadpic($folder);
         }
 
         showpics($folder);

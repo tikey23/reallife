@@ -1,25 +1,9 @@
 <?php
 
 function showSpecialEvents() {
-
 	global $con;
 	$res = $con->query("SELECT * FROM specialevents WHERE specialeventdate >= NOW() && publicdate <= NOW() ORDER BY specialeventdate");
-
-	while ($data = $res->fetch_assoc()) {
-		$showespecialventdate = date_create($data['specialeventdate']);
-		echo "<div class=' bg-red-400' id='special'>";
-			echo "<h1 class='text-3xl font-bold text-center italic'>Spezial Abend:</h1><br>";
-
-			if($data['flyer'] == NULL) {
-			echo "<h1 class='text-3xl font-bold text-center'>" . $data['specialeventtitle'] . "</h1>";
-			echo "<h1 class='text-3xl font-bold text-center'>" . date_format($showespecialventdate, "d. F Y") . "</h1><br>";
-			echo "<p class='text.left'>" . $data['descripttext'] . "</p>";
-			} else {
-				echo "<p><img src='img/specialevents/" . $data['flyer'] . "' width='310'></img></p>";
-			}
-		echo "</div>";
-	}		
-
+	return $res->fetch_all(MYSQLI_ASSOC);
 }
 
 function showSpecialEventsAdmin() {
@@ -118,10 +102,6 @@ function flyerupload($flyer, $tempflyer) {
 function deleteSpecialEvent($id) {
 	global $con;
 	$con->query("DELETE FROM specialevents WHERE id='$id'");
-}
-
-function newSpecialEvent() {
-	include "template/admin/adminCreateNewSpecialEvent.php";
 }
 
 function createSpecialEvent($specialeventtitle, $specialeventdate, $publicdate, $flyer, $descripttext, $tempflyer) {

@@ -10,8 +10,8 @@ require_once('functions/eventfunctions.php');
 require_once('functions/specialeventsfunctions.php');
 require_once('functions/memberfunctions.php');
 
-$con = new mysqli($DB['hostname'], $DB['username'], $DB['password'], $DB['database']);
-session_start();
+[$con, $twig] = bootstrap();
+
 
 ?>
 
@@ -25,25 +25,7 @@ session_start();
 </head>
 <body>
 
-<div class="head">
-	<a href="/" class="headleft">
-		<img src="/img/logo.png" width="350"></img>
-	</a>
-
-	<div class="headright mt-8">
-		<a class="text-5xl font-bold bg-transparent" href="/">Real Life Café</a>
-		<h1 class="text-3xl text-gray-700">Herzlich Willkommen!<br/>ようこそ</h1>
-	</div>
-
-	<div class="text-2xl" id="navigation">
-		<p><a href="/index.php">Home</a></p>
-		<p><a href="/index.php?page=galerie">Galerie</a></p>
-		<p><a href="/index.php?page=wersindwir">Wer sind wir?</a></p>
-		<p><a href="/index.php?page=helferwerden">Helfer werden</a></p>
-		<p><a href="/index.php?page=regeln">Regeln</a></p>
-		<p><a href="/index.php?page=ueberuns">Über uns</a></p>
-	</div>
-</div>
+<?=$twig->render('global/head.twig');?>
 
 <div class="text-center p-2" id="main">
 	<?php
