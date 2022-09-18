@@ -13,21 +13,28 @@ if (isset($_POST['password'])) {
 if ($ADMINPASSWORD == "") {
         die('Passwort nicht gesetzt');
 }
-if ($_SESSION['password'] === "$ADMINPASSWORD") {
 
-	// Events
-	include 'template/admin/adminEventList.php';
+if(isset($_SESSION['password'])){
+	if ($_SESSION['password'] === "$ADMINPASSWORD") {
+		
+		$_SESSION['memberpassword'] = $_SESSION['password'];
 
-	// Special Events
-	include 'template/admin/adminSpecialEventsbutton.html';
+		// Events
+		include 'template/admin/adminEventList.php';
 
-    //Logout
-	include 'template/admin/logout.html';
-	
+		// Special Events
+		include 'template/admin/adminSpecialEventsbutton.html';
+
+		//Logout
+		include 'template/logout.html';
+		
+	} else {
+
+		// Login failed
+		include 'template/admin/loginfailed.php';
+	}
 } else {
-
-    // Login failed
-	include 'template/admin/loginfailed.php';
+	include 'template/admin/adminlogin.html';
 }
 
 ?>

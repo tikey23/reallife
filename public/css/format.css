@@ -109,6 +109,18 @@ body {
     padding: 2px;
 }
 
+#logout {
+    padding: 2px;
+    margin: 2px;
+    border-radius: 2px;
+    border: 1px solid black;
+}
+
+#logout:hover {
+    background-color: #c4b5fd;
+    padding: 2px;
+}
+
 /* Galerie */
 .galerie {
     display: inline;
@@ -151,7 +163,7 @@ body {
 }
 
 #admin input:hover {
-        background-color: #c4b5fd; /* bg-violet-300 */
+        background-color: #c4b5fd;
         padding: 2px;
 }
 
@@ -207,4 +219,46 @@ body {
 
 #adminspecialevents button:hover {
     background-color: #c4b5fd; /* bg-violet-300 */
+}
+
+.member table {
+    border: 1px solid black;
+    padding: 0.5em;
+}
+
+.member td {
+    border: 1px solid black;
+    padding: 0.5em; 
+    text-align: center;    
+}
+
+#memberloginlink {
+    padding: 2px;
+    margin: 2px;
+    border-radius: 2px;
+    border: 1px solid black;
+}
+
+#memberloginlink:hover {
+    background-color: #c4b5fd;
+}
+
+
+#memberpic {
+    width: 100px;
+    height: 100px;
+    border-radius: 100%;
+    display: block;
+}
+
+#memberlogin input {
+    padding: 2px;
+    margin: 2px;
+    border-radius: 2px;
+    border: 1px solid black;
+}
+
+#memberlogin input:hover {
+    background-color: #c4b5fd; /* bg-violet-300 */
+    padding: 2px;
 }

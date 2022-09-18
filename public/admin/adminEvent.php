@@ -12,7 +12,7 @@
 	}
 
 	if(isset($_POST['createEvent'])){
-		createEvent($_POST['day'], $_POST['month'], $_POST['year'], );
+		createEvent($_POST['day0'], $_POST['month0'], $_POST['year0'], );
 	}
 
 	showEvent();

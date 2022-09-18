@@ -17,13 +17,11 @@ $con = new mysqli($DB['hostname'], $DB['username'], $DB['password'], $DB['databa
     $con->query($sql);
 
     $sql = "INSERT INTO specialevents (specialeventtitle, specialeventdate, publicdate, flyer, descripttext) VALUES 
-    ('Rogers Karaoke', '2022-11-20', '2022-10-10', '', 'Lass krachen!'),
-    ('Cosplay Treff', '2022-11-24', '2022-10-11', '', 'Wir machen ein Gruppenfoto!')";
+    ('Rogers Karaoke', '2022-11-20', '2022-9-10', 'karaoke.jpg', 'Lass krachen!'),
+    ('Cosplay Treff', '2022-11-24', '2022-9-11', '', 'Wir machen ein Gruppenfoto!')";
 
     $con->query($sql);  
-
-
-
+    
 ?>
 
 <h2>Tabellen Specialevents erstellt</h2>

@@ -4,9 +4,11 @@ ini_set('display_errors', 1);
 
 require_once('../config/config.php');
 
+require_once('functions/date.php');
 require_once('functions/pageHandling.php');
 require_once('functions/eventfunctions.php');
 require_once('functions/specialeventsfunctions.php');
+require_once('functions/memberfunctions.php');
 
 $con = new mysqli($DB['hostname'], $DB['username'], $DB['password'], $DB['database']);
 session_start();
@@ -55,7 +57,13 @@ session_start();
 	if (isset($_SESSION['password'])) {
 		echo "<p><a href='/index.php?page=admin'>Admin Bereich</a></p>";
 	} else {
-		echo "<p><a href='/index.php?page=anmeldung'>Administrator Anmeldung</a></p>";
+		echo "<p><a href='/index.php?page=admin'>Administrator Anmeldung</a></p>";
+	}
+
+	if (isset($_SESSION['memberpassword']) || isset($_SESSION['password'])) {
+		echo "<p><a href='/index.php?page=member'>Mitarbeiter Bereich</a></p>";
+	} else {
+		echo "<p><a href='/index.php?page=member'>Mitarbeiter Anmeldung</a></p>";
 	}
 	?>
 

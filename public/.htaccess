@@ -1,11 +1,6 @@
 Options -Indexes
 
 
-<Files anmeldung.php>
-    Order Deny,Allow
-    Deny from all
-</Files>
-
 <Files galerie.php>
     Order Deny,Allow
     Deny from all
@@ -46,12 +41,12 @@ Options -Indexes
     Deny from all
 </Files>
 
-<Files logout.php>
+<Files adminGallery.php>
     Order Deny,Allow
     Deny from all
 </Files>
 
-<Files adminGallery.php>
+<Files member.php>
     Order Deny,Allow
     Deny from all
 </Files>
