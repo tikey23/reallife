@@ -1,7 +1,32 @@
 <?php
 
+require_once '../vendor/autoload.php';
+require_once('../config/config.php');
+
+function bootstrap() {
+	global $DB;
+
+	$loader = new \Twig\Loader\FilesystemLoader(__DIR__ . '/../templates');
+	$twig = new \Twig\Environment($loader, [
+		'cache' => FALSE,
+		'debug' => TRUE,
+		'strict_variables' => TRUE,
+	]);
+	$twig->addExtension(new \Twig\Extension\DebugExtension());
+	$twig->addFilter(new \Twig\TwigFilter('date_format', 'twig_date_format'));
+
+	$con = new mysqli($DB['hostname'], $DB['username'], $DB['password'], $DB['database']);
+	session_start();
+	return [$con, $twig];
+}
+
+function twig_date_format($value, $format) {
+    return date_format(date_create($value), $format);
+}
+
+
 function includePage($page = "") {
-	global $ADMINPASSWORD;
+	global $ADMINPASSWORD, $twig;
 	$pages = [
 		"galerie" => "",
 		"wersindwir" => "",

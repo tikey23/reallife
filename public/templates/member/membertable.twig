@@ -1,0 +1,31 @@
+<table align='center'>
+    <tr>
+        <td><b>Little Akiba</b></td>
+        <td><b>Name</b></td>
+        <td><b>Funktion</b></td>
+        <td><b>Dabei seit:</b></td>
+
+        {% if isMember %}
+            <td><b>E-Mail</b></td>
+            <td><b>Mobile</b></td>
+        {% endif %}
+    </tr>
+
+    {% for member in members %}
+        <tr>
+            <td>
+                <a href='{{ member.little_akiba }}' target='_blank'>
+                    <img src='{{ member.memberimg }}' id='memberpic'>
+                </a>
+            </td>
+            <td>{{ member.membername }}</td>
+            <td>{{ member.memberfunction }}</td>
+            <td>{{ member.involved_since }}</td>
+
+            {% if isMember %}
+                <td><a href='mailto:{{ member.e_mail }}"?subject=Hier steht der Betreff'>{{ member.e_mail }}</a></td>
+                <td>{{ member.mobile }}</td>
+            {% endif %}
+        </tr>
+    {% endfor %}
+</table>

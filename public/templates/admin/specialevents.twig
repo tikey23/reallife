@@ -1,0 +1,36 @@
+<h2 class='text-2xl font-bold underline'>Spezial Abende:</h2>
+<br>
+<div id='adminspecialevents'>
+    <form action="/index.php?page=adminSpecialEvents" method="post" enctype="multipart/form-data">
+        <p class='font-bold'>Neuer Spezial Abend erstellen:</p>
+        <table style='border:1px solid black' align='center'>
+            <tr>
+                <td>Titel:</td>
+                <td><input name='specialeventtitle'></td>
+            </tr>
+
+            <tr>
+                <td>Datum:</td>
+                <td>{{ selectDate.0 | raw }}</td>
+            </tr>
+
+            <tr>
+                <td>Publik. Datum:</td>
+                <td>{{ selectDate.1 | raw }}</td>
+            </tr>
+
+            <tr>
+                <td>Flyer:</td>
+                <td><input type='file' name='flyer'></td>
+            </tr>
+            <tr>
+                <td>Text:</td>
+                <td><input name='descripttext'></td>
+            </tr>
+        </table>
+        <p>
+            <button name='createSpecialEvent'>erstellen</button>
+        </p>
+    </form>
+    <p><a href='index.php?page=admin'>Zurück</a></p>
+</div>

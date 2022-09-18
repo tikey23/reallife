@@ -1,13 +1,14 @@
-
 <div class="galerie">
 
     <?php
         require_once('functions/galleryfunctions.php');
 
         showGallery();
-        addGallerycategoryicon();
-        adminGallery();
 
+		if (isset($_SESSION['password'])) {
+			echo $twig->render('gallery/addGalleryCategoryIcon.twig');
+			echo $twig->render("gallery/adminGallery.twig");
+		}
     ?>
 
 </div>

@@ -15,24 +15,6 @@ function showGallery() {
     echo "</form>";
 }
 
-function addGallerycategoryicon() {
-    if (isset($_SESSION['password'])) {
-        include("./template/gallery/categoryicon.html");
-    }
-}
-
-function addpic() {
-    include ("./template/gallery/addpic.html");
-   
-}
-
-
-function adminGallery() {
-    if (isset($_SESSION['password'])) {
-        include ("./template/gallery/adminGallery.html");
-    }
-}
-
 function showpics($folder) {
     global $con;
   $res = $con->query("SELECT * FROM gallery WHERE folder = '$folder'");

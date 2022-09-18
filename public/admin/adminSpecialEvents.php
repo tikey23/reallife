@@ -1,6 +1,3 @@
-<h2 class='text-2xl font-bold underline'>Spezial Abende:</h2>
-<br>
-<div id='adminspecialevents'>
 <?php
     require_once("functions/specialeventsfunctions.php");
 
@@ -23,8 +20,6 @@
     }
 
     showSpecialEventsAdmin();
-    newSpecialEvent();
-
-    echo "<p><a href='index.php?page=admin'>Zurück</a></p>";
-?>
-</div>
+	$selectDate[0] = selectdate(0);
+	$selectDate[1] = selectdate(1);
+	echo $twig->render('admin/specialevents.twig', ["selectDate" => $selectDate]);
