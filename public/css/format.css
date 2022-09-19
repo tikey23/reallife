@@ -221,12 +221,12 @@ body {
     background-color: #c4b5fd; /* bg-violet-300 */
 }
 
-.member table {
+.classTable table {
     border: 1px solid black;
     padding: 0.5em;
 }
 
-.member td {
+.classTable td {
     border: 1px solid black;
     padding: 0.5em; 
     text-align: center;    

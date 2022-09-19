@@ -13,9 +13,17 @@ function getEvents() {
 	return $res->fetch_all(MYSQLI_ASSOC);
 }
 
-function modifyEvent($newdate, $id) {
+function modifyEvent($newdate, $newleader1, $newleader2, $newhelper1, $newhelper2, $newhelper3, $newhelper4, $id) {
 	global $con;
-	$con->query("UPDATE event SET eventdate = '$newdate' WHERE id='$id'");
+	$con->query("UPDATE event SET 
+	eventdate = '$newdate',
+	leader1 = '$newleader1',
+	leader2 = '$newleader2',
+	helper1 = '$newhelper1',
+	helper2 = '$newhelper2',
+	helper3 = '$newhelper3',
+	helper4 = '$newhelper4'
+	 WHERE id='$id'");
 }
 
 function deleteEvent($id) {
