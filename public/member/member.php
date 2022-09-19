@@ -19,7 +19,10 @@ global $MEMBERPASSWORD;
     if(isset($_SESSION['memberpassword'])){    
         if ($_SESSION['memberpassword'] === "$MEMBERPASSWORD" || $_SESSION['memberpassword'] === "$ADMINPASSWORD") {
         // Member Login
-            echo $twig->render('member/membershift.twig');
+            $events = showActualEvent(); // Sources for shiftlist
+            $members = getMembers();
+            echo $twig->render('member/membershift.twig', ['events' => $events, 'members' => $members]);
+            //echo $twig->render('member/membershift.twig'); //Original Line from Tikey
             echo $twig->render('logout.twig');
         } else {
         // Login failed
@@ -32,7 +35,6 @@ global $MEMBERPASSWORD;
         echo $twig->render('member/memberloginform.twig');
     }
     
-
             
         
 ?>
