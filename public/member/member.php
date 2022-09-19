@@ -1,4 +1,4 @@
-<div class="classtable" id="membershift">
+<div class="classTable" id="membershift">
 <?php
 
 global $ADMINPASSWORD;

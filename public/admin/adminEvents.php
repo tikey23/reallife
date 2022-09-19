@@ -36,6 +36,6 @@ if (isset($_POST['modifyEvent'])) {
 				"selectDate" => $selectDate,
 
 			]);
-
+			echo $twig->render('backToAdmin.twig');
 ?>
 </div>

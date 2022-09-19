@@ -61,7 +61,7 @@
             <td><select name='newhelper3'>
                 <option value='0'>Keine</option>
                 {% for member in members %}
-                    {% if event.helper1 == member.id %}
+                    {% if event.helper3 == member.id %}
                         <option value='{{ member.id }}' selected='selected'>{{ member.membername }}</option>
                     {% else %}
                         <option value='{{ member.id }}'>{{ member.membername }}</option>
@@ -81,7 +81,7 @@
             </select></td>         
         </tr>
     </table> 
-    <p><button name='modifyEvent' value='{{ event.id }}'>aktualisieren</button></p>
+    <p><button name='modifyEvent' value='{{ event.id }}' class='classButton'>aktualisieren</button></p>
     <br><br>
 
 {% else %}
@@ -154,11 +154,19 @@
         {% endif %}
         </tr>
     </table>
-<p><button name='modifypick' value='{{ event.id }}'>ändern</button></p>
-<p><button name='deleteEvent' value='{{ event.id }}'>löschen</button></p>
+<p><button name='modifypick' value='{{ event.id }}' class='classButton'>ändern</button>
+<button name='deleteEvent' value='{{ event.id }}' class='classButton'>löschen</button></p>
 <br><br>
 {% endif %}
 
 {% endfor %}
+
+<p class='font-bold'>Neuer Termin erstellen:</p>
+    <table align='center'>
+        <tr>
+            {{ selectDate | raw }}
+        <td><input type='submit' name='createEvent' value='erstellen' class='classSubmit'></td>
+        </tr>
+    </table>
 
 </form>

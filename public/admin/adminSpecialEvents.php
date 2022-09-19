@@ -1,3 +1,4 @@
+<div class='classTable' id='adminSpecialEvents'>
 <?php
     require_once("functions/specialeventsfunctions.php");
 
@@ -23,3 +24,6 @@
 	$selectDate[0] = selectdate(0);
 	$selectDate[1] = selectdate(1);
 	echo $twig->render('admin/specialevents.twig', ["selectDate" => $selectDate]);
+    echo $twig->render('backToAdmin.twig');
+?>
+</div>

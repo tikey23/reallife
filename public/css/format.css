@@ -6,6 +6,9 @@
     src:url('/fonts/VarelaRound-Regular.ttf');
 }
 
+@import "head.css";
+@import "main.css";
+@import "galerie.css";
 
 
 body {
@@ -23,7 +26,6 @@ body {
     width: 300px;
 }
 
-
 .headright {
     margin: 10px;
     width: 70%;
@@ -38,7 +40,6 @@ body {
     margin: 10px;
     border-radius: 10px;
     border: 1px solid black;
-
 }
 
 #navigation a {
@@ -60,7 +61,6 @@ body {
     border: 1px solid black;
 }
 
-
 .mainpart1 {
     display: inline-block;
 }
@@ -73,65 +73,38 @@ body {
     margin: 20px;
     border-radius: 10px;
     border: 1px solid black;
+    background-color: #8b5cf6;
 }
 
 
 #special {
     width: 350px;
-    /*height: 350px;*/
     display: block;
     padding: 20px;
     margin: 20px;
     border-radius: 10px;
     border: 1px solid black;
+    background-color: #f87171;
 }
 
 .mainpart2 {
     text-align: justify-all;
 }
 
-/* Foot */
-
 .foot {
     text-align: center;
     font-size: 0.8em;
 }
 
-#login input {
-    padding: 2px;
-    margin: 2px;
-    border-radius: 2px;
-    border: 1px solid black;
-}
-
-#login input:hover {
-    background-color: #c4b5fd; /* bg-violet-300 */
-    padding: 2px;
-}
-
-#logout {
-    padding: 2px;
-    margin: 2px;
-    border-radius: 2px;
-    border: 1px solid black;
-}
-
-#logout:hover {
-    background-color: #c4b5fd;
-    padding: 2px;
-}
-
-/* Galerie */
 .galerie {
     display: inline;
 }
 
 .galerie div:hover {
     transform: scale(1.1);
-    background-color: #ddd6fe; /* bg-violet-200 */
+    background-color: #ddd6fe;
 }
 
-/* Galeriebilder */
 .galeriebilder img {
     display: inline;
     width: 300px;
@@ -145,80 +118,35 @@ body {
     transform: scale(1.1);
 }
 
-.galeriebilder button {
-    border: 1px solid black;
-    padding: 2px;
-    margin: 2px;
-}
-
-.galeriebilder button:hover {
-    background-color: #c4b5fd; /* bg-violet-300 */
-}
-
-#admin input {
-        padding: 2px;
-        margin: 2px;
-        border-radius: 2px;
-        border: 1px solid black;
-}
-
-#admin input:hover {
-        background-color: #c4b5fd;
-        padding: 2px;
-}
-
-#admin button {
-        padding: 2px;
-        margin: 2px;
-        border-radius: 2px;
-        border: 1px solid black;
-}
-
-#admin button:hover {
-    background-color: #c4b5fd; /* bg-violet-300 */
+#memberpic {
+    width: 100px;
+    height: 100px;
+    border-radius: 100%;
+    display: block;
 }
 
 
-/* adminGallery */
-.admingallery input {
-    border: 1px solid black;
-    padding: 2px;
-    margin: 2px;
-}
-
-.admingallery input:hover {
-    background-color: #c4b5fd; /* bg-violet-300 */
-}
-
-/*.admingallery table,td {
-    border: 1px solid black;
-}*/
-
-.admingallery button {
-    border: 1px solid black;
-    padding: 2px;
-    margin: 2px;
-}
-
-.admingallery button:hover {
-    background-color: #c4b5fd; /* bg-violet-300 */
-}
-
-/* adminSpecialEvents */
-
-#adminspecialevents table,td{
-    text-align: left;
-}
-
-#adminspecialevents button {
+.classSubmit {
     padding: 2px;
     margin: 2px;
     border-radius: 2px;
     border: 1px solid black;
 }
 
-#adminspecialevents button:hover {
-    background-color: #c4b5fd; /* bg-violet-300 */
+.classSubmit:hover {
+    background-color: #c4b5fd;
+    padding: 2px;
+}
+
+.classButton {
+    padding: 2px;
+    margin: 2px;
+    border-radius: 2px;
+    border: 1px solid black;
+}
+
+.classButton:hover {
+background-color: #c4b5fd;
 }
 
 .classTable table {
@@ -230,35 +158,4 @@ body {
     border: 1px solid black;
     padding: 0.5em; 
     text-align: center;    
-}
-
-#memberloginlink {
-    padding: 2px;
-    margin: 2px;
-    border-radius: 2px;
-    border: 1px solid black;
-}
-
-#memberloginlink:hover {
-    background-color: #c4b5fd;
-}
-
-
-#memberpic {
-    width: 100px;
-    height: 100px;
-    border-radius: 100%;
-    display: block;
-}
-
-#memberlogin input {
-    padding: 2px;
-    margin: 2px;
-    border-radius: 2px;
-    border: 1px solid black;
-}
-
-#memberlogin input:hover {
-    background-color: #c4b5fd; /* bg-violet-300 */
-    padding: 2px;
 }
