@@ -3,11 +3,11 @@
 
 
     require_once('config/config.php');
-    $con = new mysqli($DB['hostname'], $DB['username']);
+    $con = new mysqli($DB['hostname'], $DB['username'], $DB['password']);
 
     $sql = "CREATE DATABASE IF NOT EXISTS reallife";
     $con ->query($sql);
-    $con->select_db("reallife");
+    $con->select_db($DB['database']);
 
     $sql = "DROP TABLE event";
     $con ->query($sql);
@@ -82,9 +82,9 @@
     // Create Events
     $sql = "INSERT INTO event (eventdate, leader1, leader2, helper1, helper2, helper3, helper4) values 
     ('2022-10-21', 1, 2, 3, 3, 3, 3), 
-    ('2022-10-28', '', '', '', '', '', ''), 
-    ('2022-11-11', '', '', '', '', '', ''), 
-    ('2022-11-18', '', '', '', '', '', '')";
+    ('2022-10-28', 0, 0, 0, 0, 0, 0), 
+    ('2022-11-11', 0, 0, 0, 0, 0, 0), 
+    ('2022-11-18', 0, 0, 0, 0, 0, 0)";
     $con ->query($sql);
 
     // Create Gallery Category
