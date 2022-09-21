@@ -7,6 +7,31 @@ function getMembers() {
 	return $res->fetch_all(MYSQLI_ASSOC);
 }
 
+function modifyMember(
+	$id,
+	$memberimg,
+	$membername,	
+	$memberfunction,	
+	$involved_since,	
+	$little_akiba,	
+	$e_mail,	
+	$mobile,	
+	$active){
+
+		global $con;
+		$sql = "UPDATE members SET
+		memberimg = '$memberimg',
+		membername = '$membername',	
+		memberfunction = '$memberfunction',	
+		involved_since = '$involved_since',	
+		little_akiba = '$little_akiba',	
+		e_mail = '$e_mail',	
+		mobile = '$mobile',	
+		active = '$active'
+		WHERE id='$id'";
+		$con->query($sql);
+}
+
 /*
 function getEventJoinMembers(){
 	global $con;

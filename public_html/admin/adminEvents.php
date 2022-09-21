@@ -32,7 +32,7 @@ if (isset($_POST['modifyEvent'])) {
 			echo $twig->render('admin/adminEventList.twig', [
 				"events" => $events,
 				"members" => $members,
-                "modifypick" => @$_POST['modifypick'],
+                "modifyEventPick" => @$_POST['modifyEventPick'],
 				"selectDate" => $selectDate,
 
 			]);

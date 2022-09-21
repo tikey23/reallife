@@ -5,7 +5,7 @@
 {% for event in events %}
 
 <!-- when click on button "ändern" //-->
-{% if modifypick == event.id %}
+{% if modifyEventPick == event.id %}
     <table align='center'>
 
         <tr> <td> </td><td><b><input name='newdate' value='{{ event.eventdate }}'></b></td> <td></td> </tr>
@@ -154,7 +154,7 @@
         {% endif %}
         </tr>
     </table>
-<p><button name='modifypick' value='{{ event.id }}' class='classButton'>ändern</button>
+<p><button name='modifyEventPick' value='{{ event.id }}' class='classButton'>ändern</button>
 <button name='deleteEvent' value='{{ event.id }}' class='classButton'>löschen</button></p>
 <br><br>
 {% endif %}
