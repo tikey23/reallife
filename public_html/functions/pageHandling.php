@@ -1,7 +1,7 @@
 <?php
 
-require_once '../vendor/autoload.php';
-require_once('../config/config.php');
+require_once 'vendor/autoload.php';
+require_once('config/config.php');
 
 function bootstrap() {
 	global $DB;
@@ -16,7 +16,6 @@ function bootstrap() {
 	$twig->addFilter(new \Twig\TwigFilter('date_format', 'twig_date_format'));
 
 	$con = new mysqli($DB['hostname'], $DB['username'], $DB['password'], $DB['database']);
-	session_start();
 	return [$con, $twig];
 }
 
