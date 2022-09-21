@@ -11,11 +11,14 @@ function showSpecialEventsAdmin() {
 	$res = $con->query("SELECT * FROM specialevents WHERE specialeventdate >= NOW() ORDER BY specialeventdate");
 	echo "<form action='/index.php?page=adminSpecialEvents' method='post' enctype='multipart/form-data'>";
 
+	echo "<h2 class='text-2xl font-bold underline'>Spezial Abende:</h2>";
+	echo "<br>";
+
 	while ($data = $res->fetch_assoc()) {
 		
 		if(@$_POST['modifySpecialEvent'] == $data['id']) {
 
-			echo "<table style='border:1px solid black' align='center'>";
+			echo "<table align='center'>";
 			echo "<tr><td>Titel:</td><td><input name='specialeventtitle' value='" . $data['specialeventtitle'] . "'></td></tr>";
 			echo "<tr><td>Datum:</td><td><input name='specialeventdate' value='" . $data['specialeventdate'] . "'></td></tr>";
 			echo "<tr><td>Publik Datum:</td><td><input name='publicdate' value='" . $data['publicdate'] . "'></td></tr>";
@@ -28,15 +31,14 @@ function showSpecialEventsAdmin() {
 			
 			echo "<tr><td>Text:</td><td><input name='descripttext' rows='4' cols='50' value='" . $data['descripttext'] . "'></td></tr>";
 			echo "</table>";
-			echo "<p><button name='modifySpecialEventconfirm' value='" . $data['id'] . "'>aktualisieren</button></p>";
+			echo "<p><button name='modifySpecialEventconfirm' value='" . $data['id'] . "' class='classButton'>aktualisieren</button></p>";
 
 		} else {
 
 			$showespecialventdate = date_create($data['specialeventdate']);
 			$showpublicdate = date_create($data['publicdate']);
 
-			echo "<div id='adminspecialevents'>";
-			echo "<table style='border:1px solid black' align='center'>";
+			echo "<table align='center'>";
 			echo "<tr><td>Titel:</td><td>" . $data['specialeventtitle'] . "</td></tr>";
 			echo "<tr><td>Datum:</td><td>" . date_format($showespecialventdate, "d. F Y") . "</td></tr>";
 			echo "<tr><td>Publik Datum:</td><td>" . date_format($showpublicdate, "d. F Y") . "</td></tr>";
@@ -49,8 +51,8 @@ function showSpecialEventsAdmin() {
 			
 			echo "<tr><td>Text:</td><td>" . $data['descripttext'] . "</td></tr>";
 			echo "</table>";
-			echo "<p><button name='modifySpecialEvent' value='" . $data['id'] . "'>ändern</button>";
-			echo "<button name='deleteSpecialEvent' value='" . $data['id'] . "' onclick=\"return confirm('Bist du sicher?');\">löschen</button></p>";
+			echo "<p><button name='modifySpecialEvent' value='" . $data['id'] . "' class='classButton'>ändern</button>";
+			echo "<button name='deleteSpecialEvent' value='" . $data['id'] . "' class='classButton' onclick=\"return confirm('Bist du sicher?');\">löschen</button></p>";
 		}
 		echo "<br>";
 	}
@@ -66,8 +68,6 @@ function modifySpecialEventconfirm($specialeventtitle, $specialeventdate, $publi
 		$sql = "UPDATE specialevents SET " . $col[$i] . " = '" . $var[$i] . "' WHERE id='$id'";
 		$con->query($sql);
 	}
-
-	echo "Hallo<br>";
 	
 	if($flyer != NULL) {
 		flyerupload($flyer, $tempflyer);

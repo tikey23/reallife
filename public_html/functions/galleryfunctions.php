@@ -53,7 +53,7 @@ function deletecategory() {
             echo "<option value='" . $data['folder'] . "'>" . $data['folder'] . "</option>";
         }
     echo "</select>";
-    echo "<input type='submit' value='Löschen' onclick=\"return confirm('Bist du sicher?');\">";
+    echo "<input type='submit' value='Löschen' class='classSubmit' onclick=\"return confirm('Bist du sicher?');\">";
     echo "<br>";
     echo "</form>";
 }
@@ -86,7 +86,7 @@ function deletepics() {
         echo "<td><img src='img/galerie/" . $data['folder'] . "/" . $data['picname'] . "' style='width:100px'></img></td>
         <td>" . $data['folder'] . "</td>
         <td>" . $data['picname'] . "</td>
-        <td><button name='deletepic' value='" . $data['id'] . "' onclick=\"return confirm('Bist du sicher?');\">Löschen</button></td>";
+        <td><button name='deletepic' value='" . $data['id'] . "' class='classButton' onclick=\"return confirm('Bist du sicher?');\">Löschen</button></td>";
         echo "</tr>";
     }
     echo "</table>";

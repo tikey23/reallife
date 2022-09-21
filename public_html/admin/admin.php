@@ -19,7 +19,11 @@
 
 			$_SESSION['memberpassword'] = $_SESSION['password'];
 
-			if (isset($_POST['modifyEvent'])) {
+			//Admin logged in
+
+			echo $twig->render('admin/admin.twig');
+
+			/*if (isset($_POST['modifyEvent'])) {
 				modifyEvent($_POST['newdate'], $_POST['modifyEvent']);
 			}
 
@@ -38,7 +42,8 @@
 				"events" => $events,
 				"modifypick" => @$_POST['modifypick'],
 				"selectDate" => $selectDate,
-			]);
+			]); */
+			echo $twig->render('admin/adminEventsbutton.twig');
 			echo $twig->render('admin/adminSpecialEventsbutton.twig');
 			echo $twig->render('logout.twig');
 		} else {

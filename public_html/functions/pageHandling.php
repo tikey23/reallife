@@ -36,6 +36,7 @@ function includePage($page = "") {
 		"logoutconfirm" => "",
 		"member" => "member",
 		"admin" => "admin",
+		"adminEvents" => "admin",
 		"adminGallery" => "admin",
 		"adminSpecialEvents" => "admin"
 	];
