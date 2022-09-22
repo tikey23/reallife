@@ -26,6 +26,8 @@
 	$selectDate[1] = selectdate(1);
 	echo $twig->render('admin/specialevents.twig', ["selectDate" => $selectDate]);
     echo $twig->render('backToAdmin.twig');
+    } else {
+        echo $twig->render('admin/loginfailed.twig');
     }
 ?>
 </div>
