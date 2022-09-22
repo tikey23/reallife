@@ -3,7 +3,7 @@
 	<br>
 
 	<?php
-	
+
 	if(isset($_POST['modifyMember'])){
 		modifyMember(
 			$_POST['modifyMember'],

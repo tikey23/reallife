@@ -5,86 +5,87 @@
 {% for event in events %}
 
 <!-- when click on button "ändern" //-->
-{% if modifyEventPick == event.id %}
-    <table align='center'>
+    {% if modifyEventPick == event.id %}
+        <table align='center'>
 
-        <tr> <td> </td><td><b><input name='newdate' value='{{ event.eventdate }}'></b></td> <td></td> </tr>
-        <tr> <td>Leiter</td> <td>18:00-20:30</td> <td>20:30-23:00</td> </tr>
-        <tr> 
-    
-            <td><select name='newleader1'>
-                <option value='0'>Keine</option>
-                {% for member in members %}
-                    {% if event.leader1 == member.id %}
-                        <option value='{{ member.id }}' selected='selected'>{{ member.membername }}</option>
-                    {% else %}
-                        <option value='{{ member.id }}'>{{ member.membername }}</option>
-                    {% endif %}
-                {% endfor %}
-            </select></td>
+            <tr> <td> </td><td><b><input name='newdate' value='{{ event.eventdate }}'></b></td> <td></td> </tr>
+            <tr> <td>Leiter</td> <td>18:00-20:30</td> <td>20:30-23:00</td> </tr>
+            <tr> 
+        
+                <td><select name='newleader1'>
+                    <option value='0'>Keine</option>
+                    {% for member in members %}
+                        {% if event.leader1 == member.id %}
+                            <option value='{{ member.id }}' selected='selected'>{{ member.membername }}</option>
+                        {% else %}
+                            <option value='{{ member.id }}'>{{ member.membername }}</option>
+                        {% endif %}
+                    {% endfor %}
+                </select></td>
 
-            <td><select name='newhelper1'>
-                <option value='0'>Keine</option>
-                {% for member in members %}
-                    {% if event.helper1 == member.id %}
-                        <option value='{{ member.id }}' selected='selected'>{{ member.membername }}</option>
-                    {% else %}
-                        <option value='{{ member.id }}'>{{ member.membername }}</option>
-                    {% endif %}
-                {% endfor %}
-            </select></td>
+                <td><select name='newhelper1'>
+                    <option value='0'>Keine</option>
+                    {% for member in members %}
+                        {% if event.helper1 == member.id %}
+                            <option value='{{ member.id }}' selected='selected'>{{ member.membername }}</option>
+                        {% else %}
+                            <option value='{{ member.id }}'>{{ member.membername }}</option>
+                        {% endif %}
+                    {% endfor %}
+                </select></td>
 
-            <td><select name='newhelper2'>
-                <option value='0'>Keine</option>
-                {% for member in members %}
-                    {% if event.helper2 == member.id %}
-                        <option value='{{ member.id }}' selected='selected'>{{ member.membername }}</option>
-                    {% else %}
-                        <option value='{{ member.id }}'>{{ member.membername }}</option>
-                    {% endif %}
-                {% endfor %}
-            </select></td>
-                        
-        </tr><tr>
+                <td><select name='newhelper2'>
+                    <option value='0'>Keine</option>
+                    {% for member in members %}
+                        {% if event.helper2 == member.id %}
+                            <option value='{{ member.id }}' selected='selected'>{{ member.membername }}</option>
+                        {% else %}
+                            <option value='{{ member.id }}'>{{ member.membername }}</option>
+                        {% endif %}
+                    {% endfor %}
+                </select></td>
+                            
+            </tr><tr>
 
-        <td><select name='newleader2'>
-                <option value='0'>Keine</option>
-                {% for member in members %}
-                    {% if event.leader2 == member.id %}
-                        <option value='{{ member.id }}' selected='selected'>{{ member.membername }}</option>
-                    {% else %}
-                        <option value='{{ member.id }}'>{{ member.membername }}</option>
-                    {% endif %}
-                {% endfor %}
-            </select></td>
+            <td><select name='newleader2'>
+                    <option value='0'>Keine</option>
+                    {% for member in members %}
+                        {% if event.leader2 == member.id %}
+                            <option value='{{ member.id }}' selected='selected'>{{ member.membername }}</option>
+                        {% else %}
+                            <option value='{{ member.id }}'>{{ member.membername }}</option>
+                        {% endif %}
+                    {% endfor %}
+                </select></td>
 
-            <td><select name='newhelper3'>
-                <option value='0'>Keine</option>
-                {% for member in members %}
-                    {% if event.helper3 == member.id %}
-                        <option value='{{ member.id }}' selected='selected'>{{ member.membername }}</option>
-                    {% else %}
-                        <option value='{{ member.id }}'>{{ member.membername }}</option>
-                    {% endif %}
-                {% endfor %}
-            </select></td>
+                <td><select name='newhelper3'>
+                    <option value='0'>Keine</option>
+                    {% for member in members %}
+                        {% if event.helper3 == member.id %}
+                            <option value='{{ member.id }}' selected='selected'>{{ member.membername }}</option>
+                        {% else %}
+                            <option value='{{ member.id }}'>{{ member.membername }}</option>
+                        {% endif %}
+                    {% endfor %}
+                </select></td>
 
-            <td><select name='newhelper4'>
-                <option value='0'>Keine</option>
-                {% for member in members %}
-                    {% if event.helper4 == member.id %}
-                        <option value='{{ member.id }}' selected='selected'>{{ member.membername }}</option>
-                    {% else %}
-                        <option value='{{ member.id }}'>{{ member.membername }}</option>
-                    {% endif %}
-                {% endfor %}
-            </select></td>         
-        </tr>
-    </table> 
-    <p><button name='modifyEvent' value='{{ event.id }}' class='classButton'>aktualisieren</button></p>
-    <br><br>
+                <td><select name='newhelper4'>
+                    <option value='0'>Keine</option>
+                    {% for member in members %}
+                        {% if event.helper4 == member.id %}
+                            <option value='{{ member.id }}' selected='selected'>{{ member.membername }}</option>
+                        {% else %}
+                            <option value='{{ member.id }}'>{{ member.membername }}</option>
+                        {% endif %}
+                    {% endfor %}
+                </select></td>         
+            </tr>
+        </table> 
+        <p><button name='modifyEvent' value='{{ event.id }}' class='classButton'>aktualisieren</button></p>
+        <br><br>
 
-{% else %}
+    {% else %}
+
     <table align='center'>
     
         <tr> <td> </td><td><b>{{ event.eventdate | date_format("d. F Y") }}</b></td> <td></td> </tr>
@@ -161,6 +162,7 @@
 
 {% endfor %}
 
+
 <p class='font-bold'>Neuer Termin erstellen:</p>
     <table align='center'>
         <tr>
@@ -168,5 +170,6 @@
         <td><input type='submit' name='createEvent' value='erstellen' class='classSubmit'></td>
         </tr>
     </table>
+
 
 </form>

@@ -28,14 +28,17 @@ if (isset($_POST['modifyEvent'])) {
 			}
             $members = getMembers();
 			$selectDate = selectdate(0);
+			if(isset($_SESSION['password'])){
+				echo $twig->render('admin/adminEventList.twig', [
+					"events" => $events,
+					"members" => $members,
+					"modifyEventPick" => @$_POST['modifyEventPick'],
+					"selectDate" => $selectDate,
 
-			echo $twig->render('admin/adminEventList.twig', [
-				"events" => $events,
-				"members" => $members,
-                "modifyEventPick" => @$_POST['modifyEventPick'],
-				"selectDate" => $selectDate,
-
-			]);
-			echo $twig->render('backToAdmin.twig');
+				]);
+				echo $twig->render('backToAdmin.twig');
+			} else {
+				echo $twig->render('admin/loginfailed.twig');
+			}
 ?>
 </div>

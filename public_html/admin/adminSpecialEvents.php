@@ -20,10 +20,12 @@
         deleteSpecialEvent($_POST['deleteSpecialEvent']);
     }
 
+    if(isset($_SESSION['password'])){
     showSpecialEventsAdmin();
 	$selectDate[0] = selectdate(0);
 	$selectDate[1] = selectdate(1);
 	echo $twig->render('admin/specialevents.twig', ["selectDate" => $selectDate]);
     echo $twig->render('backToAdmin.twig');
+    }
 ?>
 </div>
