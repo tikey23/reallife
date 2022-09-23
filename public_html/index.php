@@ -1,4 +1,7 @@
 <?php
+
+use Rl\Models\Member\Member;
+
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 session_start();
@@ -7,7 +10,8 @@ require_once('functions/date.php');
 require_once('functions/pageHandling.php');
 require_once('functions/eventfunctions.php');
 require_once('functions/specialeventsfunctions.php');
-require_once('functions/memberfunctions.php');
+require_once('models/Model.php');
+require_once('models/Member.php');
 
 [$con, $twig] = bootstrap();
 

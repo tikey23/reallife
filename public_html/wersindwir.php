@@ -4,20 +4,37 @@
 
 	<?php
 
-	if(isset($_POST['modifyMember'])){
-		modifyMember(
-			$_POST['modifyMember'],
-			$_POST['memberimg'],
-			$_POST['membername'],	
-			$_POST['memberfunction'],	
-			$_POST['involved_since'],	
-			$_POST['little_akiba'],	
-			$_POST['e_mail'],	
-			$_POST['mobile'],	
-			$_POST['active']);
+	use \Rl\Models\Member;
+
+	if(isset($_POST['newMember'])) {
+		$member = new Member();
+		// TODO: create form and set $_POST data
+		$member->membername = "bla2";
+		$member->memberimg = "bla";
+		$member->memberfunction = "bla";
+		$member->little_akiba = "bla";
+		$member->e_mail = "bla";
+		$member->mobile = "bla";
+		$member->involved_since = "2022-01-01";
+		$member->active = TRUE;
+		$member->save();
+	} else if(isset($_POST['modifyMember'])){
+		$member = findOne(Member::class, $_POST['modifyMember']);
+		$member->memberimg = $_POST['memberimg'];
+		$member->membername = $_POST['membername'];
+		$member->memberfunction = $_POST['memberfunction'];
+		$member->involved_since = $_POST['involved_since'];
+		$member->little_akiba = $_POST['little_akiba'];
+		$member->e_mail = $_POST['e_mail'];
+		$member->mobile = $_POST['mobile'];
+		$member->active = $_POST['active'];
+		$member->save();
+	} else if(isset($_POST['deleteMember'])) {
+		$member = findOne(Member::class, $_POST['deleteMember']);
+		$member->delete();
 	}
 
-	$members = getMembers();
+	$members = findAll(Member::class);
 	echo $twig->render('member/membertable.twig', [
 		"isMember" => isset($_SESSION['memberpassword']),
 		"isAdmin" => isset($_SESSION['password']),

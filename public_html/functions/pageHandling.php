@@ -53,3 +53,50 @@ function includePage($page = "") {
 
 	include "home.php";
 }
+
+
+function findAll($objectType) {
+	global $con;
+
+	$o = new $objectType();
+	$table = $o->getTable();
+	if(empty($table)) {
+		throw new Exception("Property table not set in model");
+	}
+
+	$collection = [];
+	$rows = $con->query("SELECT * FROM {$table}")->fetch_all(MYSQLI_ASSOC);
+	foreach($rows AS $row) {
+		$object = new $objectType();
+		foreach($row AS $key => $value) {
+			$object->$key = $value;
+		}
+
+		$collection[] = $object;
+	}
+
+	return $collection;
+}
+
+
+function findOne($objectType, $id) {
+	global $con;
+
+	$o = new $objectType();
+	$table = $o->getTable();
+	if(empty($table)) {
+		throw new Exception("Property table not set in model");
+	}
+
+	$collection = [];
+	$row = $con->query("SELECT * FROM {$table} WHERE `id` = {$id} LIMIT 1");
+	if($row->num_rows == 0) {
+		throw new Exception("ID for $objectType not found");
+	}
+
+	$object = new $objectType();
+	foreach($row->fetch_assoc() AS $key => $value) {
+		$object->$key = $value;
+	}
+	return $object;
+}
