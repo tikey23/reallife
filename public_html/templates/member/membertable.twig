@@ -58,7 +58,11 @@
      
         {% else %}
     
-        <tr>
+        {% if member.active == "yes" %}
+            <tr>
+        {% else %}
+            <tr id="showMemberRow">
+        {% endif %}
             <td>
                 <a href='{{ member.little_akiba }}' target='_blank'>
                     <img src='{{ member.memberimg }}' id='memberpic'>

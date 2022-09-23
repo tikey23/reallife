@@ -46,9 +46,9 @@ require_once('models/Member.php');
 	}
 
 	if (isset($_SESSION['memberpassword']) || isset($_SESSION['password'])) {
-		echo "<p><a href='/index.php?page=member'>Mitarbeiter Bereich</a></p>";
+		echo "<p><a href='/index.php?page=shifttable'>Mitarbeiter Bereich</a></p>";
 	} else {
-		echo "<p><a href='/index.php?page=member'>Mitarbeiter Anmeldung</a></p>";
+		echo "<p><a href='/index.php?page=shifttable'>Mitarbeiter Anmeldung</a></p>";
 	}
 	?>
 

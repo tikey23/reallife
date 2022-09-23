@@ -1,6 +1,9 @@
 <div class="classTable" id="adminEvent">
 
 <?php
+
+use \Rl\Models\Member;
+
 if (isset($_POST['modifyEvent'])) {
 				modifyEvent(
 					$_POST['newdate'],
@@ -26,7 +29,7 @@ if (isset($_POST['modifyEvent'])) {
 			} else {
 				$events =  showActualEvent();
 			}
-            $members = getMembers();
+            $members = findAll(Member::class);
 			$selectDate = selectdate(0);
 			if(isset($_SESSION['password'])){
 				echo $twig->render('admin/adminEventList.twig', [
