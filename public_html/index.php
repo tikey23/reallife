@@ -28,7 +28,7 @@ require_once('models/Member.php');
 </head>
 <body>
 
-<?=$twig->render('global/head.twig');?>
+<?=$twig->render('global/head.twig', ['additionalTitle' => $additionalTitle]);?>
 
 <div class="text-center p-2" id="main">
 	<?php
