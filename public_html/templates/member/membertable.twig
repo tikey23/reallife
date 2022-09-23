@@ -47,8 +47,8 @@
                 <td><input name='mobile' value='{{ member.mobile }}' size='15'></td>
 
                 <td><b>Aktiv</b><br>
-                <input type='radio' name='active' value='yes' checked='checked'> Ja<br>
-                <input type='radio' name='active' value='no'> Nein</td>
+                <input type='radio' name='active' value=1 checked='checked'> Ja<br>
+                <input type='radio' name='active' value=0> Nein</td>
 
                 <td><button name='modifyMember' value='{{ member.id }}' class='classButton'>aktualisieren</button></td>
                 <td></td>
@@ -58,7 +58,7 @@
      
         {% else %}
     
-        {% if member.active == "yes" %}
+        {% if member.active == 1 %}
             <tr>
         {% else %}
             <tr id="showMemberRow">
@@ -78,7 +78,7 @@
             {% endif %}
 
             {% if isAdmin %}
-                {% if member.active == 'yes' %}
+                {% if member.active == 1 %}
                     <td>Ja</td>
                 {% else %}
                     <td>Nein</td>

@@ -25,6 +25,7 @@ require_once('models/Member.php');
 	<title>Real Life Café</title>
 	<link rel="stylesheet" href="/css/format.css">
 	<link href="/css/output.css" rel="stylesheet">
+	<script type="text/javascript" src="js/NewMemberForm.js"></script>
 </head>
 <body>
 
@@ -37,7 +38,6 @@ require_once('models/Member.php');
 </div>
 
 <div class="foot mb-8">
-	<p>Version 0.03</p>
 	<?php
 	if (isset($_SESSION['password'])) {
 		echo "<p><a href='/index.php?page=admin'>Admin Bereich</a></p>";

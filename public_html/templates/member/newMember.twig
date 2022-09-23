@@ -1,0 +1,31 @@
+{% if isAdmin %}
+    <br>
+    <p><button id='idNewMemberButton' class='classSubmit'><b>Neues Mitglied</b></button></p>
+    <div id="idshowNewMemberForm">
+    <img src='img/close.png' id='closeNewMember'></img>
+    {% if isAdmin %}
+        <br>
+        <form action='/index.php?page=wersindwir' method='post'>
+        <h1 class='text-3xl font-bold text-center'>Neues Mitglied</h1>
+        <br>
+        <p>
+        Name: <input name='membername' required="required"><br>
+        E-Mail: <input type="email" name='e_mail' required="required"><br>
+        Phone (optional): <input type="tel" name='mobile'><br>
+
+        Funktion: <select name='memberfunction'>
+        <option value='Leiter'>Leiter</option>
+        <option value='Helfer'>Helfer</option>
+        </select><br><br>
+
+        <b><u>Little Akiba:</u></b><br>
+        Profil-URL: <input  name='little_akiba' size='40'><br>
+        Avatar-URL: <input  name='memberimg' size='40'><br><br>
+        Entrittsdatum: <input name='involved_since' value='{{ dateSample }}' size='10'><br><br>
+       
+        <p><center><b><input type='submit' name="newMember" value='Mitglied erstellen' class='classSubmit'></b></center></p>
+        </form>
+    {% endif %}
+    </div>
+{% endif %}
+
