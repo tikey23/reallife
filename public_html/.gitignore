@@ -1,9 +1,0 @@
-../.idea
-node_modules/*
-vendor/*
-config/config.php
-img/galerie/*/*.jpg
-img/galerie/*/*.jpeg
-img/galerie/*/*.png
-img/galerie/*/*.gif
-img/specialevents/*.*

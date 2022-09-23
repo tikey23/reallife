@@ -1,0 +1,9 @@
+.idea
+public_html/node_modules/*
+public_html/vendor/*
+public_html/config/config.php
+public_html/img/galerie/*/*.jpg
+public_html/img/galerie/*/*.jpeg
+public_html/img/galerie/*/*.png
+public_html/img/galerie/*/*.gif
+public_html/img/specialevents/*.*
