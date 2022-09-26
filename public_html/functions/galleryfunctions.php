@@ -61,21 +61,6 @@ function deletepics($id) {
     $link = "img/galerie/" . $categoryName . "/" . $picName;
     unlink($link);
 
-    
-/*
-    $res = $con->query("SELECT * FROM gallery ORDER BY folder");
-    echo "<table align='center'>";
-    echo "<tr style='border: 1px solid black'><td>Bild</td><td>Kategorie</td><td>Dateiname</td><td>Löschen?</td></tr>";
-    while($data = $res->fetch_assoc()) {
-        echo "<tr style='border: 1px solid black'>";
-        echo "<td><img src='img/galerie/" . $data['folder'] . "/" . $data['picname'] . "' style='width:100px'></img></td>
-        <td>" . $data['folder'] . "</td>
-        <td>" . $data['picname'] . "</td>
-        <td><button name='deletepic' value='" . $data['id'] . "' class='classButton' onclick=\"return confirm('Bist du sicher?');\">Löschen</button></td>";
-        echo "</tr>";
-    }
-    echo "</table>";
-    echo "</form>";*/
 }
 
 // TO DO
