@@ -23,7 +23,18 @@ function twig_date_format($value, $format) {
     return date_format(date_create($value), $format);
 }
 
+function includePage($page = "") {
+	global $ADMINPASSWORD, $twig;
 
+	if (isset($page)) {
+		include "pages/" . $page . ".php";
+
+		return;
+	}
+
+	include "pages/home.php";
+}
+/* OLD CODES
 function includePage($page = "") {
 	global $ADMINPASSWORD, $twig;
 	$pages = [
@@ -31,7 +42,7 @@ function includePage($page = "") {
 		"wersindwir" => "",
 		"regeln" => "",
 		"helferwerden" => "",
-		"ueberuns" => "",
+		"ueberuns" => "",		
 		"galeriebilder" => "",
 		"logoutconfirm" => "",
 		"shifttable" => "admin",
@@ -53,7 +64,7 @@ function includePage($page = "") {
 
 	include "home.php";
 }
-
+*/
 
 function findAll($objectType) {
 	global $con;
