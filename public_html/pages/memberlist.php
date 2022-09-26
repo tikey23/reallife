@@ -7,9 +7,7 @@
 	use \Rl\Models\Member;
 
 	if(isset($_POST['newMember'])) {
-		echo "NEWMEMBER isset<br>";
 		$member = new Member();
-		// TODO: create form and set $_POST data
 		$member->membername = $_POST['membername'];
 		$member->memberimg = $_POST['memberimg'];
 		$member->memberfunction = $_POST['memberfunction'];

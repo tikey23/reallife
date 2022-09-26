@@ -71,12 +71,13 @@ function findAll($objectType) {
 
 	$o = new $objectType();
 	$table = $o->getTable();
+	$orderBy = $o->getOrder();
 	if(empty($table)) {
 		throw new Exception("Property table not set in model");
 	}
 
 	$collection = [];
-	$rows = $con->query("SELECT * FROM {$table}")->fetch_all(MYSQLI_ASSOC);
+	$rows = $con->query("SELECT * FROM {$table} ORDER BY $orderBy")->fetch_all(MYSQLI_ASSOC);
 	foreach($rows AS $row) {
 		$object = new $objectType();
 		foreach($row AS $key => $value) {
