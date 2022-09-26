@@ -5,6 +5,7 @@ namespace Rl\Models;
 class Model {
 	public $id = 0;
 	protected $table = "";
+	protected $orderBy = "";
 
 	public function save() {
 		global $con;
@@ -48,5 +49,9 @@ class Model {
 
 	public function getTable() {
 		return $this->table;
+	}
+
+	public function getOrder() {
+		return $this->orderBy;
 	}
 }

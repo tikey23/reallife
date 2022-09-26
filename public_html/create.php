@@ -72,7 +72,7 @@
         little_akiba VARCHAR(255) NOT NULL,
         e_mail VARCHAR(255) NOT NULL,
         mobile VARCHAR(255) NOT NULL,
-        active VARCHAR(10) NOT NULL,
+        active INT(1) NOT NULL,
         PRIMARY KEY(id))
         ENGINE=InnoDB DEFAULT CHARSET=UTF8";
     
@@ -140,7 +140,7 @@
             'https://www.littleakiba.ch/portal/profile/201',
             'sample@reallifecafe.ch',
             '078 / 000 00 00',
-            'yes'),
+            1),
 
             ('https://www.littleakiba.ch/assets/avatars/SzVdpCcKEx5JSQci.png',
             'Swissfrankie',
@@ -149,7 +149,7 @@
             'https://www.littleakiba.ch/portal/profile/Swissfrankie',
             'sample@reallifecafe.ch',
             '078 / 000 00 00',
-            'yes'),
+            1),
 
             ('https://www.littleakiba.ch/assets/avatars/6322f7890c0c2.png',
             'Evecat',
@@ -158,7 +158,7 @@
             'https://www.littleakiba.ch/portal/profile/Evecat',
             'sample@reallifecafe.ch',
             '078 / 000 00 00',
-            'yes')
+            1)
             ";
 
      $con->query($sql);

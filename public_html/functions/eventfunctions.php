@@ -6,13 +6,13 @@ function showActualEvent() {
 	return $res->fetch_all(true);
 }
 
-
+/*
 function getEvents() {
 	global $con;
 	$res = $con->query("SELECT * FROM event ORDER BY eventdate");
 	return $res->fetch_all(MYSQLI_ASSOC);
 }
-
+/*
 function modifyEvent($newdate, $newleader1, $newleader2, $newhelper1, $newhelper2, $newhelper3, $newhelper4, $id) {
 	global $con;
 	$con->query("UPDATE event SET 
@@ -24,7 +24,7 @@ function modifyEvent($newdate, $newleader1, $newleader2, $newhelper1, $newhelper
 	helper3 = '$newhelper3',
 	helper4 = '$newhelper4'
 	 WHERE id='$id'");
-}
+} 
 
 function deleteEvent($id) {
 	global $con;
@@ -35,6 +35,6 @@ function createEvent($day, $month, $year) {
 	global $con;
 	$neweventdate = $year . "-" . $month . "-" . $day;
 	$con->query("INSERT INTO event (eventdate) VALUES ('$neweventdate')");
-}
+}*/
 
 ?>

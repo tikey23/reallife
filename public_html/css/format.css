@@ -125,6 +125,11 @@ body {
     display: block;
 }
 
+#showMemberRow {
+    font-style: italic;
+    opacity: 0.4;
+}
+
 
 .classSubmit {
     padding: 2px;
@@ -158,4 +163,9 @@ background-color: #c4b5fd;
     border: 1px solid black;
     padding: 0.5em; 
     text-align: center;    
+}
+
+#idshowNewMemberForm{
+    transform: translate(-3000px, 0);
+    transition: transform 2s;
 }

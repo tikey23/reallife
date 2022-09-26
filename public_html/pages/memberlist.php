@@ -8,15 +8,14 @@
 
 	if(isset($_POST['newMember'])) {
 		$member = new Member();
-		// TODO: create form and set $_POST data
-		$member->membername = "bla2";
-		$member->memberimg = "bla";
-		$member->memberfunction = "bla";
-		$member->little_akiba = "bla";
-		$member->e_mail = "bla";
-		$member->mobile = "bla";
-		$member->involved_since = "2022-01-01";
-		$member->active = TRUE;
+		$member->membername = $_POST['membername'];
+		$member->memberimg = $_POST['memberimg'];
+		$member->memberfunction = $_POST['memberfunction'];
+		$member->little_akiba = $_POST['little_akiba'];
+		$member->e_mail = $_POST['e_mail'];
+		$member->mobile = $_POST['mobile'];
+		$member->involved_since = $_POST['involved_since'];
+		$member->active = 1;
 		$member->save();
 	} else if(isset($_POST['modifyMember'])){
 		$member = findOne(Member::class, $_POST['modifyMember']);
@@ -41,7 +40,12 @@
 		'members' => $members,
 		'modifyMemberPick' => @$_POST['modifyMemberPick']
 	]);
+	$dateSample = date("Y-m-d");
+
+	echo $twig->render('member/newMember.twig', ["isAdmin" => isset($_SESSION['password']), "dateSample" => $dateSample]);
+
 	echo $twig->render('member/recruitmember.twig');
+
 	?>
 
 </div>

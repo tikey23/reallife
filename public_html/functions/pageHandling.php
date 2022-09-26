@@ -23,7 +23,18 @@ function twig_date_format($value, $format) {
     return date_format(date_create($value), $format);
 }
 
+function includePage($page = "") {
+	global $ADMINPASSWORD, $twig;
 
+	if (isset($page)) {
+		include "pages/" . $page . ".php";
+
+		return;
+	}
+
+	include "pages/home.php";
+}
+/* OLD CODES
 function includePage($page = "") {
 	global $ADMINPASSWORD, $twig;
 	$pages = [
@@ -31,10 +42,10 @@ function includePage($page = "") {
 		"wersindwir" => "",
 		"regeln" => "",
 		"helferwerden" => "",
-		"ueberuns" => "",
+		"ueberuns" => "",		
 		"galeriebilder" => "",
 		"logoutconfirm" => "",
-		"member" => "member",
+		"shifttable" => "admin",
 		"admin" => "admin",
 		"adminEvents" => "admin",
 		"adminGallery" => "admin",
@@ -53,19 +64,20 @@ function includePage($page = "") {
 
 	include "home.php";
 }
-
+*/
 
 function findAll($objectType) {
 	global $con;
 
 	$o = new $objectType();
 	$table = $o->getTable();
+	$orderBy = $o->getOrder();
 	if(empty($table)) {
 		throw new Exception("Property table not set in model");
 	}
 
 	$collection = [];
-	$rows = $con->query("SELECT * FROM {$table}")->fetch_all(MYSQLI_ASSOC);
+	$rows = $con->query("SELECT * FROM {$table} ORDER BY $orderBy")->fetch_all(MYSQLI_ASSOC);
 	foreach($rows AS $row) {
 		$object = new $objectType();
 		foreach($row AS $key => $value) {
