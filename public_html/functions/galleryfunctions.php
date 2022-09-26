@@ -1,83 +1,68 @@
 <?php
 
-
+// TO DO
 function showGallery() {
     global $con;
     $sql ="SELECT * FROM gallerycategory";
     $res = $con->query($sql);
     echo "<form action='/index.php?page=galeriebilder' method='post'>";
         while($data = $res->fetch_assoc()) {
-            echo "<button name='folder' value='" . $data['folder'] . "'>";
+            echo "<button name='folder' value='" . $data['id'] . "'>";
             echo "<div class='text-xl' style='width: 220px; height: 300px; padding: 10px; margin: 10px; border-radius: 20px; background-color: #8b5cf6; border: 1px solid black'>";
-            echo "<img src='/img/galerie/". $data['folder'] . "/" . $data['categoryname'] . "' style='height: 200px; width: 100%; object-fit: cover; object-position: top center; border-radius: 10px;'></img><br>";
-            echo "<p>" . $data['folder'] . "</p></div></button>";
+            echo "<img src='/img/galerie/". $data['categoryName'] . "/" . $data['titlePic'] . "' style='height: 200px; width: 100%; object-fit: cover; object-position: top center; border-radius: 10px;'></img><br>";
+            echo "<p>" . $data['categoryName'] . "</p></div></button>";
         }
     echo "</form>";
 }
 
+// TO DO
 function showpics($folder) {
     global $con;
-  $res = $con->query("SELECT * FROM gallery WHERE folder = '$folder'");
+  $res = $con->query("SELECT * FROM gallery WHERE categoryId = '$folder'");
 
    
   while($data = $res->fetch_assoc()) {
-      echo "<a target='_blank' href='/img/galerie/" . $data['folder'] . "/" . $data['picname'] . "'>
-      <img src='/img/galerie/" . $data['folder'] . "/" . $data['picname'] . "'></img></a>";
+      echo "<a target='_blank' href='/img/galerie/" . $data['categoryName'] . "/" . $data['picName'] . "'>
+      <img src='/img/galerie/" . $data['categoryName'] . "/" . $data['picName'] . "'></img></a>";
   }
 }
+// DONE
+function deletecategory($id) {
 
-function deletecategory() {
-    echo "<form action='/index.php?page=adminGallery' method='post'>";
+    // get categoryName
     global $con;
+    $res = $con->query("SELECT * FROM gallerycategory WHERE id = '$id'");
+    $data = $res->fetch_assoc();
+    $folderName = $data['categoryName'];
+   
+    // delete folder on server
+    $link = "img/galerie/" . $folderName . "/";
+    $files = scandir($link);
 
-    echo "<br>";
-    echo "<h2 class='text-2xl font-bold underline'>Kategorien</h2>";
-
-    if(isset($_POST['deletecategory'])) {
-        $deletecategory = $_POST['deletecategory'];
-        $link = "img/galerie/" . $deletecategory . "/";
-        $files = scandir($link);
-
-        for ($i=2; $i<count($files); $i++) {
-            unlink($link . $files[$i]);
-        }
-        rmdir($link);
-        $con->query("DELETE FROM gallerycategory WHERE folder = '$deletecategory'");
-        $con->query("DELETE FROM gallery WHERE folder = '$deletecategory'");
-        
+    for ($i=2; $i<count($files); $i++) {
+        unlink($link . $files[$i]);
     }
+    rmdir($link);
 
-    $res = $con->query("SELECT * FROM gallerycategory");
-    echo "<select name='deletecategory'>";
-        while($data = $res->fetch_assoc()) {
-            echo "<option value='" . $data['folder'] . "'>" . $data['folder'] . "</option>";
-        }
-    echo "</select>";
-    echo "<input type='submit' value='Löschen' class='classSubmit' onclick=\"return confirm('Bist du sicher?');\">";
-    echo "<br>";
-    echo "</form>";
+    // delete all pics from table
+    $con->query("DELETE FROM gallery WHERE categoryId = '$id'");
+
 }
 
-function deletepics() {
-    echo "<form action='/index.php?page=adminGallery' method='post'>";
+// DONE
+function deletepics($id) {
     global $con;
 
-    echo "<br>";
-    echo "<h2 class='text-2xl font-bold underline'>Bilder</h2>";
+    // get link to pic to delete it
+    $res = $con->query("SELECT * FROM gallery WHERE id = '$id'");
+    $data = $res->fetch_assoc();
+    $categoryName = $data['categoryName'];
+    $picName = $data['picName'];
+    $link = "img/galerie/" . $categoryName . "/" . $picName;
+    unlink($link);
 
-    if(isset($_POST['deletepic'])) {
-        $id = $_POST['deletepic'];
-        $res = $con->query("SELECT * FROM gallery WHERE id = '$id'");
-        $data = $res->fetch_assoc();
-        $folder = $data['folder'];
-        $picname = $data['picname'];
-        $link = "img/galerie/" . $folder . "/" . $picname;
-
-        $con->query("DELETE FROM gallery WHERE id = '$id'");
-        unlink($link);
-
-    }
-
+    
+/*
     $res = $con->query("SELECT * FROM gallery ORDER BY folder");
     echo "<table align='center'>";
     echo "<tr style='border: 1px solid black'><td>Bild</td><td>Kategorie</td><td>Dateiname</td><td>Löschen?</td></tr>";
@@ -90,9 +75,10 @@ function deletepics() {
         echo "</tr>";
     }
     echo "</table>";
-    echo "</form>";
+    echo "</form>";*/
 }
 
+// TO DO
 function uploadpic($folder) {  
     global $con;
     if(isset($_POST['picupload'])) {  
@@ -134,6 +120,7 @@ function uploadpic($folder) {
     }
 }
 
+// TO DO
 function newcategory($folder) {
     global $con;
 

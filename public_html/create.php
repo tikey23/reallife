@@ -5,11 +5,14 @@
     require_once('config/config.php');
     $con = new mysqli($DB['hostname'], $DB['username'], $DB['password']);
 
+    $sql = "DROP DATABASE reallife";
+    $con ->query($sql);
+
     $sql = "CREATE DATABASE IF NOT EXISTS reallife";
     $con ->query($sql);
     $con->select_db($DB['database']);
 
-    $sql = "DROP TABLE event";
+    //$sql = "DROP TABLE event";
     $con ->query($sql);
 
     $sql = "CREATE TABLE IF NOT EXISTS event (
@@ -25,27 +28,30 @@
         )ENGINE=InnoDB, DEFAULT CHARSET=UTF8";
     $con ->query($sql);
 
-    $sql = "DROP TABLE gallery";
+    //$sql = "DROP TABLE gallery";
     $con ->query($sql);
 
     $sql = "CREATE TABLE IF NOT EXISTS gallery (
         id INT(100) NOT NULL AUTO_INCREMENT, 
-        folder VARCHAR(255) NOT NULL,
-        picname VARCHAR(255) NOT NULL,
+        categoryName VARCHAR(255) NOT NULL,
+        picName VARCHAR(255) NOT NULL,
+        categoryId INT(100) NOT NULL,
         PRIMARY KEY (id)
         )ENGINE=InnoDB, DEFAULT CHARSET=UTF8";
     $con ->query($sql);
 
-    $sql = "DROP TABLE gallerycategory";
+    //$sql = "DROP TABLE gallerycategory";
     $con ->query($sql);
 
     $sql = "CREATE TABLE IF NOT EXISTS gallerycategory (
-        folder VARCHAR(255) NOT NULL,
-        categoryname VARCHAR(255) NOT NULL
+        id INT(100) NOT NULL AUTO_INCREMENT,
+        categoryName VARCHAR(255) NOT NULL,
+        titlePic VARCHAR(255) NOT NULL,
+        PRIMARY KEY (id)
         )ENGINE=InnoDB, DEFAULT CHARSET=UTF8";
     $con ->query($sql);
 
-    $sql = "DROP TABLE specialevents";
+    //$sql = "DROP TABLE specialevents";
     $con ->query($sql);
 
     $sql = "CREATE TABLE IF NOT EXISTS specialevents (
@@ -60,7 +66,7 @@
     $con->query($sql);
 
 
-    $sql = "DROP TABLE members";
+    //$sql = "DROP TABLE members";
     $con ->query($sql);
 
     $sql ="CREATE TABLE IF NOT EXISTS members (
@@ -88,29 +94,29 @@
     $con ->query($sql);
 
     // Create Gallery Category
-    $sql = "INSERT INTO gallerycategory (folder, categoryname) values 
+    $sql = "INSERT INTO gallerycategory (categoryName, titlePic) values 
     ('Unterwasser Abend', '3.jpg'),
     ('Cosplay Abend', 'img-1868.jpg')
     ";
     $con ->query($sql);
 
     // Greate Gallery
-    $sql = "INSERT INTO gallery (folder, picname) values 
-    ('Unterwasser Abend', '1.jpg'),
-    ('Unterwasser Abend', '2.jpg'),
-    ('Unterwasser Abend', '3.jpg'),
-    ('Unterwasser Abend', '4.jpg'),
-    ('Unterwasser Abend', '5.jpg'),
-    ('Cosplay Abend', 'img-1868.jpg'),
-    ('Cosplay Abend', 'img-1869.jpg'),
-    ('Cosplay Abend', 'img-1871.jpg'),
-    ('Cosplay Abend', 'img-1872.jpg'),
-    ('Cosplay Abend', 'img-1873.jpg'),
-    ('Cosplay Abend', 'img-1876.jpg'),
-    ('Cosplay Abend', 'img-1878.jpg'),
-    ('Cosplay Abend', 'img-1879.jpg'),
-    ('Cosplay Abend', 'img-1882.jpg'),
-    ('Cosplay Abend', 'img-1885.jpg')
+    $sql = "INSERT INTO gallery (categoryName, picName, categoryId) values 
+    ('Unterwasser Abend', '1.jpg', 1),
+    ('Unterwasser Abend', '2.jpg', 1),
+    ('Unterwasser Abend', '3.jpg', 1),
+    ('Unterwasser Abend', '4.jpg', 1),
+    ('Unterwasser Abend', '5.jpg', 1),
+    ('Cosplay Abend', 'img-1868.jpg', 2),
+    ('Cosplay Abend', 'img-1869.jpg', 2),
+    ('Cosplay Abend', 'img-1871.jpg', 2),
+    ('Cosplay Abend', 'img-1872.jpg', 2),
+    ('Cosplay Abend', 'img-1873.jpg', 2),
+    ('Cosplay Abend', 'img-1876.jpg', 2),
+    ('Cosplay Abend', 'img-1878.jpg', 2),
+    ('Cosplay Abend', 'img-1879.jpg', 2),
+    ('Cosplay Abend', 'img-1882.jpg', 2),
+    ('Cosplay Abend', 'img-1885.jpg', 2)
     ";
     $con ->query($sql);
 

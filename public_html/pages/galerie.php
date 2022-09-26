@@ -7,7 +7,7 @@
 
 		if (isset($_SESSION['password'])) {
 			echo $twig->render('gallery/addGalleryCategoryIcon.twig');
-			echo $twig->render("gallery/adminGallery.twig");
+			echo $twig->render("gallery/adminGalleryIcon.twig");
 		}
     ?>
 
