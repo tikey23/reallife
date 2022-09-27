@@ -32,7 +32,7 @@
         $gallerycategorys = findOne(Gallerycategory::class, $gallerycategoryId);
         $pictures = findAllByColumn(Picture::class, "categoryId", $gallerycategoryId);
         echo $twig->render('gallery/showPics.twig',[
-            "isAdmin" => $_SESSION['password'],
+            "isAdmin" => isset($_SESSION['password']),
             "gallerycategorys" => $gallerycategorys,
             "pictures" => $pictures
         ]);
