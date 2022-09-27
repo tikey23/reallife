@@ -34,39 +34,8 @@ function includePage($page = "") {
 
 	include "pages/home.php";
 }
-/* OLD CODES
-function includePage($page = "") {
-	global $ADMINPASSWORD, $twig;
-	$pages = [
-		"galerie" => "",
-		"wersindwir" => "",
-		"regeln" => "",
-		"helferwerden" => "",
-		"ueberuns" => "",		
-		"galeriebilder" => "",
-		"logoutconfirm" => "",
-		"shifttable" => "admin",
-		"admin" => "admin",
-		"adminEvents" => "admin",
-		"adminGallery" => "admin",
-		"adminSpecialEvents" => "admin"
-	];
 
-	if (isset($pages[$page])) {
-		if (!empty($pages[$page])) {
-			include $pages[$page] . "/" . $page . ".php";
-		} else {
-			include $page . ".php";
-		}
-
-		return;
-	}
-
-	include "home.php";
-}
-*/
-
-function findAll($objectType) {
+function findAll($objectType, $column = "", $id=0) {
 	global $con;
 
 	$o = new $objectType();
@@ -77,7 +46,13 @@ function findAll($objectType) {
 	}
 
 	$collection = [];
-	$rows = $con->query("SELECT * FROM {$table} ORDER BY $orderBy")->fetch_all(MYSQLI_ASSOC);
+
+	if($column == ""){
+		$rows = $con->query("SELECT * FROM {$table} ORDER BY $orderBy")->fetch_all(MYSQLI_ASSOC);
+	} else {
+		$rows = $con->query("SELECT * FROM {$table} WHERE $column = $id")->fetch_all(MYSQLI_ASSOC);
+	}
+
 	foreach($rows AS $row) {
 		$object = new $objectType();
 		foreach($row AS $key => $value) {
@@ -113,25 +88,8 @@ function findOne($objectType, $id) {
 	return $object;
 }
 
-function findGroup($objectType, $column, $id) {
-	global $con;
+function findAllByColumn($objectType, $column, $id) {
 
-	$o = new $objectType();
-	$table = $o->getTable();
-	if(empty($table)) {
-		throw new Exception("Property table not set in model");
-	}
+	return findAll($objectType, $column, $id);
 
-	$collection = [];
-	$rows = $con->query("SELECT * FROM {$table} WHERE $column = $id")->fetch_all(MYSQLI_ASSOC);
-	foreach($rows AS $row) {
-		$object = new $objectType();
-		foreach($row AS $key => $value) {
-			$object->$key = $value;
-		}
-
-		$collection[] = $object;
-	}
-
-	return $collection;
 }

@@ -2,7 +2,7 @@
     <?php
         require_once('functions/galleryfunctions.php');
 
-        use \Rl\Models\Pictures;
+        use \Rl\Models\Picture;
         use \Rl\Models\Gallerycategory;
 
         //Create New Category
@@ -31,7 +31,7 @@
 
         // Show pics
         $gallerycategorys = findOne(Gallerycategory::class, $gallerycategoryId);
-        $pictures = findGroup(Pictures::class, "categoryId", $gallerycategoryId);
+        $pictures = findAllByColumn(Picture::class, "categoryId", $gallerycategoryId);
         echo $twig->render('gallery/showPics.twig',[
             "isAdmin" => $_SESSION['password'],
             "gallerycategorys" => $gallerycategorys,

@@ -2,7 +2,7 @@
 <?php
 require_once('functions/galleryfunctions.php');
 
-use \Rl\Models\Pictures;
+use \Rl\Models\Picture;
 use \Rl\Models\Gallerycategory;
 
 // Delete Category
@@ -18,13 +18,13 @@ if(isset($_POST['deletecategory'])) {
 if(isset($_POST['deletepic'])) {
     deletepics($_POST['deletepic']);
 
-    $picture = findOne(Pictures::class, $_POST['deletepic']);
+    $picture = findOne(Picture::class, $_POST['deletepic']);
     $picture->delete();
 }
 
 // Show all categorys and pics
 $gallerycategorys = findAll(Gallerycategory::class);
-$pictures = findAll(Pictures::class);
+$pictures = findAll(Picture::class);
 
 echo $twig->render('gallery/admingallery.twig', [
     "gallerycategorys" => $gallerycategorys,

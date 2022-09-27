@@ -1,9 +1,16 @@
-<div class="galerie">
+<div class="gallery">
 
-    <?php
+<?php
+
+use \Rl\Models\Picture;
+use \Rl\Models\Gallerycategory;
+
         require_once('functions/galleryfunctions.php');
 
-        showGallery();
+        $gallerycategories = findAll(Gallerycategory::class);
+        echo $twig->render('gallery/showGallery.twig',[
+            "gallerycategories" => $gallerycategories
+        ]);
 
 		if (isset($_SESSION['password'])) {
 			echo $twig->render('gallery/addGalleryCategoryIcon.twig');

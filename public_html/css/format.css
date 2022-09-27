@@ -96,11 +96,11 @@ body {
     font-size: 0.8em;
 }
 
-.galerie {
+.gallery {
     display: inline;
 }
 
-.galerie div:hover {
+.gallery div:hover {
     transform: scale(1.1);
     background-color: #ddd6fe;
 }
