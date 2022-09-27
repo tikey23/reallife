@@ -1,4 +1,4 @@
-<div class="galeriebilder">
+<div class="pictures">
     <?php
         require_once('functions/galleryfunctions.php');
 
@@ -9,7 +9,6 @@
         if(isset($_POST['newCategory'])) {
 
             global $con;
-            //$_SESSION['categoryTitle'] = $con->real_escape_string($_POST['newCategory']);
             $categoryTitle = $con->real_escape_string($_POST['newCategory']);
             $gallerycategoryId = newCategory($categoryTitle); 
 

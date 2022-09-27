@@ -8,14 +8,13 @@ function deletecategory($id) {
     $gallerycategory = findOne(Gallerycategory::class, $id);
     $folderName = $gallerycategory->categoryName;
 
-    $link = "img/galerie/" . $folderName . "/";
+    $link = "img/gallery/" . $folderName . "/";
     $files = scandir($link);
 
     for ($i=2; $i<count($files); $i++) {
         unlink($link . $files[$i]);
     }
-
-    echo $link . "<br>";
+    
     rmdir($link);
 
     // delete all pics from table
@@ -30,14 +29,14 @@ function deletepics($id) {
     $categoryName = $picture->categoryName;
     $picName = $picture->picName;
 
-    $link = "img/galerie/" . $categoryName . "/" . $picName;
+    $link = "img/gallery/" . $categoryName . "/" . $picName;
     unlink($link);
 }
 
 
 function uploadpic($categoryName, $categoryId, $uploadedFile, $tempFile) {  
      
-        $target_dir = "img/galerie/" . $categoryName . "/";
+        $target_dir = "img/gallery/" . $categoryName . "/";
         $uploadfile = $target_dir . basename($uploadedFile);
         $type = strtolower(pathinfo($uploadfile,PATHINFO_EXTENSION));
         $uploadok = 0;
@@ -83,11 +82,11 @@ function newCategory($categoryTitle) {
     global $con;
         if(!preg_match("/^[a-z0-9äöü]+$/i", $categoryTitle)) {
             echo "<p>Fehler! Bitte keine Sonderzeichen benutzen.</p>";
-            echo "<p><a href='/index.php?page=galerie'>Zurück</a></p>";
+            echo "<p><a href='/index.php?page=gallery'>Zurück</a></p>";
             die;
         }
 
-        if(file_exists("img/galerie/" . $categoryTitle)) {
+        if(file_exists("img/gallery/" . $categoryTitle)) {
             echo "<p>Kategorie existiert bereits</p>";
         } else {
 
@@ -96,7 +95,7 @@ function newCategory($categoryTitle) {
             $newCategory->titlePic = "";
             $newCategory->save();
 
-            mkdir("img/galerie/" . $categoryTitle . "/", 0777);
+            mkdir("img/gallery/" . $categoryTitle . "/", 0777);
 
             return $newCategory->id;
         }  

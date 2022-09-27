@@ -31,7 +31,7 @@
     //$sql = "DROP TABLE gallery";
     $con ->query($sql);
 
-    $sql = "CREATE TABLE IF NOT EXISTS gallery (
+    $sql = "CREATE TABLE IF NOT EXISTS pictures (
         id INT(100) NOT NULL AUTO_INCREMENT, 
         categoryName VARCHAR(255) NOT NULL,
         picName VARCHAR(255) NOT NULL,
@@ -101,7 +101,7 @@
     $con ->query($sql);
 
     // Greate Gallery
-    $sql = "INSERT INTO gallery (categoryName, picName, categoryId) values 
+    $sql = "INSERT INTO pictures (categoryName, picName, categoryId) values 
     ('Unterwasser Abend', '1.jpg', 1),
     ('Unterwasser Abend', '2.jpg', 1),
     ('Unterwasser Abend', '3.jpg', 1),
