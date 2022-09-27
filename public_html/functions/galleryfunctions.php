@@ -1,4 +1,6 @@
 <?php
+use \Rl\Models\Pictures;
+use \Rl\Models\Gallerycategory;
 
 // TO DO
 function showGallery() {
@@ -7,7 +9,7 @@ function showGallery() {
     $res = $con->query($sql);
     echo "<form action='/index.php?page=galeriebilder' method='post'>";
         while($data = $res->fetch_assoc()) {
-            echo "<button name='folder' value='" . $data['id'] . "'>";
+            echo "<button name='gallerycategoryId' value='" . $data['id'] . "'>";
             echo "<div class='text-xl' style='width: 220px; height: 300px; padding: 10px; margin: 10px; border-radius: 20px; background-color: #8b5cf6; border: 1px solid black'>";
             echo "<img src='/img/galerie/". $data['categoryName'] . "/" . $data['titlePic'] . "' style='height: 200px; width: 100%; object-fit: cover; object-position: top center; border-radius: 10px;'></img><br>";
             echo "<p>" . $data['categoryName'] . "</p></div></button>";
@@ -16,7 +18,7 @@ function showGallery() {
 }
 
 // TO DO
-function showpics($folder) {
+/*function showpics($folder) {
     global $con;
   $res = $con->query("SELECT * FROM gallery WHERE categoryId = '$folder'");
 
@@ -25,8 +27,8 @@ function showpics($folder) {
       echo "<a target='_blank' href='/img/galerie/" . $data['categoryName'] . "/" . $data['picName'] . "'>
       <img src='/img/galerie/" . $data['categoryName'] . "/" . $data['picName'] . "'></img></a>";
   }
-}
-// DONE
+}*/
+// TO DO
 function deletecategory($id) {
 
     // get categoryName
@@ -49,7 +51,7 @@ function deletecategory($id) {
 
 }
 
-// DONE
+// TO DO
 function deletepics($id) {
     global $con;
 
@@ -63,6 +65,54 @@ function deletepics($id) {
 
 }
 
+// DONE
+function uploadpic($categoryName, $categoryId, $uploadedFile, $tempFile) {  
+     
+        $target_dir = "img/galerie/" . $categoryName . "/";
+        $uploadfile = $target_dir . basename($uploadedFile);
+        $type = strtolower(pathinfo($uploadfile,PATHINFO_EXTENSION));
+        $uploadok = 0;
+
+        if (file_exists($uploadfile)) {
+            echo "<br><p class='font-bold'>Fehler! Bild existiert bereits im Dateiordner!</p>";
+            $uploadok++;
+        }
+
+        if ($type != "jpg"
+        && $type != "jpeg"
+        && $type != "png"
+        && $type != "gif") {
+            echo "<br><p class='font-bold'>Fehler! Nur \"JPG\",  \"JPEG\", \"PNG\" und \"GIF\" Dateien erlaubt</p>";
+            $uploadok++;
+        }
+
+        
+        if ($uploadok == 0) {
+        move_uploaded_file($tempFile, $uploadfile);
+        $picName = basename($uploadedFile);
+        
+        $newPic = new Pictures;
+        $newPic->categoryName = $categoryName;
+        $newPic->picName = $picName;
+        $newPic->categoryId = $categoryId;
+        $newPic->save();
+
+        }
+
+        $gallerycategory = findOne(Gallerycategory::class, $categoryId);
+        $titlePic = $gallerycategory->titlePic;
+
+        if ($titlePic == "") {
+            echo $titlePic . "<br>";
+            $gallerycategory->titlePic = $picName;
+            $gallerycategory->save();
+        }
+
+
+    
+}
+
+/*
 // TO DO
 function uploadpic($folder) {  
     global $con;
@@ -105,10 +155,36 @@ function uploadpic($folder) {
     }
 }
 
-// TO DO
+*/
+
+// DONE
+function newCategory($categoryTitle) {
+    global $con;
+        if(!preg_match("/^[a-z0-9äöü]+$/i", $categoryTitle)) {
+            echo "<p>Fehler! Bitte keine Sonderzeichen benutzen.</p>";
+            echo "<p><a href='/index.php?page=galerie'>Zurück</a></p>";
+            die;
+        }
+
+        if(file_exists("img/galerie/" . $categoryTitle)) {
+            echo "<p>Kategorie existiert bereits</p>";
+        } else {
+
+            $newCategory = new Gallerycategory;
+            $newCategory->categoryName = $categoryTitle;
+            $newCategory->titlePic = "";
+            $newCategory->save();
+
+            mkdir("img/galerie/" . $categoryTitle . "/", 0777);
+
+            return $newCategory->id;
+        }  
+}
+
+/*
 function newcategory($folder) {
     global $con;
-
+    echo "NEWCATEGORY<br>";
     if($folder == "neu") {
         $_SESSION['folder'] = $con->real_escape_string($_POST['categoryname']);
         $folder = $_SESSION['folder'];
@@ -127,5 +203,5 @@ function newcategory($folder) {
         }
 
     }
-}
+}*/
 ?>

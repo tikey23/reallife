@@ -1,0 +1,18 @@
+<h1 class='text-3xl font-bold underline'>{{ gallerycategorys.categoryName }}</h1>
+
+{% if isAdmin %}
+
+    <form action='/index.php?page=galeriebilder' method='post' enctype='multipart/form-data'>
+        <input type='file' name='fileToUpload' id='fileToUpload'>
+        <br>
+        <button name='picUpload' value={{ gallerycategorys.id }} class='classButton'>Hochladen</button>
+    </form>
+
+{% endif %}
+
+{% for picture in pictures %}
+
+    <a target='_blank' href='/img/galerie/{{ picture.categoryName }}/{{ picture.picName }}'>
+    <img src='/img/galerie/{{ picture.categoryName }}/{{ picture.picName }}'></img></a>
+
+{% endfor %}

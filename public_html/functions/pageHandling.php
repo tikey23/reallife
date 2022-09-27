@@ -112,3 +112,26 @@ function findOne($objectType, $id) {
 	}
 	return $object;
 }
+
+function findGroup($objectType, $column, $id) {
+	global $con;
+
+	$o = new $objectType();
+	$table = $o->getTable();
+	if(empty($table)) {
+		throw new Exception("Property table not set in model");
+	}
+
+	$collection = [];
+	$rows = $con->query("SELECT * FROM {$table} WHERE $column = $id")->fetch_all(MYSQLI_ASSOC);
+	foreach($rows AS $row) {
+		$object = new $objectType();
+		foreach($row AS $key => $value) {
+			$object->$key = $value;
+		}
+
+		$collection[] = $object;
+	}
+
+	return $collection;
+}

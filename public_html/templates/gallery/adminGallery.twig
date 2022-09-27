@@ -17,12 +17,12 @@
 <h2 class='text-2xl font-bold underline'>Bilder</h2>
 <table align='center' class="classTable">
 <tr style='border: 1px solid black'><td>Bild</td><td>Kategorie</td><td>Dateiname</td><td>Löschen?</td></tr>
-{% for gallery in gallerys %}
+{% for picture in pictures %}
     <tr style='border: 1px solid black'>
-    <td><img src='img/galerie/{{ gallery.categoryName }}/{{ gallery.picName }}' style='width:100px'></img></td>
-    <td>{{ gallery.categoryName }}</td>
-    <td>{{ gallery.picName }}</td>
-    <td><button name='deletepic' value={{ gallery.id }} class='classButton'>Löschen</button></td>
+    <td><img src='img/galerie/{{ picture.categoryName }}/{{ picture.picName }}' style='width:100px'></img></td>
+    <td>{{ picture.categoryName }}</td>
+    <td>{{ picture.picName }}</td>
+    <td><button name='deletepic' value={{ picture.id }} class='classButton'>Löschen</button></td>
     </tr>
 {% endfor %}
 </table>

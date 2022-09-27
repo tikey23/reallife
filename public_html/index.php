@@ -2,7 +2,7 @@
 
 /*use Rl\Models\Member\Event;
 use Rl\Models\Member\Member;
-use Rl\Models\Member\Gallery;
+use \Rl\Models\Pictures;
 use Rl\Models\Member\Gallerycategory;*/
 
 
@@ -17,7 +17,7 @@ require_once('functions/specialeventsfunctions.php');
 require_once('models/Model.php');
 require_once('models/Event.php');
 require_once('models/Member.php');
-require_once('models/Gallery.php');
+require_once('models/Pictures.php');
 require_once('models/Gallerycategory.php');
 
 [$con, $twig] = bootstrap();
