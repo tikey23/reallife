@@ -1,0 +1,46 @@
+
+	<form action='/index.php?page=adminSpecialEvents' method='post' enctype='multipart/form-data'>
+
+	<h2 class='text-2xl font-bold underline'>Spezial Abende:</h2>
+	<br>
+
+{% for specialEvent in specialEvents %}
+
+		{% if modifySpecialEvent == specialEvent.id %}
+
+			<table align='center'>
+			<tr><td>Titel:</td><td><input name='specialeventtitle' value='{{ specialEvent.specialeventtitle }}'></td></tr>
+			<tr><td>Datum:</td><td><input name='specialeventdate' value='{{ specialEvent.specialeventdate }}'></td></tr>
+			<tr><td>Publik Datum:</td><td><input name='publicdate' value='{{ specialEvent.publicdate }}'></td></tr>
+			
+			{% if specialEvent.flyer == NULL %}
+				<tr><td>Flyer:</td><td><input type='file' name='flyer'></td></tr>
+			{% else %}
+				<tr><td>Flyer:</td><td><img src='img/specialevents/{{ specialEvent.flyer }}' width='310'><input type='file' name='flyer'></img></td></tr>
+			{% endif %}
+			
+			<tr><td>Text:</td><td><input name='descripttext' rows='4' cols='50' value='{{ specialEvent.descripttext }}'></td></tr>
+			</table>
+			<p><button name='modifySpecialEventconfirm' value='{{ specialEvent.id }}' class='classButton'>aktualisieren</button></p>
+
+		{% else %}
+
+			<table align='center'>
+			<tr><td>Titel:</td><td>{{ specialEvent.specialeventtitle }}</td></tr>
+			<tr><td>Datum:</td><td>{{ specialEvent.specialeventdate|date("d. F Y") }}</td></tr>
+			<tr><td>Publik Datum:</td><td>{{ specialEvent.publicdate|date("d. F Y") }}</td></tr>
+			
+			{% if specialEvent.flyer == NULL %}
+				<tr><td>Flyer:</td><td></td></tr>
+			{% else %}
+				<tr><td>Flyer:</td><td><img src='img/specialevents/{{ specialEvent.flyer }}' width='310'></img></td></tr>
+			{% endif %}
+			
+			<tr><td>Text:</td><td>{{ specialEvent.descripttext }}</td></tr>
+			</table>
+			<p><button name='modifySpecialEvent' value='{{ specialEvent.id }}' class='classButton'>ändern</button>
+			<button name='deleteSpecialEvent' value='{{ specialEvent.id }}' class='classButton' onclick=\"return confirm('Bist du sicher?');\">löschen</button></p>
+		{% endif %}
+		<br>
+{% endfor %}
+	</form>		

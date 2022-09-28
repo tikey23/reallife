@@ -2,6 +2,8 @@
 <?php
     require_once("functions/specialeventsfunctions.php");
 
+    use \Rl\Models\SpecialEvent;
+
     if(isset($_POST['createSpecialEvent'])) {
         $specialeventdate = $_POST['year0'] . "-" . $_POST['month0'] . "-" . $_POST['day0'];
         $publicdate = $_POST['year1'] . "-" . $_POST['month1'] . "-" . $_POST['day1'];
@@ -20,12 +22,29 @@
         deleteSpecialEvent($_POST['deleteSpecialEvent']);
     }
 
+
+    // showSpecialEventsAdmin();
     if(isset($_SESSION['password'])){
-    showSpecialEventsAdmin();
-	$selectDate[0] = selectdate(0);
-	$selectDate[1] = selectdate(1);
-	echo $twig->render('admin/specialevents.twig', ["selectDate" => $selectDate]);
-    echo $twig->render('backToAdmin.twig');
+
+        $specialEvents = findAll(SpecialEvent::class);
+        
+        if(isset($_POST['modifySpecialEvent'])){
+            $modifySpecialEvent = $_POST['modifySpecialEvent'];
+        } else {
+            $modifySpecialEvent = 0;
+        }
+
+        $specialEvents = findAll(SpecialEvent::class);
+        
+        echo $twig->render('admin/showSpecialEventsAdmin.twig', [
+            "specialEvents" => $specialEvents,
+            "modifySpecialEvent" => $modifySpecialEvent
+        ]);
+
+        $selectDate[0] = selectdate(0);
+        $selectDate[1] = selectdate(1);
+        echo $twig->render('admin/specialevents.twig', ["selectDate" => $selectDate]);
+        echo $twig->render('backToAdmin.twig');
     } else {
         echo $twig->render('admin/loginfailed.twig');
     }

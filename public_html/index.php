@@ -16,6 +16,7 @@ require_once('functions/eventfunctions.php');
 require_once('functions/specialeventsfunctions.php');
 require_once('models/Model.php');
 require_once('models/Event.php');
+require_once('models/SpecialEvent.php');
 require_once('models/Member.php');
 require_once('models/Picture.php');
 require_once('models/Gallerycategory.php');

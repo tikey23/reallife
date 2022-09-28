@@ -6,59 +6,7 @@ function showSpecialEvents() {
 	return $res->fetch_all(MYSQLI_ASSOC);
 }
 
-function showSpecialEventsAdmin() {
-	global $con;
-	$res = $con->query("SELECT * FROM specialevents WHERE specialeventdate >= NOW() ORDER BY specialeventdate");
-	echo "<form action='/index.php?page=adminSpecialEvents' method='post' enctype='multipart/form-data'>";
-
-	echo "<h2 class='text-2xl font-bold underline'>Spezial Abende:</h2>";
-	echo "<br>";
-
-	while ($data = $res->fetch_assoc()) {
-		
-		if(@$_POST['modifySpecialEvent'] == $data['id']) {
-
-			echo "<table align='center'>";
-			echo "<tr><td>Titel:</td><td><input name='specialeventtitle' value='" . $data['specialeventtitle'] . "'></td></tr>";
-			echo "<tr><td>Datum:</td><td><input name='specialeventdate' value='" . $data['specialeventdate'] . "'></td></tr>";
-			echo "<tr><td>Publik Datum:</td><td><input name='publicdate' value='" . $data['publicdate'] . "'></td></tr>";
-			
-			if ($data['flyer'] == NULL) {
-				echo "<tr><td>Flyer:</td><td><input type='file' name='flyer'></td></tr>";
-			} else {
-				echo "<tr><td>Flyer:</td><td><img src='img/specialevents/" . $data['flyer'] . "'width='310'><input type='file' name='flyer'></img></td></tr>";
-			}
-			
-			echo "<tr><td>Text:</td><td><input name='descripttext' rows='4' cols='50' value='" . $data['descripttext'] . "'></td></tr>";
-			echo "</table>";
-			echo "<p><button name='modifySpecialEventconfirm' value='" . $data['id'] . "' class='classButton'>aktualisieren</button></p>";
-
-		} else {
-
-			$showespecialventdate = date_create($data['specialeventdate']);
-			$showpublicdate = date_create($data['publicdate']);
-
-			echo "<table align='center'>";
-			echo "<tr><td>Titel:</td><td>" . $data['specialeventtitle'] . "</td></tr>";
-			echo "<tr><td>Datum:</td><td>" . date_format($showespecialventdate, "d. F Y") . "</td></tr>";
-			echo "<tr><td>Publik Datum:</td><td>" . date_format($showpublicdate, "d. F Y") . "</td></tr>";
-			
-			if ($data['flyer'] == NULL) {
-				echo "<tr><td>Flyer:</td><td></td></tr>";
-			} else {
-				echo "<tr><td>Flyer:</td><td><img src='img/specialevents/" . $data['flyer'] . "' width='310'></img></td></tr>";
-			}
-			
-			echo "<tr><td>Text:</td><td>" . $data['descripttext'] . "</td></tr>";
-			echo "</table>";
-			echo "<p><button name='modifySpecialEvent' value='" . $data['id'] . "' class='classButton'>ändern</button>";
-			echo "<button name='deleteSpecialEvent' value='" . $data['id'] . "' class='classButton' onclick=\"return confirm('Bist du sicher?');\">löschen</button></p>";
-		}
-		echo "<br>";
-	}
-	echo "</form>";		
-}
-
+//TO DO
 function modifySpecialEventconfirm($specialeventtitle, $specialeventdate, $publicdate, $flyer, $descripttext, $id, $tempflyer) {
 	global $con;
 	$col = array('specialeventtitle', 'specialeventdate', 'publicdate', 'flyer', 'descripttext');
@@ -99,11 +47,13 @@ function flyerupload($flyer, $tempflyer) {
         }  
 }
 
+//TO DO
 function deleteSpecialEvent($id) {
 	global $con;
 	$con->query("DELETE FROM specialevents WHERE id='$id'");
 }
 
+//TO DO
 function createSpecialEvent($specialeventtitle, $specialeventdate, $publicdate, $flyer, $descripttext, $tempflyer) {
 	global $con;
 
