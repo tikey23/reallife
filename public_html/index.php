@@ -32,6 +32,7 @@ require_once('models/Gallerycategory.php');
 	<title>Real Life Café</title>
 	<link rel="stylesheet" href="/css/format.css">
 	<link href="/css/output.css" rel="stylesheet">
+	<link rel="icon" type="image/png" href="/img/faviconRL.png">
 	<script type="text/javascript" src="js/NewMemberForm.js"></script>
 </head>
 <body>

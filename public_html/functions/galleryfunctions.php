@@ -17,9 +17,9 @@ function deletecategory($id) {
     
     rmdir($link);
 
-    // delete all pics from table
-    $pictures = findOne(Picture::class, $id);
-    $pictures->delete("categoryId", $id);
+    // delete all pics from table (provisionally codes)
+    global $con;
+    $con->query("DELETE FROM pictures WHERE categoryId = $id");
     
 }
 
