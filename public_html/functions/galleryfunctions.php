@@ -17,22 +17,17 @@ function deletecategory($id) {
     
     rmdir($link);
 
+    $pictures = findAll(Picture::class, "categoryId", $id);
+    foreach($pictures AS $picture){
+        $picture->delete();
+    }
+    
+    
     // delete all pics from table (provisionally codes)
-    global $con;
-    $con->query("DELETE FROM pictures WHERE categoryId = $id");
+    /*global $con;
+    $con->query("DELETE FROM pictures WHERE categoryId = $id");*/
     
 }
-
-
-function deletepics($id) {
-    $picture = findOne(Picture::class, $id);
-    $categoryName = $picture->categoryName;
-    $picName = $picture->picName;
-
-    $link = "img/gallery/" . $categoryName . "/" . $picName;
-    unlink($link);
-}
-
 
 function uploadpic($categoryName, $categoryId, $uploadedFile, $tempFile) {  
      

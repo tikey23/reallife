@@ -16,8 +16,6 @@ if(isset($_POST['deletecategory'])) {
 
 // Delete Pic
 if(isset($_POST['deletepic'])) {
-    deletepics($_POST['deletepic']);
-
     $picture = findOne(Picture::class, $_POST['deletepic']);
     $picture->delete();
 }
@@ -26,7 +24,7 @@ if(isset($_POST['deletepic'])) {
 $gallerycategorys = findAll(Gallerycategory::class);
 $pictures = findAll(Picture::class);
 
-echo $twig->render('gallery/admingallery.twig', [
+echo $twig->render('gallery/adminGallery.twig', [
     "gallerycategorys" => $gallerycategorys,
     "pictures" => $pictures,
     ]);

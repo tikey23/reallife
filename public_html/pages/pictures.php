@@ -5,6 +5,11 @@
         use \Rl\Models\Picture;
         use \Rl\Models\Gallerycategory;
 
+        
+$gallerycategoryId = @$_POST['gallerycategoryId'];
+if(!isset($gallerycategoryId)){die("Not allowed.");}
+
+if(isset($_SESSION["password"])){
         //Create New Category
         if(isset($_POST['newCategory'])) {
 
@@ -14,9 +19,6 @@
 
         } else if(isset($_POST['picUpload'])){
             $gallerycategoryId = $_POST['picUpload'];
-
-        } else {
-            $gallerycategoryId = $_POST['gallerycategoryId'];
         }
 
         // Upload new pic
@@ -27,7 +29,7 @@
             $tempFile = $_FILES['fileToUpload']['tmp_name'];
             uploadpic($categoryName, $gallerycategoryId, $uploadedFile, $tempFile);
         }
-
+}
         // Show pics
         $gallerycategorys = findOne(Gallerycategory::class, $gallerycategoryId);
         $pictures = findAllByColumn(Picture::class, "categoryId", $gallerycategoryId);
