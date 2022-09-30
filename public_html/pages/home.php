@@ -1,6 +1,6 @@
 <div class="mainpart1">
 	<?php
-	// echo $twig->render('home/welcomeText.twig');
+	echo $twig->render('home/welcomeText.twig');
 
 	$events = showActualEvent();
 	$firstEvent = array_shift($events);

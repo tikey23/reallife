@@ -6,6 +6,7 @@
 
 	use \Rl\Models\Member;
 
+if(isset($_SESSION["password"])){
 	if(isset($_POST['newMember'])) {
 		$member = new Member();
 		$member->membername = $_POST['membername'];
@@ -32,6 +33,7 @@
 		$member = findOne(Member::class, $_POST['deleteMember']);
 		$member->delete();
 	}
+}
 
 	$members = findAll(Member::class);
 	echo $twig->render('member/membertable.twig', [

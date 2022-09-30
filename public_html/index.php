@@ -1,5 +1,7 @@
 <?php
 
+phpinfo();
+
 /*use Rl\Models\Member\Event;
 use Rl\Models\Member\Member;
 use \Rl\Models\Picture;

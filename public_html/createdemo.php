@@ -13,7 +13,7 @@
     $con ->query($sql);
     $con->select_db($DB['database']);
 
-    //$sql = "DROP TABLE event";
+    $sql = "DROP TABLE event";
     $con ->query($sql);
 
     $sql = "CREATE TABLE IF NOT EXISTS event (
@@ -29,7 +29,10 @@
         )ENGINE=InnoDB, DEFAULT CHARSET=UTF8";
     $con ->query($sql);
 
-    //$sql = "DROP TABLE gallery";
+    $sql = "DROP TABLE gallery";
+    $con ->query($sql);
+
+    $sql = "DROP TABLE pictures";
     $con ->query($sql);
 
     $sql = "CREATE TABLE IF NOT EXISTS pictures (
@@ -41,7 +44,7 @@
         )ENGINE=InnoDB, DEFAULT CHARSET=UTF8";
     $con ->query($sql);
 
-    //$sql = "DROP TABLE gallerycategory";
+    $sql = "DROP TABLE gallerycategory";
     $con ->query($sql);
 
     $sql = "CREATE TABLE IF NOT EXISTS gallerycategory (
@@ -52,7 +55,7 @@
         )ENGINE=InnoDB, DEFAULT CHARSET=UTF8";
     $con ->query($sql);
 
-    //$sql = "DROP TABLE specialevents";
+    $sql = "DROP TABLE specialevents";
     $con ->query($sql);
 
     $sql = "CREATE TABLE IF NOT EXISTS specialevents (
@@ -67,7 +70,7 @@
     $con->query($sql);
 
 
-    //$sql = "DROP TABLE members";
+    $sql = "DROP TABLE members";
     $con ->query($sql);
 
     $sql ="CREATE TABLE IF NOT EXISTS members (
