@@ -6,22 +6,6 @@ function showSpecialEvents() {
 	return $res->fetch_all(MYSQLI_ASSOC);
 }
 
-//TO DO
-function modifySpecialEventconfirm($specialeventtitle, $specialeventdate, $publicdate, $flyer, $descripttext, $id, $tempflyer) {
-	global $con;
-	$col = array('specialeventtitle', 'specialeventdate', 'publicdate', 'flyer', 'descripttext');
-	$var = array($specialeventtitle, $specialeventdate, $publicdate, $flyer, $descripttext);
-
-	for($i=0; $i<4; $i++){
-		$sql = "UPDATE specialevents SET " . $col[$i] . " = '" . $var[$i] . "' WHERE id='$id'";
-		$con->query($sql);
-	}
-	
-	if($flyer != NULL) {
-		flyerupload($flyer, $tempflyer);
-	} 
-}
-
 function flyerupload($flyer, $tempflyer) {
     global $con; 
         $target_dir = "img/specialevents/";
@@ -47,21 +31,4 @@ function flyerupload($flyer, $tempflyer) {
         }  
 }
 
-//TO DO
-function deleteSpecialEvent($id) {
-	global $con;
-	$con->query("DELETE FROM specialevents WHERE id='$id'");
-}
-
-//TO DO
-function createSpecialEvent($specialeventtitle, $specialeventdate, $publicdate, $flyer, $descripttext, $tempflyer) {
-	global $con;
-
-	$con->query("INSERT INTO specialevents (specialeventtitle, specialeventdate, publicdate, flyer, descripttext) 
-	VALUES ('$specialeventtitle','$specialeventdate','$publicdate','$flyer','$descripttext')");
-
-	if($flyer != NULL) {
-		flyerupload($flyer, $tempflyer);
-	}
-}
 ?>
