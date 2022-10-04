@@ -41,7 +41,7 @@ class Model {
 
 	public function delete() {
 		global $con;
-		$query = "DELETE FROM ".$this->table." WHERE `id` = '".$this->id."'";
+			$query = "DELETE FROM ".$this->table." WHERE `id` = '".$this->id."'";
 		if (!$con->query($query)) {
 			throw new \Exception(mysqli_error($con));
 		}

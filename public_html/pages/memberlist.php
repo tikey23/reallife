@@ -1,3 +1,5 @@
+<script type="text/javascript" src="js/NewMemberForm.js"></script>
+
 <div class='classTable' id='member'>
 	<h1 class='text-3xl font-bold text-center'>Wer sind wir?</h1>
 	<br>
@@ -6,6 +8,7 @@
 
 	use \Rl\Models\Member;
 
+if(isset($_SESSION["password"])){
 	if(isset($_POST['newMember'])) {
 		$member = new Member();
 		$member->membername = $_POST['membername'];
@@ -32,6 +35,7 @@
 		$member = findOne(Member::class, $_POST['deleteMember']);
 		$member->delete();
 	}
+}
 
 	$members = findAll(Member::class);
 	echo $twig->render('member/membertable.twig', [
@@ -40,9 +44,8 @@
 		'members' => $members,
 		'modifyMemberPick' => @$_POST['modifyMemberPick']
 	]);
-	$dateSample = date("Y-m-d");
-
-	echo $twig->render('member/newMember.twig', ["isAdmin" => isset($_SESSION['password']), "dateSample" => $dateSample]);
+	
+	echo $twig->render('member/newMember.twig', ["isAdmin" => isset($_SESSION['password'])]);
 
 	echo $twig->render('member/recruitmember.twig');
 

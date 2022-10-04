@@ -2,14 +2,32 @@
 <?php
 require_once('functions/galleryfunctions.php');
 
-echo "<h1 class='text-3xl font-bold underline'>Galerie bearbeiten:</h1>";
+use \Rl\Models\Picture;
+use \Rl\Models\Gallerycategory;
 
-// Kategorien löschen
-deletecategory();
+// Delete Category
+if(isset($_POST['deletecategory'])) {
+    deletecategory($_POST['deletecategory']);
 
-// Bilder löschen
-deletepics();
+    $gallerycategory = findOne(Gallerycategory::class, $_POST['deletecategory']);
+    $gallerycategory->delete();
+}
 
+
+// Delete Pic
+if(isset($_POST['deletepic'])) {
+    $picture = findOne(Picture::class, $_POST['deletepic']);
+    $picture->delete();
+}
+
+// Show all categorys and pics
+$gallerycategorys = findAll(Gallerycategory::class);
+$pictures = findAll(Picture::class);
+
+echo $twig->render('gallery/adminGallery.twig', [
+    "gallerycategorys" => $gallerycategorys,
+    "pictures" => $pictures,
+    ]);
 
     ?>
 </div>
