@@ -18,7 +18,7 @@
     {% if modifyEventPick == event.id %}
         <table align='center'>
 
-            <tr> <td> </td><td><b><input name='newdate' value='{{ event.eventdate }}'></b></td> <td></td> </tr>
+            <tr> <td> </td><td><b><input type='date' name='newdate' value='{{ event.eventdate }}'></b></td> <td></td> </tr>
             <tr> <td>Leiter</td> <td>18:00-20:30</td> <td>20:30-23:00</td> </tr>
             <tr> 
         
@@ -174,9 +174,10 @@
 
 
 <p class='font-bold'>Neuer Termin erstellen:</p>
+{% set now = 'now'|date('Y-m-d') %}
     <table align='center'>
         <tr>
-            {{ selectDate | raw }}
+        <td><input type='date' name='neweventdate' value='{{ now }}'></td>
         <td><input type='submit' name='createEvent' value='erstellen' class='classSubmit'></td>
         </tr>
     </table>

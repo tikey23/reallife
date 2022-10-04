@@ -6,21 +6,21 @@
 
     // create new Special Event
     if(isset($_POST['createSpecialEvent'])) {
-        $specialeventdate = $_POST['year0'] . "-" . $_POST['month0'] . "-" . $_POST['day0'];
-        $publicdate = $_POST['year1'] . "-" . $_POST['month1'] . "-" . $_POST['day1'];
+        // $specialeventdate = $_POST['year0'] . "-" . $_POST['month0'] . "-" . $_POST['day0'];
+        // $publicdate = $_POST['year1'] . "-" . $_POST['month1'] . "-" . $_POST['day1'];
         $flyer = basename($_FILES['flyer']['name']);
         $tempflyer = $_FILES['flyer']['tmp_name'];
 
         $specialevent = new Specialevent;
         $specialevent->specialeventtitle = $_POST['specialeventtitle'];
-        $specialevent->specialeventdate = $specialeventdate;
-        $specialevent->publicdate = $publicdate;
+        $specialevent->specialeventdate = $_POST['specialeventdate'];
+        $specialevent->publicdate = $_POST['publicdate'];
         $specialevent->flyer = $flyer;
         $specialevent->descripttext = $_POST['descripttext'];
         $specialevent->save();
 
         if($flyer != NULL) {
-            flyerupload($flyer, $tempflyer);
+            $specialevent->uploadFlyer($flyer, $tempflyer);
         }
     }
 
@@ -38,7 +38,7 @@
         $specialevent->save();
 
         if($flyer != NULL) {
-            flyerupload($flyer, $tempflyer);
+            $specialevent->uploadFlyer($flyer, $tempflyer);
         }
     }
 
@@ -69,9 +69,9 @@
             "modifySpecialEvent" => $modifySpecialEvent
         ]);
     
-        $selectDate[0] = selectdate(0);
-        $selectDate[1] = selectdate(1);
-        echo $twig->render('admin/createSpecialEvents.twig', ["selectDate" => $selectDate]);
+        // $selectDate[0] = selectdate(0);
+        // $selectDate[1] = selectdate(1);
+        echo $twig->render('admin/createSpecialEvents.twig');
         echo $twig->render('backToAdmin.twig');
     } else {
         echo $twig->render('admin/loginfailed.twig');

@@ -6,9 +6,10 @@ use \Rl\Models\Event;
 use \Rl\Models\Member;
 
 if (isset($_POST['createEvent'])) {
-	$neweventdate = $_POST['year0'] . "-" . $_POST['month0'] . "-" . $_POST['day0'];
+	//$neweventdate = $_POST['year0'] . "-" . $_POST['month0'] . "-" . $_POST['day0'];
 	$event = new Event;
-	$event->eventdate = $neweventdate;
+	//$event->eventdate = $neweventdate;
+	$event->eventdate = $_POST['neweventdate'];
 	$event->save();
 }
 
@@ -37,14 +38,12 @@ if(isset($_POST['showAllEvent'])){
 	
 }
 $members = findAll(Member::class);
-$selectDate = selectdate(0);
 if(isset($_SESSION['password'])){
 	echo $twig->render('admin/adminEventList.twig', [
 		"isShowAllEvent" => isset($_POST['showAllEvent']),
 		"events" => $events,
 		"members" => $members,
-		"modifyEventPick" => @$_POST['modifyEventPick'],
-		"selectDate" => $selectDate,
+		"modifyEventPick" => @$_POST['modifyEventPick']
 	]);
 	echo $twig->render('backToAdmin.twig');
 } else {

@@ -1,3 +1,5 @@
+<script type="text/javascript" src="js/NewMemberForm.js"></script>
+
 <div class='classTable' id='member'>
 	<h1 class='text-3xl font-bold text-center'>Wer sind wir?</h1>
 	<br>
@@ -42,9 +44,8 @@ if(isset($_SESSION["password"])){
 		'members' => $members,
 		'modifyMemberPick' => @$_POST['modifyMemberPick']
 	]);
-	$dateSample = date("Y-m-d");
-
-	echo $twig->render('member/newMember.twig', ["isAdmin" => isset($_SESSION['password']), "dateSample" => $dateSample]);
+	
+	echo $twig->render('member/newMember.twig', ["isAdmin" => isset($_SESSION['password'])]);
 
 	echo $twig->render('member/recruitmember.twig');
 

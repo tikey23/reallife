@@ -18,8 +18,8 @@
 
 			<table align='center'>
 			<tr><td>Titel:</td><td><input name='specialeventtitle' value='{{ specialEvent.specialeventtitle }}'></td></tr>
-			<tr><td>Datum:</td><td><input name='specialeventdate' value='{{ specialEvent.specialeventdate }}'></td></tr>
-			<tr><td>Publik Datum:</td><td><input name='publicdate' value='{{ specialEvent.publicdate }}'></td></tr>
+			<tr><td>Datum:</td><td><input type='date' name='specialeventdate' value='{{ specialEvent.specialeventdate }}'></td></tr>
+			<tr><td>Publik Datum:</td><td><input type='date' name='publicdate' value='{{ specialEvent.publicdate }}'></td></tr>
 			
 			{% if specialEvent.flyer == NULL %}
 				<tr><td>Flyer:</td><td><input type='file' name='flyer'></td></tr>
