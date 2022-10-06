@@ -1,0 +1,50 @@
+<div class='text-left'>
+    <h2 class='text-3xl font-bold underline text-center'>Werde Mitglied</h2>
+
+    <p>Das RL-Team sucht dich!
+    <br><br>
+    Wir freuen uns auf jede Unterstützung im RL. Als Helfer darfst du ein bis zwei Mal pro Monat am Abend in einer von zwei Schichten helfen.<br>
+    Ob du nun Bestellungen aufnimmst, Getränke ausgibst, Geld kassierst oder dich lieber um das Vor- und Zubereiten des Essens kümmerst, kannst du jeweils mit dem anderen Helfer zu Beginn deiner Schicht klären.<br>
+    Als Mitglied im Staff hast du auch Zugang zu internen Diskussionen und zur Planung von Events etc. Gelegentlich findet eine Sitzung statt, in der du über die wichtigsten Themen mitreden und mitbestimmen kannst.
+    </p>
+    <br>
+
+    <h3 class='text-2xl font-bold underline'>Was bieten wir?</h3>
+    <p>Es winkt eine interessante, sinnvolle Beschäftigung, bei der euch sicher nicht langweilig wird und ihr viele neue Leute kennenlernt. Ihr dürft eure Ideen fürs RL einbringen und zu einem gewissen Grad mitentscheiden. Ein ordentliches Trinkgeld sowie ein Essen und Trinken gratis pro Abend versüssen den RL-Schicht-Abend. Ein hilfsbereites Team unterstützt euch und steht mit Rat und Tat zur Seite.</p>
+    <br>
+
+    <h3 class='text-2xl font-bold underline'>Was erwarten wir?</h3>
+    <p>Zuverlässigkeit! Ausserdem ein gewisses Mass an Freundlichkeit und die Fähigkeit, in Stresssituationen nicht komplett durchzudrehen. Es sind keine Gastronomie-Vorkenntnisse nötig.</p>
+    <br>
+
+    <h3 class='text-2xl font-bold underline'>Wie läuft das so?</h3>
+    <p>Du solltest mindestens ein mal pro Monat eine Schicht übernehmen können. Die Schichten sind aufgeteilt in früh (17.50h - 20.35h) und spät (20.30h - 23h). Du kannst entweder an der Kasse arbeiten oder dich um die Essenszubereitung kümmern.</p>
+    <br>
+
+    <p>Bist du interessiert? Dann melde dich bei uns!</p>
+    <br>
+    <p><button id='idNewCandidateButton' class='classButton'>Anmeldeformular</button></p>
+</div>
+
+
+    <div id="idNewCandidateForm" class="block absolute top-[35%] left-[30%] w-420 h-500 bg-violet-300 text-left p-4 border-4 border-solid border-violet-500 rounded-lg">
+    <img src='img/close.png' id='closeNewCandidate' class="top-0 left-0 w-50 h-50 float-left"></img>
+        <br>
+        <form action='/index.php?page=memberlist' method='post'>
+        <h1 class='text-3xl font-bold text-center'>Anmeldung als Helfer/in</h1>
+        <br>
+        <p>
+        Name: <input name='candidateName' class="border border-solid border-black" required="required"><br>
+        E-Mail: <input type="email" name='candidateE_mail' class="border border-solid border-black" required="required"><br>
+        Phone (optional): <input type="tel" name='candidateMobile' class="border border-solid border-black"><br>
+
+        <br><br>
+
+        <b><u>Little Akiba: (optional)</u></b><br>
+        Profil-URL: <input  name='candidateLittle_akiba' size='40' class="border border-solid border-black"><br>
+        Avatar-URL: <input  name='candidateImg' size='40' class="border border-solid border-black"><br><br>
+        
+        <p><center><b><input type='submit' name="newCandidate" value='Anmelden' class='classSubmit'></b></center></p>
+        </form>
+
+    </div>

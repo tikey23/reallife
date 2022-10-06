@@ -63,7 +63,6 @@ body {
 
 .mainpart1 {
     text-align: center;
-
 }
 
 #next {
@@ -169,6 +168,11 @@ background-color: #c4b5fd;
 }
 
 #idshowNewMemberForm{
+    transform: translate(-3000px, 0);
+    transition: transform 2s;
+}
+
+#idNewCandidateForm{
     transform: translate(-3000px, 0);
     transition: transform 2s;
 }
