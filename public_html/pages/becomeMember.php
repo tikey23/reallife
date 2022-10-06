@@ -16,16 +16,16 @@ if(isset($_POST['newCandidate'])){
     
     $mail = new PHPMailer();
     $mail->isSMTP();
-    $mail->Host = 'smtp.mailtrap.io';
+    $mail->Host = $Email["host"];
     $mail->SMTPAuth = true;
-    $mail->Port = 2525;
-    $mail->Username = '0afb01c22b87eb';
-    $mail->Password = '175cfdf6334a3e';
+    $mail->Port = $Email["port"];
+    $mail->Username = $Email["username"];
+    $mail->Password = $Email["password"];
     $mail->SMTPSecure = 'tls';
 
-    $mail->setFrom('info@mailtrap.io', 'Mailtrap');
-    $mail->addReplyTo('info@mailtrap.io', 'Mailtrap');
-    $mail->addAddress('recipient1@mailtrap.io', 'Zody');
+    $mail->setFrom($Email["fromAddress"], $Email["fromName"]);
+    $mail->addReplyTo($Email["replyAddress"], $Email["replyName"]);
+    $mail->addAddress($Email["address"], $Email["adressName"]);
 
     /* $mail->addCC('cc1@example.com', 'Elena');
     $mail->addBCC('bcc1@example.com', 'Alex'); */

@@ -10,3 +10,17 @@ $DB = [
 
 $ADMINPASSWORD = "";
 $MEMBERPASSWORD = "";
+$additionalTitle = "";
+
+$Email = [
+	"host" => "",
+	"port" => "",
+	"username" => "",
+	"password" => "",
+	"fromAddress" => "",
+	"fromName" => "",
+	"replyAddress" => "",
+	"replyName" => "",
+	"address" => "",
+	"adressName" => ""	
+];
