@@ -3882,6 +3882,10 @@ textarea.form-control.is-invalid {
   float: left;
 }
 
+.m-auto {
+  margin: auto;
+}
+
 .mx-96 {
   margin-left: 24rem;
   margin-right: 24rem;
@@ -3915,6 +3919,10 @@ textarea.form-control.is-invalid {
   height: 100%;
 }
 
+.w-52 {
+  width: 13rem;
+}
+
 .w-full {
   width: 100%;
 }
@@ -3925,6 +3933,14 @@ textarea.form-control.is-invalid {
 
 .resize {
   resize: both;
+}
+
+.list-inside {
+  list-style-position: inside;
+}
+
+.list-disc {
+  list-style-type: disc;
 }
 
 .flex-row {
