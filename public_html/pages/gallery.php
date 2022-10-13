@@ -1,4 +1,4 @@
-<div class="gallery">
+<div class="inline">
 
 <?php
 

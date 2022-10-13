@@ -38,13 +38,13 @@ require_once('models/Gallerycategory.php');
 
 <?=$twig->render('global/head.twig', ['additionalTitle' => $additionalTitle]);?>
 
-<div class="text-center p-2" id="main">
+<div class="text-center bg-violet-200 border border-solid border-black rounded-xl" style="margin: 10px 20px; padding: 20px;">
 	<?php
 		includePage(@$_GET['page']);
 	?>
 </div>
 
-<div class="foot mb-8">
+<div class="text-center text-xs">
 	<?php
 	if (isset($_SESSION['password'])) {
 		echo "<p><a href='/index.php?page=admin'>Admin Bereich</a></p>";

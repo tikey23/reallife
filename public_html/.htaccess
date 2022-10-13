@@ -1,37 +1,7 @@
 Options -Indexes
 
 
-<Files galerie.php>
-    Order Deny,Allow
-    Deny from all
-</Files>
-
-<Files galeriebilder.php>
-    Order Deny,Allow
-    Deny from all
-</Files>
-
-<Files helferwerden.php>
-    Order Deny,Allow
-    Deny from all
-</Files>
-
-<Files home.php>
-    Order Deny,Allow
-    Deny from all
-</Files>
-
-<Files regeln.php>
-    Order Deny,Allow
-    Deny from all
-</Files>
-
-<Files ueberuns.php>
-    Order Deny,Allow
-    Deny from all
-</Files>
-
-<Files wersindwir.php>
+<Files about.php>
     Order Deny,Allow
     Deny from all
 </Files>
@@ -41,7 +11,52 @@ Options -Indexes
     Deny from all
 </Files>
 
+<Files adminEvent.php>
+    Order Deny,Allow
+    Deny from all
+</Files>
+
 <Files adminGallery.php>
+    Order Deny,Allow
+    Deny from all
+</Files>
+
+<Files adminSpecialEvents.php>
+    Order Deny,Allow
+    Deny from all
+</Files>
+
+<Files becomeMember.php>
+    Order Deny,Allow
+    Deny from all
+</Files>
+
+<Files gallery.php>
+    Order Deny,Allow
+    Deny from all
+</Files>
+
+<Files home.php>
+    Order Deny,Allow
+    Deny from all
+</Files>
+
+<Files logoutconfirm.php>
+    Order Deny,Allow
+    Deny from all
+</Files>
+
+<Files memberlist.php>
+    Order Deny,Allow
+    Deny from all
+</Files>
+
+<Files pictures.php>
+    Order Deny,Allow
+    Deny from all
+</Files>
+
+<Files rules.php>
     Order Deny,Allow
     Deny from all
 </Files>

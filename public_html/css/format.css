@@ -16,11 +16,7 @@ body {
     font-family: 'Varela Round', sans-serif;
 }
 
-.head {
-    display: flex;
-}
-
-.headleft {
+/* .headleft {
     padding: 5px;
     margin: 10px;
     width: 300px;
@@ -29,10 +25,10 @@ body {
 .headright {
     margin: 10px;
     width: 70%;
-}
+} */
 
-#navigation {
-    background-color: #ddd6fe; /* bg-violet-200 */
+/* #navigation {
+    background-color: #ddd6fe; /* bg-violet-200 
     display: block;
     align-content: end;
     width: 200px;
@@ -40,32 +36,29 @@ body {
     margin: 10px;
     border-radius: 10px;
     border: 1px solid black;
-}
+} */
 
-#navigation a {
+/* #navigation a {
     display: block;
     padding: 2px;
 }
 
 #navigation a:hover {
 
-    background-color: #c4b5fd; /* bg-violet-300 */
+    background-color: #c4b5fd; /* bg-violet-300 
     padding: 2px;
-}
+} */
 
-#main {
-    background-color: #ddd6fe; /* bg-violet-200 */
+/*  #main {
     margin: 20px;
     padding: 20px;
-    border-radius: 10px;
-    border: 1px solid black;
-}
+}  */
 
-.mainpart1 {
+/* .mainpart1 {
     text-align: center;
-}
+} */
 
-#next {
+/* #next {
     width: 350px;
     height: 350px;
     display: block;
@@ -76,8 +69,8 @@ body {
     border: 1px solid black;
     background-color: #8b5cf6;
 }
-
-
+ */
+/* 
 #special {
     width: 350px;
     display: block;
@@ -87,25 +80,25 @@ body {
     border-radius: 10px;
     border: 1px solid black;
     background-color: #f87171;
-}
+} */
 
-.mainpart2 {
+/* .mainpart2 {
     text-align: justify-all;
 }
-
-.foot {
+ */
+/* .foot {
     text-align: center;
     font-size: 0.8em;
-}
+} */
 
-.gallery {
+/* .gallery {
     display: inline;
-}
+} */
 
-.gallery div:hover {
+/* .gallery div:hover {
     transform: scale(1.1);
     background-color: #ddd6fe;
-}
+} */
 
 .pictures img {
     display: inline;
