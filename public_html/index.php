@@ -29,6 +29,7 @@ require_once('models/Gallerycategory.php');
 <html lang="de">
 <head>
 	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Real Life Café</title>
 	<link rel="stylesheet" href="/css/format.css">
 	<link href="/css/output.css" rel="stylesheet">

@@ -1,18 +1,20 @@
 <div class="text-center">
 	<?php
 	echo $twig->render('home/welcomeText.twig');
-
-	$events = showActualEvent();
-	$firstEvent = array_shift($events);
-	echo $twig->render('home/actualEvents.twig', [
-		"firstEvent" => $firstEvent,
-		"events" => $events,
-	]);
-
-	$specialEvents = showSpecialEvents();
-	echo $twig->render('home/specialEvents.twig', ["events" => $specialEvents]);
+		$events = showActualEvent();
+		$firstEvent = array_shift($events);
+		echo $twig->render('home/actualEvents.twig', [
+			"firstEvent" => $firstEvent,
+			"events" => $events,
+		]);
+	?>
+	<div class="sm:flex justify-center">
+	<?php
+		$specialEvents = showSpecialEvents();
+		echo $twig->render('home/specialEvents.twig', ["events" => $specialEvents]);
 	?>
 	<br><br>
+	</div>
 
 	<p class='text-center font-bold'><u>Adresse:</u><br>
 	Bitwäscherei<br>
