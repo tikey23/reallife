@@ -4,10 +4,10 @@
 
 {% if isShowAllEvent %}
     <p><input type='checkbox' name='showAllEvent' style="display:none">
-    <input type="submit" value="Nur aktuelle Termine anzeigen" class="classSubmit"></p>
+    <input type="submit" value="Nur aktuelle Termine anzeigen" class="classButton"></p>
 {% else %}
     <p><input type='checkbox' name='showAllEvent' checked='checked'style="display:none">
-    <input type="submit" value="Alle Termine anzeigen" class="classSubmit"></p>
+    <input type="submit" value="Alle Termine anzeigen" class="classButton"></p>
 {% endif %}
 
 <br>
@@ -178,7 +178,7 @@
     <table align='center'>
         <tr>
         <td><input type='date' name='neweventdate' value='{{ now }}'></td>
-        <td><input type='submit' name='createEvent' value='erstellen' class='classSubmit'></td>
+        <td><input type='submit' name='createEvent' value='erstellen' class='classButton'></td>
         </tr>
     </table>
 

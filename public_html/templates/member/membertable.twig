@@ -1,5 +1,6 @@
 <form action='/index.php?page=memberlist' method='post'>
-<table align='center'>
+<center>
+<table class='hidden sm:contents'>
     <tr>
         <td><b>Little Akiba</b></td>
         <td><b>Name</b></td>
@@ -61,11 +62,11 @@
         {% if member.active == 1 %}
             <tr>
         {% else %}
-            <tr id="showMemberRow">
+            <tr class="italic opacity-40">
         {% endif %}
             <td>
                 <a href='{{ member.little_akiba }}' target='_blank'>
-                    <img src='{{ member.memberimg }}' id='memberpic'>
+                    <img src='{{ member.memberimg }}' class='w-24 h24 rounded-full block'>
                 </a>
             </td>
             <td>{{ member.membername }}</td>
@@ -91,5 +92,6 @@
         {% endif %}
 {% endfor %}
 </table>
+</center>
 
 </form>

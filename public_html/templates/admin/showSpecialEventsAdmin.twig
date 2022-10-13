@@ -6,10 +6,10 @@
 
 {% if isShowAllSpecialEvents %}
     <p><input type='checkbox' name='showAllSpecialEvents' style="display:none">
-    <input type="submit" value="Nur aktuelle Termine anzeigen" class="classSubmit"></p>
+    <input type="submit" value="Nur aktuelle Termine anzeigen" class="classButton"></p>
 {% else %}
     <p><input type='checkbox' name='showAllSpecialEvents' checked='checked'style="display:none">
-    <input type="submit" value="Alle Termine anzeigen" class="classSubmit"></p>
+    <input type="submit" value="Alle Termine anzeigen" class="classButton"></p>
 {% endif %}
 
 {% for specialEvent in specialEvents %}
