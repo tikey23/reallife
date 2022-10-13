@@ -1,3 +1,8 @@
+AuthUserFile "/usr/www/users/reallih/.htpasswd"
+AuthName "Realm"
+AuthType Basic
+require valid-user
+
 Options -Indexes
 
 
