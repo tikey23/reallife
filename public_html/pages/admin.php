@@ -15,34 +15,13 @@
 	}
 
 	if (isset($_SESSION['password'])) {
-		if ($_SESSION['password'] === "$ADMINPASSWORD") {
+		if ($_SESSION['password'] == "$ADMINPASSWORD") {
 
 			$_SESSION['memberpassword'] = $_SESSION['password'];
 
 			//Admin logged in
 
 			echo $twig->render('admin/admin.twig');
-
-			/*if (isset($_POST['modifyEvent'])) {
-				modifyEvent($_POST['newdate'], $_POST['modifyEvent']);
-			}
-
-			if (isset($_POST['deleteEvent'])) {
-				deleteEvent($_POST['deleteEvent']);
-			}
-
-			if (isset($_POST['createEvent'])) {
-				createEvent($_POST['day0'], $_POST['month0'], $_POST['year0'],);
-			}
-
-			$events = getEvents();
-			$selectDate = selectdate(0);
-
-			echo $twig->render('admin/adminEventList.twig', [
-				"events" => $events,
-				"modifypick" => @$_POST['modifypick'],
-				"selectDate" => $selectDate,
-			]); */
 			echo $twig->render('admin/adminEventsbutton.twig');
 			echo $twig->render('admin/adminSpecialEventsbutton.twig');
 			echo $twig->render('logout.twig');

@@ -1,13 +1,24 @@
 <?php
+
+/*use Rl\Models\Member\Event;
+use Rl\Models\Member\Member;
+use \Rl\Models\Picture;
+use Rl\Models\Member\Gallerycategory;*/
+
+
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 session_start();
 
-require_once('functions/date.php');
 require_once('functions/pageHandling.php');
 require_once('functions/eventfunctions.php');
 require_once('functions/specialeventsfunctions.php');
-require_once('functions/memberfunctions.php');
+require_once('models/Model.php');
+require_once('models/Event.php');
+require_once('models/SpecialEvent.php');
+require_once('models/Member.php');
+require_once('models/Picture.php');
+require_once('models/Gallerycategory.php');
 
 [$con, $twig] = bootstrap();
 
@@ -21,10 +32,11 @@ require_once('functions/memberfunctions.php');
 	<title>Real Life Café</title>
 	<link rel="stylesheet" href="/css/format.css">
 	<link href="/css/output.css" rel="stylesheet">
+	<link rel="icon" type="image/png" href="/img/faviconRL.png">
 </head>
 <body>
 
-<?=$twig->render('global/head.twig');?>
+<?=$twig->render('global/head.twig', ['additionalTitle' => $additionalTitle]);?>
 
 <div class="text-center p-2" id="main">
 	<?php
@@ -33,7 +45,6 @@ require_once('functions/memberfunctions.php');
 </div>
 
 <div class="foot mb-8">
-	<p>Version 0.03</p>
 	<?php
 	if (isset($_SESSION['password'])) {
 		echo "<p><a href='/index.php?page=admin'>Admin Bereich</a></p>";
@@ -42,9 +53,9 @@ require_once('functions/memberfunctions.php');
 	}
 
 	if (isset($_SESSION['memberpassword']) || isset($_SESSION['password'])) {
-		echo "<p><a href='/index.php?page=member'>Mitarbeiter Bereich</a></p>";
+		echo "<p><a href='/index.php?page=shifttable'>Mitarbeiter Bereich</a></p>";
 	} else {
-		echo "<p><a href='/index.php?page=member'>Mitarbeiter Anmeldung</a></p>";
+		echo "<p><a href='/index.php?page=shifttable'>Mitarbeiter Anmeldung</a></p>";
 	}
 	?>
 

@@ -1,6 +1,6 @@
 <?php
 
-require_once 'vendor/autoload.php';
+require_once('vendor/autoload.php');
 require_once('config/config.php');
 
 function bootstrap() {
@@ -23,33 +23,73 @@ function twig_date_format($value, $format) {
     return date_format(date_create($value), $format);
 }
 
-
 function includePage($page = "") {
 	global $ADMINPASSWORD, $twig;
-	$pages = [
-		"galerie" => "",
-		"wersindwir" => "",
-		"regeln" => "",
-		"helferwerden" => "",
-		"ueberuns" => "",
-		"galeriebilder" => "",
-		"logoutconfirm" => "",
-		"member" => "member",
-		"admin" => "admin",
-		"adminEvents" => "admin",
-		"adminGallery" => "admin",
-		"adminSpecialEvents" => "admin"
-	];
 
-	if (isset($pages[$page])) {
-		if (!empty($pages[$page])) {
-			include $pages[$page] . "/" . $page . ".php";
-		} else {
-			include $page . ".php";
-		}
+	if (isset($page)) {
+		include "pages/" . $page . ".php";
 
 		return;
 	}
 
-	include "home.php";
+	include "pages/home.php";
+}
+
+function findAll($objectType, $column = "", $id=0) {
+	global $con;
+
+	$o = new $objectType();
+	$table = $o->getTable();
+	$orderBy = $o->getOrder();
+	if(empty($table)) {
+		throw new Exception("Property table not set in model");
+	}
+
+	$collection = [];
+
+	if($column == ""){
+		$rows = $con->query("SELECT * FROM {$table} ORDER BY $orderBy")->fetch_all(MYSQLI_ASSOC);
+	} else {
+		$rows = $con->query("SELECT * FROM {$table} WHERE $column = $id")->fetch_all(MYSQLI_ASSOC);
+	}
+
+	foreach($rows AS $row) {
+		$object = new $objectType();
+		foreach($row AS $key => $value) {
+			$object->$key = $value;
+		}
+
+		$collection[] = $object;
+	}
+
+	return $collection;
+}
+
+
+function findOne($objectType, $id) {
+	global $con;
+
+	$o = new $objectType();
+	$table = $o->getTable();
+	if(empty($table)) {
+		throw new Exception("Property table not set in model");
+	}
+
+	$collection = [];
+	$row = $con->query("SELECT * FROM {$table} WHERE `id` = {$id} LIMIT 1");
+	if($row->num_rows == 0) {
+		throw new Exception("ID for $objectType not found");
+	}
+
+	$object = new $objectType();
+	foreach($row->fetch_assoc() AS $key => $value) {
+		$object->$key = $value;
+	}
+	return $object;
+}
+
+function findAllByColumn($objectType, $column, $id) {
+
+	return findAll($objectType, $column, $id);
+
 }

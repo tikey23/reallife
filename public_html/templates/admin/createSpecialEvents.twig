@@ -1,6 +1,7 @@
 
     <form action="/index.php?page=adminSpecialEvents" method="post" enctype="multipart/form-data">
         <p class='font-bold'>Neuer Spezial Abend erstellen:</p>
+            {% set now = 'now'|date('Y-m-d') %}
         <table align='center'>
             <tr>
                 <td>Titel:</td>
@@ -9,12 +10,12 @@
 
             <tr>
                 <td>Datum:</td>
-                {{ selectDate.0 | raw }}
+                <td><input type='date' name='specialeventdate' value='{{ now }}'></td>
             </tr>
 
             <tr>
                 <td>Publik. Datum:</td>
-                {{ selectDate.1 | raw }}
+                <td><input type='date' name='publicdate' value='{{ now }}'></td>
             </tr>
 
             <tr>
@@ -29,7 +30,7 @@
         <p>
             <button name='createSpecialEvent' class='classButton'>erstellen</button>
         </p>
+       
     </form>
-
 
 

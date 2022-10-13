@@ -51,7 +51,7 @@ Options -Indexes
     Deny from all
 </Files>
 
-<Files member.php>
+<Files shifttable.php>
     Order Deny,Allow
     Deny from all
 </Files>

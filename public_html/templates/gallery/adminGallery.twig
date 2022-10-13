@@ -1,7 +1,30 @@
+
+    <h1 class='text-3xl font-bold underline'>Galerie bearbeiten:</h1>
+    <br>
+    <form action='/index.php?page=adminGallery' method='post'>
+    <h2 class='text-2xl font-bold underline'>Kategorien</h2>
+
+    <select name='deletecategory'>
+        {% for gallerycategory in gallerycategorys %}
+            <option value={{ gallerycategory.id }}>{{ gallerycategory.categoryName }}</option>
+        {% endfor %}
+    </select>
+    <input type='submit' value='Löschen' class='classSubmit'>
+    </form>
+    <br><br>
+
 <form action='/index.php?page=adminGallery' method='post'>
-	<div class='text-xl' style='width: 220px; height: 300px; padding: 10px; margin: 10px; border-radius: 20px; background-color: #8b5cf6; border: 1px solid black'>
-		<button><img src='/img/galerie/settings_box.png' style='height: 200px; width: 100%; object-fit: cover; object-position: top center; border-radius: 10px;'></img><br>
-			<p>Galerie Einstellungen</p>
-		</button>
-	</div>
+<h2 class='text-2xl font-bold underline'>Bilder</h2>
+<table align='center' class="classTable">
+<tr style='border: 1px solid black'><td>Bild</td><td>Kategorie</td><td>Dateiname</td><td>Löschen?</td></tr>
+{% for picture in pictures %}
+    <tr style='border: 1px solid black'>
+    <td><img src='img/gallery/{{ picture.categoryName }}/{{ picture.picName }}' style='width:100px'></img></td>
+    <td>{{ picture.categoryName }}</td>
+    <td>{{ picture.picName }}</td>
+    <td><button name='deletepic' value={{ picture.id }} class='classButton'>Löschen</button></td>
+    </tr>
+{% endfor %}
+</table>
+  
 </form>

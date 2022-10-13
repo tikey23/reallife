@@ -2,12 +2,16 @@
     //$con = new mysqli ("", "root");
 
 
-    require_once('../../../config/config.php');
-    $con = new mysqli($DB['hostname'], $DB['username']);
+    require_once('config/config.php');
+    $con = new mysqli($DB['hostname'], $DB['username'], $DB['password']);
 
-    $sql = "CREATE DATABASE IF NOT EXISTS reallife";
+    //$sql = "DROP DATABASE reallife";
+    //$con ->query($sql);
+
+    $sql = "CREATE DATABASE IF NOT EXISTS " . $DB['database'];
+    
     $con ->query($sql);
-    $con->select_db("reallife");
+    $con->select_db($DB['database']);
 
     $sql = "DROP TABLE event";
     $con ->query($sql);
@@ -25,13 +29,15 @@
         )ENGINE=InnoDB, DEFAULT CHARSET=UTF8";
     $con ->query($sql);
 
-    $sql = "DROP TABLE gallery";
+
+    $sql = "DROP TABLE pictures";
     $con ->query($sql);
 
-    $sql = "CREATE TABLE IF NOT EXISTS gallery (
+    $sql = "CREATE TABLE IF NOT EXISTS pictures (
         id INT(100) NOT NULL AUTO_INCREMENT, 
-        folder VARCHAR(255) NOT NULL,
-        picname VARCHAR(255) NOT NULL,
+        categoryName VARCHAR(255) NOT NULL,
+        picName VARCHAR(255) NOT NULL,
+        categoryId INT(100) NOT NULL,
         PRIMARY KEY (id)
         )ENGINE=InnoDB, DEFAULT CHARSET=UTF8";
     $con ->query($sql);
@@ -40,8 +46,10 @@
     $con ->query($sql);
 
     $sql = "CREATE TABLE IF NOT EXISTS gallerycategory (
-        folder VARCHAR(255) NOT NULL,
-        categoryname VARCHAR(255) NOT NULL
+        id INT(100) NOT NULL AUTO_INCREMENT,
+        categoryName VARCHAR(255) NOT NULL,
+        titlePic VARCHAR(255) NOT NULL,
+        PRIMARY KEY (id)
         )ENGINE=InnoDB, DEFAULT CHARSET=UTF8";
     $con ->query($sql);
 
@@ -72,7 +80,7 @@
         little_akiba VARCHAR(255) NOT NULL,
         e_mail VARCHAR(255) NOT NULL,
         mobile VARCHAR(255) NOT NULL,
-        active VARCHAR(10) NOT NULL,
+        active INT(1) NOT NULL,
         PRIMARY KEY(id))
         ENGINE=InnoDB DEFAULT CHARSET=UTF8";
     
@@ -82,35 +90,35 @@
     // Create Events
     $sql = "INSERT INTO event (eventdate, leader1, leader2, helper1, helper2, helper3, helper4) values 
     ('2022-10-21', 1, 2, 3, 3, 3, 3), 
-    ('2022-10-28', '', '', '', '', '', ''), 
-    ('2022-11-11', '', '', '', '', '', ''), 
-    ('2022-11-18', '', '', '', '', '', '')";
+    ('2022-10-28', 0, 0, 0, 0, 0, 0), 
+    ('2022-11-11', 0, 0, 0, 0, 0, 0), 
+    ('2022-11-18', 0, 0, 0, 0, 0, 0)";
     $con ->query($sql);
 
     // Create Gallery Category
-    $sql = "INSERT INTO gallerycategory (folder, categoryname) values 
+    $sql = "INSERT INTO gallerycategory (categoryName, titlePic) values 
     ('Unterwasser Abend', '3.jpg'),
     ('Cosplay Abend', 'img-1868.jpg')
     ";
     $con ->query($sql);
 
     // Greate Gallery
-    $sql = "INSERT INTO gallery (folder, picname) values 
-    ('Unterwasser Abend', '1.jpg'),
-    ('Unterwasser Abend', '2.jpg'),
-    ('Unterwasser Abend', '3.jpg'),
-    ('Unterwasser Abend', '4.jpg'),
-    ('Unterwasser Abend', '5.jpg'),
-    ('Cosplay Abend', 'img-1868.jpg'),
-    ('Cosplay Abend', 'img-1869.jpg'),
-    ('Cosplay Abend', 'img-1871.jpg'),
-    ('Cosplay Abend', 'img-1872.jpg'),
-    ('Cosplay Abend', 'img-1873.jpg'),
-    ('Cosplay Abend', 'img-1876.jpg'),
-    ('Cosplay Abend', 'img-1878.jpg'),
-    ('Cosplay Abend', 'img-1879.jpg'),
-    ('Cosplay Abend', 'img-1882.jpg'),
-    ('Cosplay Abend', 'img-1885.jpg')
+    $sql = "INSERT INTO pictures (categoryName, picName, categoryId) values 
+    ('Unterwasser Abend', '1.jpg', 1),
+    ('Unterwasser Abend', '2.jpg', 1),
+    ('Unterwasser Abend', '3.jpg', 1),
+    ('Unterwasser Abend', '4.jpg', 1),
+    ('Unterwasser Abend', '5.jpg', 1),
+    ('Cosplay Abend', 'img-1868.jpg', 2),
+    ('Cosplay Abend', 'img-1869.jpg', 2),
+    ('Cosplay Abend', 'img-1871.jpg', 2),
+    ('Cosplay Abend', 'img-1872.jpg', 2),
+    ('Cosplay Abend', 'img-1873.jpg', 2),
+    ('Cosplay Abend', 'img-1876.jpg', 2),
+    ('Cosplay Abend', 'img-1878.jpg', 2),
+    ('Cosplay Abend', 'img-1879.jpg', 2),
+    ('Cosplay Abend', 'img-1882.jpg', 2),
+    ('Cosplay Abend', 'img-1885.jpg', 2)
     ";
     $con ->query($sql);
 
@@ -140,7 +148,7 @@
             'https://www.littleakiba.ch/portal/profile/201',
             'sample@reallifecafe.ch',
             '078 / 000 00 00',
-            'yes'),
+            1),
 
             ('https://www.littleakiba.ch/assets/avatars/SzVdpCcKEx5JSQci.png',
             'Swissfrankie',
@@ -149,7 +157,7 @@
             'https://www.littleakiba.ch/portal/profile/Swissfrankie',
             'sample@reallifecafe.ch',
             '078 / 000 00 00',
-            'yes'),
+            1),
 
             ('https://www.littleakiba.ch/assets/avatars/6322f7890c0c2.png',
             'Evecat',
@@ -158,7 +166,7 @@
             'https://www.littleakiba.ch/portal/profile/Evecat',
             'sample@reallifecafe.ch',
             '078 / 000 00 00',
-            'yes')
+            1)
             ";
 
      $con->query($sql);

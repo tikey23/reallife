@@ -3,6 +3,8 @@
 
 global $ADMINPASSWORD;
 global $MEMBERPASSWORD;
+
+use \Rl\Models\Member;
         
     if ($MEMBERPASSWORD == "") {
         die('Passwort nicht gesetzt');
@@ -21,9 +23,10 @@ global $MEMBERPASSWORD;
         if ($_SESSION['memberpassword'] === "$MEMBERPASSWORD" || $_SESSION['memberpassword'] === "$ADMINPASSWORD") {
         // Member Login
             $events = showActualEvent(); // Sources for shiftlist
-            $members = getMembers();
+            $members = findAll(Member::class);
+
+            //$members = getMembers();
             echo $twig->render('member/membershift.twig', ['events' => $events, 'members' => $members]);
-            //echo $twig->render('member/membershift.twig'); //Original Line from Tikey
             echo $twig->render('logout.twig');
         } else {
         // Login failed
@@ -35,8 +38,19 @@ global $MEMBERPASSWORD;
     if(!isset($_SESSION['memberpassword'])){
         echo $twig->render('member/memberloginform.twig');
     }
+
+    //TEST
+/*
+    global $con;
+    $res = $con->query("SELECT * FROM members");
+    $memberimg = array();
+    while($data=$res->fetch_assoc()){
+        array_push($memberimg) .= $data['membername'];
+    }
+
+    print_r($memberimg);
+    */
     
-            
-        
+    
 ?>
 </div>
