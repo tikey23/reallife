@@ -3862,12 +3862,12 @@ textarea.form-control.is-invalid {
   position: sticky;
 }
 
-.top-\[35\%\] {
-  top: 35%;
+.top-\[60\%\] {
+  top: 60%;
 }
 
-.left-\[30\%\] {
-  left: 30%;
+.left-\[40\%\] {
+  left: 40%;
 }
 
 .top-0 {
@@ -3878,68 +3878,8 @@ textarea.form-control.is-invalid {
   left: 0px;
 }
 
-.top-\[50\%\] {
-  top: 50%;
-}
-
-.top-\[40\%\] {
-  top: 40%;
-}
-
-.top-\[36\%\] {
-  top: 36%;
-}
-
-.top-auto {
-  top: auto;
-}
-
-.right-auto {
-  right: auto;
-}
-
-.bottom-auto {
-  bottom: auto;
-}
-
-.left-auto {
-  left: auto;
-}
-
-.top-\[-20\%\] {
-  top: -20%;
-}
-
-.top-\[-40\%\] {
-  top: -40%;
-}
-
-.top-\[20\%\] {
-  top: 20%;
-}
-
-.top-\[30\%\] {
-  top: 30%;
-}
-
-.top-\[60\%\] {
-  top: 60%;
-}
-
-.left-\[15\%\] {
-  left: 15%;
-}
-
-.left-\[40\%\] {
-  left: 40%;
-}
-
 .left-\[35\%\] {
   left: 35%;
-}
-
-.float-right {
-  float: right;
 }
 
 .float-left {
@@ -3983,10 +3923,6 @@ textarea.form-control.is-invalid {
   margin-right: auto;
 }
 
-.ml-96 {
-  margin-left: 24rem;
-}
-
 .block {
   display: block;
 }
@@ -4007,40 +3943,16 @@ textarea.form-control.is-invalid {
   display: none;
 }
 
-.h-96 {
-  height: 24rem;
-}
-
 .h-full {
   height: 100%;
-}
-
-.h-80 {
-  height: 20rem;
-}
-
-.h-72 {
-  height: 18rem;
 }
 
 .w-80 {
   width: 20rem;
 }
 
-.w-full {
-  width: 100%;
-}
-
 .w-52 {
   width: 13rem;
-}
-
-.w-96 {
-  width: 24rem;
-}
-
-.w-3\/4 {
-  width: 75%;
 }
 
 .w-72 {
@@ -4051,12 +3963,26 @@ textarea.form-control.is-invalid {
   width: 6rem;
 }
 
-.table-auto {
-  table-layout: auto;
+.w-full {
+  width: 100%;
+}
+
+.translate-x-0 {
+  --tw-translate-x: 0px;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
+.translate-y-0 {
+  --tw-translate-y: 0px;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
 .transform {
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
+.cursor-pointer {
+  cursor: pointer;
 }
 
 .resize {
@@ -4111,12 +4037,12 @@ textarea.form-control.is-invalid {
   border-radius: 0.5rem;
 }
 
-.rounded {
-  border-radius: 0.25rem;
-}
-
 .rounded-full {
   border-radius: 9999px;
+}
+
+.rounded {
+  border-radius: 0.25rem;
 }
 
 .border {
@@ -4297,15 +4223,15 @@ textarea.form-control.is-invalid {
   opacity: 0.4;
 }
 
-.shadow-md {
-  --tw-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-  --tw-shadow-colored: 0 4px 6px -1px var(--tw-shadow-color), 0 2px 4px -2px var(--tw-shadow-color);
-  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
-}
-
 .shadow-xl {
   --tw-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
   --tw-shadow-colored: 0 20px 25px -5px var(--tw-shadow-color), 0 8px 10px -6px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
+.shadow-md {
+  --tw-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --tw-shadow-colored: 0 4px 6px -1px var(--tw-shadow-color), 0 2px 4px -2px var(--tw-shadow-color);
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
@@ -4354,15 +4280,15 @@ textarea.form-control.is-invalid {
   background-color: rgb(29 78 216 / var(--tw-bg-opacity));
 }
 
-.hover\:shadow-lg:hover {
-  --tw-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
-  --tw-shadow-colored: 0 10px 15px -3px var(--tw-shadow-color), 0 4px 6px -4px var(--tw-shadow-color);
-  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
-}
-
 .hover\:shadow-2xl:hover {
   --tw-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
   --tw-shadow-colored: 0 25px 50px -12px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
+.hover\:shadow-lg:hover {
+  --tw-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --tw-shadow-colored: 0 10px 15px -3px var(--tw-shadow-color), 0 4px 6px -4px var(--tw-shadow-color);
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
@@ -4400,8 +4326,20 @@ textarea.form-control.is-invalid {
 }
 
 @media (min-width: 640px) {
-  .sm\:m-5 {
-    margin: 1.25rem;
+  .sm\:absolute {
+    position: absolute;
+  }
+
+  .sm\:top-\[60\%\] {
+    top: 60%;
+  }
+
+  .sm\:left-\[35\%\] {
+    left: 35%;
+  }
+
+  .sm\:left-\[40\%\] {
+    left: 40%;
   }
 
   .sm\:m-2\.5 {
@@ -4412,24 +4350,8 @@ textarea.form-control.is-invalid {
     margin: 0.5rem;
   }
 
-  .sm\:m-auto {
-    margin: auto;
-  }
-
-  .sm\:ml-auto {
-    margin-left: auto;
-  }
-
-  .sm\:mr-auto {
-    margin-right: auto;
-  }
-
-  .sm\:ml-96 {
-    margin-left: 24rem;
-  }
-
-  .sm\:block {
-    display: block;
+  .sm\:m-5 {
+    margin: 1.25rem;
   }
 
   .sm\:flex {
@@ -4440,16 +4362,16 @@ textarea.form-control.is-invalid {
     display: contents;
   }
 
+  .sm\:hidden {
+    display: none;
+  }
+
   .sm\:h-96 {
     height: 24rem;
   }
 
   .sm\:w-96 {
     width: 24rem;
-  }
-
-  .sm\:table-auto {
-    table-layout: auto;
   }
 
   .sm\:justify-between {

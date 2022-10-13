@@ -33,22 +33,22 @@
 </div>
 
 
-    <div id="idNewCandidateForm" class="block absolute top-[60%] left-[40%] w-420 h-500 bg-violet-300 text-left p-4 border-4 border-solid border-violet-500 rounded-lg">
-    <img src='img/close.png' id='closeNewCandidate' class="top-0 left-0 w-50 h-50 float-left"></img>
+    <div id="idNewCandidateForm" class="block sm:absolute sm:top-[60%] sm:left-[40%] w-420 h-500 bg-violet-300 text-left p-4 border-4 border-solid border-violet-500 rounded-lg">
+    <img src='img/close.png' id='closeNewCandidate' class="top-0 left-0 w-50 h-50 float-left cursor-pointer"></img>
         <br>
         <form action='/index.php?page=becomeMember' method='post'>
         <h1 class='text-3xl font-bold text-center'>Anmeldung als Helfer/in</h1>
         <br>
         <p>
-        Name: <input name='candidateName' class="border border-solid border-black" required="required"><br>
-        E-Mail: <input type="email" name='candidateE_mail' class="border border-solid border-black" required="required"><br>
-        Phone (optional): <input type="tel" name='candidateMobile' class="border border-solid border-black"><br>
+        Name: <input name='candidateName' class="border border-solid border-black" required="required" size="20"><br>
+        E-Mail: <input type="email" name='candidateE_mail' class="border border-solid border-black" required="required" size="20"><br>
+        Phone (optional): <input type="tel" name='candidateMobile' class="border border-solid border-black" size="20"><br>
 
         <br><br>
 
         <b><u>Little Akiba: (optional)</u></b><br>
-        Profil-URL: <input  name='candidateLittle_akiba' size='40' class="border border-solid border-black"><br>
-        Avatar-URL: <input  name='candidateImg' size='40' class="border border-solid border-black"><br><br>
+        Profil-URL: <input  name='candidateLittle_akiba' size='20' class="border border-solid border-black"><br>
+        Avatar-URL: <input  name='candidateImg' size='20' class="border border-solid border-black"><br><br>
         
         <p><center><b><input type='submit' name="newCandidate" value='Anmelden' class='classButton'></b></center></p>
         </form>

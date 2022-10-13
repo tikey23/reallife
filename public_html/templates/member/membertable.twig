@@ -13,7 +13,7 @@
         {% endif %}
 
         {% if isAdmin %}
-            <td>Aktiv?</td>
+            <td><b>Aktiv?</b></td>
             <td></td>
             <td></td>
         {% endif %}
@@ -26,10 +26,10 @@
             {% if isAdmin %}
                 <tr>
 
-                <td>Little Akiba url: <input name='little_akiba' value='{{ member.little_akiba }}' size='40'>
-                <br>Avatar url: <input name='memberimg' value='{{ member.memberimg }}' size='40'></td>
+                <td>Little Akiba url: <input name='little_akiba' value='{{ member.little_akiba }}' size='20'>
+                <br>Avatar url: <input name='memberimg' value='{{ member.memberimg }}' size='20'></td>
 
-                <td><input name='membername' value='{{ member.membername }}'></td>
+                <td><input name='membername' value='{{ member.membername }}' size='15'></td>
                 <td><select name='memberfunction'>
 
                 {% if member.memberfunction == 'Leiter' %}
@@ -41,10 +41,10 @@
                 {% endif %}
 
                 </select></td>
-                <td><input name='involved_since' value='{{ member.involved_since }}' size='10'></td>
+                <td><input type='date' name='involved_since' value='{{ member.involved_since }}' size='10'></td>
 
             
-                <td><input name='e_mail' value='{{ member.e_mail }}' size='30'></td>
+                <td><input name='e_mail' value='{{ member.e_mail }}' size='20'></td>
                 <td><input name='mobile' value='{{ member.mobile }}' size='15'></td>
 
                 <td><b>Aktiv</b><br>
@@ -93,5 +93,79 @@
 {% endfor %}
 </table>
 </center>
+</form>
 
+<form action='/index.php?page=memberlist' method='post'>
+<center>
+    {% for member in members %}
+    {% if member.active == 1 %}
+        <table class='sm:hidden'>
+    {% else %}
+        <table class='sm:hidden italic opacity-40'>
+    {% endif %}
+
+        {% if modifyMemberPick == member.id %}
+            {% if isAdmin %}
+
+                <tr><td><b>Little Akiba url:</b></td><td><input name='little_akiba' value='{{ member.little_akiba }}' size='15'></td></tr>
+                <tr><td><b>Avatar url:</b></td><td><input name='memberimg' value='{{ member.memberimg }}' size='15'></td></tr>
+                <tr><td><b>Name</b></td><td><input name='membername' value='{{ member.membername }}'></td></tr>
+                <tr><td><b>Funktion</b></td><td>
+
+                    <select name='memberfunction'>
+                        {% if member.memberfunction == 'Leiter' %}
+                            <option value='Leiter' selected='selected'>Leiter</option>
+                            <option value='Helfer'>Helfer</option>
+                        {% else %}
+                            <option value='Leiter'>Leiter</option>
+                            <option value='Helfer' selected='selected'>Helfer</option>
+                        {% endif %}
+                    </select>
+                
+                </td></tr>
+                <tr><td><b>Dabei seit:</b></td><td><input type='date' name='involved_since' value='{{ member.involved_since }}' size='10'></td></tr>
+
+                <tr><td><b>E-Mail</b></td><td><input name='e_mail' value='{{ member.e_mail }}' size='15'></td></tr>
+                <tr><td><b>Mobile</b></td><td><input name='mobile' value='{{ member.mobile }}' size='15'></td></tr>
+                <tr><td><b>Aktiv?</b></td><td>
+                
+                <input type='radio' name='active' value=1 checked='checked'> Ja<br>
+                <input type='radio' name='active' value=0> Nein
+
+                </td></tr>
+
+                <tr><td></td><td><button name='modifyMember' value='{{ member.id }}' class='classButton'>aktualisieren</button></td></tr>
+
+            {% endif %}
+
+        {% else %}
+
+       
+        <tr><td></td><td><center><a href='{{ member.little_akiba }}' target='_blank'><img src='{{ member.memberimg }}' class='w-24 h24 rounded-full block'></a></center></td></tr>
+        <tr><td><b>Name:</b></td><td>{{ member.membername }}</td></tr>
+        <tr><td><b>Funktion</b></td><td>{{ member.memberfunction }}</td></tr>
+        <tr><td><b>Dabei seit:</b></td><td>{{ member.involved_since }}</td></tr>
+
+        {% if isMember %}
+        <tr><td><b>E-Mail</b></td><td><a href='mailto:{{ member.e_mail }}"?subject=Hier steht der Betreff'>{{ member.e_mail }}</a></td></tr>
+        <tr><td><b>Mobile</b></td><td>{{ member.mobile }}</td></tr>
+        {% endif %}
+
+        {% if isAdmin %}
+        <tr><td><b>Aktiv?</b></td>
+            {% if member.active == 1 %}
+                <td>Ja</td>
+            {% else %}
+                <td>Nein</td>
+            {% endif %}
+        </tr>
+        
+        <tr><td></td><td><button name='modifyMemberPick' value='{{ member.id }}' class='classButton'>ändern</button>
+            <button name='deleteMember' value='{{ member.id }}' class='classButton'>löschen</button></td></tr>
+        {% endif %}
+    {% endif %}
+</table>
+<br>
+{% endfor %}
+</center>
 </form>
