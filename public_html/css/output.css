@@ -3862,24 +3862,12 @@ textarea.form-control.is-invalid {
   position: sticky;
 }
 
-.top-\[60\%\] {
-  top: 60%;
-}
-
-.left-\[40\%\] {
-  left: 40%;
-}
-
 .top-0 {
   top: 0px;
 }
 
 .left-0 {
   left: 0px;
-}
-
-.left-\[35\%\] {
-  left: 35%;
 }
 
 .float-left {
@@ -3898,10 +3886,6 @@ textarea.form-control.is-invalid {
   margin: auto;
 }
 
-.m-5 {
-  margin: 1.25rem;
-}
-
 .mx-96 {
   margin-left: 24rem;
   margin-right: 24rem;
@@ -3913,14 +3897,6 @@ textarea.form-control.is-invalid {
 
 .mt-5 {
   margin-top: 1.25rem;
-}
-
-.ml-auto {
-  margin-left: auto;
-}
-
-.mr-auto {
-  margin-right: auto;
 }
 
 .block {
@@ -3965,16 +3941,6 @@ textarea.form-control.is-invalid {
 
 .w-full {
   width: 100%;
-}
-
-.translate-x-0 {
-  --tw-translate-x: 0px;
-  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
-}
-
-.translate-y-0 {
-  --tw-translate-y: 0px;
-  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
 .transform {
@@ -4334,12 +4300,12 @@ textarea.form-control.is-invalid {
     top: 60%;
   }
 
-  .sm\:left-\[35\%\] {
-    left: 35%;
-  }
-
   .sm\:left-\[40\%\] {
     left: 40%;
+  }
+
+  .sm\:left-\[35\%\] {
+    left: 35%;
   }
 
   .sm\:m-2\.5 {
