@@ -3,17 +3,21 @@
         <img src="/img/logo.png" class="w-80 p-1.5 m-auto sm:m-2.5"></img>
     </a>
 
-    <div class="headright m-2.5 mt-8">
+    <div class="m-2.5 mt-8">
         <a class="text-5xl font-bold bg-transparent" href="/">Real Life Café {{ additionalTitle }}</a>
         <h1 class="text-3xl text-gray-700">Herzlich Willkommen!<br/>ようこそ</h1>
     </div>
-
-    <div id="navigation" class="text-2xl bg-violet-200 block content-end w-52 p-1.5 m-auto sm:m-5 rounded-xl border border-solid border-black">
-        <p><a href="/index.php" class="block p-0.5 hover:bg-violet-300">Home</a></p>
-        <p><a href="/index.php?page=gallery" class="block p-0.5 hover:bg-violet-300">Galerie</a></p>
-        <p><a href="/index.php?page=memberlist" class="block p-0.5 hover:bg-violet-300">Wer sind wir?</a></p>
-        <p><a href="/index.php?page=becomeMember" class="block p-0.5 hover:bg-violet-300">Helfer werden</a></p>
-        <p><a href="/index.php?page=rules" class="block p-0.5 hover:bg-violet-300">Regeln</a></p>
-        <p><a href="/index.php?page=about" class="block p-0.5 hover:bg-violet-300">Über uns</a></p>
+    <div class="flex justify-center">
+        <div id="navigation" class="hidden sm:block absolute sm:static text-2xl bg-violet-200 block content-end w-52 p-1.5 m-auto sm:m-5 rounded-xl border border-solid border-black">
+            <p><a href="/index.php" class="block p-0.5 hover:bg-violet-300">Home</a></p>
+            <p><a href="/index.php?page=gallery" class="block p-0.5 hover:bg-violet-300">Galerie</a></p>
+            <p><a href="/index.php?page=memberlist" class="block p-0.5 hover:bg-violet-300">Wer sind wir?</a></p>
+            <p><a href="/index.php?page=becomeMember" class="block p-0.5 hover:bg-violet-300">Helfer werden</a></p>
+            <p><a href="/index.php?page=rules" class="block p-0.5 hover:bg-violet-300">Regeln</a></p>
+            <p><a href="/index.php?page=about" class="block p-0.5 hover:bg-violet-300">Über uns</a></p>
+        </div>
+    </div>
+    <div class="flex justify-end sm:hidden">
+        <img src="img/hamburger.png" id="hamburger" class="w-12 h-12 m-3"></img>
     </div>
 </div>

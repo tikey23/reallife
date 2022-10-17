@@ -34,12 +34,13 @@ require_once('models/Gallerycategory.php');
 	<link rel="stylesheet" href="/css/format.css">
 	<link href="/css/output.css" rel="stylesheet">
 	<link rel="icon" type="image/png" href="/img/faviconRL.png">
+	<script type="text/javascript" src="js/navigation.js"></script>
 </head>
 <body class='bg-violet-300'>
 
 <?=$twig->render('global/head.twig', ['additionalTitle' => $additionalTitle]);?>
 
-<div class="text-center bg-violet-200 border border-solid border-black rounded-xl" style="margin: 10px 20px; padding: 20px;">
+<div id="main" class="text-center bg-violet-200 border border-solid border-black rounded-xl" style="margin: 10px 20px; padding: 20px;">
 	<?php
 		includePage(@$_GET['page']);
 	?>
