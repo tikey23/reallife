@@ -11,13 +11,12 @@ use \Rl\Models\Member;
     if($member == "error"){
         echo "Anmeldedaten sind nicht korrekt";
     } else {
-        $membername = $member->membername;
-        $memberpwd = $member->pwd;
 
         //check user and password
 
-        if (password_verify($pwd, $memberpwd)) {
-            echo "Anmeldung erfolgreich";
+        if (password_verify($pwd, $member->pwd)) {
+
+            echo $twig->render('user/userTitle.twig', ["member" => $member]);
 
             if($member->memberfunction == "Leiter"){
                 echo "Ein Admin";
