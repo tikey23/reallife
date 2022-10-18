@@ -4,10 +4,10 @@
 
 {% if isShowAllEvent %}
     <p><input type='checkbox' name='showAllEvent' style="display:none">
-    <input type="submit" value="Nur aktuelle Termine anzeigen" class="classSubmit"></p>
+    <input type="submit" value="Nur aktuelle Termine anzeigen" class="classButton"></p>
 {% else %}
     <p><input type='checkbox' name='showAllEvent' checked='checked'style="display:none">
-    <input type="submit" value="Alle Termine anzeigen" class="classSubmit"></p>
+    <input type="submit" value="Alle Termine anzeigen" class="classButton"></p>
 {% endif %}
 
 <br>
@@ -16,12 +16,11 @@
 
 <!-- when click on button "ändern" //-->
     {% if modifyEventPick == event.id %}
-        <table align='center'>
-
+    <center>
+        <table class='hidden sm:contents'>
             <tr> <td> </td><td><b><input type='date' name='newdate' value='{{ event.eventdate }}'></b></td> <td></td> </tr>
             <tr> <td>Leiter</td> <td>18:00-20:30</td> <td>20:30-23:00</td> </tr>
             <tr> 
-        
                 <td><select name='newleader1'>
                     <option value='0'>Keine</option>
                     {% for member in members %}
@@ -91,7 +90,11 @@
                 </select></td>         
             </tr>
         </table> 
-        <p><button name='modifyEvent' value='{{ event.id }}' class='classButton'>aktualisieren</button></p>
+            <p class='hidden sm:contents'><button name='modifyEvent' value='{{ event.id }}' class='classButton'>aktualisieren</button></p>
+        
+
+        <div class='sm:hidden text-xl'><br><b>Zum Modifizieren, bitte Tablet auf Querformat stellen</b></div>
+        </center>
         <br><br>
 
     {% else %}
@@ -178,7 +181,7 @@
     <table align='center'>
         <tr>
         <td><input type='date' name='neweventdate' value='{{ now }}'></td>
-        <td><input type='submit' name='createEvent' value='erstellen' class='classSubmit'></td>
+        <td><input type='submit' name='createEvent' value='erstellen' class='classButton'></td>
         </tr>
     </table>
 

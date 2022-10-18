@@ -22,8 +22,9 @@
 			//Admin logged in
 
 			echo $twig->render('admin/admin.twig');
-			echo $twig->render('admin/adminEventsbutton.twig');
-			echo $twig->render('admin/adminSpecialEventsbutton.twig');
+			echo $twig->render('admin/adminEventsButton.twig');
+			echo $twig->render('admin/adminSpecialEventsButton.twig');
+			echo $twig->render('admin/adminGalleryButton.twig');
 			echo $twig->render('logout.twig');
 		} else {
 			session_destroy();

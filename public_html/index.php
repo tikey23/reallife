@@ -29,22 +29,24 @@ require_once('models/Gallerycategory.php');
 <html lang="de">
 <head>
 	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Real Life Café</title>
 	<link rel="stylesheet" href="/css/format.css">
 	<link href="/css/output.css" rel="stylesheet">
 	<link rel="icon" type="image/png" href="/img/faviconRL.png">
+	<script type="text/javascript" src="js/navigation.js"></script>
 </head>
-<body>
+<body class='bg-violet-300'>
 
 <?=$twig->render('global/head.twig', ['additionalTitle' => $additionalTitle]);?>
 
-<div class="text-center p-2" id="main">
+<div id="main" class="text-center bg-violet-200 border border-solid border-black rounded-xl" style="margin: 10px 20px; padding: 20px;">
 	<?php
 		includePage(@$_GET['page']);
 	?>
 </div>
 
-<div class="foot mb-8">
+<div class="text-center text-xs">
 	<?php
 	if (isset($_SESSION['password'])) {
 		echo "<p><a href='/index.php?page=admin'>Admin Bereich</a></p>";

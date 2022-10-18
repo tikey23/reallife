@@ -69,8 +69,6 @@
             "modifySpecialEvent" => $modifySpecialEvent
         ]);
     
-        // $selectDate[0] = selectdate(0);
-        // $selectDate[1] = selectdate(1);
         echo $twig->render('admin/createSpecialEvents.twig');
         echo $twig->render('backToAdmin.twig');
     } else {

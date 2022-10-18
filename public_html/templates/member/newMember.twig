@@ -1,13 +1,12 @@
 {% if isAdmin %}
-    <br>
-    <p><button id='idNewMemberButton' class='classSubmit'><b>Neues Mitglied</b></button></p>
-    <div id="idshowNewMemberForm" class="block absolute top-[35%] left-[30%] w-420 h-500 bg-violet-300 text-left p-4 border-4 border-solid border-violet-500 rounded-lg">
-    <img src='img/close.png' id='closeNewMember' class="top-0 left-0 w-50 h-50 float-left"></img>
+    <p><button id='idNewMemberButton' class='classButton'><b>Neuer Mitglied</b></button></p>
+    <div id="idshowNewMemberForm" class="block sm:absolute sm:top-[60%] sm:left-[35%] w-420 h-500 bg-violet-300 text-left p-4 border-4 border-solid border-violet-500 rounded-lg">
+    <img src='img/close.png' id='closeNewMember' class="top-0 left-0 w-50 h-50 float-left cursor-pointer"></img>
     {% if isAdmin %}
         {% set now = 'now'|date('Y-m-d') %}
         <br>
         <form action='/index.php?page=memberlist' method='post'>
-        <h1 class='text-3xl font-bold text-center'>Neues Mitglied</h1>
+        <h1 class='text-3xl font-bold text-center'>Neuer Mitglied</h1>
         <br>
         <p>
         Name: <input name='membername' class="border border-solid border-black" required="required"><br>
@@ -20,11 +19,11 @@
         </select><br><br>
 
         <b><u>Little Akiba:</u></b><br>
-        Profil-URL: <input  name='little_akiba' size='40' class="border border-solid border-black"><br>
-        Avatar-URL: <input  name='memberimg' size='40' class="border border-solid border-black"><br><br>
+        Profil-URL: <input  name='little_akiba' size='20' class="border border-solid border-black"><br>
+        Avatar-URL: <input  name='memberimg' size='20' class="border border-solid border-black"><br><br>
         Entrittsdatum: <input type='date' name='involved_since' value='{{ now }}' size='10' class="border border-solid border-black"><br><br>
        
-        <p><center><b><input type='submit' name="newMember" value='Mitglied erstellen' class='classSubmit'></b></center></p>
+        <p><center><b><input type='submit' name="newMember" value='Mitglied erstellen' class='classButton'></b></center></p>
         </form>
     {% endif %}
     </div>

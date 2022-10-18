@@ -1,4 +1,4 @@
-<div class="gallery">
+<div class="inline">
 
 <?php
 
@@ -11,12 +11,15 @@ use \Rl\Models\Gallerycategory;
         echo $twig->render('gallery/showGallery.twig',[
             "gallerycategories" => $gallerycategories
         ]);
-
+    ?>
+    <div class='sm:flex justify-center'>
+    <?php
 		if (isset($_SESSION['password'])) {
 			echo $twig->render('gallery/addGalleryCategoryIcon.twig');
 			echo $twig->render("gallery/adminGalleryIcon.twig");
 		}
     ?>
+    </div>
 
 </div>
 

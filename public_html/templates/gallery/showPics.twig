@@ -13,6 +13,6 @@
 {% for picture in pictures %}
 
     <a target='_blank' href='/img/gallery/{{ picture.categoryName }}/{{ picture.picName }}'>
-    <img src='/img/gallery/{{ picture.categoryName }}/{{ picture.picName }}'></img></a>
+    <img src='/img/gallery/{{ picture.categoryName }}/{{ picture.picName }}' class='inline w-80 m-2.5 rounded-xl shadow-xl hover:shadow-2xl hover:scale-110'></img></a>
 
 {% endfor %}

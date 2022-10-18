@@ -125,6 +125,7 @@
     //Create Specialevents
    
     $sql = "INSERT INTO specialevents (specialeventtitle, specialeventdate, publicdate, flyer, descripttext) VALUES 
+    ('Halloween Party', '2022-10-28', '2022-10-10', '', 'Süsses oder Saures!'),
     ('Rogers Karaoke', '2022-11-20', '2022-9-10', 'karaoke.jpg', 'Lass krachen!'),
     ('Cosplay Treff', '2022-11-24', '2022-9-11', '', 'Wir machen ein Gruppenfoto!')";
 
