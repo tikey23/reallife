@@ -2,7 +2,7 @@
     //$con = new mysqli ("", "root");
 
 
-    require_once('config/config.php');
+    require_once('../config/config.php');
     $con = new mysqli($DB['hostname'], $DB['username'], $DB['password']);
 
     //$sql = "DROP DATABASE reallife";

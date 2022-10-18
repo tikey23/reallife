@@ -1,8 +1,8 @@
-<script type="text/javascript" src="js/newCandidateForm.js"></script>
+<script type="text/javascript" src="/js/newCandidateForm.js"></script>
 
 <?php
 
-include('config/config.php');
+include('../config/config.php');
 
 use PHPMailer\PHPMailer\PHPMailer;
 

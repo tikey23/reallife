@@ -31,7 +31,7 @@ function deletecategory($id) {
 
 function uploadpic($categoryName, $categoryId, $uploadedFile, $tempFile) {  
      
-        $target_dir = "img/gallery/" . $categoryName . "/";
+        $target_dir = "public_html/img/gallery/" . $categoryName . "/";
         $uploadfile = $target_dir . basename($uploadedFile);
         $type = strtolower(pathinfo($uploadfile,PATHINFO_EXTENSION));
         $uploadok = 0;

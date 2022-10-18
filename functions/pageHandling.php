@@ -1,7 +1,7 @@
 <?php
 
-require_once('vendor/autoload.php');
-require_once('config/config.php');
+require_once('../vendor/autoload.php');
+require_once('../config/config.php');
 
 function bootstrap() {
 	global $DB;
@@ -27,12 +27,12 @@ function includePage($page = "") {
 	global $ADMINPASSWORD, $twig;
 
 	if (isset($page)) {
-		include "pages/" . $page . ".php";
+		include "../pages/" . $page . ".php";
 
 		return;
 	}
 
-	include "pages/home.php";
+	include "../pages/home.php";
 }
 
 function findAll($objectType, $column = "", $id=0) {

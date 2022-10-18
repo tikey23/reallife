@@ -5,7 +5,7 @@
 use \Rl\Models\Picture;
 use \Rl\Models\Gallerycategory;
 
-        require_once('functions/galleryfunctions.php');
+        require_once('../functions/galleryfunctions.php');
 
         $gallerycategories = findAll(Gallerycategory::class);
         echo $twig->render('gallery/showGallery.twig',[
