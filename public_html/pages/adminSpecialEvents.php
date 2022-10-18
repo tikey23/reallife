@@ -70,7 +70,7 @@
         ]);
     
         echo $twig->render('admin/createSpecialEvents.twig');
-        echo $twig->render('backToAdmin.twig');
+        echo $twig->render('toAdmin.twig');
     } else {
         echo $twig->render('admin/loginfailed.twig');
     }

@@ -24,7 +24,7 @@
 			8005 Zürich
 		</div>
 
-		<div class="hidden sm:contents">
+		<div class="hidden sm:block">
 			<div class="mapouter">
 				<div class="gmap_canvas">
 					<iframe width="600" height="500" id="gmap_canvas" src="https://maps.google.com/maps?q=Bitw%C3%A4scherei,%20Neue%20Hard%2012,%208005%20Z%C3%BCrich&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>

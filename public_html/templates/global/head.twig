@@ -7,8 +7,12 @@
         <a class="text-5xl font-bold bg-transparent" href="/">Real Life Café {{ additionalTitle }}</a>
         <h1 class="text-3xl text-gray-700">Herzlich Willkommen!<br/>ようこそ</h1>
     </div>
+
+   
+
     <div class="flex justify-center">
-        <div id="navigation" class="hidden sm:block absolute sm:static text-2xl bg-violet-200 block content-end w-52 p-1.5 m-auto sm:m-5 rounded-xl border border-solid border-black">
+        <div id="navigation" class="hidden sm:block absolute sm:static text-2xl bg-violet-200 block content-end w-52 p-1.5 m-auto sm:m-5 rounded-xl border border-solid border-black z-10">
+            <img src="img/close.png" id="naviClose" class="w-6 h-6 top-1 right-1 absolute sm:hidden"></img>
             <p><a href="/index.php" class="block p-0.5 hover:bg-violet-300">Home</a></p>
             <p><a href="/index.php?page=gallery" class="block p-0.5 hover:bg-violet-300">Galerie</a></p>
             <p><a href="/index.php?page=memberlist" class="block p-0.5 hover:bg-violet-300">Wer sind wir?</a></p>
@@ -17,7 +21,16 @@
             <p><a href="/index.php?page=about" class="block p-0.5 hover:bg-violet-300">Über uns</a></p>
         </div>
     </div>
-    <div class="flex justify-end sm:hidden">
+</div>
+
+<div id="naviBar" class="bg-violet-200 flex justify-between sm:justify-end">
+    <div class="sm:hidden">
         <img src="img/hamburger.png" id="hamburger" class="w-12 h-12 m-3"></img>
+    </div>
+
+     <div class="flex justify-end items-center">
+        <form action='/index.php?page=shifttable' method='post'>
+            <button class="p-1 mr-2 sm:mt-2 sm: mb-2 sm:mr-5 border border-solid border-black hover:bg-violet-300">Einloggen</button>
+        </form>
     </div>
 </div>
