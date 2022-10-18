@@ -1,6 +1,6 @@
 <?php
 
-require_once('../vendor/autoload.php');
+require_once('../public_html/vendor/autoload.php');
 require_once('../config/config.php');
 
 function bootstrap() {
@@ -66,7 +66,7 @@ function findAll($objectType, $column = "", $id=0) {
 }
 
 
-function findOne($objectType, $id) {
+function findOne($objectType, $id=0, $column = "", $description = "") {
 	global $con;
 
 	$o = new $objectType();
@@ -76,9 +76,16 @@ function findOne($objectType, $id) {
 	}
 
 	$collection = [];
-	$row = $con->query("SELECT * FROM {$table} WHERE `id` = {$id} LIMIT 1");
-	if($row->num_rows == 0) {
-		throw new Exception("ID for $objectType not found");
+	if($column == ""){
+		$row = $con->query("SELECT * FROM {$table} WHERE `id` = {$id} LIMIT 1");
+		if($row->num_rows == 0) {
+			throw new Exception("ID for $objectType not found");
+		}
+	} else {
+		$row = $con->query("SELECT * FROM {$table} WHERE $column = '$description' LIMIT 1");
+		if($row->num_rows == 0) {
+			return "error";
+		}
 	}
 
 	$object = new $objectType();
@@ -91,5 +98,11 @@ function findOne($objectType, $id) {
 function findAllByColumn($objectType, $column, $id) {
 
 	return findAll($objectType, $column, $id);
+
+}
+
+function findOneByColumn($objectType, $id, $column, $description) {
+
+	return findOne($objectType, $id, $column, $description);
 
 }

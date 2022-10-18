@@ -26,7 +26,7 @@
 			echo $twig->render('admin/adminSpecialEventsbutton.twig');
 			echo $twig->render('admin/adminGalleryButton.twig');
 			echo $twig->render('admin/adminMemberButton.twig');
-			echo $twig->render('logout.twig');
+			echo $twig->render('global/logout.twig');
 		} else {
 			session_destroy();
 			echo $twig->render('admin/loginfailed.twig');

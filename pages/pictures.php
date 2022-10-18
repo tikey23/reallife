@@ -5,8 +5,12 @@
 	use \Rl\Models\Picture;
 	use \Rl\Models\Gallerycategory;
 
+	if(isset($_POST['gallerycategoryId'])){
+		$_SESSION['gallerycategoryId'] = $_POST['gallerycategoryId'];
+	}
+	
+	@$gallerycategoryId = $_SESSION['gallerycategoryId'];
 
-	$gallerycategoryId = @$_POST['gallerycategoryId'];
 	if (!isset($gallerycategoryId)) {
 		die("Not allowed.");
 	}

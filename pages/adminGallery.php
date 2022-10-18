@@ -29,7 +29,7 @@
 		"pictures" => $pictures,
 	]);
 
-	echo $twig->render('toAdmin.twig');
+	echo $twig->render('admin/toAdmin.twig');
 
 	?>
 </div>

@@ -81,6 +81,7 @@
         e_mail VARCHAR(255) NOT NULL,
         mobile VARCHAR(255) NOT NULL,
         active INT(1) NOT NULL,
+        pwd VARCHAR(255) NOT NULL,
         PRIMARY KEY(id))
         ENGINE=InnoDB DEFAULT CHARSET=UTF8";
     
@@ -140,7 +141,8 @@
         little_akiba,
         e_mail,
         mobile,
-        active) VALUES
+        active,
+        pwd) VALUES
 
             ('https://www.littleakiba.ch/assets/avatars/6229a198a8e55.png',
             'dark_columbia',
@@ -149,7 +151,8 @@
             'https://www.littleakiba.ch/portal/profile/201',
             'sample@reallifecafe.ch',
             '078 / 000 00 00',
-            1),
+            1,
+            ''),
 
             ('https://www.littleakiba.ch/assets/avatars/SzVdpCcKEx5JSQci.png',
             'Swissfrankie',
@@ -158,7 +161,8 @@
             'https://www.littleakiba.ch/portal/profile/Swissfrankie',
             'sample@reallifecafe.ch',
             '078 / 000 00 00',
-            1),
+            1,
+            ''),
 
             ('https://www.littleakiba.ch/assets/avatars/6322f7890c0c2.png',
             'Evecat',
@@ -167,7 +171,18 @@
             'https://www.littleakiba.ch/portal/profile/Evecat',
             'sample@reallifecafe.ch',
             '078 / 000 00 00',
-            1)
+            1,
+            ''),
+
+            ('https://www.littleakiba.ch/assets/avatars/ojo83VEvLh8Ik2yM.png',
+            'Zody',
+            'Leiter',
+            '2022-08-01',
+            'https://www.littleakiba.ch/portal/profile/Zody',
+            'sample@reallifecafe.ch',
+            '078 / 000 00 00',
+            1,
+            '$2y$10\$Kutji9Ql4/szLlyL.AtNSuNICoUA5KTL78AmkkkasZnhV4Jm50aKq')
             ";
 
      $con->query($sql);

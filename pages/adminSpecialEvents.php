@@ -1,6 +1,6 @@
 <div class='classTable' id='adminSpecialEvents'>
 <?php
-    require_once("functions/specialeventsfunctions.php");
+    require_once("../functions/specialeventsfunctions.php");
 
     use \Rl\Models\SpecialEvent;
 
@@ -70,7 +70,7 @@
         ]);
     
         echo $twig->render('admin/createSpecialEvents.twig');
-        echo $twig->render('toAdmin.twig');
+        echo $twig->render('admin/toAdmin.twig');
     } else {
         echo $twig->render('admin/loginfailed.twig');
     }

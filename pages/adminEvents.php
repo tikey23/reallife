@@ -63,10 +63,10 @@ if(isset($_SESSION['password']) || isset($_SESSION['memberpassword'])){
 	]);
 
 	if(isset($_SESSION['password'])){
-		echo $twig->render('toAdmin.twig');
+		echo $twig->render('admin/toAdmin.twig');
 	}
 
-	echo $twig->render('logout.twig');
+	echo $twig->render('global/logout.twig');
 
  }
 
