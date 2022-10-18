@@ -45,7 +45,7 @@ if(isset($_SESSION['password'])){
 		"members" => $members,
 		"modifyEventPick" => @$_POST['modifyEventPick']
 	]);
-	echo $twig->render('backToAdmin.twig');
+	echo $twig->render('toAdmin.twig');
 } else {
 	echo $twig->render('admin/loginfailed.twig');
 }

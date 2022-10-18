@@ -27,6 +27,11 @@ use \Rl\Models\Member;
 
             //$members = getMembers();
             echo $twig->render('member/membershift.twig', ['events' => $events, 'members' => $members]);
+
+            if(isset($_SESSION['password'])){
+                echo $twig->render('toAdmin.twig');
+            }
+
             echo $twig->render('logout.twig');
         } else {
         // Login failed
