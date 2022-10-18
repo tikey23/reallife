@@ -3857,6 +3857,10 @@ textarea.form-control.is-invalid {
   position: relative;
 }
 
+.\!relative {
+  position: relative !important;
+}
+
 .sticky {
   position: -webkit-sticky;
   position: sticky;
@@ -3870,8 +3874,24 @@ textarea.form-control.is-invalid {
   left: 0px;
 }
 
-.float-right {
-  float: right;
+.top-2 {
+  top: 0.5rem;
+}
+
+.left-2 {
+  left: 0.5rem;
+}
+
+.right-0 {
+  right: 0px;
+}
+
+.top-1 {
+  top: 0.25rem;
+}
+
+.right-1 {
+  right: 0.25rem;
 }
 
 .float-left {
@@ -3923,20 +3943,24 @@ textarea.form-control.is-invalid {
   display: table;
 }
 
-.contents {
-  display: contents;
-}
-
 .hidden {
   display: none;
+}
+
+.h-12 {
+  height: 3rem;
 }
 
 .h-full {
   height: 100%;
 }
 
-.h-12 {
-  height: 3rem;
+.h-5 {
+  height: 1.25rem;
+}
+
+.h-6 {
+  height: 1.5rem;
 }
 
 .w-80 {
@@ -3945,6 +3969,10 @@ textarea.form-control.is-invalid {
 
 .w-52 {
   width: 13rem;
+}
+
+.w-12 {
+  width: 3rem;
 }
 
 .w-72 {
@@ -3959,8 +3987,12 @@ textarea.form-control.is-invalid {
   width: 100%;
 }
 
-.w-12 {
-  width: 3rem;
+.w-5 {
+  width: 1.25rem;
+}
+
+.w-6 {
+  width: 1.5rem;
 }
 
 .transform {
@@ -4017,6 +4049,12 @@ textarea.form-control.is-invalid {
 
 .justify-evenly {
   justify-content: space-evenly;
+}
+
+.truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .rounded-xl {
@@ -4186,6 +4224,10 @@ textarea.form-control.is-invalid {
   text-transform: uppercase;
 }
 
+.lowercase {
+  text-transform: lowercase;
+}
+
 .italic {
   font-style: italic;
 }
@@ -4211,14 +4253,6 @@ textarea.form-control.is-invalid {
 
 .opacity-40 {
   opacity: 0.4;
-}
-
-.opacity-0 {
-  opacity: 0;
-}
-
-.opacity-100 {
-  opacity: 1;
 }
 
 .shadow-xl {
@@ -4250,12 +4284,6 @@ textarea.form-control.is-invalid {
   transition-property: color, background-color, border-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-text-decoration-color, -webkit-backdrop-filter;
   transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
   transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-text-decoration-color, -webkit-backdrop-filter;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 150ms;
-}
-
-.transition-opacity {
-  transition-property: opacity;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 150ms;
 }
@@ -4388,9 +4416,5 @@ textarea.form-control.is-invalid {
 
   .sm\:justify-between {
     justify-content: space-between;
-  }
-
-  .sm\:opacity-100 {
-    opacity: 1;
   }
 }

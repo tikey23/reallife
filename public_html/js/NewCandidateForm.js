@@ -1,6 +1,7 @@
 
 window.onload = function(){
 	document.getElementById("hamburger").addEventListener("click", openNavi);
+	document.getElementById("naviClose").addEventListener("click", closeNavi);
     document.getElementById("idNewCandidateButton").addEventListener("click", function(){openNewCandidateForm()});
     document.getElementById("closeNewCandidate").addEventListener("click", function(){closeNewCandidateForm()});
 }
@@ -18,5 +19,10 @@ function closeNewCandidateForm(){
 function openNavi(){
     let navi = document.getElementById("navigation");
     navi.style.display = "block";
+}
+
+function closeNavi(){
+    let navi = document.getElementById("navigation");
+    navi.style.display = "none";
 }
 
