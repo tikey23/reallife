@@ -1,4 +1,4 @@
-<script type="text/javascript" src="js/NewMemberForm.js"></script>
+<script type="text/javascript" src="js/newMemberForm.js"></script>
 
 <div class='classTable' id='member'>
 	<h1 class='text-3xl font-bold text-center'>Wer sind wir?</h1>

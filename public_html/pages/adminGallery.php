@@ -29,5 +29,7 @@ echo $twig->render('gallery/adminGallery.twig', [
     "pictures" => $pictures,
     ]);
 
+echo $twig->render('toAdmin.twig');
+
     ?>
 </div>

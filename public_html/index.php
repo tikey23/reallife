@@ -36,7 +36,7 @@ require_once('models/Gallerycategory.php');
 	<link rel="icon" type="image/png" href="/img/faviconRL.png">
 	<script type="text/javascript" src="js/navigation.js"></script>
 </head>
-<body class='bg-violet-300'>
+<body id="idBody" class='bg-violet-300'>
 
 <?=$twig->render('global/head.twig', ['additionalTitle' => $additionalTitle]);?>
 

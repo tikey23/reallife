@@ -1,42 +1,17 @@
-AuthUserFile "/usr/www/users/reallih/.htpasswd"
-AuthName "Realm"
-AuthType Basic
-require valid-user
-
 Options -Indexes
 
 
-<Files about.php>
+<Files galerie.php>
     Order Deny,Allow
     Deny from all
 </Files>
 
-<Files admin.php>
+<Files galeriebilder.php>
     Order Deny,Allow
     Deny from all
 </Files>
 
-<Files adminEvent.php>
-    Order Deny,Allow
-    Deny from all
-</Files>
-
-<Files adminGallery.php>
-    Order Deny,Allow
-    Deny from all
-</Files>
-
-<Files adminSpecialEvents.php>
-    Order Deny,Allow
-    Deny from all
-</Files>
-
-<Files becomeMember.php>
-    Order Deny,Allow
-    Deny from all
-</Files>
-
-<Files gallery.php>
+<Files helferwerden.php>
     Order Deny,Allow
     Deny from all
 </Files>
@@ -46,22 +21,27 @@ Options -Indexes
     Deny from all
 </Files>
 
-<Files logoutconfirm.php>
+<Files regeln.php>
     Order Deny,Allow
     Deny from all
 </Files>
 
-<Files memberlist.php>
+<Files ueberuns.php>
     Order Deny,Allow
     Deny from all
 </Files>
 
-<Files pictures.php>
+<Files wersindwir.php>
     Order Deny,Allow
     Deny from all
 </Files>
 
-<Files rules.php>
+<Files admin.php>
+    Order Deny,Allow
+    Deny from all
+</Files>
+
+<Files adminGallery.php>
     Order Deny,Allow
     Deny from all
 </Files>
@@ -70,3 +50,4 @@ Options -Indexes
     Order Deny,Allow
     Deny from all
 </Files>
+
