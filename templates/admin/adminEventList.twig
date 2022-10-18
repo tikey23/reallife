@@ -168,22 +168,25 @@
         {% endif %}
         </tr>
     </table>
-<p><button name='modifyEventPick' value='{{ event.id }}' class='classButton'>ändern</button>
-<button name='deleteEvent' value='{{ event.id }}' class='classButton'>löschen</button></p>
+    {% if isAdmin %}
+        <p><button name='modifyEventPick' value='{{ event.id }}' class='classButton'>ändern</button>
+        <button name='deleteEvent' value='{{ event.id }}' class='classButton'>löschen</button></p>
+    {% endif %}
 <br><br>
 {% endif %}
 
 {% endfor %}
 
-
-<p class='font-bold'>Neuer Termin erstellen:</p>
-{% set now = 'now'|date('Y-m-d') %}
-    <table align='center'>
-        <tr>
-        <td><input type='date' name='neweventdate' value='{{ now }}'></td>
-        <td><input type='submit' name='createEvent' value='erstellen' class='classButton'></td>
-        </tr>
-    </table>
+{% if isAdmin %}
+    <p class='font-bold'>Neuer Termin erstellen:</p>
+    {% set now = 'now'|date('Y-m-d') %}
+        <table align='center'>
+            <tr>
+            <td><input type='date' name='neweventdate' value='{{ now }}'></td>
+            <td><input type='submit' name='createEvent' value='erstellen' class='classButton'></td>
+            </tr>
+        </table>
+{% endif %}
 
 
 </form>

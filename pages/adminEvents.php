@@ -5,6 +5,21 @@
 use \Rl\Models\Event;
 use \Rl\Models\Member;
 
+global $MEMBERPASSWORD;
+
+if(!isset($_SESSION['memberpassword'])){
+	if(isset($_POST['memberpassword'])){
+		if ($_POST['memberpassword'] == "$MEMBERPASSWORD"){
+			$_SESSION['memberpassword'] = $_POST['memberpassword'];
+		} else {
+			session_destroy();
+			echo $twig->render('member/memberloginfailed.twig');
+		}
+	} else {
+		echo $twig->render('member/memberloginform.twig');
+	}
+}
+
 if (isset($_POST['createEvent'])) {
 	//$neweventdate = $_POST['year0'] . "-" . $_POST['month0'] . "-" . $_POST['day0'];
 	$event = new Event;
@@ -38,17 +53,24 @@ if(isset($_POST['showAllEvent'])){
 	
 }
 $members = findAll(Member::class);
-if(isset($_SESSION['password'])){
+if(isset($_SESSION['password']) || isset($_SESSION['memberpassword'])){
 	echo $twig->render('admin/adminEventList.twig', [
 		"isShowAllEvent" => isset($_POST['showAllEvent']),
 		"events" => $events,
 		"members" => $members,
-		"modifyEventPick" => @$_POST['modifyEventPick']
+		"modifyEventPick" => @$_POST['modifyEventPick'],
+		"isAdmin" => isset($_SESSION['password'])
 	]);
-	echo $twig->render('toAdmin.twig');
-} else {
-	echo $twig->render('admin/loginfailed.twig');
-}
+
+	if(isset($_SESSION['password'])){
+		echo $twig->render('toAdmin.twig');
+	}
+
+	echo $twig->render('logout.twig');
+
+ }
+
+
 
 ?>
 </div>

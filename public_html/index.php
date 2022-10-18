@@ -55,9 +55,9 @@ require_once('../models/Gallerycategory.php');
 	}
 
 	if (isset($_SESSION['memberpassword']) || isset($_SESSION['password'])) {
-		echo "<p><a href='/index.php?page=shifttable'>Mitarbeiter Bereich</a></p>";
+		echo "<p><a href='/index.php?page=adminEvents'>Mitarbeiter Bereich</a></p>";
 	} else {
-		echo "<p><a href='/index.php?page=shifttable'>Mitarbeiter Anmeldung</a></p>";
+		echo "<p><a href='/index.php?page=adminEvents'>Mitarbeiter Anmeldung</a></p>";
 	}
 	?>
 
