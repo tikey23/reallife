@@ -1,7 +1,6 @@
 <?php
-session_destroy();
+    session_destroy();
+    header("refresh:0 url=/index.php");
 ?>
 
-<p>Du hast dich erfolgreich abgemeldet.</p>
-<p><a href='/index.php'>Zurück</a></p>
 

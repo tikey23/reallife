@@ -49,7 +49,7 @@
     }
 
     // showSpecialEventsAdmin();
-    if(isset($_SESSION['password'])){
+    if(isset($_SESSION['admin'])){
 
         if(isset($_POST['showAllSpecialEvents'])){
             $specialEvents = findAll(SpecialEvent::class);
@@ -71,8 +71,9 @@
     
         echo $twig->render('admin/createSpecialEvents.twig');
         echo $twig->render('admin/toAdmin.twig');
+        echo $twig->render('global/logout.twig');
     } else {
-        echo $twig->render('admin/loginfailed.twig');
+        echo $twig->render('global/loginfailed.twig');
     }
 ?>
 </div>

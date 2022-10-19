@@ -30,6 +30,7 @@
 	]);
 
 	echo $twig->render('admin/toAdmin.twig');
+	echo $twig->render('global/logout.twig');
 
 	?>
 </div>

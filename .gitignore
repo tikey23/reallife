@@ -1,7 +1,7 @@
 .idea
 .vscode
 public_html/node_modules/*
-public_html/vendor/*
+vendor/*
 config/config.php
 public_html/img/gallery/*/*.jpg
 public_html/img/gallery/*/*.jpeg

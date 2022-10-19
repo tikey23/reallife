@@ -146,13 +146,13 @@
 
             ('https://www.littleakiba.ch/assets/avatars/6229a198a8e55.png',
             'dark_columbia',
-            'Leiter',
+            'Admin',
             '2005-01-01',
             'https://www.littleakiba.ch/portal/profile/201',
             'sample@reallifecafe.ch',
             '078 / 000 00 00',
             1,
-            ''),
+            '$2y$10\$l1UBQRNn5v8.krKWCiVoc.BMHH19Aqq4YXCjyHlPAOek.xUuveYkC'),
 
             ('https://www.littleakiba.ch/assets/avatars/SzVdpCcKEx5JSQci.png',
             'Swissfrankie',
@@ -162,7 +162,7 @@
             'sample@reallifecafe.ch',
             '078 / 000 00 00',
             1,
-            ''),
+            '$2y$10$6/MfwUyivdk0sNZ4rZ0vL.FJoo7EnQ6LoDh4kRDL.aYRkh/tnRcve'),
 
             ('https://www.littleakiba.ch/assets/avatars/6322f7890c0c2.png',
             'Evecat',
@@ -172,17 +172,17 @@
             'sample@reallifecafe.ch',
             '078 / 000 00 00',
             1,
-            ''),
+            '$2y$10\$Hp9CbvMRWtek.1Wjd8//aOwt.BD4hTwB9AlV25OIgjywFVFk5uN6i'),
 
             ('https://www.littleakiba.ch/assets/avatars/ojo83VEvLh8Ik2yM.png',
             'Zody',
-            'Leiter',
+            'Admin',
             '2022-08-01',
             'https://www.littleakiba.ch/portal/profile/Zody',
             'sample@reallifecafe.ch',
             '078 / 000 00 00',
             1,
-            '$2y$10\$Kutji9Ql4/szLlyL.AtNSuNICoUA5KTL78AmkkkasZnhV4Jm50aKq')
+            '$2y$10\$TFLgec7lIuEF8WtGHyS1leSHHP6Xkmqw7OnQOMmmsJcHezN.3z9dq')
             ";
 
      $con->query($sql);
