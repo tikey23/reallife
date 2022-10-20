@@ -14,7 +14,7 @@ use \Rl\Models\Gallerycategory;
     ?>
     <div class='sm:flex justify-center'>
     <?php
-		if (isset($_SESSION['password'])) {
+		if (isset($_SESSION['admin'])) {
 			echo $twig->render('gallery/addGalleryCategoryIcon.twig');
 			echo $twig->render("gallery/adminGalleryIcon.twig");
 		}

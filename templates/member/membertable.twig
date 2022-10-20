@@ -7,7 +7,7 @@
         <td><b>Funktion</b></td>
         <td><b>Dabei seit:</b></td>
 
-        {% if isMember %}
+        {% if isLeader or isHelper %}
             <td><b>E-Mail</b></td>
             <td><b>Mobile</b></td>
         {% endif %}
@@ -33,7 +33,8 @@
                 <td><select name='memberfunction'>
 
                 {% if member.memberfunction == 'Leiter' %}
-                    <option value='Leiter' selected='selected'>Leiter</option>
+                    <option value='Admin' selected='selected'>Admin</option>
+                    <option value='Leiter'>Leiter</option>
                     <option value='Helfer'>Helfer</option>
                 {% else %}
                     <option value='Leiter'>Leiter</option>
@@ -73,7 +74,7 @@
             <td>{{ member.memberfunction }}</td>
             <td>{{ member.involved_since }}</td>
 
-            {% if isMember %}
+            {% if isLeader or isHelper %}
                 <td><a href='mailto:{{ member.e_mail }}"?subject=Hier steht der Betreff'>{{ member.e_mail }}</a></td>
                 <td>{{ member.mobile }}</td>
             {% endif %}
@@ -146,7 +147,7 @@
         <tr><td><b>Funktion</b></td><td>{{ member.memberfunction }}</td></tr>
         <tr><td><b>Dabei seit:</b></td><td>{{ member.involved_since }}</td></tr>
 
-        {% if isMember %}
+        {% if isLeader or isHelper %}
         <tr><td><b>E-Mail</b></td><td><a href='mailto:{{ member.e_mail }}"?subject=Hier steht der Betreff'>{{ member.e_mail }}</a></td></tr>
         <tr><td><b>Mobile</b></td><td>{{ member.mobile }}</td></tr>
         {% endif %}

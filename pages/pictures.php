@@ -5,8 +5,12 @@
 	use \Rl\Models\Picture;
 	use \Rl\Models\Gallerycategory;
 
+	if(isset($_POST['gallerycategoryId'])){
+		$_SESSION['gallerycategoryId'] = $_POST['gallerycategoryId'];
+	}
+	
+	@$gallerycategoryId = $_SESSION['gallerycategoryId'];
 
-	$gallerycategoryId = @$_POST['gallerycategoryId'];
 	if (!isset($gallerycategoryId)) {
 		die("Not allowed.");
 	}
@@ -36,48 +40,9 @@
 	$gallerycategorys = findOne(Gallerycategory::class, $gallerycategoryId);
 	$pictures = findAllByColumn(Picture::class, "categoryId", $gallerycategoryId);
 	echo $twig->render('gallery/showPics.twig', [
-		"isAdmin" => isset($_SESSION['password']),
+		"isAdmin" => isset($_SESSION['admin']),
 		"gallerycategorys" => $gallerycategorys,
 		"pictures" => $pictures,
 	]);
-
-
-	/*
-			$folder = $_SESSION['gallerycategoryId'];
-			global $con;
-
-			newcategory($folder);
-
-			echo "<h1 class='text-3xl font-bold underline'>$folder</h1>";
-
-			if(isset($_SESSION['password'])) {
-				echo $twig->render("gallery/addpic.twig");
-				uploadpic($folder);
-			}
-
-			showpics($folder);
-
-
-
-		/*
-			if(isset($_POST['folder'])) {
-				$_SESSION['folder'] = $_POST['folder'];
-				$folder = $_POST['folder'];
-			}
-
-			$folder = $_SESSION['folder'];
-			global $con;
-
-			newcategory($folder);
-
-			echo "<h1 class='text-3xl font-bold underline'>$folder</h1>";
-
-			if(isset($_SESSION['password'])) {
-				echo $twig->render("gallery/addpic.twig");
-				uploadpic($folder);
-			}
-
-			showpics($folder);
-			*/
 	?>
 </div>

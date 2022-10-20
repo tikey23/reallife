@@ -4559,20 +4559,16 @@ textarea.form-control.is-invalid {
   position: sticky;
 }
 
+.right-10 {
+  right: 2.5rem;
+}
+
 .top-0 {
   top: 0px;
 }
 
 .left-0 {
   left: 0px;
-}
-
-.right-10 {
-  right: 2.5rem;
-}
-
-.z-10 {
-  z-index: 10;
 }
 
 .z-30 {
@@ -4607,6 +4603,10 @@ textarea.form-control.is-invalid {
   margin: 0.5rem;
 }
 
+.m-3 {
+  margin: 0.75rem;
+}
+
 .m-5 {
   margin: 1.25rem;
 }
@@ -4620,24 +4620,12 @@ textarea.form-control.is-invalid {
   margin-top: 1.25rem;
 }
 
-.mr-5 {
-  margin-right: 1.25rem;
+.-mt-10 {
+  margin-top: -2.5rem;
 }
 
-.mt-4 {
-  margin-top: 1rem;
-}
-
-.mb-12 {
-  margin-bottom: 3rem;
-}
-
-.mt-8 {
-  margin-top: 2rem;
-}
-
-.mb-5 {
-  margin-bottom: 1.25rem;
+.ml-0 {
+  margin-left: 0px;
 }
 
 .mr-2 {
@@ -4646,6 +4634,10 @@ textarea.form-control.is-invalid {
 
 .mb-2 {
   margin-bottom: 0.5rem;
+}
+
+.mt-8 {
+  margin-top: 2rem;
 }
 
 .mb-3 {
@@ -4666,30 +4658,6 @@ textarea.form-control.is-invalid {
 
 .mt-2 {
   margin-top: 0.5rem;
-}
-
-.mb-8 {
-  margin-bottom: 2rem;
-}
-
-.mr-24 {
-  margin-right: 6rem;
-}
-
-.ml-0 {
-  margin-left: 0px;
-}
-
-.-mt-8 {
-  margin-top: -2rem;
-}
-
-.-mt-12 {
-  margin-top: -3rem;
-}
-
-.-mt-10 {
-  margin-top: -2.5rem;
 }
 
 .block {
@@ -4720,20 +4688,32 @@ textarea.form-control.is-invalid {
   display: none;
 }
 
-.h-full {
-  height: 100%;
-}
-
-.h-96 {
-  height: 24rem;
-}
-
 .h-\[600px\] {
   height: 600px;
 }
 
+.h-12 {
+  height: 3rem;
+}
+
+.h-48 {
+  height: 12rem;
+}
+
+.h-full {
+  height: 100%;
+}
+
+.w-full {
+  width: 100%;
+}
+
 .w-80 {
   width: 20rem;
+}
+
+.w-12 {
+  width: 3rem;
 }
 
 .w-48 {
@@ -4750,14 +4730,6 @@ textarea.form-control.is-invalid {
 
 .w-24 {
   width: 6rem;
-}
-
-.w-full {
-  width: 100%;
-}
-
-.w-36 {
-  width: 9rem;
 }
 
 .max-w-7xl {
@@ -4846,12 +4818,12 @@ textarea.form-control.is-invalid {
   border-radius: 0.25rem;
 }
 
-.rounded-lg {
-  border-radius: 0.5rem;
-}
-
 .rounded-full {
   border-radius: 9999px;
+}
+
+.rounded-lg {
+  border-radius: 0.5rem;
 }
 
 .border {
@@ -4886,17 +4858,22 @@ textarea.form-control.is-invalid {
   border-color: rgb(185 28 28 / var(--tw-border-opacity));
 }
 
+.bg-violet-500\/30 {
+  background-color: rgb(139 92 246 / 0.3);
+}
+
 .bg-violet-200 {
   --tw-bg-opacity: 1;
   background-color: rgb(221 214 254 / var(--tw-bg-opacity));
 }
 
-.bg-transparent {
-  background-color: transparent;
+.bg-blue-600 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(37 99 235 / var(--tw-bg-opacity));
 }
 
-.bg-violet-500\/30 {
-  background-color: rgb(139 92 246 / 0.3);
+.bg-transparent {
+  background-color: transparent;
 }
 
 .bg-red-400 {
@@ -4909,22 +4886,12 @@ textarea.form-control.is-invalid {
   background-color: rgb(196 181 253 / var(--tw-bg-opacity));
 }
 
-.bg-blue-600 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(37 99 235 / var(--tw-bg-opacity));
-}
-
-.bg-blue-500 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(59 130 246 / var(--tw-bg-opacity));
+.bg-\[url\(\'\/img\/home_bg\.jpg\'\)\;\] {
+  background-image: url('/img/home_bg.jpg');;
 }
 
 .bg-gradient-to-tr {
   background-image: linear-gradient(to top right, var(--tw-gradient-stops));
-}
-
-.bg-\[url\(\'\/img\/home_bg\.jpg\'\)\;\] {
-  background-image: url('/img/home_bg.jpg');;
 }
 
 .from-violet-300 {
@@ -4950,12 +4917,12 @@ textarea.form-control.is-invalid {
   background-attachment: fixed;
 }
 
-.p-4 {
-  padding: 1rem;
+.p-5 {
+  padding: 1.25rem;
 }
 
-.p-8 {
-  padding: 2rem;
+.p-2 {
+  padding: 0.5rem;
 }
 
 .p-1\.5 {
@@ -4966,20 +4933,12 @@ textarea.form-control.is-invalid {
   padding: 0.25rem;
 }
 
-.p-2 {
-  padding: 0.5rem;
-}
-
-.p-5 {
-  padding: 1.25rem;
-}
-
-.p-24 {
-  padding: 6rem;
-}
-
 .p-3 {
   padding: 0.75rem;
+}
+
+.p-4 {
+  padding: 1rem;
 }
 
 .py-8 {
@@ -5007,9 +4966,12 @@ textarea.form-control.is-invalid {
   padding-bottom: 0.5rem;
 }
 
-.px-8 {
-  padding-left: 2rem;
-  padding-right: 2rem;
+.pt-24 {
+  padding-top: 6rem;
+}
+
+.pt-4 {
+  padding-top: 1rem;
 }
 
 .pt-3 {
@@ -5022,30 +4984,6 @@ textarea.form-control.is-invalid {
 
 .pb-5 {
   padding-bottom: 1.25rem;
-}
-
-.pt-4 {
-  padding-top: 1rem;
-}
-
-.pt-8 {
-  padding-top: 2rem;
-}
-
-.pt-12 {
-  padding-top: 3rem;
-}
-
-.pt-24 {
-  padding-top: 6rem;
-}
-
-.pt-48 {
-  padding-top: 12rem;
-}
-
-.pt-64 {
-  padding-top: 16rem;
 }
 
 .text-left {
@@ -5066,11 +5004,6 @@ textarea.form-control.is-invalid {
   line-height: 1.75rem;
 }
 
-.text-xs {
-  font-size: 0.75rem;
-  line-height: 1rem;
-}
-
 .text-2xl {
   font-size: 1.5rem;
   line-height: 2rem;
@@ -5084,6 +5017,11 @@ textarea.form-control.is-invalid {
 .text-5xl {
   font-size: 3rem;
   line-height: 1;
+}
+
+.text-xs {
+  font-size: 0.75rem;
+  line-height: 1rem;
 }
 
 .font-bold {
@@ -5178,18 +5116,6 @@ textarea.form-control.is-invalid {
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
-.shadow {
-  --tw-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
-  --tw-shadow-colored: 0 1px 3px 0 var(--tw-shadow-color), 0 1px 2px -1px var(--tw-shadow-color);
-  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
-}
-
-.shadow-inner {
-  --tw-shadow: inset 0 2px 4px 0 rgb(0 0 0 / 0.05);
-  --tw-shadow-colored: inset 0 2px 4px 0 var(--tw-shadow-color);
-  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
-}
-
 .outline {
   outline-style: solid;
 }
@@ -5220,12 +5146,6 @@ textarea.form-control.is-invalid {
           backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
 }
 
-.transition-all {
-  transition-property: all;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 150ms;
-}
-
 .transition {
   transition-property: color, background-color, border-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-text-decoration-color, -webkit-backdrop-filter;
   transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
@@ -5234,16 +5154,12 @@ textarea.form-control.is-invalid {
   transition-duration: 150ms;
 }
 
-.delay-150 {
-  transition-delay: 150ms;
+.duration-300 {
+  transition-duration: 300ms;
 }
 
 .duration-150 {
   transition-duration: 150ms;
-}
-
-.duration-300 {
-  transition-duration: 300ms;
 }
 
 .ease-in-out {
@@ -5252,11 +5168,6 @@ textarea.form-control.is-invalid {
 
 .\[hostname\:port\] {
   hostname: port;
-}
-
-.hover\:-translate-y-1:hover {
-  --tw-translate-y: -0.25rem;
-  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
 .hover\:scale-110:hover {
@@ -5273,11 +5184,6 @@ textarea.form-control.is-invalid {
 .hover\:bg-blue-700:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(29 78 216 / var(--tw-bg-opacity));
-}
-
-.hover\:bg-indigo-500:hover {
-  --tw-bg-opacity: 1;
-  background-color: rgb(99 102 241 / var(--tw-bg-opacity));
 }
 
 .hover\:shadow-2xl:hover {
@@ -5358,10 +5264,6 @@ textarea.form-control.is-invalid {
     margin-right: 1.25rem;
   }
 
-  .sm\:block {
-    display: block;
-  }
-
   .sm\:flex {
     display: flex;
   }
@@ -5374,10 +5276,6 @@ textarea.form-control.is-invalid {
     display: none;
   }
 
-  .sm\:h-96 {
-    height: 24rem;
-  }
-
   .sm\:w-96 {
     width: 24rem;
   }
@@ -5386,10 +5284,6 @@ textarea.form-control.is-invalid {
 @media (min-width: 1024px) {
   .lg\:fixed {
     position: fixed;
-  }
-
-  .lg\:ml-48 {
-    margin-left: 12rem;
   }
 
   .lg\:ml-52 {
@@ -5408,10 +5302,6 @@ textarea.form-control.is-invalid {
     display: inline-flex;
   }
 
-  .lg\:w-80 {
-    width: 20rem;
-  }
-
   .lg\:p-8 {
     padding: 2rem;
   }
@@ -5422,6 +5312,18 @@ textarea.form-control.is-invalid {
 
   .lg\:pt-12 {
     padding-top: 3rem;
+  }
+
+  .lg\:pt-8 {
+    padding-top: 2rem;
+  }
+
+  .lg\:pt-6 {
+    padding-top: 1.5rem;
+  }
+
+  .lg\:pt-16 {
+    padding-top: 4rem;
   }
 
   .lg\:text-2xl {

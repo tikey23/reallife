@@ -1,10 +1,6 @@
 <?php
 
-/*use Rl\Models\Member\Event;
-use Rl\Models\Member\Member;
-use \Rl\Models\Picture;
-use Rl\Models\Member\Gallerycategory;*/
-
+use \Rl\Models\Member;
 
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
@@ -20,10 +16,7 @@ require_once('../models/Member.php');
 require_once('../models/Picture.php');
 require_once('../models/Gallerycategory.php');
 
-[
-	$con,
-	$twig,
-] = bootstrap();
+[$con, $twig] = bootstrap();
 
 
 ?>
@@ -41,31 +34,21 @@ require_once('../models/Gallerycategory.php');
 </head>
 <body id="idBody" class='text-lg bg-fixed bg-gradient-to-tr from-violet-300 via-violet-300 to-violet-400'>
 
-<?= $twig->render('global/head.twig', ['additionalTitle' => $additionalTitle]); ?>
+
+<?PHP
+if(isset($_SESSION['username'])){
+	$loggedInUser = findOneByColumn(Member::class, 0, "membername", $_SESSION['username']);
+} else {
+	$loggedInUser = NULL;
+}
+echo $twig->render('global/head.twig', ['additionalTitle' => $additionalTitle, 'member' => $loggedInUser]);
+?>
 
 <div id="main" class="text-center bg-violet-200 border border-solid border-black rounded-xl max-w-7xl m-auto p-2 lg:p-8">
 	<?php
 		includePage(@$_GET['page']);
 	?>
 </div>
-
-<footer class="mt-4 mb-12 text-center text-xs">
-	<?php
-	if (isset($_SESSION['password'])) {
-		echo "<p><a href='/index.php?page=admin'>Admin Bereich</a></p>";
-	} else {
-		echo "<p><a href='/index.php?page=admin'>Administrator Anmeldung</a></p>";
-	}
-
-	if (isset($_SESSION['memberpassword']) || isset($_SESSION['password'])) {
-		echo "<p><a href='/index.php?page=adminEvents'>Mitarbeiter Bereich</a></p>";
-	} else {
-		echo "<p><a href='/index.php?page=adminEvents'>Mitarbeiter Anmeldung</a></p>";
-	}
-	?>
-
-</footer>
-
 
 </body>
 </html>

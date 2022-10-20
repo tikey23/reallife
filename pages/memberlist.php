@@ -39,15 +39,20 @@ if(isset($_SESSION["password"])){
 
 	$members = findAll(Member::class);
 	echo $twig->render('member/membertable.twig', [
-		"isMember" => isset($_SESSION['memberpassword']),
-		"isAdmin" => isset($_SESSION['password']),
+		"isAdmin" => isset($_SESSION['admin']),
+		"isLeader" => isset($_SESSION['leader']),
+		"isHelper" => isset($_SESSION['helper']),
 		'members' => $members,
 		'modifyMemberPick' => @$_POST['modifyMemberPick']
 	]);
 	
-	echo $twig->render('member/newMember.twig', ["isAdmin" => isset($_SESSION['password'])]);
+	echo $twig->render('member/newMember.twig', ["isAdmin" => isset($_SESSION['admin'])]);
 
 	echo $twig->render('member/recruitmember.twig');
+
+	if(isset($_SESSION['username'])){
+		echo $twig->render('global/logout.twig');
+	}
 
 	?>
 
