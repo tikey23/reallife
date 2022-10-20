@@ -80,11 +80,13 @@
             {% endif %}
 
             {% if isAdmin %}
+                <td ondblclick="updateMemberStatus(this, {{ member.id }})">
                 {% if member.active == 1 %}
-                    <td>Ja</td>
+                    Ja
                 {% else %}
-                    <td>Nein</td>
+                    Nein
                 {% endif %}
+                </td>
 
                 <td><button name='modifyMemberPick' value='{{ member.id }}' class='classButton'>ändern</button></td>
                 <td><button name='deleteMember' value='{{ member.id }}' class='classButton'>löschen</button></td>
