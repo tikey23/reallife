@@ -1,6 +1,6 @@
 window.onload = function(){
-    document.getElementById("hamburger").addEventListener("click", openNavi);
-    document.getElementById("naviClose").addEventListener("click", closeNavi);
+    // document.getElementById("hamburger").addEventListener("click", openNavi);
+    // document.getElementById("naviClose").addEventListener("click", closeNavi);
 }
 
 function openNavi(){
