@@ -15,7 +15,7 @@
 		die("Not allowed.");
 	}
 
-	if (isset($_SESSION["password"])) {
+	if (isset($_SESSION["admin"])) {
 		//Create New Category
 		if (isset($_POST['newCategory'])) {
 
