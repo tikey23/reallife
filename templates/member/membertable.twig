@@ -49,8 +49,13 @@
                 <td><input name='mobile' value='{{ member.mobile }}' size='15'></td>
 
                 <td><b>Aktiv</b><br>
-                <input type='radio' name='active' value=1 checked='checked'> Ja<br>
-                <input type='radio' name='active' value=0> Nein</td>
+                {% if member.active == 1 %}
+                    <input type='radio' name='active' value=1 checked='checked'> Ja<br>
+                    <input type='radio' name='active' value=0> Nein</td>
+                {% else %}
+                    <input type='radio' name='active' value=1> Ja<br>
+                    <input type='radio' name='active' value=0 checked='checked'> Nein</td>
+                {% endif %}
 
                 <td><button name='modifyMember' value='{{ member.id }}' class='classButton'>aktualisieren</button></td>
                 <td></td>
