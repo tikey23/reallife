@@ -34,7 +34,15 @@ require_once('../models/Gallerycategory.php');
 </head>
 <body id="idBody" class='text-lg bg-fixed bg-gradient-to-tr from-violet-300 via-violet-300 to-violet-400'>
 
-<?=$twig->render('global/head.twig', ['additionalTitle' => $additionalTitle]);?>
+
+<?PHP
+if(isset($_SESSION['username'])){
+	$loggedInUser = findOneByColumn(Member::class, 0, "membername", $_SESSION['username']);
+} else {
+	$loggedInUser = NULL;
+}
+echo $twig->render('global/head.twig', ['additionalTitle' => $additionalTitle, 'member' => $loggedInUser]);
+?>
 
 <div id="main" class="text-center bg-violet-200 border border-solid border-black rounded-xl max-w-7xl m-auto p-2 lg:p-8">
 	<?php
