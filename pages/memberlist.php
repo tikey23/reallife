@@ -8,13 +8,17 @@
 
 	use \Rl\Models\Member;
 
-if(isset($_SESSION["password"])){
+if(isset($_SESSION["admin"])){
 	if(isset($_POST['newMember'])) {
+		$newPwd = $_POST['memberpwd'];
+		$createNewPwd = password_hash($newPwd, PASSWORD_DEFAULT);
+
 		$member = new Member();
 		$member->membername = $_POST['membername'];
 		$member->memberimg = $_POST['memberimg'];
 		$member->memberfunction = $_POST['memberfunction'];
 		$member->little_akiba = $_POST['little_akiba'];
+		$member->pwd = $createNewPwd;
 		$member->e_mail = $_POST['e_mail'];
 		$member->mobile = $_POST['mobile'];
 		$member->involved_since = $_POST['involved_since'];
