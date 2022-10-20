@@ -152,7 +152,8 @@
             'sample@reallifecafe.ch',
             '078 / 000 00 00',
             1,
-            '$2y$10\$l1UBQRNn5v8.krKWCiVoc.BMHH19Aqq4YXCjyHlPAOek.xUuveYkC'),
+            '$adminPwd'
+            ),
 
             ('https://www.littleakiba.ch/assets/avatars/SzVdpCcKEx5JSQci.png',
             'Swissfrankie',
@@ -162,7 +163,8 @@
             'sample@reallifecafe.ch',
             '078 / 000 00 00',
             1,
-            '$2y$10$6/MfwUyivdk0sNZ4rZ0vL.FJoo7EnQ6LoDh4kRDL.aYRkh/tnRcve'),
+            '$leaderPwd'
+            ),
 
             ('https://www.littleakiba.ch/assets/avatars/6322f7890c0c2.png',
             'Evecat',
@@ -172,7 +174,8 @@
             'sample@reallifecafe.ch',
             '078 / 000 00 00',
             1,
-            '$2y$10\$Hp9CbvMRWtek.1Wjd8//aOwt.BD4hTwB9AlV25OIgjywFVFk5uN6i'),
+            '$helperPwd'
+            ),
 
             ('https://www.littleakiba.ch/assets/avatars/ojo83VEvLh8Ik2yM.png',
             'Zody',
@@ -182,8 +185,8 @@
             'sample@reallifecafe.ch',
             '078 / 000 00 00',
             1,
-            '$2y$10\$TFLgec7lIuEF8WtGHyS1leSHHP6Xkmqw7OnQOMmmsJcHezN.3z9dq')
-            ";
+            '$zodyPwd'
+            )";
 
      $con->query($sql);
 ?>
