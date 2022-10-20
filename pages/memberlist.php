@@ -8,7 +8,7 @@
 
 	use \Rl\Models\Member;
 
-if(isset($_SESSION["password"])){
+if(isset($_SESSION["admin"])){
 	if(isset($_POST['newMember'])) {
 		$member = new Member();
 		$member->membername = $_POST['membername'];
