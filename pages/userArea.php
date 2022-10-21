@@ -10,15 +10,7 @@ if($member == "error") die("not allowed");
 echo $twig->render('user/userTitle.twig', ["member" => $member]);
 
 if ($member->memberfunction == "Admin") {
-	$_SESSION['admin'] = TRUE;
-	$_SESSION['leader'] = TRUE;
-	$_SESSION['helper'] = TRUE;
 	echo $twig->render('admin/toAdmin.twig');
-} elseif ($member->memberfunction == "Leiter") {
-	$_SESSION['leader'] = TRUE;
-	$_SESSION['helper'] = TRUE;
-} else {
-	$_SESSION['helper'] = TRUE;
 }
 
 echo $twig->render('admin/adminEventsbutton.twig');
