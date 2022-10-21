@@ -17,10 +17,14 @@ if (isset($_SESSION['admin']) ||
 }
 
 if (isset($_POST['createEvent'])) {
-	//$neweventdate = $_POST['year0'] . "-" . $_POST['month0'] . "-" . $_POST['day0'];
 	$event = new Event;
-	//$event->eventdate = $neweventdate;
 	$event->eventdate = $_POST['neweventdate'];
+	$event->leader1 = 0;
+	$event->leader2 = 0;
+	$event->helper1 = 0;
+	$event->helper2 = 0;
+	$event->helper3 = 0;
+	$event->helper4 = 0;
 	$event->save();
 }
 
