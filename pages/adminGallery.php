@@ -6,11 +6,12 @@
 	use \Rl\Models\Gallerycategory;
 
 	// Delete Category
-	if (isset($_POST['deletecategory'])) {
+	if (isset($_POST['deletecategory'])) {	
 		deletecategory($_POST['deletecategory']);
 
 		$gallerycategory = findOne(Gallerycategory::class, $_POST['deletecategory']);
 		$gallerycategory->delete();
+
 	}
 
 

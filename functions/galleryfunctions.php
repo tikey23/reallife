@@ -9,18 +9,21 @@ function deletecategory($id) {
     $folderName = $gallerycategory->categoryName;
 
     $link = "img/gallery/" . $folderName . "/";
-    $files = scandir($link);
+  /*   $files = scandir($link);
 
     for ($i=2; $i<count($files); $i++) {
         unlink($link . $files[$i]);
-    }
+    } */
     
-    rmdir($link);
+    
 
     $pictures = findAll(Picture::class, "categoryId", $id);
     foreach($pictures AS $picture){
         $picture->delete();
     }
+
+    chmod($link, 0777);
+    rmdir($link);
     
     
     // delete all pics from table (provisionally codes)
