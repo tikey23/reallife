@@ -11,9 +11,9 @@
 	
 	@$gallerycategoryId = $_SESSION['gallerycategoryId'];
 
-	if (!isset($gallerycategoryId)) {
+	/* if (!isset($gallerycategoryId)) {
 		die("Not allowed.");
-	}
+	} */
 
 	if (isset($_SESSION["admin"])) {
 		//Create New Category
