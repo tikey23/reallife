@@ -20,7 +20,8 @@ function bootstrap() {
 }
 
 function twig_date_format($value, $format) {
-    return date_format(date_create($value), $format);
+	$fmt = datefmt_create("de_DE", IntlDateFormatter::FULL, IntlDateFormatter::NONE, 'Europe/Berlin', IntlDateFormatter::GREGORIAN);
+	return datefmt_format($fmt , strtotime($value));
 }
 
 function includePage($page = "") {
