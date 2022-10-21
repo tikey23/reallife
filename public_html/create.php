@@ -90,10 +90,11 @@
     // Beispieldaten
     // Create Events
     $sql = "INSERT INTO event (eventdate, leader1, leader2, helper1, helper2, helper3, helper4) values 
-    ('2022-10-21', 1, 2, 3, 3, 3, 3), 
-    ('2022-10-28', 0, 0, 0, 0, 0, 0), 
+    ('2022-10-21', 1, 2, 3, 3, 3, 3),
+    ('2022-10-28', 1, 2, 3, 3, 3, 3),  
     ('2022-11-11', 0, 0, 0, 0, 0, 0), 
-    ('2022-11-18', 0, 0, 0, 0, 0, 0)";
+    ('2022-11-18', 0, 0, 0, 0, 0, 0),
+    ('2022-11-25', 1, 2, 3, 3, 3, 3) ";
     $con ->query($sql);
 
     // Create Gallery Category
