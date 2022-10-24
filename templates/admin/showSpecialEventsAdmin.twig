@@ -24,10 +24,10 @@
 			{% if specialEvent.flyer == NULL %}
 				<tr><td>Flyer:</td><td><input type='file' name='flyer'></td></tr>
 			{% else %}
-				<tr><td>Flyer:</td><td><img src='img/specialevents/{{ specialEvent.flyer }}' width='310'><input type='file' name='flyer'></img></td></tr>
+				<tr><td>Flyer:</td><td><img src='img/specialevents/{{ specialEvent.flyer }}' class='w-96'><input type='file' name='flyer'></img></td></tr>
 			{% endif %}
 			
-			<tr><td>Text:</td><td><input name='descripttext' rows='4' cols='50' value='{{ specialEvent.descripttext }}'></td></tr>
+			<tr><td>Text:</td><td><textarea name='descripttext' rows='4' cols='50'>{{ specialEvent.descripttext }}</textarea></td></tr>
 			</table>
 			<p><button name='modifySpecialEventconfirm' value='{{ specialEvent.id }}' class='classButton'>aktualisieren</button></p>
 
