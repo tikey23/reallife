@@ -1,5 +1,5 @@
 <?php
-
+// phpinfo();
 use \Rl\Models\Member;
 require_once('../load.php');
 

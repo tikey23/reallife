@@ -105,9 +105,9 @@
                                 Nein
                             {% endif %}
                         </span><br>
-                    
+                        {% set warning = '\"Bist du sicher?\"' %}
                         <button name='modifyMemberPick' value='{{ member.id }}' class='w-5 h-5 hover:opacity-40'><img src='img/icons/edit.png' class='w-5 h-5 inline' title='Ändern'></button>
-                        <button name='deleteMember' value='{{ member.id }}' class='w-5 h-5 hover:opacity-40'><img src='img/icons/delete.png' class='w-5 h-5 inline' title='Löschen'></button>
+                        <button name='deleteMember' value='{{ member.id }}' onclick='return confirm({{ warning }})' class='w-5 h-5 hover:opacity-40'><img src='img/icons/delete.png' class='w-5 h-5 inline' title='Löschen'></button>
                     {% endif %}
                 </div>
             </div>

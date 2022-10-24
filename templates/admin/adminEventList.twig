@@ -169,8 +169,9 @@
         </tr>
     </table>
     {% if isAdmin %}
+    {% set warning = '\"Bist du sicher?\"' %}
         <p><button name='modifyEventPick' value='{{ event.id }}' class='classButton'>ändern</button>
-        <button name='deleteEvent' value='{{ event.id }}' class='classButton'>löschen</button></p>
+        <button name='deleteEvent' value='{{ event.id }}' onclick='return confirm({{ warning }})' class='classButton'>löschen</button></p>
     {% endif %}
 <br><br>
 {% endif %}

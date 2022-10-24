@@ -16,7 +16,7 @@ function closeNewMemberForm(){
 	close.style.transform = "translate(-3000px, 0)";
 }
 
-function openNavi(){
+/* function openNavi(){
     let navi = document.getElementById("navigation");
     navi.style.display = "block";
 }
@@ -25,7 +25,7 @@ function closeNavi(){
     let navi = document.getElementById("navigation");
     navi.style.display = "none";
 }
-
+ */
 
 function updateMemberStatus(element, memberid) {
 	var value = element.innerHTML.trim();
