@@ -62,8 +62,8 @@
                 <div class='flex justify-end'>
                     <div></div>
                     <div>
-                        <button name='modifyMember' value='{{ member.id }}' class='w-5 h-5'><img src='img/icons/done.png' class='w-5 h-5 inline'></button>
-                        <button class='w-5 h-5'><img src='img/icons/close.png' class='w-5 h-5 inline'></button>
+                        <button name='modifyMember' value='{{ member.id }}' class='w-5 h-5 hover:opacity-40'><img src='img/icons/done.png' class='w-5 h-5 inline' title='Ok'></button>
+                        <button class='w-5 h-5'><img src='img/icons/close.png' class='w-5 h-5 inline hover:opacity-40' title='Abbrechen'></button>
                     </div>
                 </div>
                 
@@ -106,8 +106,8 @@
                             {% endif %}
                         </span><br>
                     
-                        <button name='modifyMemberPick' value='{{ member.id }}' class='w-5 h-5'><img src='img/icons/edit.png' class='w-5 h-5 inline' title='Ändern'></button>
-                        <button name='deleteMember' value='{{ member.id }}' class='w-5 h-5'><img src='img/icons/delete.png' class='w-5 h-5 inline' title='Löschen'></button>
+                        <button name='modifyMemberPick' value='{{ member.id }}' class='w-5 h-5 hover:opacity-40'><img src='img/icons/edit.png' class='w-5 h-5 inline' title='Ändern'></button>
+                        <button name='deleteMember' value='{{ member.id }}' class='w-5 h-5 hover:opacity-40'><img src='img/icons/delete.png' class='w-5 h-5 inline' title='Löschen'></button>
                     {% endif %}
                 </div>
             </div>

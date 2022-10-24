@@ -5045,10 +5045,6 @@ textarea.form-control.is-invalid {
   text-align: center;
 }
 
-.align-middle {
-  vertical-align: middle;
-}
-
 .text-3xl {
   font-size: 1.875rem;
   line-height: 2.25rem;
@@ -5231,6 +5227,18 @@ textarea.form-control.is-invalid {
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
+.hover\:scale-125:hover {
+  --tw-scale-x: 1.25;
+  --tw-scale-y: 1.25;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
+.hover\:scale-150:hover {
+  --tw-scale-x: 1.5;
+  --tw-scale-y: 1.5;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
 .hover\:bg-violet-300:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(196 181 253 / var(--tw-bg-opacity));
@@ -5239,6 +5247,14 @@ textarea.form-control.is-invalid {
 .hover\:bg-blue-700:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(29 78 216 / var(--tw-bg-opacity));
+}
+
+.hover\:opacity-60:hover {
+  opacity: 0.6;
+}
+
+.hover\:opacity-40:hover {
+  opacity: 0.4;
 }
 
 .hover\:shadow-2xl:hover {
@@ -5291,11 +5307,6 @@ textarea.form-control.is-invalid {
     position: absolute;
   }
 
-  .sm\:sticky {
-    position: -webkit-sticky;
-    position: sticky;
-  }
-
   .sm\:top-\[60\%\] {
     top: 60%;
   }
@@ -5306,22 +5317,6 @@ textarea.form-control.is-invalid {
 
   .sm\:left-\[35\%\] {
     left: 35%;
-  }
-
-  .sm\:top-\[60\] {
-    top: 60;
-  }
-
-  .sm\:top-\[60px\] {
-    top: 60px;
-  }
-
-  .sm\:top-\[30\%\] {
-    top: 30%;
-  }
-
-  .sm\:top-\[90\%\] {
-    top: 90%;
   }
 
   .sm\:m-2\.5 {

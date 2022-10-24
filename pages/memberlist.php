@@ -50,9 +50,10 @@ if(isset($_SESSION["admin"])){
 		'modifyMemberPick' => @$_POST['modifyMemberPick']
 	]);
 	
-	echo $twig->render('member/newMember.twig', ["isAdmin" => isset($_SESSION['admin'])]);
+	
 
 	echo $twig->render('member/recruitmember.twig');
+	echo $twig->render('member/newMember.twig', ["isAdmin" => isset($_SESSION['admin'])]);
 
 	if(isset($_SESSION['username'])){
 		echo $twig->render('global/logout.twig');
