@@ -1,7 +1,7 @@
 {% if isAdmin %}
     <p><button id='idNewMemberButton' class='classButton'><b>Neuer Mitglied</b></button></p>
     <div id="idshowNewMemberForm" class="block sm:absolute sm:top-[60%] sm:left-[35%] w-420 h-500 bg-violet-300 text-left p-4 border-4 border-solid border-violet-500 rounded-lg">
-    <img src='/img/close.png' id='closeNewMember' class="top-0 left-0 w-50 h-50 float-left cursor-pointer"></img>
+    <img src='/img/icons/close.png' id='closeNewMember' class="top-0 left-0 w-50 h-50 float-left cursor-pointer"></img>
     {% if isAdmin %}
         {% set now = 'now'|date('Y-m-d') %}
         <br>

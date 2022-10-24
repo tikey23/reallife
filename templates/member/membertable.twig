@@ -1,179 +1,119 @@
 <form action='/index.php?page=memberlist' method='post'>
-<center>
-<table class='hidden sm:contents'>
-    <tr>
-        <td><b>Little Akiba</b></td>
-        <td><b>Name</b></td>
-        <td><b>Funktion</b></td>
-        <td><b>Dabei seit:</b></td>
 
-        {% if isLeader or isHelper %}
-            <td><b>E-Mail</b></td>
-            <td><b>Mobile</b></td>
-        {% endif %}
-
-        {% if isAdmin %}
-            <td><b>Aktiv?</b></td>
-            <td></td>
-            <td></td>
-        {% endif %}
-
-    </tr>
-
+<div class='flex flex-wrap justify-center'>
 {% for member in members %}
-    
-        {% if modifyMemberPick == member.id %}
-            {% if isAdmin %}
-                <tr>
 
-                <td>Little Akiba url: <input name='little_akiba' value='{{ member.little_akiba }}' size='20'>
-                <br>Avatar url: <input name='memberimg' value='{{ member.memberimg }}' size='20'></td>
+    {% if modifyMemberPick == member.id %}
+    {% if isAdmin %}
 
-                <td><input name='membername' value='{{ member.membername }}' size='15'></td>
-                <td><select name='memberfunction'>
+        <div class='scale-90 sm:scale-100 w-96 border border-solid border-black rounded-2xl flex justify-center'>
+            <div></div>
 
-                {% if member.memberfunction == 'Leiter' %}
+            <div class='text-left m-2'>
+                
+                <p><input name='membername' value='{{ member.membername }}' class='text-2xl font-bold border border-solid border-black'></p>
+                <br>
+
+                <p>Little Akiba URL:<br>
+                <input name='little_akiba' value='{{ member.little_akiba }}' size='30' class='border border-solid border-black'></p>
+
+                <p>Avatar URL:<br>
+                <input name='memberimg' value='{{ member.memberimg }}' size='30' class='border border-solid border-black'></p>
+                <br>
+
+                <p><select name='memberfunction'>
+
+                {% if member.memberfunction == 'Admin' %}
                     <option value='Admin' selected='selected'>Admin</option>
                     <option value='Leiter'>Leiter</option>
                     <option value='Helfer'>Helfer</option>
+
+                {% elseif member.memberfunction == 'Leiter' %}
+                    <option value='Admin'>Admin</option>
+                    <option value='Leiter'selected='selected'>Leiter</option>
+                    <option value='Helfer'>Helfer</option>
+
                 {% else %}
+                    <option value='Admin'>Admin</option>
                     <option value='Leiter'>Leiter</option>
-                    <option value='Helfer' selected='selected'>Helfer</option>
+                    <option value='Helfer'selected='selected'>Helfer</option>
                 {% endif %}
 
                 </select></td>
-                <td><input type='date' name='involved_since' value='{{ member.involved_since }}' size='10'></td>
+                <br>
 
-            
-                <td><input name='e_mail' value='{{ member.e_mail }}' size='20'></td>
-                <td><input name='mobile' value='{{ member.mobile }}' size='15'></td>
-
-                <td><b>Aktiv</b><br>
+                <p>Aktiv seit: <input type='date' name='involved_since' value='{{ member.involved_since }}'></p>
+                <br>
+                
+                <img src='img/icons/email.png' class='w-5 h-5 inline'>: <input name='e_mail' value='{{ member.e_mail }}' size='20' class='border border-solid border-black'><br>
+                <img src='img/icons/phone.png' class='w-5 h-5 inline'>: <input name='mobile' value='{{ member.mobile }}' size='15' class='border border-solid border-black'><br>
+                <br>
+                
+                Aktiv: 
                 {% if member.active == 1 %}
-                    <input type='radio' name='active' value=1 checked='checked'> Ja<br>
-                    <input type='radio' name='active' value=0> Nein</td>
+                    <input type='radio' name='active' value=1 checked='checked'> Ja 
+                    <input type='radio' name='active' value=0> Nein
                 {% else %}
-                    <input type='radio' name='active' value=1> Ja<br>
-                    <input type='radio' name='active' value=0 checked='checked'> Nein</td>
+                    <input type='radio' name='active' value=1> Ja 
+                    <input type='radio' name='active' value=0 checked='checked'> Nein
                 {% endif %}
+                <br>
 
-                <td><button name='modifyMember' value='{{ member.id }}' class='classButton'>aktualisieren</button></td>
-                <td></td>
-            
-                </tr>
-            {% endif %}
-     
-        {% else %}
-    
-        {% if member.active == 1 %}
-            <tr>
-        {% else %}
-            <tr class="italic opacity-40">
+                <div class='flex justify-end'>
+                    <div></div>
+                    <div>
+                        <button name='modifyMember' value='{{ member.id }}' class='w-5 h-5'><img src='img/icons/done.png' class='w-5 h-5 inline'></button>
+                        <button class='w-5 h-5'><img src='img/icons/close.png' class='w-5 h-5 inline'></button>
+                    </div>
+                </div>
+                
+            </div>
+
+        </div>
         {% endif %}
-            <td>
-                <a href='{{ member.little_akiba }}' target='_blank'>
-                    <img src='{{ member.memberimg }}' class='w-24 h24 rounded-full block'>
-                </a>
-            </td>
-            <td>{{ member.membername }}</td>
-            <td>{{ member.memberfunction }}</td>
-            <td>{{ member.involved_since }}</td>
 
-            {% if isLeader or isHelper %}
-                <td><a href='mailto:{{ member.e_mail }}"?subject=Hier steht der Betreff'>{{ member.e_mail }}</a></td>
-                <td>{{ member.mobile }}</td>
-            {% endif %}
-
-            {% if isAdmin %}
-                <td ondblclick="updateMemberStatus(this, {{ member.id }})">
-                {% if member.active == 1 %}
-                    Ja
-                {% else %}
-                    Nein
-                {% endif %}
-                </td>
-
-                <td><button name='modifyMemberPick' value='{{ member.id }}' class='classButton'>ändern</button></td>
-                <td><button name='deleteMember' value='{{ member.id }}' class='classButton'>löschen</button></td>
-            {% endif %}
-        </tr>
-        {% endif %}
-{% endfor %}
-</table>
-</center>
-</form>
-
-<form action='/index.php?page=memberlist' method='post'>
-<center>
-    {% for member in members %}
-    {% if member.active == 1 %}
-        <table class='sm:hidden'>
     {% else %}
-        <table class='sm:hidden italic opacity-40'>
+    
+    {% if member.active == 1 %}
+        <div id='{{ member.id }}' class='m-2 '>
+    {% else %}
+        <div id='{{ member.id }}' class='m-2 italic opacity-40'>
     {% endif %}
 
-        {% if modifyMemberPick == member.id %}
-            {% if isAdmin %}
+            <div class='scale-90 sm:scale-100 w-96 border border-solid border-black rounded-2xl flex items-center'>
+                <div>
+                    <a href='{{ member.little_akiba }}' target='_blank'><img src='{{ member.memberimg }}' class='w-24 h-24 rounded-full block m-5'></a>
+                </div>
 
-                <tr><td><b>Little Akiba url:</b></td><td><input name='little_akiba' value='{{ member.little_akiba }}' size='15'></td></tr>
-                <tr><td><b>Avatar url:</b></td><td><input name='memberimg' value='{{ member.memberimg }}' size='15'></td></tr>
-                <tr><td><b>Name</b></td><td><input name='membername' value='{{ member.membername }}'></td></tr>
-                <tr><td><b>Funktion</b></td><td>
+                <div class='text-left m-2'>
+                    <p class='text-2xl font-bold'>{{ member.membername }}</p>
+                    <p class='text-xl font-bold'>({{ member.memberfunction }})</p>
+                    <p>Aktiv seit: {{ member.involved_since }}</p>
+                    
+                    {% if isLeader or isHelper %}
+                        <img src='img/icons/email.png' class='w-5 h-5 inline' title='{{ member.e_mail }}'><a href='mailto:{{ member.e_mail }}"?subject=Hier steht der Betreff'>: {{ member.e_mail }}</a><br>
+                        <img src='img/icons/phone.png' class='w-5 h-5 inline' title='{{ member.mobile }}'>: {{ member.mobile }}<br>
+                    {% endif %}
 
-                    <select name='memberfunction'>
-                        {% if member.memberfunction == 'Leiter' %}
-                            <option value='Leiter' selected='selected'>Leiter</option>
-                            <option value='Helfer'>Helfer</option>
-                        {% else %}
-                            <option value='Leiter'>Leiter</option>
-                            <option value='Helfer' selected='selected'>Helfer</option>
-                        {% endif %}
-                    </select>
-                
-                </td></tr>
-                <tr><td><b>Dabei seit:</b></td><td><input type='date' name='involved_since' value='{{ member.involved_since }}' size='10'></td></tr>
-
-                <tr><td><b>E-Mail</b></td><td><input name='e_mail' value='{{ member.e_mail }}' size='15'></td></tr>
-                <tr><td><b>Mobile</b></td><td><input name='mobile' value='{{ member.mobile }}' size='15'></td></tr>
-                <tr><td><b>Aktiv?</b></td><td>
-                
-                <input type='radio' name='active' value=1 checked='checked'> Ja<br>
-                <input type='radio' name='active' value=0> Nein
-
-                </td></tr>
-
-                <tr><td></td><td><button name='modifyMember' value='{{ member.id }}' class='classButton'>aktualisieren</button></td></tr>
-
-            {% endif %}
-
-        {% else %}
-
-       
-        <tr><td></td><td><center><a href='{{ member.little_akiba }}' target='_blank'><img src='{{ member.memberimg }}' class='w-24 h24 rounded-full block'></a></center></td></tr>
-        <tr><td><b>Name:</b></td><td>{{ member.membername }}</td></tr>
-        <tr><td><b>Funktion</b></td><td>{{ member.memberfunction }}</td></tr>
-        <tr><td><b>Dabei seit:</b></td><td>{{ member.involved_since }}</td></tr>
-
-        {% if isLeader or isHelper %}
-        <tr><td><b>E-Mail</b></td><td><a href='mailto:{{ member.e_mail }}"?subject=Hier steht der Betreff'>{{ member.e_mail }}</a></td></tr>
-        <tr><td><b>Mobile</b></td><td>{{ member.mobile }}</td></tr>
-        {% endif %}
-
-        {% if isAdmin %}
-        <tr><td><b>Aktiv?</b></td>
-            {% if member.active == 1 %}
-                <td>Ja</td>
-            {% else %}
-                <td>Nein</td>
-            {% endif %}
-        </tr>
-        
-        <tr><td></td><td><button name='modifyMemberPick' value='{{ member.id }}' class='classButton'>ändern</button>
-            <button name='deleteMember' value='{{ member.id }}' class='classButton'>löschen</button></td></tr>
-        {% endif %}
+                    {% if isAdmin %}
+                    
+                    Aktiv:&nbsp
+                        <span ondblclick="updateMemberStatus(this, {{ member.id }})">
+                            {% if member.active == 1 %}
+                                Ja
+                            {% else %}
+                                Nein
+                            {% endif %}
+                        </span><br>
+                    
+                        <button name='modifyMemberPick' value='{{ member.id }}' class='w-5 h-5'><img src='img/icons/edit.png' class='w-5 h-5 inline' title='Ändern'></button>
+                        <button name='deleteMember' value='{{ member.id }}' class='w-5 h-5'><img src='img/icons/delete.png' class='w-5 h-5 inline' title='Löschen'></button>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
     {% endif %}
-</table>
-<br>
 {% endfor %}
-</center>
+</div>
+
 </form>
