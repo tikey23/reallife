@@ -5045,6 +5045,10 @@ textarea.form-control.is-invalid {
   text-align: center;
 }
 
+.align-middle {
+  vertical-align: middle;
+}
+
 .text-3xl {
   font-size: 1.875rem;
   line-height: 2.25rem;
@@ -5287,6 +5291,11 @@ textarea.form-control.is-invalid {
     position: absolute;
   }
 
+  .sm\:sticky {
+    position: -webkit-sticky;
+    position: sticky;
+  }
+
   .sm\:top-\[60\%\] {
     top: 60%;
   }
@@ -5297,6 +5306,22 @@ textarea.form-control.is-invalid {
 
   .sm\:left-\[35\%\] {
     left: 35%;
+  }
+
+  .sm\:top-\[60\] {
+    top: 60;
+  }
+
+  .sm\:top-\[60px\] {
+    top: 60px;
+  }
+
+  .sm\:top-\[30\%\] {
+    top: 30%;
+  }
+
+  .sm\:top-\[90\%\] {
+    top: 90%;
   }
 
   .sm\:m-2\.5 {
