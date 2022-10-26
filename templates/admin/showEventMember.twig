@@ -1,11 +1,12 @@
-{% set userFunctions = ['leader1', 'leader2', 'helper1', 'helper2', 'helper3', 'helper4']%}
+{% set userFunctions = ['1', 'event.leader2', 'event.helper1', 'event.helper2', 'event.helper3', 'event.helper4']%}
 {% for userFunction in userFunctions %}
 
-    {% if event.userFunction == 0%}
+    {% if userFunction == 0 %}
         <td>&nbsp</td>
     {% else %}
+    {{ userFunction | json_encode(constant('JSON_PRETTY_PRINT')) }}
         {% for member in members %}
-            {% if event.userFunction == member.id %}
+            {% if userFunction == member.id %}
                 <td><center><img src='{{member.memberimg}}' style='border-radius: 100%; width: 50px'></img>{{member.membername}}</center></td>
             {% endif %}
         {% endfor%}

@@ -1,0 +1,236 @@
+<form action='/index.php?page=adminEvents' method='post'>
+<h2 class='text-2xl font-bold underline'>Termine / Schichtplan:</h2>
+<br>
+
+{% if isShowAllEvent %}
+    <p><input type='checkbox' name='showAllEvent' style="display:none">
+    <input type="submit" value="Nur aktuelle Termine anzeigen" class="classButton"></p>
+{% else %}
+    <p><input type='checkbox' name='showAllEvent' checked='checked'style="display:none">
+    <input type="submit" value="Alle Termine anzeigen" class="classButton"></p>
+{% endif %}
+
+<br>
+
+{% for event in events %}
+
+<!-- when click on button "ändern" //-->
+    {% if modifyEventPick == event.id %}
+    <center>
+        <table class='hidden sm:contents'>
+            <tr> <td> </td><td><b><input type='date' name='newdate' value='{{ event.eventdate }}'></b></td> <td></td> </tr>
+            <tr> <td>Leiter</td> <td>18:00-20:30</td> <td>20:30-23:00</td> </tr>
+            <tr> 
+                <td><select name='newleader1'>
+                    <option value='0'>Keine</option>
+                    {% for member in members %}
+                        {% if event.leader1 == member.id %}
+                            <option value='{{ member.id }}' selected='selected'>{{ member.membername }}</option>
+                        {% else %}
+                            <option value='{{ member.id }}'>{{ member.membername }}</option>
+                        {% endif %}
+                    {% endfor %}
+                </select></td>
+
+                <td><select name='newhelper1'>
+                    <option value='0'>Keine</option>
+                    {% for member in members %}
+                        {% if event.helper1 == member.id %}
+                            <option value='{{ member.id }}' selected='selected'>{{ member.membername }}</option>
+                        {% else %}
+                            <option value='{{ member.id }}'>{{ member.membername }}</option>
+                        {% endif %}
+                    {% endfor %}
+                </select></td>
+
+                <td><select name='newhelper2'>
+                    <option value='0'>Keine</option>
+                    {% for member in members %}
+                        {% if event.helper2 == member.id %}
+                            <option value='{{ member.id }}' selected='selected'>{{ member.membername }}</option>
+                        {% else %}
+                            <option value='{{ member.id }}'>{{ member.membername }}</option>
+                        {% endif %}
+                    {% endfor %}
+                </select></td>
+                            
+            </tr><tr>
+
+            <td><select name='newleader2'>
+                    <option value='0'>Keine</option>
+                    {% for member in members %}
+                        {% if event.leader2 == member.id %}
+                            <option value='{{ member.id }}' selected='selected'>{{ member.membername }}</option>
+                        {% else %}
+                            <option value='{{ member.id }}'>{{ member.membername }}</option>
+                        {% endif %}
+                    {% endfor %}
+                </select></td>
+
+                <td><select name='newhelper3'>
+                    <option value='0'>Keine</option>
+                    {% for member in members %}
+                        {% if event.helper3 == member.id %}
+                            <option value='{{ member.id }}' selected='selected'>{{ member.membername }}</option>
+                        {% else %}
+                            <option value='{{ member.id }}'>{{ member.membername }}</option>
+                        {% endif %}
+                    {% endfor %}
+                </select></td>
+
+                <td><select name='newhelper4'>
+                    <option value='0'>Keine</option>
+
+                    {% for availableMember in event.availableMembers|split(':') %}
+                        {% for member in members %}
+                            {% if availableMember == member.id %}
+                            
+                            {% if event.helper4 == member.id %}
+                                <option value='{{ member.id }}' selected='selected'>{{ member.membername }}</option>
+                            {% else %}
+                                <option value='{{ member.id }}'>{{ member.membername }}</option>
+                            {% endif %}
+
+                            {% endif %}
+                        {% endfor %}
+                    {% endfor %}
+
+                    <option value='0'>----------</option>
+
+                    {% for member in members %}
+                        <option value='{{ member.id }}'>{{ member.membername }}</option>
+                    {% endfor %}
+
+                </select></td>         
+            </tr>
+        </table> 
+
+        {% include 'user/userTest.twig' %}
+
+        <p>Verfügbare Mitarbeiter</p>
+
+         <table align="center">
+        <tr>
+            {% for availableMember in event.availableMembers|split(':') %}
+                {% for member in members %}
+                    {% if availableMember == member.id %}
+                    <td><center><img src='{{member.memberimg}}' style='border-radius: 100%; width: 50px'></img>{{member.membername}}</center></td>
+                    {% endif %}
+                {% endfor %}
+            {% endfor %}
+        </tr>
+    </table>
+            <p class='hidden sm:contents'><button name='modifyEvent' value='{{ event.id }}' class='classButton'>aktualisieren</button></p>
+        
+
+        <div class='sm:hidden text-xl'><br><b>Zum Modifizieren, bitte Tablet auf Querformat stellen</b></div>
+        </center>
+        <br><br>
+
+    {% else %}
+
+    <table align='center'>
+    
+        <tr> <td> </td><td><b>{{ event.eventdate | date_format("d. F Y") }}</b></td> <td></td> </tr>
+        <tr> <td>Leiter</td> <td>18:00-20:30</td> <td>20:30-23:00</td> </tr>
+    <tr> 
+
+        {% if event.leader1 == 0%}
+            <td>&nbsp</td>
+            {% else %}
+                {% for member in members %}
+                    {% if event.leader1 == member.id %}
+                        <td><center><img src='{{member.memberimg}}' style='border-radius: 100%; width: 50px'></img>{{member.membername}}</center></td>
+                    {% endif %}
+                {% endfor%}
+        {% endif %}
+
+        {% if event.helper1 == 0%}
+            <td>&nbsp</td>
+            {% else %}
+                {% for member in members %}
+                    {% if event.helper1 == member.id %}
+                        <td><center><img src='{{member.memberimg}}' style='border-radius: 100%; width: 50px'></img>{{member.membername}}</center></td>
+                    {% endif %}
+                {% endfor%}
+        {% endif %}
+
+        {% if event.helper2 == 0%}
+            <td>&nbsp</td>
+            {% else %}
+                {% for member in members %}
+                    {% if event.helper2 == member.id %}
+                        <td><center><img src='{{member.memberimg}}' style='border-radius: 100%; width: 50px'></img>{{member.membername}}</center></td>
+                    {% endif %}
+                {% endfor%}
+        {% endif %}
+
+        </tr><tr> 
+
+        {% if event.leader2 == 0%}
+            <td>&nbsp</td>
+            {% else %}
+                {% for member in members %}
+                    {% if event.leader2 == member.id %}
+                        <td><center><img src='{{member.memberimg}}' style='border-radius: 100%; width: 50px'></img>{{member.membername}}</center></td>
+                    {% endif %}
+                {% endfor%}
+        {% endif %}
+
+        {% if event.helper3 == 0%}
+            <td>&nbsp</td>
+            {% else %}
+                {% for member in members %}
+                    {% if event.helper3 == member.id %}
+                        <td><center><img src='{{member.memberimg}}' style='border-radius: 100%; width: 50px'></img>{{member.membername}}</center></td>
+                    {% endif %}
+                {% endfor%}
+        {% endif %}
+
+        {% if event.helper4 == 0%}
+            <td>&nbsp</td>
+            {% else %}
+                {% for member in members %}
+                    {% if event.helper4 == member.id %}
+                        <td><center><img src='{{member.memberimg}}' style='border-radius: 100%; width: 50px'></img>{{member.membername}}</center></td>
+                    {% endif %}
+                {% endfor%}
+        {% endif %}
+        </tr>
+    </table>
+    {% if isAdmin %}
+    <p>Verfügbare Mitarbeiter</p>
+    <table align="center">
+        <tr>
+            {% for availableMember in event.availableMembers|split(':') %}
+                {% for member in members %}
+                    {% if availableMember == member.id %}
+                    <td><center><img src='{{member.memberimg}}' style='border-radius: 100%; width: 50px'></img>{{member.membername}}</center></td>
+                    {% endif %}
+                {% endfor %}
+            {% endfor %}
+        </tr>
+    </table>
+    
+    {% set warning = '\"Bist du sicher?\"' %}
+        <p><button name='modifyEventPick' value='{{ event.id }}' class='classButton'>ändern</button>
+        <button name='deleteEvent' value='{{ event.id }}' onclick='return confirm({{ warning }})' class='classButton'>löschen</button></p>
+    {% endif %}
+<br><br>
+{% endif %}
+
+{% endfor %}
+
+{% if isAdmin %}
+    <p class='font-bold'>Neuer Termin erstellen:</p>
+    {% set now = 'now'|date('Y-m-d') %}
+        <table align='center'>
+            <tr>
+            <td><input type='date' name='neweventdate' value='{{ now }}'></td>
+            <td><input type='submit' name='createEvent' value='erstellen' class='classButton'></td>
+            </tr>
+        </table>
+{% endif %}
+
+
+</form>

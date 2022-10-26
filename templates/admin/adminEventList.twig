@@ -13,211 +13,280 @@
 <br>
 
 {% for event in events %}
+    <div class='flex justify-center'>
+        <div class='border border-solid border-black w-96 rounded-xl'>
 
-<!-- when click on button "ändern" //-->
-    {% if modifyEventPick == event.id %}
-    <center>
-        <table class='hidden sm:contents'>
-            <tr> <td> </td><td><b><input type='date' name='newdate' value='{{ event.eventdate }}'></b></td> <td></td> </tr>
-            <tr> <td>Leiter</td> <td>18:00-20:30</td> <td>20:30-23:00</td> </tr>
-            <tr> 
-                <td><select name='newleader1'>
-                    <option value='0'>Keine</option>
-                    {% for member in members %}
-                        {% if event.leader1 == member.id %}
-                            <option value='{{ member.id }}' selected='selected'>{{ member.membername }}</option>
-                        {% else %}
+            <!-- when click on button "ändern" //-->
+            {% if modifyEventPick == event.id %}
+
+                <p class='text-2xl text-center font-bold m-3'><input type='date' name='newdate' value='{{ event.eventdate }}'></p>
+                <br>
+
+                <p class='text-xl text-center font-bold'><u>Leiter</u></p>
+                <div class='flex justify-center'>
+                    <select name='newleader1'>
+                        <option value='0'>Keine</option>
+                        {% for availableMember in event.availableMembers|split(':') %}
+                            {% for member in members %}
+                                {% if availableMember == member.id %}
+                                    {% if event.leader1 == member.id %}
+                                        <option value='{{ member.id }}' selected='selected'>{{ member.membername }}</option>
+                                    {% else %}
+                                        <option value='{{ member.id }}'>{{ member.membername }}</option>
+                                    {% endif %}
+                                {% endif %}
+                            {% endfor %}
+                        {% endfor %}
+                        <option value='0'>----------</option>
+                        {% for member in members %}
                             <option value='{{ member.id }}'>{{ member.membername }}</option>
+                        {% endfor %}
+                    </select>
+
+                    <span>&nbsp</span>
+
+                    <select name='newleader2'>
+                        <option value='0'>Keine</option>
+                        {% for availableMember in event.availableMembers|split(':') %}
+                            {% for member in members %}
+                                {% if availableMember == member.id %}
+                                    {% if event.leader2 == member.id %}
+                                        <option value='{{ member.id }}' selected='selected'>{{ member.membername }}</option>
+                                    {% else %}
+                                        <option value='{{ member.id }}'>{{ member.membername }}</option>
+                                    {% endif %}
+                                {% endif %}
+                            {% endfor %}
+                        {% endfor %}
+                        <option value='0'>----------</option>
+                        {% for member in members %}
+                            <option value='{{ member.id }}'>{{ member.membername }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+
+                <br>
+
+                <p class='text-xl text-center font-bold'><u>Schicht 18:00-20:30</u></p>
+                <div class='flex justify-center'>
+                    <select name='newhelper1'>
+                        <option value='0'>Keine</option>
+                        {% for availableMember in event.availableMembers|split(':') %}
+                            {% for member in members %}
+                                {% if availableMember == member.id %}
+                                    {% if event.helper1 == member.id %}
+                                        <option value='{{ member.id }}' selected='selected'>{{ member.membername }}</option>
+                                    {% else %}
+                                        <option value='{{ member.id }}'>{{ member.membername }}</option>
+                                    {% endif %}
+                                {% endif %}
+                            {% endfor %}
+                        {% endfor %}
+                        <option value='0'>----------</option>
+                        {% for member in members %}
+                            <option value='{{ member.id }}'>{{ member.membername }}</option>
+                        {% endfor %}
+                    </select>
+
+                    <span>&nbsp</span>
+
+                    <select name='newhelper3'>
+                        <option value='0'>Keine</option>
+                        {% for availableMember in event.availableMembers|split(':') %}
+                            {% for member in members %}
+                                {% if availableMember == member.id %}
+                                    {% if event.helper3 == member.id %}
+                                        <option value='{{ member.id }}' selected='selected'>{{ member.membername }}</option>
+                                    {% else %}
+                                        <option value='{{ member.id }}'>{{ member.membername }}</option>
+                                    {% endif %}
+                                {% endif %}
+                            {% endfor %}
+                        {% endfor %}
+                        <option value='0'>----------</option>
+                        {% for member in members %}
+                            <option value='{{ member.id }}'>{{ member.membername }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+
+                <br>
+
+                <p class='text-xl text-center font-bold'><u>Schicht 20:30-23:00</u></p>
+                <div class='flex justify-center'>
+                    <select name='newhelper2'>
+                        <option value='0'>Keine</option>
+                        {% for availableMember in event.availableMembers|split(':') %}
+                            {% for member in members %}
+                                {% if availableMember == member.id %}
+                                    {% if event.helper2 == member.id %}
+                                        <option value='{{ member.id }}' selected='selected'>{{ member.membername }}</option>
+                                    {% else %}
+                                        <option value='{{ member.id }}'>{{ member.membername }}</option>
+                                    {% endif %}
+                                {% endif %}
+                            {% endfor %}
+                        {% endfor %}
+                        <option value='0'>----------</option>
+                        {% for member in members %}
+                            <option value='{{ member.id }}'>{{ member.membername }}</option>
+                        {% endfor %}
+                    </select>
+
+                    <span>&nbsp</span>
+
+                    <select name='newhelper4'>
+                        <option value='0'>Keine</option>
+                        {% for availableMember in event.availableMembers|split(':') %}
+                            {% for member in members %}
+                                {% if availableMember == member.id %}
+                                    {% if event.helper4 == member.id %}
+                                        <option value='{{ member.id }}' selected='selected'>{{ member.membername }}</option>
+                                    {% else %}
+                                        <option value='{{ member.id }}'>{{ member.membername }}</option>
+                                    {% endif %}
+                                {% endif %}
+                            {% endfor %}
+                        {% endfor %}
+                        <option value='0'>----------</option>
+                        {% for member in members %}
+                            <option value='{{ member.id }}'>{{ member.membername }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <br>
+
+                <p class='text-xl text-center font-bold'><u>Verfügbare Mitarbeiter</u></p>
+                <div class='flex flex-wrap justify-center'>     
+                    {% for availableMember in event.availableMembers|split(':') %}
+                        {% if availableMember == NULL %}
+                            Keine
+                        {% else %}
+                            <div class='block m-5'>
+                                {% for member in members %}
+                                    {% if availableMember == member.id %}
+                                        <center><img src='{{member.memberimg}}' class='rounded-full w-12'></img>{{member.membername}}</center>
+                                    {% endif %}
+                                {% endfor %}
+                            </div>
                         {% endif %}
                     {% endfor %}
-                </select></td>
+                </div>
 
-                <td><select name='newhelper1'>
-                    <option value='0'>Keine</option>
-                    {% for member in members %}
-                        {% if event.helper1 == member.id %}
-                            <option value='{{ member.id }}' selected='selected'>{{ member.membername }}</option>
-                        {% else %}
-                            <option value='{{ member.id }}'>{{ member.membername }}</option>
-                        {% endif %}
-                    {% endfor %}
-                </select></td>
+                <p class='hidden sm:contents'><button name='modifyEvent' value='{{ event.id }}' class='w-5 h-5 hover:opacity-40'><img src='img/icons/done.png' class='w-5 h-5 inline' title='Ok'></button>
+                <button class='w-5 h-5'><img src='img/icons/close.png' class='w-5 h-5 inline hover:opacity-40' title='Abbrechen'></button></p>
+    
+                <div class='sm:hidden text-xl'><br><b>Zum Modifizieren, bitte Tablet auf Querformat stellen</b></div>
+                <br><br>
 
-                <td><select name='newhelper2'>
-                    <option value='0'>Keine</option>
-                    {% for member in members %}
-                        {% if event.helper2 == member.id %}
-                            <option value='{{ member.id }}' selected='selected'>{{ member.membername }}</option>
-                        {% else %}
-                            <option value='{{ member.id }}'>{{ member.membername }}</option>
-                        {% endif %}
-                    {% endfor %}
-                </select></td>
-                            
-            </tr><tr>
+            {% else %}
 
-            <td><select name='newleader2'>
-                    <option value='0'>Keine</option>
-                    {% for member in members %}
-                        {% if event.leader2 == member.id %}
-                            <option value='{{ member.id }}' selected='selected'>{{ member.membername }}</option>
-                        {% else %}
-                            <option value='{{ member.id }}'>{{ member.membername }}</option>
-                        {% endif %}
-                    {% endfor %}
-                </select></td>
+                <p class='text-2xl text-center font-bold m-3'>{{ event.eventdate | date_format("d. F Y") }}</p>
+                <br>
 
-                <td><select name='newhelper3'>
-                    <option value='0'>Keine</option>
-                    {% for member in members %}
-                        {% if event.helper3 == member.id %}
-                            <option value='{{ member.id }}' selected='selected'>{{ member.membername }}</option>
-                        {% else %}
-                            <option value='{{ member.id }}'>{{ member.membername }}</option>
-                        {% endif %}
-                    {% endfor %}
-                </select></td>
+                <p class='text-xl text-center font-bold'><u>Leiter</u></p>
+                <div class='flex justify-center'>
+                    {% if event.leader1 != 0 %}
+                        <div class='block m-5'>
+                            {% for member in members %}
+                                {% if event.leader1 == member.id %}
+                                    <center><img src='{{member.memberimg}}' style='border-radius: 100%; width: 50px'></img>{{member.membername}}</center>
+                                {% endif %}
+                            {% endfor%}
+                        </div>
+                    {% endif %}
 
-                <td><select name='newhelper4'>
-                    <option value='0'>Keine</option>
+                    {% if event.leader2 != 0 %}
+                        <div class='block m-5'>
+                            {% for member in members %}
+                                {% if event.leader2 == member.id %}
+                                    <center><img src='{{member.memberimg}}' style='border-radius: 100%; width: 50px'></img>{{member.membername}}</center>
+                                {% endif %}
+                            {% endfor%}
+                        </div>
+                    {% endif %}
+                </div>
+
+                <br>
+
+                <p class='text-xl text-center font-bold'><u>Schicht 18:00-20:30</u></p>
+                <div class='flex justify-center'>
+                    {% if event.helper1 != 0 %}
+                        <div class='block m-5'>
+                            {% for member in members %}
+                                {% if event.helper1 == member.id %}
+                                    <center><img src='{{member.memberimg}}' style='border-radius: 100%; width: 50px'></img>{{member.membername}}</center>
+                                {% endif %}
+                            {% endfor%} 
+                        </div>
+                    {% endif %}
+
+                    {% if event.helper3 != 0 %}
+                        <div class='block m-5'>
+                            {% for member in members %}
+                                {% if event.helper3 == member.id %}
+                                    <center><img src='{{member.memberimg}}' style='border-radius: 100%; width: 50px'></img>{{member.membername}}</center>
+                                {% endif %}
+                            {% endfor%}
+                        </div>
+                    {% endif %}
+                </div>
+
+                <br>
+
+                <p class='text-xl text-center font-bold'><u>Schicht 20:30-23:00</u></p>
+                <div class='flex justify-center'>
+                    {% if event.helper2 != 0 %}
+                        <div class='block m-5'>
+                            {% for member in members %}
+                                {% if event.helper2 == member.id %}
+                                    <center><img src='{{member.memberimg}}' style='border-radius: 100%; width: 50px'></img>{{member.membername}}</center>
+                                {% endif %}
+                            {% endfor%} 
+                        </div>
+                    {% endif %}
+
+                    {% if event.helper4 != 0 %}
+                        <div class='block m-5'>
+                            {% for member in members %}
+                                {% if event.helper4 == member.id %}
+                                    <center><img src='{{member.memberimg}}' style='border-radius: 100%; width: 50px'></img>{{member.membername}}</center>
+                                {% endif %}
+                            {% endfor%}
+                        </div>
+                    {% endif %}
+                </div>
+                <br>
+
+                {% if isAdmin %}
+
+                <p class='text-xl text-center font-bold'><u>Verfügbare Mitarbeiter</u></p>
+                <div class='flex flex-wrap justify-center'>
 
                     {% for availableMember in event.availableMembers|split(':') %}
-                        {% for member in members %}
-                            {% if availableMember == member.id %}
-                            
-                            {% if event.helper4 == member.id %}
-                                <option value='{{ member.id }}' selected='selected'>{{ member.membername }}</option>
-                            {% else %}
-                                <option value='{{ member.id }}'>{{ member.membername }}</option>
-                            {% endif %}
-
-                            {% endif %}
-                        {% endfor %}
+                        {% if availableMember == NULL %}
+                            Keine
+                        {% else %}
+                            <div class='block m-5'>
+                                {% for member in members %}
+                                    {% if availableMember == member.id %}
+                                        <center><img src='{{member.memberimg}}' class='rounded-full w-12'></img>{{member.membername}}</center>
+                                    {% endif %}
+                                {% endfor %}
+                            </div>
+                        {% endif %}
                     {% endfor %}
+                </div>
 
-                    <option value='0'>----------</option>
-
-                    {% for member in members %}
-                        <option value='{{ member.id }}'>{{ member.membername }}</option>
-                    {% endfor %}
-
-                </select></td>         
-            </tr>
-        </table> 
-
-        {% include 'user/userTest.twig' %}
-
-        <p>Verfügbare Mitarbeiter</p>
-
-         <table align="center">
-        <tr>
-            {% for availableMember in event.availableMembers|split(':') %}
-                {% for member in members %}
-                    {% if availableMember == member.id %}
-                    <td><center><img src='{{member.memberimg}}' style='border-radius: 100%; width: 50px'></img>{{member.membername}}</center></td>
-                    {% endif %}
-                {% endfor %}
-            {% endfor %}
-        </tr>
-    </table>
-            <p class='hidden sm:contents'><button name='modifyEvent' value='{{ event.id }}' class='classButton'>aktualisieren</button></p>
-        
-
-        <div class='sm:hidden text-xl'><br><b>Zum Modifizieren, bitte Tablet auf Querformat stellen</b></div>
-        </center>
-        <br><br>
-
-    {% else %}
-
-    <table align='center'>
-    
-        <tr> <td> </td><td><b>{{ event.eventdate | date_format("d. F Y") }}</b></td> <td></td> </tr>
-        <tr> <td>Leiter</td> <td>18:00-20:30</td> <td>20:30-23:00</td> </tr>
-    <tr> 
-
-        {% if event.leader1 == 0%}
-            <td>&nbsp</td>
-            {% else %}
-                {% for member in members %}
-                    {% if event.leader1 == member.id %}
-                        <td><center><img src='{{member.memberimg}}' style='border-radius: 100%; width: 50px'></img>{{member.membername}}</center></td>
-                    {% endif %}
-                {% endfor%}
-        {% endif %}
-
-        {% if event.helper1 == 0%}
-            <td>&nbsp</td>
-            {% else %}
-                {% for member in members %}
-                    {% if event.helper1 == member.id %}
-                        <td><center><img src='{{member.memberimg}}' style='border-radius: 100%; width: 50px'></img>{{member.membername}}</center></td>
-                    {% endif %}
-                {% endfor%}
-        {% endif %}
-
-        {% if event.helper2 == 0%}
-            <td>&nbsp</td>
-            {% else %}
-                {% for member in members %}
-                    {% if event.helper2 == member.id %}
-                        <td><center><img src='{{member.memberimg}}' style='border-radius: 100%; width: 50px'></img>{{member.membername}}</center></td>
-                    {% endif %}
-                {% endfor%}
-        {% endif %}
-
-        </tr><tr> 
-
-        {% if event.leader2 == 0%}
-            <td>&nbsp</td>
-            {% else %}
-                {% for member in members %}
-                    {% if event.leader2 == member.id %}
-                        <td><center><img src='{{member.memberimg}}' style='border-radius: 100%; width: 50px'></img>{{member.membername}}</center></td>
-                    {% endif %}
-                {% endfor%}
-        {% endif %}
-
-        {% if event.helper3 == 0%}
-            <td>&nbsp</td>
-            {% else %}
-                {% for member in members %}
-                    {% if event.helper3 == member.id %}
-                        <td><center><img src='{{member.memberimg}}' style='border-radius: 100%; width: 50px'></img>{{member.membername}}</center></td>
-                    {% endif %}
-                {% endfor%}
-        {% endif %}
-
-        {% if event.helper4 == 0%}
-            <td>&nbsp</td>
-            {% else %}
-                {% for member in members %}
-                    {% if event.helper4 == member.id %}
-                        <td><center><img src='{{member.memberimg}}' style='border-radius: 100%; width: 50px'></img>{{member.membername}}</center></td>
-                    {% endif %}
-                {% endfor%}
-        {% endif %}
-        </tr>
-    </table>
-    {% if isAdmin %}
-    <p>Verfügbare Mitarbeiter</p>
-    <table align="center">
-        <tr>
-            {% for availableMember in event.availableMembers|split(':') %}
-                {% for member in members %}
-                    {% if availableMember == member.id %}
-                    <td><center><img src='{{member.memberimg}}' style='border-radius: 100%; width: 50px'></img>{{member.membername}}</center></td>
-                    {% endif %}
-                {% endfor %}
-            {% endfor %}
-        </tr>
-    </table>
-    
-    {% set warning = '\"Bist du sicher?\"' %}
-        <p><button name='modifyEventPick' value='{{ event.id }}' class='classButton'>ändern</button>
-        <button name='deleteEvent' value='{{ event.id }}' onclick='return confirm({{ warning }})' class='classButton'>löschen</button></p>
-    {% endif %}
+                {% set warning = '\"Bist du sicher?\"' %}
+                <p><button name='modifyEventPick' value='{{ event.id }}' class='w-5 h-5 hover:opacity-40'><img src='img/icons/edit.png' class='w-5 h-5 inline' title='Ändern'></button>
+                <button name='deleteEvent' value='{{ event.id }}' onclick='return confirm({{ warning }})' class='w-5 h-5 hover:opacity-40'><img src='img/icons/delete.png' class='w-5 h-5 inline' title='Löschen'></button></p>
+                <br>
+                {% endif %} 
+            {% endif %}
+        </div>
+    </div>
 <br><br>
-{% endif %}
 
 {% endfor %}
 

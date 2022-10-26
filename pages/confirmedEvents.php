@@ -8,7 +8,11 @@
        
         if(isset($_POST[$pickId])){
             $availableMember = $event->availableMembers;
-            $availableMember .= ":" . $_POST[$pickId];
+            if($availableMember == NULL){
+                $availableMember = $_POST[$pickId];
+            } else {
+                $availableMember .= ":" . $_POST[$pickId];
+            }
             $event->availableMembers = $availableMember;
             $event->save();
         }

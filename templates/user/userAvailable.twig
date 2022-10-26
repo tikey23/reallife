@@ -1,9 +1,12 @@
-<div class='border border-solid border-black'>
-<h1 class='text-xl font-bold'>Bitte Einsatzdatum eintragen</h1>
 <form action='/index.php?page=confirmedEvents' method='post'>
-{% for event in events %}
-    <p><input type='checkbox' name={{ event.id }} value={{ member.id }}> {{ event.eventdate | date_format("d. F Y") }}</p>
-{% endfor %}
-    <p><input type='submit' class='classButton'></p>
+    <div class='flex justify-center'>
+        <div class='border border-solid border-black rounded-xl w-96 m-5 p-5'>
+        <h1 class='text-xl font-bold'>Bitte Einsatzdatum eintragen</h1>
+        {% for event in events %}
+            <p><input type='checkbox' name={{ event.id }} value={{ member.id }}> {{ event.eventdate | date_format("d. F Y") }}</p>
+        {% endfor %}
+            {% set warning = '\"Bist du sicher?\"' %}
+            <p><input type='submit' value='Absenden' onclick='return confirm({{ warning }})' class='classButton'></p>
+        </div>
+    </div>
 </form>
-</div>

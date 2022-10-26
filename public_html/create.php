@@ -91,7 +91,7 @@
     // Beispieldaten
     // Create Events
     $sql = "INSERT INTO event (eventdate, leader1, leader2, helper1, helper2, helper3, helper4, availableMembers) values 
-    ('2022-10-28', 1, 2, 3, 3, 3, 3, ':3:4:1'),  
+    ('2022-10-28', 1, 2, 3, 3, 3, 3, '3:4:1'),  
     ('2022-11-11', 0, 0, 0, 0, 0, 0, NULL), 
     ('2022-11-18', 0, 0, 0, 0, 0, 0, NULL),
     ('2022-10-21', 1, 2, 3, 3, 3, 3, NULL),
