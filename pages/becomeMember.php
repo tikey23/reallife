@@ -25,6 +25,7 @@ if(isset($_POST['newCandidate'])){
     $mail->Username = $Email["username"];
     $mail->Password = $Email["password"];
     $mail->SMTPSecure = 'tls';
+	$mail->SMTPDebug = TRUE;
 
     $mail->setFrom($Email["fromAddress"], $Email["fromName"]);
     $mail->addReplyTo($Email["replyAddress"], $Email["replyName"]);
