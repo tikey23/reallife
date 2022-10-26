@@ -1,0 +1,13 @@
+{% set userFunctions = ['leader1', 'leader2', 'helper1', 'helper2', 'helper3', 'helper4']%}
+{% for userFunction in userFunctions %}
+
+    {% if event.userFunction == 0%}
+        <td>&nbsp</td>
+    {% else %}
+        {% for member in members %}
+            {% if event.userFunction == member.id %}
+                <td><center><img src='{{member.memberimg}}' style='border-radius: 100%; width: 50px'></img>{{member.membername}}</center></td>
+            {% endif %}
+        {% endfor%}
+    {% endif %}
+{% endfor %}

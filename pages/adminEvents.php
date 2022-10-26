@@ -50,8 +50,8 @@ if(isset($_POST['showAllEvent'])){
 	$events = findAll(Event::class);
 } else {
 	$events = showActualEvent();
-	
 }
+
 $members = findAll(Member::class);
 
 echo $twig->render('admin/adminEventList.twig', [

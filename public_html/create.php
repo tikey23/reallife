@@ -25,6 +25,7 @@
         helper2 INT(255) NOT NULL,
         helper3 INT(255) NOT NULL,
         helper4 INT(255) NOT NULL,
+        availableMembers VARCHAR(255),
         PRIMARY KEY (id)
         )ENGINE=InnoDB, DEFAULT CHARSET=UTF8";
     $con ->query($sql);
@@ -89,12 +90,12 @@
 
     // Beispieldaten
     // Create Events
-    $sql = "INSERT INTO event (eventdate, leader1, leader2, helper1, helper2, helper3, helper4) values 
-    ('2022-10-21', 1, 2, 3, 3, 3, 3),
-    ('2022-10-28', 1, 2, 3, 3, 3, 3),  
-    ('2022-11-11', 0, 0, 0, 0, 0, 0), 
-    ('2022-11-18', 0, 0, 0, 0, 0, 0),
-    ('2022-11-25', 1, 2, 3, 3, 3, 3) ";
+    $sql = "INSERT INTO event (eventdate, leader1, leader2, helper1, helper2, helper3, helper4, availableMembers) values 
+    ('2022-10-28', 1, 2, 3, 3, 3, 3, ':3:4:1'),  
+    ('2022-11-11', 0, 0, 0, 0, 0, 0, NULL), 
+    ('2022-11-18', 0, 0, 0, 0, 0, 0, NULL),
+    ('2022-10-21', 1, 2, 3, 3, 3, 3, NULL),
+    ('2022-11-25', 1, 2, 3, 3, 3, 3, NULL)";
     $con ->query($sql);
 
     // Create Gallery Category

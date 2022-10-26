@@ -4571,6 +4571,30 @@ textarea.form-control.is-invalid {
   left: 0px;
 }
 
+.top-5 {
+  top: 1.25rem;
+}
+
+.right-5 {
+  right: 1.25rem;
+}
+
+.top-2\.5 {
+  top: 0.625rem;
+}
+
+.right-2\.5 {
+  right: 0.625rem;
+}
+
+.top-2 {
+  top: 0.5rem;
+}
+
+.right-2 {
+  right: 0.5rem;
+}
+
 .z-30 {
   z-index: 30;
 }
@@ -4585,6 +4609,10 @@ textarea.form-control.is-invalid {
 
 .col-auto {
   grid-column: auto;
+}
+
+.float-right {
+  float: right;
 }
 
 .float-left {

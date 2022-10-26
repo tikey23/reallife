@@ -14,5 +14,9 @@ if ($member->memberfunction == "Admin") {
 }
 
 echo $twig->render('admin/adminEventsbutton.twig');
+
 echo $twig->render('user/userButtons.twig');
 echo $twig->render('global/logout.twig');
+
+$events = showActualEvent();
+echo $twig->render('user/userAvailable.twig', ['events' => $events, 'member' => $member]);

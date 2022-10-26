@@ -80,16 +80,46 @@
 
                 <td><select name='newhelper4'>
                     <option value='0'>Keine</option>
-                    {% for member in members %}
-                        {% if event.helper4 == member.id %}
-                            <option value='{{ member.id }}' selected='selected'>{{ member.membername }}</option>
-                        {% else %}
-                            <option value='{{ member.id }}'>{{ member.membername }}</option>
-                        {% endif %}
+
+                    {% for availableMember in event.availableMembers|split(':') %}
+                        {% for member in members %}
+                            {% if availableMember == member.id %}
+                            
+                            {% if event.helper4 == member.id %}
+                                <option value='{{ member.id }}' selected='selected'>{{ member.membername }}</option>
+                            {% else %}
+                                <option value='{{ member.id }}'>{{ member.membername }}</option>
+                            {% endif %}
+
+                            {% endif %}
+                        {% endfor %}
                     {% endfor %}
+
+                    <option value='0'>----------</option>
+
+                    {% for member in members %}
+                        <option value='{{ member.id }}'>{{ member.membername }}</option>
+                    {% endfor %}
+
                 </select></td>         
             </tr>
         </table> 
+
+        {% include 'user/userTest.twig' %}
+
+        <p>Verfügbare Mitarbeiter</p>
+
+         <table align="center">
+        <tr>
+            {% for availableMember in event.availableMembers|split(':') %}
+                {% for member in members %}
+                    {% if availableMember == member.id %}
+                    <td><center><img src='{{member.memberimg}}' style='border-radius: 100%; width: 50px'></img>{{member.membername}}</center></td>
+                    {% endif %}
+                {% endfor %}
+            {% endfor %}
+        </tr>
+    </table>
             <p class='hidden sm:contents'><button name='modifyEvent' value='{{ event.id }}' class='classButton'>aktualisieren</button></p>
         
 
@@ -169,6 +199,19 @@
         </tr>
     </table>
     {% if isAdmin %}
+    <p>Verfügbare Mitarbeiter</p>
+    <table align="center">
+        <tr>
+            {% for availableMember in event.availableMembers|split(':') %}
+                {% for member in members %}
+                    {% if availableMember == member.id %}
+                    <td><center><img src='{{member.memberimg}}' style='border-radius: 100%; width: 50px'></img>{{member.membername}}</center></td>
+                    {% endif %}
+                {% endfor %}
+            {% endfor %}
+        </tr>
+    </table>
+    
     {% set warning = '\"Bist du sicher?\"' %}
         <p><button name='modifyEventPick' value='{{ event.id }}' class='classButton'>ändern</button>
         <button name='deleteEvent' value='{{ event.id }}' onclick='return confirm({{ warning }})' class='classButton'>löschen</button></p>

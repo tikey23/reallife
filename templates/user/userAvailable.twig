@@ -1,0 +1,9 @@
+<div class='border border-solid border-black'>
+<h1 class='text-xl font-bold'>Bitte Einsatzdatum eintragen</h1>
+<form action='/index.php?page=confirmedEvents' method='post'>
+{% for event in events %}
+    <p><input type='checkbox' name={{ event.id }} value={{ member.id }}> {{ event.eventdate | date_format("d. F Y") }}</p>
+{% endfor %}
+    <p><input type='submit' class='classButton'></p>
+</form>
+</div>
