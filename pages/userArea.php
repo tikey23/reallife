@@ -5,7 +5,7 @@ use \Rl\Models\Member;
 if(!$_SESSION['username']) die("buuuuh");
 $username = $_SESSION['username'];
 $member = findOneByColumn(Member::class, 0, "membername", $_SESSION['username']);
-if($member == "error") die("not allowed");
+if($member == NULL) die("not allowed");
 
 echo $twig->render('user/userTitle.twig', ["member" => $member]);
 

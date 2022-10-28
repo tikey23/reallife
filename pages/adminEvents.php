@@ -4,6 +4,7 @@
 
 use \Rl\Models\Event;
 use \Rl\Models\Member;
+use \Rl\Models\Month;
 
 
 
@@ -45,6 +46,10 @@ else if (isset($_POST['deleteEvent'])) {
 	$event = findOne(Event::class, $_POST['deleteEvent']);
 	$event->delete();
 }
+
+$month = findOneByColumn(Month::class, 0, "firstday", date("Y-m-d"));
+checkMonth($month);
+
 
 if(isset($_POST['showAllEvent'])){
 	$events = findAll(Event::class);
