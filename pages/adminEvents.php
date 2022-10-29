@@ -20,25 +20,30 @@ if (isset($_SESSION['admin']) ||
 if (isset($_POST['createEvent'])) {
 	$event = new Event;
 	$event->eventdate = $_POST['neweventdate'];
+	$event->active = 0;
 	$event->leader1 = 0;
 	$event->leader2 = 0;
 	$event->helper1 = 0;
 	$event->helper2 = 0;
 	$event->helper3 = 0;
 	$event->helper4 = 0;
+	$event->activeToRegister = 1;
 	$event->save();
 }
 
 else if (isset($_POST['modifyEvent'])) {
+
 	$event = findOne(Event::class, $_POST['modifyEvent']);
 	$event->id = $_POST['modifyEvent'];
-	$event->eventdate = $_POST['newdate'];
-	$event->leader1 = $_POST['newleader1'];
-	$event->leader2 = $_POST['newleader2'];
-	$event->helper1 = $_POST['newhelper1'];
-	$event->helper2 = $_POST['newhelper2'];
-	$event->helper3 = $_POST['newhelper3'];
-	$event->helper4 = $_POST['newhelper4'];
+	$event->eventdate = $_POST['eventdate'];
+	$event->active = $_POST['active'];
+	$event->leader1 = $_POST['leader1'];
+	$event->leader2 = $_POST['leader2'];
+	$event->helper1 = $_POST['helper1'];
+	$event->helper2 = $_POST['helper2'];
+	$event->helper3 = $_POST['helper3'];
+	$event->helper4 = $_POST['helper4'];
+	$event->activeToRegister = $_POST['activeToRegister'];
 	$event->save();
 }
 
@@ -46,10 +51,6 @@ else if (isset($_POST['deleteEvent'])) {
 	$event = findOne(Event::class, $_POST['deleteEvent']);
 	$event->delete();
 }
-
-$month = findOneByColumn(Month::class, 0, "firstday", date("Y-m-d"));
-checkMonth($month);
-
 
 if(isset($_POST['showAllEvent'])){
 	$events = findAll(Event::class);
@@ -60,6 +61,7 @@ if(isset($_POST['showAllEvent'])){
 $members = findAll(Member::class);
 
 echo $twig->render('admin/adminEventList.twig', [
+	// "isShowAllEvent" => isset($_POST['showAllEvent']),
 	"isShowAllEvent" => isset($_POST['showAllEvent']),
 	"events" => $events,
 	"members" => $members,

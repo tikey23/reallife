@@ -4595,6 +4595,10 @@ textarea.form-control.is-invalid {
   margin: auto;
 }
 
+.m-3 {
+  margin: 0.75rem;
+}
+
 .m-5 {
   margin: 1.25rem;
 }
@@ -4605,10 +4609,6 @@ textarea.form-control.is-invalid {
 
 .m-2 {
   margin: 0.5rem;
-}
-
-.m-3 {
-  margin: 0.75rem;
 }
 
 .mx-96 {
@@ -4664,14 +4664,6 @@ textarea.form-control.is-invalid {
   margin-top: 0.5rem;
 }
 
-.ml-3 {
-  margin-left: 0.75rem;
-}
-
-.mr-3 {
-  margin-right: 0.75rem;
-}
-
 .block {
   display: block;
 }
@@ -4704,12 +4696,12 @@ textarea.form-control.is-invalid {
   height: 600px;
 }
 
-.h-12 {
-  height: 3rem;
-}
-
 .h-5 {
   height: 1.25rem;
+}
+
+.h-12 {
+  height: 3rem;
 }
 
 .h-24 {
@@ -4732,12 +4724,16 @@ textarea.form-control.is-invalid {
   width: 24rem;
 }
 
-.w-80 {
-  width: 20rem;
-}
-
 .w-12 {
   width: 3rem;
+}
+
+.w-5 {
+  width: 1.25rem;
+}
+
+.w-80 {
+  width: 20rem;
 }
 
 .w-48 {
@@ -4750,10 +4746,6 @@ textarea.form-control.is-invalid {
 
 .w-52 {
   width: 13rem;
-}
-
-.w-5 {
-  width: 1.25rem;
 }
 
 .w-24 {
@@ -4856,12 +4848,12 @@ textarea.form-control.is-invalid {
   border-radius: 0.75rem;
 }
 
-.rounded {
-  border-radius: 0.25rem;
-}
-
 .rounded-full {
   border-radius: 9999px;
+}
+
+.rounded {
+  border-radius: 0.25rem;
 }
 
 .rounded-lg {
@@ -5150,6 +5142,26 @@ textarea.form-control.is-invalid {
   color: rgb(185 28 28 / var(--tw-text-opacity));
 }
 
+.text-red-100 {
+  --tw-text-opacity: 1;
+  color: rgb(254 226 226 / var(--tw-text-opacity));
+}
+
+.text-green-100 {
+  --tw-text-opacity: 1;
+  color: rgb(220 252 231 / var(--tw-text-opacity));
+}
+
+.text-red-600 {
+  --tw-text-opacity: 1;
+  color: rgb(220 38 38 / var(--tw-text-opacity));
+}
+
+.text-green-600 {
+  --tw-text-opacity: 1;
+  color: rgb(22 163 74 / var(--tw-text-opacity));
+}
+
 .underline {
   -webkit-text-decoration-line: underline;
           text-decoration-line: underline;
@@ -5157,10 +5169,6 @@ textarea.form-control.is-invalid {
 
 .underline-offset-0 {
   text-underline-offset: 0px;
-}
-
-.underline-offset-auto {
-  text-underline-offset: auto;
 }
 
 .opacity-40 {

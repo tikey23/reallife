@@ -20,6 +20,9 @@ require_once('../load.php');
 
 
 <?PHP
+
+checkDay();
+
 if(isset($_SESSION['username'])){
 	$loggedInUser = findOneByColumn(Member::class, 0, "membername", $_SESSION['username']);
 } else {

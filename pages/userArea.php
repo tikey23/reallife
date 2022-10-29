@@ -1,5 +1,6 @@
 <?php
 
+use \Rl\Models\Event;
 use \Rl\Models\Member;
 
 if(!$_SESSION['username']) die("buuuuh");
@@ -15,7 +16,8 @@ if ($member->memberfunction == "Admin") {
 
 echo $twig->render('admin/adminEventsbutton.twig');
 
-$events = showActualEvent();
+$events = findAll(Event::class);
+// $events = showActualEvent();
 echo $twig->render('user/userAvailable.twig', ['events' => $events, 'member' => $member]);
 
 echo $twig->render('user/userButtons.twig');

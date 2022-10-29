@@ -3,28 +3,33 @@
 <br>
 
 {% if isShowAllEvent %}
-    <p><input type='checkbox' name='showAllEvent' style="display:none">
-    <input type="submit" value="Nur aktuelle Termine anzeigen" class="classButton"></p>
+    <p><button name='showAllEvent' value=1 class="classButton">Alle Termine anzeigen</button></p>
 {% else %}
-    <p><input type='checkbox' name='showAllEvent' checked='checked'style="display:none">
-    <input type="submit" value="Alle Termine anzeigen" class="classButton"></p>
+    <p><button name='showAllEvent' value=0 class="classButton">Nur aktuelle Termine anzeigen</button></p>
 {% endif %}
 
 <br>
 
+    <div class='flex flex-wrap justify-center'>
 {% for event in events %}
-    <div class='flex justify-center'>
-        <div class='border border-solid border-black w-96 rounded-xl'>
-
-            <!-- when click on button "ändern" //-->
-            {% if modifyEventPick == event.id %}
-
-                <p class='text-2xl text-center font-bold m-3'><input type='date' name='newdate' value='{{ event.eventdate }}'></p>
+        <!-- when click on button "ändern" //-->
+        {% if modifyEventPick == event.id %}
+            <div class='m-5 border border-solid border-black w-96 rounded-xl'>
+                <p class='text-2xl text-center font-bold m-3'><input type='date' name='eventdate' value='{{ event.eventdate }}'></p><br>
+                    <span>Sichtbarkeit: <select name='active'>
+                        <option value=0>Nicht sichtbar</option>
+                        <option value=1 selected='selected'>Sichtbar</option>
+                    </select></span>
                 <br>
-
+                    <span>Ameldungen: <select name='activeToRegister'>
+                        <option value=0 selected='selected'>deaktiviert</option>
+                        <option value=1>aktiviert</option>
+                    </select></span>
+                <br><br>
+                
                 <p class='text-xl text-center font-bold'><u>Leiter</u></p>
                 <div class='flex justify-center'>
-                    <select name='newleader1'>
+                    <select name='leader1'>
                         <option value='0'>Keine</option>
                         {% for availableMember in event.availableMembers|split(':') %}
                             {% for member in members %}
@@ -45,7 +50,7 @@
 
                     <span>&nbsp</span>
 
-                    <select name='newleader2'>
+                    <select name='leader2'>
                         <option value='0'>Keine</option>
                         {% for availableMember in event.availableMembers|split(':') %}
                             {% for member in members %}
@@ -69,7 +74,7 @@
 
                 <p class='text-xl text-center font-bold'><u>Schicht 18:00-20:30</u></p>
                 <div class='flex justify-center'>
-                    <select name='newhelper1'>
+                    <select name='helper1'>
                         <option value='0'>Keine</option>
                         {% for availableMember in event.availableMembers|split(':') %}
                             {% for member in members %}
@@ -90,7 +95,7 @@
 
                     <span>&nbsp</span>
 
-                    <select name='newhelper3'>
+                    <select name='helper3'>
                         <option value='0'>Keine</option>
                         {% for availableMember in event.availableMembers|split(':') %}
                             {% for member in members %}
@@ -114,7 +119,7 @@
 
                 <p class='text-xl text-center font-bold'><u>Schicht 20:30-23:00</u></p>
                 <div class='flex justify-center'>
-                    <select name='newhelper2'>
+                    <select name='helper2'>
                         <option value='0'>Keine</option>
                         {% for availableMember in event.availableMembers|split(':') %}
                             {% for member in members %}
@@ -135,7 +140,7 @@
 
                     <span>&nbsp</span>
 
-                    <select name='newhelper4'>
+                    <select name='helper4' autofocus>
                         <option value='0'>Keine</option>
                         {% for availableMember in event.availableMembers|split(':') %}
                             {% for member in members %}
@@ -181,7 +186,33 @@
 
             {% else %}
 
-                <p class='text-2xl text-center font-bold m-3'>{{ event.eventdate | date_format("d. F Y") }}</p>
+                {% if event.active == 0 %}
+                    {% if isAdmin %}
+                        <div class='m-5 border border-solid border-black w-96 rounded-xl opacity-40'>
+                    {% else %}
+                        <div class='hidden'>
+                    {% endif %}
+                {% else %}
+                    <div class='m-5 border border-solid border-black w-96 rounded-xl'>
+                {% endif %}
+
+                <p class='text-2xl text-center font-bold m-3'>{{ event.eventdate | date_format("d. F Y") }}<br>
+                {% if event.active == 0 %}
+                    <span class='italic'>(Nicht sichtbar)</span>
+                {% else %}
+                    {% if isAdmin %}
+                        <span>(Sichtbar)</span>
+                    {% endif %}
+                {% endif %}
+                </p>
+            
+                <p class='text-xl'>
+                {% if event.activeToRegister == 0 %}
+                    <span class='text-red-600 italic font-bold'>Anmeldung: deaktiviert</span>
+                {% else %}
+                    <span class='text-green-600 font-bold'>Anmeldung: aktiviert</span>
+                {% endif %}
+                </p>
                 <br>
 
                 <p class='text-xl text-center font-bold'><u>Leiter</u></p>
@@ -190,7 +221,7 @@
                         <div class='block m-5'>
                             {% for member in members %}
                                 {% if event.leader1 == member.id %}
-                                    <center><img src='{{member.memberimg}}' style='border-radius: 100%; width: 50px'></img>{{member.membername}}</center>
+                                    <center><img src='{{member.memberimg}}' style='border-radius: 100%; width: 50px' title='{{member.membername}}'></img>{{member.membername}}</center>
                                 {% endif %}
                             {% endfor%}
                         </div>
@@ -200,7 +231,7 @@
                         <div class='block m-5'>
                             {% for member in members %}
                                 {% if event.leader2 == member.id %}
-                                    <center><img src='{{member.memberimg}}' style='border-radius: 100%; width: 50px'></img>{{member.membername}}</center>
+                                    <center><img src='{{member.memberimg}}' style='border-radius: 100%; width: 50px' title='{{member.membername}}'></img>{{member.membername}}</center>
                                 {% endif %}
                             {% endfor%}
                         </div>
@@ -215,7 +246,7 @@
                         <div class='block m-5'>
                             {% for member in members %}
                                 {% if event.helper1 == member.id %}
-                                    <center><img src='{{member.memberimg}}' style='border-radius: 100%; width: 50px'></img>{{member.membername}}</center>
+                                    <center><img src='{{member.memberimg}}' style='border-radius: 100%; width: 50px' title='{{member.membername}}'></img>{{member.membername}}</center>
                                 {% endif %}
                             {% endfor%} 
                         </div>
@@ -225,7 +256,7 @@
                         <div class='block m-5'>
                             {% for member in members %}
                                 {% if event.helper3 == member.id %}
-                                    <center><img src='{{member.memberimg}}' style='border-radius: 100%; width: 50px'></img>{{member.membername}}</center>
+                                    <center><img src='{{member.memberimg}}' style='border-radius: 100%; width: 50px' title='{{member.membername}}'></img>{{member.membername}}</center>
                                 {% endif %}
                             {% endfor%}
                         </div>
@@ -240,7 +271,7 @@
                         <div class='block m-5'>
                             {% for member in members %}
                                 {% if event.helper2 == member.id %}
-                                    <center><img src='{{member.memberimg}}' style='border-radius: 100%; width: 50px'></img>{{member.membername}}</center>
+                                    <center><img src='{{member.memberimg}}' style='border-radius: 100%; width: 50px' title='{{member.membername}}'></img>{{member.membername}}</center>
                                 {% endif %}
                             {% endfor%} 
                         </div>
@@ -250,7 +281,7 @@
                         <div class='block m-5'>
                             {% for member in members %}
                                 {% if event.helper4 == member.id %}
-                                    <center><img src='{{member.memberimg}}' style='border-radius: 100%; width: 50px'></img>{{member.membername}}</center>
+                                    <center><img src='{{member.memberimg}}' style='border-radius: 100%; width: 50px' title='{{member.membername}}'></img>{{member.membername}}</center>
                                 {% endif %}
                             {% endfor%}
                         </div>
@@ -285,21 +316,16 @@
                 {% endif %} 
             {% endif %}
         </div>
-    </div>
 <br><br>
 
 {% endfor %}
+    </div>
 
 {% if isAdmin %}
-    <p class='font-bold'>Neuer Termin erstellen:</p>
+    <p class='font-bold'>Manuelle Termin erstellen:</p>
     {% set now = 'now'|date('Y-m-d') %}
-        <table align='center'>
-            <tr>
-            <td><input type='date' name='neweventdate' value='{{ now }}'></td>
-            <td><input type='submit' name='createEvent' value='erstellen' class='classButton'></td>
-            </tr>
-        </table>
+        <input type='date' name='neweventdate' value='{{ now }}' class='border border-solid border-black'>&nbsp
+        <input type='submit' name='createEvent' value='erstellen' class='classButton'>    
 {% endif %}
-
 
 </form>

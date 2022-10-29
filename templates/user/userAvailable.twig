@@ -1,9 +1,20 @@
 <form action='/index.php?page=confirmedEvents' method='post'>
     <div class='flex justify-center'>
         <div class='border border-solid border-black rounded-xl w-96 m-5 p-5'>
-        <h1 class='text-xl font-bold'>Bitte Einsatzdatum eintragen</h1>
+        <h1 class='text-xl font-bold'>Bitte Einsatzdatum eintragen</h1><br>
         {% for event in events %}
-            <p><input type='checkbox' name={{ event.id }} value={{ member.id }}> {{ event.eventdate | date_format("d. F Y") }}</p>
+            {% if event.activeToRegister == 1%}
+                {% for availableMember in event.availableMembers|split(':') %}
+                    {% if availableMember == member.id %}
+                        <p class='italic opacity-40'><input type='checkbox' name={{ event.id }} value={{ member.id }} disabled> {{ event.eventdate | date_format("d. F Y") }}<br>(Bereits angemeldet)</p><br>
+                    {% else %}
+                        <p><input type='checkbox' name={{ event.id }} value={{ member.id }}> {{ event.eventdate | date_format("d. F Y") }}</p><br>
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
+
+
+
         {% endfor %}
             {% set warning = '\"Bist du sicher?\"' %}
             <p><input type='submit' value='Absenden' onclick='return confirm({{ warning }})' class='classButton'></p>

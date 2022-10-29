@@ -1,57 +1,95 @@
 <?php
 
+use \Rl\Models\Event;
+use \Rl\Models\Month;
+
 function showActualEvent() {
 	global $con;
 	$res = $con->query("SELECT * FROM event WHERE eventdate > NOW() ORDER BY eventdate");
 	return $res->fetch_all(true);
 }
 
-/* Notizen
-$today = date("Y-m-d", strtotime("1 month"));
-$today = date("Y-m-d");
-$next = date("Y-m-t", strtotime("-2 day"));
-$todayday = date("m");
-$nextday = "10";
-echo $today . "<br>";
-echo $next . "<br>";
-echo $todayday . "<br>";
-echo $nextday . "<br>";
-if($todayday == $nextday){
-	echo "Hallo<br>";
-} */
+function checkDay(){
+	$month = findOneByColumn(Month::class, 0, "monthBegin", date("Y-m-d"));
+	// $today = $month->monthBegin;
+	$today = "2022-09-01";
 
-function checkMonth($month){
-	/* if($month == NULL){
-		echo "Nichts";
-	} else {
-		echo $month->firstday . "<br>";
-		echo $month->lastday. "<br>";
-	} */
-
-	for($i=1; $i<=12; $i++){
-	$today = "2022-$i-01";
-
-	$showToday = new DateTime($today);
-	
-	$date = new DateTime($today . " + 8 weeks next friday");
-	$prov = $date->format("Y-m-d");
-	$res = new DateTime($prov . "next Friday");
-	echo $showToday->format("l.d/m/Y") . " --> ";
-	echo $date->format("l.d/m/Y");
-	echo "<br>";
+	for($numberOfMonth = 1; $numberOfMonth <= 2; $numberOfMonth++){
+		checkMonth($month, $today, $numberOfMonth);
 	}
-	/* $nowWeek = date("W");
-	$newMonth = date("l. Y-m-d", strtotime("+ 7 week next Friday"));
-
-
-	echo "Week Now: $nowWeek<br>";
-	echo "Week New: $newMonth<br>"; */
-
-	/* $newEvent = new Event;
-	$newEvent->eventdate = 0; */
-
-
-
 }
+
+function checkMonth($month, $today, $numberOfMonth){
+
+	$provDateCreate = new DateTime($today . " + " . $numberOfMonth . " months");
+
+	if($provDateCreate->format('l') == 'Friday'){
+		$newEventDate = $provDateCreate->format("Y-m-d");
+	} else {
+		$provDate = new DateTime(($provDateCreate->format("Y-m-d")) . "next Friday");
+		$newEventDate = $provDate->format("Y-m-d");
+	}
+
+	$acutalMonth = $provDateCreate->format('m');
+
+	if($numberOfMonth == 1){
+		deactivateRegister($newEventDate, $acutalMonth);
+	} else {
+		createEventsForMonth($newEventDate, $acutalMonth);
+	}
+}
+
+function deactivateRegister($newEventDate, $acutalMonth){
+
+	for($i=0; $i<10; $i++){
+
+		$event = findOne(Event::class, 0, "eventdate", $newEventDate);
+		if($event == NULL){
+			$i = 10;
+		} else {
+		$event->activeToRegister = 0;
+		$event->save();
+		
+		$newDate = new DateTime($newEventDate . "next Friday");
+		$newEventDate = $newDate->format("Y-m-d");
+
+		if($newDate->format("m") != $acutalMonth){
+			$i = 10;
+		}
+	}		
+	}
+}
+
+
+function createEventsForMonth($newEventDate, $acutalMonth){
+
+	for($i=0; $i<10; $i++){
+
+		$checkEvent = findOne(Event::class, 0, "eventdate", $newEventDate);
+		if(!isset($checkEvent->eventdate)){
+			$event = new Event;
+			$event->eventdate = $newEventDate;
+			$event->active = 0;
+			$event->leader1 = 0;
+			$event->leader2 = 0;
+			$event->helper1 = 0;
+			$event->helper2 = 0;
+			$event->helper3 = 0;
+			$event->helper4 = 0;
+			$event->activeToRegister = 1;
+			$event->save();
+		}
+		
+		$newDate = new DateTime($newEventDate . "next Friday");
+		$newEventDate = $newDate->format("Y-m-d");
+
+		if($newDate->format("m") != $acutalMonth){
+			$i = 10;
+		}		
+	}
+}
+
 ?>
+
+
 
