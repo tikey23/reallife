@@ -85,7 +85,7 @@ function findOne($objectType, $id=0, $column = "", $description = "") {
 	} else {
 		$row = $con->query("SELECT * FROM {$table} WHERE $column = '$description' LIMIT 1");
 		if($row->num_rows == 0) {
-			return "error";
+			return NULL;
 		}
 	}
 
