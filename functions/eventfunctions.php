@@ -100,6 +100,3 @@ function createEventsForMonth($newEventDate, $acutalMonth){
 }
 
 ?>
-
-
-

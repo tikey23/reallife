@@ -18,7 +18,6 @@ require_once('../load.php');
 </head>
 <body id="idBody" class='text-lg bg-fixed bg-gradient-to-tr from-violet-300 via-violet-300 to-violet-400'>
 
-
 <?PHP
 
 checkDay();
