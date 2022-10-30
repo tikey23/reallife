@@ -1,6 +1,6 @@
 <form action='/index.php?page=confirmedEvents' method='post'>
     <div class='flex justify-center'>
-        <div class='border border-solid border-black rounded-xl w-96 m-5 p-5'>
+        <div class='border border-solid border-black rounded-xl w-80 m-2 p-2'>
         <h1 class='text-xl font-bold'>Bitte Einsatzdatum eintragen</h1><br>
         {% for event in events %}
             {% if event.activeToRegister == 1%}

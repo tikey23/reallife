@@ -69,11 +69,5 @@ echo $twig->render('admin/adminEventList.twig', [
 	"isAdmin" => isset($_SESSION['admin'])
 ]);
 
-if(isset($_SESSION['admin'])){
-	echo $twig->render('admin/toAdmin.twig');
-}
-
-echo $twig->render('global/logout.twig');
-
 ?>
 </div>

@@ -17,7 +17,9 @@
     $con ->query($sql);
 
     $sql = "CREATE TABLE IF NOT EXISTS monthList (
-        monthBegin DATE NULL DEFAULT NULL
+        id INT(255) NOT NULL AUTO_INCREMENT,
+        monthBegin DATE NULL DEFAULT NULL,
+        PRIMARY KEY (id)
         )ENGINE=InnoDB, DEFAULT CHARSET=UTF8";
     $con ->query($sql);
 
@@ -25,7 +27,7 @@
     $con ->query($sql);
 
     $sql = "CREATE TABLE IF NOT EXISTS event (
-        id INT(100) NOT NULL AUTO_INCREMENT, 
+        id INT(255) NOT NULL AUTO_INCREMENT, 
         eventdate DATE NULL DEFAULT NULL,
         active INT(10) NOT NULL,
         leader1 INT(255) NOT NULL,
@@ -45,7 +47,7 @@
     $con ->query($sql);
 
     $sql = "CREATE TABLE IF NOT EXISTS pictures (
-        id INT(100) NOT NULL AUTO_INCREMENT, 
+        id INT(255) NOT NULL AUTO_INCREMENT, 
         categoryName VARCHAR(255) NOT NULL,
         picName VARCHAR(255) NOT NULL,
         categoryId INT(100) NOT NULL,
@@ -57,7 +59,7 @@
     $con ->query($sql);
 
     $sql = "CREATE TABLE IF NOT EXISTS gallerycategory (
-        id INT(100) NOT NULL AUTO_INCREMENT,
+        id INT(255) NOT NULL AUTO_INCREMENT,
         categoryName VARCHAR(255) NOT NULL,
         titlePic VARCHAR(255) NOT NULL,
         PRIMARY KEY (id)
@@ -68,7 +70,7 @@
     $con ->query($sql);
 
     $sql = "CREATE TABLE IF NOT EXISTS specialevents (
-        id INT(100) NOT NULL AUTO_INCREMENT,
+        id INT(255) NOT NULL AUTO_INCREMENT,
         specialeventtitle VARCHAR(255) NOT NULL,
         specialeventdate DATE NULL DEFAULT NULL,
         publicdate DATE NULL DEFAULT NULL,
@@ -83,7 +85,7 @@
     $con ->query($sql);
 
     $sql ="CREATE TABLE IF NOT EXISTS members (
-        id INT(100) NOT NULL AUTO_INCREMENT,
+        id INT(255) NOT NULL AUTO_INCREMENT,
         memberimg VARCHAR(255) NOT NULL,
         membername VARCHAR(255) NOT NULL,
         memberfunction VARCHAR(255) NOT NULL,
@@ -102,14 +104,16 @@
 
     // Create MonthList
     $sql = "INSERT INTO monthList (monthBegin) values 
-    ('2022-10-29'),
     ('2022-11-01')";
     $con ->query($sql);
 
     
     // Create Events
     $sql = "INSERT INTO event (eventdate, active, leader1, leader2, helper1, helper2, helper3, helper4, availableMembers, activeToRegister) values 
-    ('2022-10-30', 1, 1, 2, 3, 3, 3, 3, '3:4:1', 0)";
+    ('2022-11-04', 1, 1, 2, 3, 3, 3, 3, '3:4:1', 0),
+    ('2022-11-11', 1, 1, 2, 3, 3, 3, 3, '3:4:1', 0),
+    ('2022-11-18', 1, 1, 2, 3, 3, 3, 3, '3:4:1', 0),
+    ('2022-11-25', 1, 1, 2, 3, 3, 3, 3, '3:4:1', 0)";
     $con ->query($sql);
 
     // Create Gallery Category

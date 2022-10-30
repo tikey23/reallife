@@ -7,18 +7,7 @@ if(!$_SESSION['username']) die("buuuuh");
 $username = $_SESSION['username'];
 $member = findOneByColumn(Member::class, 0, "membername", $_SESSION['username']);
 if($member == NULL) die("not allowed");
-
-echo $twig->render('user/userTitle.twig', ["member" => $member]);
-
-if ($member->memberfunction == "Admin") {
-	echo $twig->render('admin/toAdmin.twig');
-}
-
-echo $twig->render('admin/adminEventsbutton.twig');
-
 $events = findAll(Event::class);
-// $events = showActualEvent();
-echo $twig->render('user/userAvailable.twig', ['events' => $events, 'member' => $member]);
 
-echo $twig->render('user/userButtons.twig');
-echo $twig->render('global/logout.twig');
+echo $twig->render('user/userMain.twig', ["member" => $member, "events" => $events]);
+

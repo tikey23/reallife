@@ -17,8 +17,8 @@
             <div class='m-5 border border-solid border-black w-96 rounded-xl'>
                 <p class='text-2xl text-center font-bold m-3'><input type='date' name='eventdate' value='{{ event.eventdate }}'></p><br>
                     <span>Sichtbarkeit: <select name='active'>
-                        <option value=0>Nicht sichtbar</option>
-                        <option value=1 selected='selected'>Sichtbar</option>
+                        <option value=0>Privat</option>
+                        <option value=1 selected='selected'>Publik</option>
                     </select></span>
                 <br>
                     <span>Ameldungen: <select name='activeToRegister'>
@@ -198,10 +198,10 @@
 
                 <p class='text-2xl text-center font-bold m-3'>{{ event.eventdate | date_format("d. F Y") }}<br>
                 {% if event.active == 0 %}
-                    <span class='italic'>(Nicht sichtbar)</span>
+                    <center><img src='img/icons/privat.png' class='w-7'></center>
                 {% else %}
                     {% if isAdmin %}
-                        <span>(Sichtbar)</span>
+                        <center><img src='img/icons/public.png' class='w-7'></center>
                     {% endif %}
                 {% endif %}
                 </p>
@@ -329,3 +329,10 @@
 {% endif %}
 
 </form>
+
+<div class='flex flex-wrap justify-center'>
+    {% if isAdmin %}
+        {% include 'admin/toAdmin.twig' %}
+    {% endif %}
+    {% include 'global/logout.twig' %}
+</div>

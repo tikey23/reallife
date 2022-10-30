@@ -11,11 +11,14 @@ function showActualEvent() {
 
 function checkDay(){
 	$month = findOneByColumn(Month::class, 0, "monthBegin", date("Y-m-d"));
-	// $today = $month->monthBegin;
-	$today = "2022-09-01";
 
-	for($numberOfMonth = 1; $numberOfMonth <= 2; $numberOfMonth++){
-		checkMonth($month, $today, $numberOfMonth);
+	if($month != NULL){
+		$today = $month->monthBegin;
+		// $today = "2022-11-01";
+
+		for($numberOfMonth = 1; $numberOfMonth <= 2; $numberOfMonth++){
+			checkMonth($month, $today, $numberOfMonth);
+		}
 	}
 }
 
@@ -62,6 +65,13 @@ function deactivateRegister($newEventDate, $acutalMonth){
 
 
 function createEventsForMonth($newEventDate, $acutalMonth){
+
+	$getMonth = new DateTime($newEventDate);
+	$newMonthBegin = $getMonth->format("Y-m-01");
+	
+	$newMonth = new Month;
+	$newMonth->monthBegin = $newMonthBegin;
+	$newMonth->save();
 
 	for($i=0; $i<10; $i++){
 
