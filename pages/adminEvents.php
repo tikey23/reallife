@@ -53,7 +53,7 @@ else if (isset($_POST['deleteEvent'])) {
 if(isset($_POST['showAllEvent'])){
 	$events = findAll(Event::class);
 } else {
-	$events = showActualEvent();
+	$events = listActualEvent();
 }
 
 $members = findAll(Member::class);

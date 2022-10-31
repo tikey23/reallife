@@ -5,6 +5,12 @@ use \Rl\Models\Month;
 
 function showActualEvent() {
 	global $con;
+	$res = $con->query("SELECT * FROM event WHERE eventdate > NOW() AND active = '1' ORDER BY eventdate");
+	return $res->fetch_all(true);
+}
+
+function listActualEvent() {
+	global $con;
 	$res = $con->query("SELECT * FROM event WHERE eventdate > NOW() ORDER BY eventdate");
 	return $res->fetch_all(true);
 }
