@@ -34,8 +34,6 @@ if (isset($_POST['createEvent'])) {
 else if (isset($_POST['modifyEvent'])) {
 
 	$event = findOne(Event::class, $_POST['modifyEvent']);
-	$event->id = $_POST['modifyEvent'];
-	$event->eventdate = $_POST['eventdate'];
 	$event->active = $_POST['active'];
 	$event->leader1 = $_POST['leader1'];
 	$event->leader2 = $_POST['leader2'];
@@ -61,8 +59,8 @@ if(isset($_POST['showAllEvent'])){
 $members = findAll(Member::class);
 
 echo $twig->render('admin/adminEventList.twig', [
-	// "isShowAllEvent" => isset($_POST['showAllEvent']),
 	"isShowAllEvent" => isset($_POST['showAllEvent']),
+	// "showAllEvent" => $_SESSION['showAllEvent'],
 	"events" => $events,
 	"members" => $members,
 	"modifyEventPick" => @$_POST['modifyEventPick'],

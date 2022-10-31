@@ -6,7 +6,7 @@
     {% if modifyMemberPick == member.id %}
     {% if isAdmin %}
 
-        <div class='scale-90 sm:scale-100 w-96 border border-solid border-black rounded-2xl flex justify-center'>
+        <div class='scale-90 sm:scale-100 w-96 border border-solid border-black rounded-2xl flex justify-center bg-violet-300'>
             <div></div>
 
             <div class='text-left m-2'>
@@ -62,8 +62,8 @@
                 <div class='flex justify-end'>
                     <div></div>
                     <div>
-                        <button name='modifyMember' value='{{ member.id }}' class='w-5 h-5 hover:opacity-40'><img src='img/icons/done.png' class='w-5 h-5 inline' title='Ok'></button>
-                        <button class='w-5 h-5'><img src='img/icons/close.png' class='w-5 h-5 inline hover:opacity-40' title='Abbrechen'></button>
+                        <button name='modifyMember' value='{{ member.id }}' class='hover:opacity-40'><img src='img/icons/done.png' class='w-10 h-10 inline' title='Ok'></button>
+                        <button ><img src='img/icons/close.png' class='w-10 h-10 inline hover:opacity-40' title='Abbrechen'></button>
                     </div>
                 </div>
                 
@@ -80,7 +80,7 @@
         <div id='{{ member.id }}' class='m-2 italic opacity-40'>
     {% endif %}
 
-            <div class='scale-90 sm:scale-100 w-96 border border-solid border-black rounded-2xl flex items-center'>
+            <div class='scale-90 sm:scale-100 w-96 border border-solid border-black rounded-2xl flex items-center bg-violet-100'>
                 <div>
                     <a href='{{ member.little_akiba }}' target='_blank'><img src='{{ member.memberimg }}' class='w-24 h-24 rounded-full block m-5'></a>
                 </div>
@@ -106,8 +106,8 @@
                             {% endif %}
                         </span><br>
                         {% set warning = '\"Bist du sicher?\"' %}
-                        <button name='modifyMemberPick' value='{{ member.id }}' class='w-5 h-5 hover:opacity-40'><img src='img/icons/edit.png' class='w-5 h-5 inline' title='Ändern'></button>
-                        <button name='deleteMember' value='{{ member.id }}' onclick='return confirm({{ warning }})' class='w-5 h-5 hover:opacity-40'><img src='img/icons/delete.png' class='w-5 h-5 inline' title='Löschen'></button>
+                        <button name='modifyMemberPick' value='{{ member.id }}' class='hover:opacity-40'><img src='img/icons/edit.png' class='w-10 h-10 inline' title='Ändern'></button>
+                        <button name='deleteMember' value='{{ member.id }}' onclick='return confirm({{ warning }})' class='hover:opacity-40'><img src='img/icons/delete.png' class='w-10 h-10 inline' title='Löschen'></button>
                     {% endif %}
                 </div>
             </div>

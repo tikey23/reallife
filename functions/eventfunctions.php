@@ -9,36 +9,28 @@ function showActualEvent() {
 	return $res->fetch_all(true);
 }
 
-function checkDay(){
-	$month = findOneByColumn(Month::class, 0, "monthBegin", date("Y-m-d"));
+function checkMonth(){
 
-	if($month != NULL){
-		$today = $month->monthBegin;
-		// $today = "2022-11-01";
+	for($numberOfMonth = 1; $numberOfMonth <= 2; $numberOfMonth++){
+		$currentDay = new DateTime();
+		$today = $currentDay->format("Y-m-d");
 
-		for($numberOfMonth = 1; $numberOfMonth <= 2; $numberOfMonth++){
-			checkMonth($month, $today, $numberOfMonth);
+		$provDateCreate = new DateTime($today . " + " . $numberOfMonth . " months");
+
+		if($provDateCreate->format('l') == 'Friday'){
+			$newEventDate = $provDateCreate->format("Y-m-d");
+		} else {
+			$provDate = new DateTime(($provDateCreate->format("Y-m-d")) . "next Friday");
+			$newEventDate = $provDate->format("Y-m-d");
 		}
-	}
-}
 
-function checkMonth($month, $today, $numberOfMonth){
+		$acutalMonth = $provDateCreate->format('m');
 
-	$provDateCreate = new DateTime($today . " + " . $numberOfMonth . " months");
-
-	if($provDateCreate->format('l') == 'Friday'){
-		$newEventDate = $provDateCreate->format("Y-m-d");
-	} else {
-		$provDate = new DateTime(($provDateCreate->format("Y-m-d")) . "next Friday");
-		$newEventDate = $provDate->format("Y-m-d");
-	}
-
-	$acutalMonth = $provDateCreate->format('m');
-
-	if($numberOfMonth == 1){
-		deactivateRegister($newEventDate, $acutalMonth);
-	} else {
-		createEventsForMonth($newEventDate, $acutalMonth);
+		if($numberOfMonth == 1){
+			deactivateRegister($newEventDate, $acutalMonth);
+		} else {
+			createEventsForMonth($newEventDate, $acutalMonth);
+		}
 	}
 }
 
@@ -65,13 +57,6 @@ function deactivateRegister($newEventDate, $acutalMonth){
 
 
 function createEventsForMonth($newEventDate, $acutalMonth){
-
-	$getMonth = new DateTime($newEventDate);
-	$newMonthBegin = $getMonth->format("Y-m-01");
-	
-	$newMonth = new Month;
-	$newMonth->monthBegin = $newMonthBegin;
-	$newMonth->save();
 
 	for($i=0; $i<10; $i++){
 

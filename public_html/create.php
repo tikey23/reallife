@@ -16,13 +16,6 @@
     $sql = "DROP TABLE monthList";
     $con ->query($sql);
 
-    $sql = "CREATE TABLE IF NOT EXISTS monthList (
-        id INT(255) NOT NULL AUTO_INCREMENT,
-        monthBegin DATE NULL DEFAULT NULL,
-        PRIMARY KEY (id)
-        )ENGINE=InnoDB, DEFAULT CHARSET=UTF8";
-    $con ->query($sql);
-
     $sql = "DROP TABLE event";
     $con ->query($sql);
 
@@ -102,17 +95,11 @@
 
     // Beispieldaten
 
-    // Create MonthList
-    $sql = "INSERT INTO monthList (monthBegin) values 
-    ('2022-11-01')";
-    $con ->query($sql);
-
-    
     // Create Events
     $sql = "INSERT INTO event (eventdate, active, leader1, leader2, helper1, helper2, helper3, helper4, availableMembers, activeToRegister) values 
     ('2022-11-04', 1, 1, 2, 3, 3, 3, 3, '3:4:1', 0),
     ('2022-11-11', 1, 1, 2, 3, 3, 3, 3, '3:4:1', 0),
-    ('2022-11-18', 1, 1, 2, 3, 3, 3, 3, '3:4:1', 0),
+    ('2022-11-18', 1, 1, 2, 3, 3, 3, 3, '2:4', 0),
     ('2022-11-25', 1, 1, 2, 3, 3, 3, 3, '3:4:1', 0)";
     $con ->query($sql);
 

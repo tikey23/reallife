@@ -4700,6 +4700,10 @@ textarea.form-control.is-invalid {
   height: 1.25rem;
 }
 
+.h-7 {
+  height: 1.75rem;
+}
+
 .h-12 {
   height: 3rem;
 }
@@ -4714,6 +4718,10 @@ textarea.form-control.is-invalid {
 
 .h-full {
   height: 100%;
+}
+
+.h-10 {
+  height: 2.5rem;
 }
 
 .w-full {
@@ -4754,6 +4762,10 @@ textarea.form-control.is-invalid {
 
 .w-52 {
   width: 13rem;
+}
+
+.w-10 {
+  width: 2.5rem;
 }
 
 .max-w-7xl {
@@ -4931,6 +4943,16 @@ textarea.form-control.is-invalid {
 .bg-violet-500 {
   --tw-bg-opacity: 1;
   background-color: rgb(139 92 246 / var(--tw-bg-opacity));
+}
+
+.bg-violet-400 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(167 139 250 / var(--tw-bg-opacity));
+}
+
+.bg-violet-100 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(237 233 254 / var(--tw-bg-opacity));
 }
 
 .bg-\[url\(\'\/img\/home_bg\.jpg\'\)\;\] {
@@ -5249,6 +5271,11 @@ textarea.form-control.is-invalid {
 .hover\:bg-blue-700:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(29 78 216 / var(--tw-bg-opacity));
+}
+
+.hover\:bg-violet-100:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(237 233 254 / var(--tw-bg-opacity));
 }
 
 .hover\:opacity-40:hover {
