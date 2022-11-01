@@ -42,3 +42,8 @@ padding: 2px;
     transform: translate(-3000px, 0);
     transition: transform 2s;
 }
+
+#newCategoryForm{
+    transform: translate(-3000px, 0);
+    transition: transform 2s;
+}

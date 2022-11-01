@@ -13,9 +13,6 @@
     $con ->query($sql);
     $con->select_db($DB['database']);
 
-    $sql = "DROP TABLE monthList";
-    $con ->query($sql);
-
     $sql = "DROP TABLE event";
     $con ->query($sql);
 
@@ -54,6 +51,7 @@
     $sql = "CREATE TABLE IF NOT EXISTS gallerycategory (
         id INT(255) NOT NULL AUTO_INCREMENT,
         categoryName VARCHAR(255) NOT NULL,
+        galleryDate DATE NULL DEFAULT NULL,
         titlePic VARCHAR(255) NOT NULL,
         PRIMARY KEY (id)
         )ENGINE=InnoDB, DEFAULT CHARSET=UTF8";
@@ -104,9 +102,9 @@
     $con ->query($sql);
 
     // Create Gallery Category
-    $sql = "INSERT INTO gallerycategory (categoryName, titlePic) values 
-    ('Unterwasser Abend', '3.jpg'),
-    ('Cosplay Abend', 'img-1868.jpg')
+    $sql = "INSERT INTO gallerycategory (categoryName, galleryDate, titlePic) values 
+    ('Unterwasser Abend', '2022-08-12', '3.jpg'),
+    ('Cosplay Abend', '2022-06-16', 'img-1868.jpg')
     ";
     $con ->query($sql);
 
