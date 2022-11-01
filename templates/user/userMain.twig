@@ -1,21 +1,24 @@
 
-<div class='flex flex-wrap justify-center sm:justify-between items-center'>
+<div class='flex flex-wrap justify-center sm:justify-center items-center'>
     <div>
         {% include 'user/userTitle.twig' %}
     </div>
     <div class='flex flex-wrap justify-center'>
-        {% if member.memberfunction == "Admin" %}
-            {% include 'admin/toAdmin.twig' %}
-        {% endif %}
-        {% include 'admin/adminEventsbutton.twig' %}
+        {% include 'buttons/eventsButton.twig' %}
 
-        {% include 'user/userButtons.twig' %}
-        {% include 'global/logout.twig' %}
-    </div>
-    <div>
-        {% include 'user/userAvailable.twig' %}
+        {% if member.memberfunction == "Admin" %}
+            {% include 'buttons/specialEventsButton.twig' %}
+            {% include 'buttons/galleryButton.twig' %}
+            {% include 'buttons/membersButton.twig' %}
+        {% endif %}
+
+        {% include 'buttons/userButtons.twig' %}
+        {% include 'buttons/logout.twig' %}
     </div>
 </div>
+    <div class='flex justify-center'>
+        {% include 'user/userAvailable.twig' %}
+    </div>
 
 
 

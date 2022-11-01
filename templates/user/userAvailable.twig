@@ -4,17 +4,12 @@
         <h1 class='text-xl font-bold'>Bitte Einsatzdatum eintragen</h1><br>
         {% for event in events %}
             {% if event.activeToRegister == 1%}
-                {% for availableMember in event.availableMembers|split(':') %}
-                    {% if availableMember == member.id %}
-                        <p class='italic opacity-40'><input type='checkbox' name={{ event.id }} value={{ member.id }} disabled> {{ event.eventdate | date_format("d. F Y") }}<br>(Bereits angemeldet)</p><br>
-                    {% else %}
-                        <p><input type='checkbox' name={{ event.id }} value={{ member.id }}> {{ event.eventdate | date_format("d. F Y") }}</p><br>
-                    {% endif %}
-                {% endfor %}
+                {% if member.id in event.availableMembers %}
+                    <p class='italic opacity-40'><input type='checkbox' name={{ event.id }} value={{ member.id }} disabled> {{ event.eventdate | date_format("d. F Y") }}<br>(Bereits angemeldet)</p><br>
+                {% else %}
+                    <p><input type='checkbox' name={{ event.id }} value={{ member.id }}> {{ event.eventdate | date_format("d. F Y") }}</p><br>
+                {% endif %}
             {% endif %}
-
-
-
         {% endfor %}
             {% set warning = '\"Bist du sicher?\"' %}
             <p><input type='submit' value='Absenden' onclick='return confirm({{ warning }})' class='classButton'></p>
