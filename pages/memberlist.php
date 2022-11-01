@@ -56,7 +56,7 @@ if(isset($_SESSION["admin"])){
 	echo $twig->render('member/newMember.twig', ["isAdmin" => isset($_SESSION['admin'])]);
 
 	if(isset($_SESSION['username'])){
-		echo $twig->render('global/logout.twig');
+		echo $twig->render('buttons/logout.twig');
 	}
 
 	?>
