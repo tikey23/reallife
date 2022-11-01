@@ -1,18 +1,21 @@
 <h1 class='text-3xl font-bold underline'>{{ gallerycategorys.categoryName }}</h1>
+<form action='/index.php?page=pictures' method='post' enctype='multipart/form-data'>
 
 {% if isAdmin %}
-
-    <form action='/index.php?page=pictures' method='post' enctype='multipart/form-data'>
-        <input type='file' name='fileToUpload' id='fileToUpload'>
-        <br>
-        <button name='picUpload' value={{ gallerycategorys.id }} class='classButton'>Hochladen</button>
-    </form>
-
+    <input type='file' name='fileToUpload' id='fileToUpload'>
+    <br>
+    <button name='picUpload' value={{ gallerycategorys.id }} class='classButton'>Hochladen</button>
 {% endif %}
-
-{% for picture in pictures %}
-
-    <a target='_blank' href='/img/gallery/{{ picture.categoryName }}/{{ picture.picName }}'>
-    <img src='/img/gallery/{{ picture.categoryName }}/{{ picture.picName }}' class='inline w-80 m-2.5 rounded-xl shadow-xl hover:shadow-2xl hover:scale-110'></img></a>
-
-{% endfor %}
+<div class='flex flex-wrap justify-center'>
+    {% for picture in pictures %}
+        <div>
+            <a data-fslightbox="gallery" href='/img/gallery/{{ picture.categoryName }}/{{ picture.picName }}'>
+                <img src='/img/gallery/{{ picture.categoryName }}/{{ picture.picName }}' class='inline w-80 m-2.5 rounded-xl shadow-xl hover:shadow-2xl hover:scale-110'>
+            </a><br>
+            {% set warning = '\"Bist du sicher?\"' %}
+            <button name='deletePicture' value='{{ picture.id }}' onclick='return confirm({{ warning }})' class='hover:opacity-40'><img src='img/icons/delete.png' class='w-10 h-10 inline' title='Löschen'></button>
+        </div>
+    {% endfor %}
+</div>
+</form>
+<script src="js/fslightbox.js"></script>
