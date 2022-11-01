@@ -1,6 +1,5 @@
 <div class="pictures">
 	<?php
-	require_once('../functions/galleryfunctions.php');
 
 	use \Rl\Models\Picture;
 	use \Rl\Models\Gallerycategory;
@@ -20,11 +19,22 @@
 		if (isset($_POST['newCategory'])) {
 
 			global $con;
-			$categoryTitle = $con->real_escape_string($_POST['newCategory']);
-			$gallerycategoryId = newCategory($categoryTitle);
+			$categoryTitle = $con->real_escape_string($_POST['newCategoryTitle']);
+			$uploadedFile = $_FILES['fileToUpload']['name'];
+			$tempFile = $_FILES['fileToUpload']['tmp_name'];
+			
+			$newCategory = new Gallerycategory;
+			$newCategory->newCategory($categoryTitle, $uploadedFile, $tempFile);
+			$gallerycategoryId = $newCategory->id;
 
 		} elseif (isset($_POST['picUpload'])) {
 			$gallerycategoryId = $_POST['picUpload'];
+		}
+		
+		if (isset($_POST['deletePicture'])) {
+			$picture = findOne(Picture::class, $_POST['deletePicture']);
+			echo "Bild: <b>" . $picture->picName . "</b> gelöscht.<br><br>";
+			$picture->delete();
 		}
 
 		// Upload new pic
@@ -33,7 +43,7 @@
 			$categoryName = $gallerycategorys->categoryName;
 			$uploadedFile = $_FILES['fileToUpload']['name'];
 			$tempFile = $_FILES['fileToUpload']['tmp_name'];
-			uploadpic($categoryName, $gallerycategoryId, $uploadedFile, $tempFile);
+			$gallerycategorys->uploadpic($uploadedFile, $tempFile);
 		}
 	}
 	// Show pics
