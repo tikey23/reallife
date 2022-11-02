@@ -1,54 +1,72 @@
-
-	<form action='/index.php?page=adminSpecialEvents' method='post' enctype='multipart/form-data'>
-
-	<h2 class='text-2xl font-bold underline'>Spezial Abende:</h2>
-	<br>
+<form action='/index.php?page=adminSpecialEvents' method='post' enctype='multipart/form-data'>
+<h2 class='text-2xl font-bold underline'>Spezial Abende:</h2>
+<br>
 
 {% if isShowAllSpecialEvents %}
-    <p><input type='checkbox' name='showAllSpecialEvents' style="display:none">
-    <input type="submit" value="Nur aktuelle Termine anzeigen" class="classButton"></p>
+    <p><button class="classButton">Nur aktuelle Termine anzeigen</button></p>
 {% else %}
-    <p><input type='checkbox' name='showAllSpecialEvents' checked='checked'style="display:none">
-    <input type="submit" value="Alle Termine anzeigen" class="classButton"></p>
+    <p><button name='showAllSpecialEvents' class="classButton">Alle Termine anzeigen</button></p>
 {% endif %}
 
-{% for specialEvent in specialEvents %}
+<div class='flex flex-wrap justify-center'>
+	{% for specialEvent in specialEvents %}
 
-		{% if modifySpecialEvent == specialEvent.id %}
+	{% if modifySpecialEventPick == specialEvent.id %}
+		<div class='m-5 border border-solid border-black w-96 rounded-xl bg-violet-100'>
+			<p class='text-2xl text-center font-bold m-3'><input name='specialeventtitle' value='{{ specialEvent.specialeventtitle }}' autofocus></p>
+			<p class='text-xl text-center font-bold m-3'>Datum:<br><input type='date' name='specialeventdate' value='{{ specialEvent.specialeventdate | date('Y-m-d') }}'></p>
+			<p class='text-xl text-center m-3'>Publik:<br><input type='date' name='publicdate' value='{{ specialEvent.publicdate | date('Y-m-d') }}'></p>
 
-			<table align='center'>
-			<tr><td>Titel:</td><td><input name='specialeventtitle' value='{{ specialEvent.specialeventtitle }}'></td></tr>
-			<tr><td>Datum:</td><td><input type='date' name='specialeventdate' value='{{ specialEvent.specialeventdate }}'></td></tr>
-			<tr><td>Publik Datum:</td><td><input type='date' name='publicdate' value='{{ specialEvent.publicdate }}'></td></tr>
-			
 			{% if specialEvent.flyer == NULL %}
-				<tr><td>Flyer:</td><td><input type='file' name='flyer'></td></tr>
+				<p class='text-xl text-center m-3'>Flyer:<br><input type='file' name='flyer'></p>
 			{% else %}
-				<tr><td>Flyer:</td><td><img src='img/specialevents/{{ specialEvent.flyer }}' width='310'><input type='file' name='flyer'></img></td></tr>
+				<p><center><img src='img/specialevents/{{ specialEvent.flyer }}' class='w-72'></center><input type='file' name='flyer' class='m-5'></p>
 			{% endif %}
-			
-			<tr><td>Text:</td><td><input name='descripttext' rows='4' cols='50' value='{{ specialEvent.descripttext }}'></td></tr>
-			</table>
-			<p><button name='modifySpecialEventconfirm' value='{{ specialEvent.id }}' class='classButton'>aktualisieren</button></p>
 
-		{% else %}
+			<p class='text-xl text-center m-3'><textarea name='descripttext' rows='4' cols='25'>{{ specialEvent.descripttext }}</textarea></p>
+			<button name='modifySpecialEvent' value='{{ specialEvent.id }}' class='hover:opacity-40'><img src='img/icons/done.png' class='w-10 h-10 inline' title='Ok'></button>
+			<button><img src='img/icons/close.png' class='w-10 h-10 inline hover:opacity-40' title='Abbrechen'></button></p>
+			<br>
+		</div>
 
-			<table align='center'>
-			<tr><td>Titel:</td><td>{{ specialEvent.specialeventtitle }}</td></tr>
-			<tr><td>Datum:</td><td>{{ specialEvent.specialeventdate|date("d. F Y") }}</td></tr>
-			<tr><td>Publik Datum:</td><td>{{ specialEvent.publicdate|date("d. F Y") }}</td></tr>
-			
-			{% if specialEvent.flyer == NULL %}
-				<tr><td>Flyer:</td><td></td></tr>
-			{% else %}
-				<tr><td>Flyer:</td><td><img src='img/specialevents/{{ specialEvent.flyer }}' width='310'></img></td></tr>
+	{% else %}
+
+		<div class='m-5 border border-solid border-black w-96 rounded-xl bg-violet-100'>
+			<p class='text-2xl text-center font-bold m-3'>{{ specialEvent.specialeventtitle }}</p>
+			<p class='text-xl text-center font-bold m-3'>Datum:<br>{{ specialEvent.specialeventdate|date("d. F Y") }}</p>
+			<p class='text-xl text-center m-3'>Publik:<br>{{ specialEvent.publicdate|date("d. F Y") }}</p
+			{% if specialEvent.flyer != NULL %}
+				<p><center><img src='img/specialevents/{{ specialEvent.flyer }}' class='w-72'></center></p>
 			{% endif %}
-			
-			<tr><td>Text:</td><td>{{ specialEvent.descripttext }}</td></tr>
-			</table>
-			<p><button name='modifySpecialEvent' value='{{ specialEvent.id }}' class='classButton'>ändern</button>
-			<button name='deleteSpecialEvent' value='{{ specialEvent.id }}' class='classButton' onclick=\"return confirm('Bist du sicher?');\">löschen</button></p>
-		{% endif %}
+			<p class='text-xl text-center m-3'>{{ specialEvent.descripttext }}</p>
+			{% set warning = '\"Bist du sicher?\"' %}
+			<p><button name='modifySpecialEventPick' value='{{ specialEvent.id }}' class='hover:opacity-40'><img src='img/icons/edit.png' class='w-10 h-10 inline' title='Ändern'></button>
+	        <button name='deleteSpecialEvent' value='{{ specialEvent.id }}' onclick='return confirm({{ warning }})' class='hover:opacity-40'><img src='img/icons/delete.png' class='w-10 h-10 inline' title='Löschen'></button></p>
+			<br>
+		</div>
+	{% endif %}
+	{% endfor %}
+</div>
+</form>		
+
+<form action="/index.php?page=adminSpecialEvents" method="post" enctype="multipart/form-data">
+<div class='flex flex-wrap justify-center'>
+	<div class='m-5 border border-solid border-black w-96 rounded-xl bg-violet-100'>
 		<br>
-{% endfor %}
-	</form>		
+	    <p class='text-2xl font-bold'>Neuer Spezial Abend erstellen:</p>
+	    {% set now = 'now'|date('Y-m-d') %}
+		<p class='text-2xl text-center font-bold m-3'>Titel:<br><input name='specialeventtitle'></p>
+		<p class='text-xl text-center font-bold m-3'>Datum:<br><input type='date' name='specialeventdate' value='{{ now }}'></p>
+		<p class='text-xl text-center m-3'>Publik:<br><input type='date' name='publicdate' value='{{ now }}'></p>
+		<p class='text-xl text-center m-3'>Flyer:<br><input type='file' name='flyer'></p>	
+		<p class='text-xl text-center m-3'><textarea name='descripttext' rows='4' cols='25'></textarea></p>
+		<button name='createSpecialEvent' class='hover:opacity-40'><img src='img/icons/add_box.png' class='w-10 h-10 inline' title='Ok'></button>
+		<br><br>
+	</div>
+</div>
+
+<div class='flex flex-wrap justify-center'>
+    {% include 'buttons/logout.twig' %}
+</div>
+
+</form>

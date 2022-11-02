@@ -25,11 +25,10 @@
     }
 
     // modified Special Event
-    if(isset($_POST['modifySpecialEventconfirm'])) {
-
+    if(isset($_POST['modifySpecialEvent'])) {
         $flyer = basename($_FILES['flyer']['name']);
         $tempflyer = $_FILES['flyer']['tmp_name'];
-        $specialevent = findOne(Specialevent::class, $_POST['modifySpecialEventconfirm']);
+        $specialevent = findOne(Specialevent::class, $_POST['modifySpecialEvent']);
         $specialevent->specialeventtitle = $_POST['specialeventtitle'];
         $specialevent->specialeventdate = $_POST['specialeventdate'];
         $specialevent->publicdate = $_POST['publicdate'];
@@ -45,6 +44,7 @@
     // delete Special Event
     if(isset($_POST['deleteSpecialEvent'])) {
         $specialEvent = findOne(SpecialEvent::class, $_POST['deleteSpecialEvent']);
+        echo "Spezial Abend: <b>" . $specialEvent->specialeventtitle . "</b> gelöscht.<br><br>";
         $specialEvent->delete();
     }
 
@@ -57,21 +57,12 @@
             $specialEvents = showSpecialEvents();
         }
 
-        if(isset($_POST['modifySpecialEvent'])){
-            $modifySpecialEvent = $_POST['modifySpecialEvent'];
-        } else {
-            $modifySpecialEvent = 0;
-        }
 
         echo $twig->render('admin/showSpecialEventsAdmin.twig', [
             "isShowAllSpecialEvents" => isset($_POST['showAllSpecialEvents']),
             "specialEvents" => $specialEvents,
-            "modifySpecialEvent" => $modifySpecialEvent
+            "modifySpecialEventPick" => @$_POST['modifySpecialEventPick']
         ]);
-    
-        echo $twig->render('admin/createSpecialEvents.twig');
-        echo $twig->render('admin/toAdmin.twig');
-        echo $twig->render('global/logout.twig');
     } else {
         echo $twig->render('global/loginfailed.twig');
     }

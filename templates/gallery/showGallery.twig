@@ -1,11 +1,60 @@
-<form action='/index.php?page=pictures' method='post'>
+<div class='flex flex-wrap justify-center items-center'>  
 
+<div class='flex flex-wrap justify-center items-center'>  
     {% for gallerycategory in gallerycategories %}
-        <button name='gallerycategoryId' value='{{ gallerycategory.id }}'>
-        <div class='text-xl hover:scale-110' style='width: 220px; height: 300px; padding: 10px; margin: 10px; border-radius: 20px; background-color: #8b5cf6; border: 1px solid black'>
-        <img src='/img/gallery/{{ gallerycategory.categoryName }}/{{ gallerycategory.titlePic }}' style='height: 200px; width: 100%; object-fit: cover; object-position: top center; border-radius: 10px;'></img><br>
-        {{ gallerycategory.categoryName }}</div></button>
-    {% endfor %}        
-    
-</form>
+    <div>
+        {% if modifyGalleryPick == gallerycategory.id %}
+            <div class='text-xl hover:scale-110 m-2.5 rounded-xl border border-solid border-black bg-violet-500'>
+                <form action='/index.php?page=gallery' method='post'>
+                    <img src='/img/gallery/{{ gallerycategory.categoryName }}/{{ gallerycategory.titlePic }}' class='w-56 h-56 p-2.5 rounded-xl object-cover object-top'>
+                    <p><input name='categoryName' value='{{ gallerycategory.categoryName }}' size='12' class='border border-solid border-black'></p>
+                    <p><input type='date' name='galleryDate' value='{{ gallerycategory.galleryDate | date('Y-m-d') }}' class='border border-solid border-black'></p>
+                    <p><select name='titlePic' class='border border-solid border-black'>
+                        {% for picture in pictures %}
+                            {% if picture.categoryId == gallerycategory.id %}
+                                <option value='{{ picture.picName }}'>{{ picture.picName }}</option>
+                            {% endif %}
+                        {% endfor %}
+                    </select></p>
+                    <button name='modifyGallery' value='{{ gallerycategory.id }}' class='hover:opacity-40'><img src='img/icons/done.png' class='w-10 h-10 inline' title='Ok'></button>
+                    <button><img src='img/icons/close.png' class='w-10 h-10 inline hover:opacity-40' title='Abbrechen'></button></p>
+                </form>
+            </div>
+        {% else %}
+            <form action='/index.php?page=pictures' method='post'>
+                <button name='gallerycategoryId' value='{{ gallerycategory.id }}' class='text-xl hover:scale-110 m-2.5 rounded-xl border border-solid border-black bg-violet-500'>
+                <img src='/img/gallery/{{ gallerycategory.categoryName }}/{{ gallerycategory.titlePic }}' class='w-56 h-56 p-2.5 rounded-xl object-cover object-top'>
+                <p class='font-bold'>{{ gallerycategory.categoryName }}</p><p class='mb-2.5'>
+                {{ gallerycategory.galleryDate | date("d.M.Y") }}</p></button>
+            </form>
+            {% if isAdmin %}
+                {% set warning = '\"Bist du sicher?\"' %}  
+                <form action='/index.php?page=gallery' method='post'>
+                    <p><button name='modifyGalleryPick' value='{{ gallerycategory.id }}' class='hover:opacity-40'><img src='img/icons/edit.png' class='w-10 h-10 inline' title='Ändern'></button>
+                    <button name='deleteGallery' value='{{ gallerycategory.id }}' onclick='return confirm({{ warning }})' class='hover:opacity-40'><img src='img/icons/delete.png' class='w-10 h-10 inline' title='Löschen'></button>
+                </form>
+            {% endif %}
+        {% endif %}
+    </div>
+{% endfor %}  
+
+{% if isAdmin %}  
+    {% include 'gallery/addGalleryCategoryIcon.twig' %}    
+    {% include 'buttons/logout.twig' %}
+{% endif %}
+
+    <div id='newCategoryForm' class='block absolute w-96 border border-solid border-black rounded-xl p-5 bg-violet-300'>
+        <form action='/index.php?page=pictures' method='post' enctype='multipart/form-data'>
+            <img src='/img/icons/close.png' id='closeNewCategoryForm' class="top-0 left-0 w-50 h-50 float-left cursor-pointer"></img>
+            <p class='text-2xl text-center font-bold'>Neue Kategorie</p>
+            <p class='m-2.5'>Titel: <input name='newCategoryTitle' value='Neue Kategorie' size='15' class='border border-solid border-black' autofocus></p>
+            {% set now = 'now'|date('Y-m-d') %}
+            <p>Datum: <input type='date' name='galleryDate' value='{{ now }}' class='border border-solid border-black'></p>
+            <br>
+            <p>Titelbild: <input type='file' name='fileToUpload' id='fileToUpload'></p>
+            <p class='mt-5'><input type='submit' name='newCategory' value='Erstellen' class='classButton'></p>
+        </form>
+    </div>
+</div>
+
 

@@ -1,32 +1,49 @@
+
 {% if isAdmin %}
-    <p><button id='idNewMemberButton' class='classButton'><b>Neuer Mitglied</b></button></p>
-    <div id="idshowNewMemberForm" class="block sm:absolute sm:top-[60%] sm:left-[35%] w-420 h-500 bg-violet-300 text-left p-4 border-4 border-solid border-violet-500 rounded-lg">
-    <img src='/img/close.png' id='closeNewMember' class="top-0 left-0 w-50 h-50 float-left cursor-pointer"></img>
-    {% if isAdmin %}
-        {% set now = 'now'|date('Y-m-d') %}
-        <br>
-        <form action='/index.php?page=memberlist' method='post'>
-        <h1 class='text-3xl font-bold text-center'>Neuer Mitglied</h1>
-        <br>
-        <p>
-        Name: <input name='membername' class="border border-solid border-black" required="required"><br>
-        E-Mail: <input type="email" name='e_mail' class="border border-solid border-black" required="required"><br>
-        Phone (optional): <input type="tel" name='mobile' class="border border-solid border-black"><br>
+    <p><button id='idNewMemberButton' class='classButton'><b>Neues Mitglied</b></button></p>
+        <div class='flex justify-center items-center'>
+            <div id="idshowNewMemberForm" class="absolute w-420 h-500 bg-violet-300 text-left p-4 border-4 border-solid border-violet-500 rounded-lg">
+            <img src='/img/icons/close.png' id='closeNewMember' class="top-0 left-0 w-50 h-50 float-left cursor-pointer"></img>
+            {% if isAdmin %}
+                {% set now = 'now'|date('Y-m-d') %}
+                <br>
+                <form action='/index.php?page=memberlist' method='post'>
+                <h1 class='text-3xl font-bold text-center'>Neues Mitglied</h1>
+                <br>
+                <p>
+                Name:<br>
+                <input name='membername' class="border border-solid border-black" required="required"><br><br>
 
-        Funktion: <select name='memberfunction' class="border border-solid border-black">
-        <option value='Leiter'>Leiter</option>
-        <option value='Helfer'>Helfer</option>
-        </select><br>
-        Passwort: <input name='memberpwd' size='20' class="border border-solid border-black"><br><br>
+                E-Mail:<br>
+                <input type="email" name='e_mail' class="border border-solid border-black" required="required"><br><br>
+                
+                Phone (optional):<br>
+                <input type="tel" name='mobile' class="border border-solid border-black"><br><br>
 
-        <b><u>Little Akiba:</u></b><br>
-        Profil-URL: <input  name='little_akiba' size='20' class="border border-solid border-black"><br>
-        Avatar-URL: <input  name='memberimg' size='20' class="border border-solid border-black"><br><br>
-        Entrittsdatum: <input type='date' name='involved_since' value='{{ now }}' size='10' class="border border-solid border-black"><br><br>
-       
-        <p><center><b><input type='submit' name="newMember" value='Mitglied erstellen' class='classButton'></b></center></p>
-        </form>
-    {% endif %}
-    </div>
+                Funktion:<br>
+                <select name='memberfunction' class="border border-solid border-black">
+                <option value='Admin'>Admin</option>
+                <option value='Leiter'>Leiter</option>
+                <option value='Helfer' selected='selected'>Helfer</option>
+                </select><br><br>
+
+                Passwort:<br>
+                <input name='memberpwd' size='20' class="border border-solid border-black"><br><br>
+
+                <b><u>Little Akiba:</u></b><br>
+                Profil-URL:<br>
+                <input  name='little_akiba' size='20' class="border border-solid border-black"><br><br>
+
+                Avatar-URL:<br>
+                <input  name='memberimg' size='20' class="border border-solid border-black"><br><br>
+                Entrittsdatum:<br>
+                <input type='date' name='involved_since' value='{{ now }}' size='10' class="border border-solid border-black"><br><br>
+            
+                <p><center><b><input type='submit' name="newMember" value='Mitglied erstellen' class='classButton'></b></center></p>
+                </form>
+            {% endif %}
+            </div>
+        </div>
 {% endif %}
+
 

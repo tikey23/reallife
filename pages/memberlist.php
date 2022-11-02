@@ -1,4 +1,4 @@
-<script type="text/javascript" src="js/newMemberForm.js"></script>
+<script type="text/javascript" src="js/member.js"></script>
 
 <div class='classTable' id='member'>
 	<h1 class='text-3xl font-bold text-center'>Wer sind wir?</h1>
@@ -50,12 +50,13 @@ if(isset($_SESSION["admin"])){
 		'modifyMemberPick' => @$_POST['modifyMemberPick']
 	]);
 	
-	echo $twig->render('member/newMember.twig', ["isAdmin" => isset($_SESSION['admin'])]);
+	
 
 	echo $twig->render('member/recruitmember.twig');
+	echo $twig->render('member/newMember.twig', ["isAdmin" => isset($_SESSION['admin'])]);
 
 	if(isset($_SESSION['username'])){
-		echo $twig->render('global/logout.twig');
+		echo $twig->render('buttons/logout.twig');
 	}
 
 	?>

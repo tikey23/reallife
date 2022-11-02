@@ -16,7 +16,7 @@ function closeNewMemberForm(){
 	close.style.transform = "translate(-3000px, 0)";
 }
 
-function openNavi(){
+/* function openNavi(){
     let navi = document.getElementById("navigation");
     navi.style.display = "block";
 }
@@ -25,7 +25,7 @@ function closeNavi(){
     let navi = document.getElementById("navigation");
     navi.style.display = "none";
 }
-
+ */
 
 function updateMemberStatus(element, memberid) {
 	var value = element.innerHTML.trim();
@@ -34,10 +34,10 @@ function updateMemberStatus(element, memberid) {
 		if(xhr.readyState === 4 && xhr.status === 200) {
 			if(xhr.responseText == 1) {
 				element.innerHTML = "Ja";
-				element.closest('tr').classList.remove('opacity-40');
+				document.getElementById(memberid).classList.remove('opacity-40');
 			} else {
 				element.innerHTML = "Nein";
-				element.closest('tr').classList.add('opacity-40');
+				document.getElementById(memberid).classList.add('opacity-40');
 			}
 		}
 	};
