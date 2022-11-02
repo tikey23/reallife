@@ -375,7 +375,7 @@
     <p class='font-bold'>Manuelle Termin erstellen:</p>
     {% set now = 'now'|date('Y-m-d') %}
         <input type='date' name='neweventdate' value='{{ now }}' class='border border-solid border-black'>&nbsp
-        <input type='submit' name='createEvent' value='erstellen' class='classButton'>    
+        <button type='submit' name='createEvent' class='classButton'>Erstellen</button>    
 {% endif %}
 
 </form>
