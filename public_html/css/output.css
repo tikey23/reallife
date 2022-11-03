@@ -4872,6 +4872,10 @@ textarea.form-control.is-invalid {
   gap: 1rem;
 }
 
+.gap-2 {
+  gap: 0.5rem;
+}
+
 .truncate {
   overflow: hidden;
   text-overflow: ellipsis;
@@ -5505,6 +5509,10 @@ textarea.form-control.is-invalid {
 }
 
 @media (min-width: 1024px) {
+  .lg\:static {
+    position: static;
+  }
+
   .lg\:fixed {
     position: fixed;
   }
@@ -5523,6 +5531,14 @@ textarea.form-control.is-invalid {
 
   .lg\:inline-flex {
     display: inline-flex;
+  }
+
+  .lg\:contents {
+    display: contents;
+  }
+
+  .lg\:hidden {
+    display: none;
   }
 
   .lg\:p-8 {
