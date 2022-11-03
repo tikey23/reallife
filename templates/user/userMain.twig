@@ -3,17 +3,20 @@
     <div>
         {% include 'user/userTitle.twig' %}
     </div>
-    <div class='flex flex-wrap justify-center'>
-        {% include 'buttons/eventsButton.twig' %}
+    <div>
+        {% include 'user/nextDeployment.twig' %}
+        <div class='flex flex-wrap justify-center'>
+            {% include 'buttons/eventsButton.twig' %}
 
-        {% if member.memberfunction == "Admin" %}
-            {% include 'buttons/specialEventsButton.twig' %}
-            {% include 'buttons/galleryButton.twig' %}
-            {% include 'buttons/membersButton.twig' %}
-        {% endif %}
+            {% if member.memberfunction == "Admin" %}
+                {% include 'buttons/specialEventsButton.twig' %}
+                {% include 'buttons/galleryButton.twig' %}
+                {% include 'buttons/membersButton.twig' %}
+            {% endif %}
 
-        {% include 'buttons/userButtons.twig' %}
-        {% include 'buttons/logout.twig' %}
+            {% include 'buttons/userButtons.twig' %}
+            {% include 'buttons/logout.twig' %}
+        </div>
     </div>
 </div>
     <div class='flex justify-center'>
