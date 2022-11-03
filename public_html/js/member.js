@@ -45,3 +45,25 @@ function updateMemberStatus(element, memberid) {
 	xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 	xhr.send('action=updateMemberStatus&status=' + value + '&id=' + memberid);
 }
+
+function checkForm(){
+	let check = 0;
+	let text = "";
+	let memberfunction = document.getElementById("inputNewMemberFunction");
+	let memberpassword = document.getElementById("inputNewMemberPassword");
+	let memberpasswordrepeat = document.getElementById("inputNewMemberPasswordRepeat");
+
+	if(memberfunction.value = 'Admin'){
+		text += "Bitte eine Funktion auswählen\n";
+		check++;
+	}
+
+	if(memberpassword.value != memberpasswordrepeat.value){
+		text += "Passwörter sind nicht gleich.";
+		check++;
+	}
+
+	if(check != 0){
+		alert(text);
+	}
+}

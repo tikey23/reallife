@@ -55,10 +55,6 @@ if(isset($_SESSION["admin"])){
 	echo $twig->render('member/recruitmember.twig');
 	echo $twig->render('member/newMember.twig', ["isAdmin" => isset($_SESSION['admin'])]);
 
-	if(isset($_SESSION['username'])){
-		echo $twig->render('buttons/logout.twig');
-	}
-
 	?>
 
 </div>

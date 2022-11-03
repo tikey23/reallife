@@ -1,10 +1,54 @@
 <form action='/login.php' method='post'>
-    <h1><b><u>Mitarbeiter Login</u></b></h1>
+    <h1><b><u>Mitarbeiter Login</u></b></h1><br>
+
+    <div class='flex justify-center'>
+        <div class="form-floating mb-3 xl:w-80">
+            <input name='username' class="
+            form-control
+            block
+            w-full
+            px-3
+            py-1.5
+            text-base
+            font-normal
+            text-gray-700
+            bg-white bg-clip-padding
+            border border-solid border-gray-300
+            rounded
+            transition
+            ease-in-out
+            m-0
+            focus:text-gray-700 focus:bg-white focus:border-violet-500 focus:outline-none"
+            placeholder="Benutzername"
+            required="required"
+            id="inputUserName">
+            <label for="inputUserName" class="text-gray-700">Benutzername</label>
+        <div><br>
     
-    <p>Benutzername: <input name="username" class="border border-solid border-black">
-    
-    Kennwort: <input type='password' name='pwd' class="border border-solid border-black">
-    
-    <b><button type='submit' class='classButton'>Anmelden</button></b></p>
+        <div class="form-floating mb-3 xl:w-80">
+            <input type='password' name='pwd' class="
+            form-control
+            block
+            w-full
+            px-3
+            py-1.5
+            text-base
+            font-normal
+            text-gray-700
+            bg-white bg-clip-padding
+            border border-solid border-gray-300
+            rounded
+            transition
+            ease-in-out
+            m-0
+            focus:text-gray-700 focus:bg-white focus:border-violet-500 focus:outline-none"
+            placeholder="Kennwort"
+            required="required"
+            id="inputUserPassword">
+            <label for="inputUserPassword" class="text-gray-700">Kennwort</label>
+        <div><br>
+    </div>
+
+    <center><button class='hover:opacity-40'><img src='img/icons/login.png' class='w-10 h-10 inline' title='Anmelden'></button></center>
 </form>
 

@@ -45,14 +45,68 @@
 
     <div id='newCategoryForm' class='block absolute w-96 border border-solid border-black rounded-xl p-5 bg-violet-300'>
         <form action='/index.php?page=pictures' method='post' enctype='multipart/form-data'>
-            <img src='/img/icons/close.png' id='closeNewCategoryForm' class="top-0 left-0 w-50 h-50 float-left cursor-pointer"></img>
-            <p class='text-2xl text-center font-bold'>Neue Kategorie</p>
-            <p class='m-2.5'>Titel: <input name='newCategoryTitle' value='Neue Kategorie' size='15' class='border border-solid border-black' autofocus></p>
-            {% set now = 'now'|date('Y-m-d') %}
-            <p>Datum: <input type='date' name='galleryDate' value='{{ now }}' class='border border-solid border-black'></p>
+            <img src='/img/icons/close.png' id='closeNewCategoryForm' class="top-0 left-0 w-50 h-50 float-left cursor-pointer">
+            
+            <h1 class='text-2xl font-bold text-center'>Neue Kategorie</h1>
             <br>
-            <p>Titelbild: <input type='file' name='fileToUpload' id='fileToUpload'></p>
-            <p class='mt-5'><button type='submit' name='newCategory' class='classButton'>Erstellen</button></p>
+            
+            <div class="form-floating mb-3 xl:w-80">
+                <input name='newCategoryTitle' class="
+                form-control
+                block
+                w-full
+                px-3
+                py-1.5
+                text-base
+                font-normal
+                text-gray-700
+                bg-white bg-clip-padding
+                border border-solid border-gray-300
+                rounded
+                transition
+                ease-in-out
+                m-0
+                focus:text-gray-700 focus:bg-white focus:border-violet-500 focus:outline-none"
+                placeholder="Neue Kategorie"
+                required="required"
+                id="inputNewCategoryTitle"
+                autofocus>
+                <label for="inputNewCategoryTitle" class="text-gray-700">Neue Kategorie</label>
+            <div><br>
+
+
+            {% set now = 'now'|date('Y-m-d') %}
+            <div class="flex items-center justify-center">        
+                <div class="datepicker relative form-floating mb-3 xl:w-80">
+                    <input type="date" name='galleryDate' value='{{ now }}'
+                    class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-violet-500 focus:outline-none"
+                    placeholder="Datum" />
+                    <label for="floatingInput" class="text-gray-700">Datum</label>
+                </div>
+            </div><br>
+            
+            <div class="flex justify-center">
+              <div class="mb-3 w-96">
+                <label for="formFile" class="form-label inline-block mb-2 text-gray-700">Titelbild</label>
+                <input class="form-control
+                block
+                w-full
+                px-3
+                py-1.5
+                text-base
+                font-normal
+                text-gray-700
+                bg-white bg-clip-padding
+                border border-solid border-gray-300
+                rounded
+                transition
+                ease-in-out
+                m-0
+                focus:text-gray-700 focus:bg-white focus:border-violet-500 focus:outline-none" type="file" name='fileToUpload' id="fileToUpload">
+              </div>
+            </div>
+
+            <p><button name='newCategory' class='hover:opacity-40'><img src='img/icons/add_box.png' class='w-10 h-10 inline' title='Erstellen'></button></p>
         </form>
     </div>
 </div>
