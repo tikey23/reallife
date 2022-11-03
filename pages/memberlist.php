@@ -3,7 +3,6 @@
 <div class='classTable' id='member'>
 	<h1 class='text-3xl font-bold text-center'>Wer sind wir?</h1>
 	<br>
-
 	<?php
 
 	use \Rl\Models\Member;
