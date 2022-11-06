@@ -12,6 +12,7 @@ if(isset($_POST['newCandidate'])){
     $mailContent .= "<p>Email: " . $_POST['candidateE_mail'] . "</p>";
     $mailContent .= "<p>Mobile: " . $_POST['candidateMobile'] . "</p>";
     $mailContent .= "<p>Little Akiba Profil: " . $_POST['candidateLittle_akiba'] . "</p>";
+    $mailContent .= "<p>Little Akiba Profil: " . $_POST['avatarLittle_akiba'] . "</p>";
     
     $address = "recipient1@mailtrap.io";
     $addressName = "Zody";
