@@ -1,5 +1,3 @@
-<script type="text/javascript" src="/js/newCandidateForm.js"></script>
-
 <?php
 
 include('../config/config.php');

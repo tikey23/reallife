@@ -1,5 +1,3 @@
-<script type="text/javascript" src="/js/gallery.js"></script>
-
 <?php
 
 use \Rl\Models\Picture;
