@@ -38,12 +38,25 @@
 		}
 
 		// Upload new pic
-		$gallerycategorys = findOne(Gallerycategory::class, $gallerycategoryId);
+		/* $gallerycategorys = findOne(Gallerycategory::class, $gallerycategoryId);
 		if (isset($_POST['picUpload'])) {
 			$categoryName = $gallerycategorys->categoryName;
 			$uploadedFile = $_FILES['fileToUpload']['name'];
 			$tempFile = $_FILES['fileToUpload']['tmp_name'];
 			$gallerycategorys->uploadpic($uploadedFile, $tempFile);
+		} */
+
+		$gallerycategorys = findOne(Gallerycategory::class, $gallerycategoryId);
+		if (isset($_POST['picUpload'])) {
+			
+			$upFiles = $_FILES['fileToUpload'];
+
+			for($i=0; $i<count($upFiles['name']); $i++){
+				$uploadedFile = $upFiles['name'][$i];
+				$tempFile = $upFiles['tmp_name'][$i];
+				$categoryName = $gallerycategorys->categoryName;
+				$gallerycategorys->uploadpic($uploadedFile, $tempFile);
+			}
 		}
 	}
 	// Show pics

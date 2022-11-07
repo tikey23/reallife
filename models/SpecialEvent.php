@@ -29,6 +29,12 @@ class SpecialEvent extends Model {
 	
 			if ($uploadok == 0) {
 			move_uploaded_file($tempflyer, $uploadfile);
+
+			$im = imagecreatefromjpeg($uploadfile);
+			$imgWidth = imagesx($im);
+			$imgHeight = imagesy($im);
+			$newimg = imagescale($im, $imgWidth, $imgHeight);
+			$newfile = imagejpeg($newimg, $uploadfile);
 			}  
 	}
 }
