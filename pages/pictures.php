@@ -38,14 +38,6 @@
 		}
 
 		// Upload new pic
-		/* $gallerycategorys = findOne(Gallerycategory::class, $gallerycategoryId);
-		if (isset($_POST['picUpload'])) {
-			$categoryName = $gallerycategorys->categoryName;
-			$uploadedFile = $_FILES['fileToUpload']['name'];
-			$tempFile = $_FILES['fileToUpload']['tmp_name'];
-			$gallerycategorys->uploadpic($uploadedFile, $tempFile);
-		} */
-
 		$gallerycategorys = findOne(Gallerycategory::class, $gallerycategoryId);
 		if (isset($_POST['picUpload'])) {
 			
