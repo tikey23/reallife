@@ -2,7 +2,7 @@
 
 use PHPMailer\PHPMailer\PHPMailer;
 
-function sendEmail($mailContent, $address, $addressName, $report, $subject){
+function sendEmail($address, $addressName, $subject, $mailContent, $report){
     include('../config/config.php');
     
     $mail = new PHPMailer();

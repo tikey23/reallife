@@ -50,6 +50,12 @@ else if (isset($_POST['deleteEvent'])) {
 	$event->delete();
 }
 
+else if(isset($_POST['sendNotification'])){
+	$eventId = $_POST['sendNotification'];
+	$event = findOne(Event::class, $eventId);
+	$event->sendNotification();
+}
+
 if(isset($_POST['showAllEvent'])){
 	$events = findAll(Event::class);
 } else {
