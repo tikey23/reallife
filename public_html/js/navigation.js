@@ -65,24 +65,44 @@ function closeNewCandidateForm(){
 	close.style.transform = "translate(-3000px, 0)";
 }
 
-/* function checkForm(){
-	let check = 0;
-	let text = "";
-	let memberfunction = document.getElementById("inputNewMemberFunction");
-	let memberpassword = document.getElementById("inputNewMemberPassword");
-	let memberpasswordrepeat = document.getElementById("inputNewMemberPasswordRepeat");
+function openUserPassword(){
+	let open = document.getElementById("idUserPassword");
+	open.style.transform = "translate(0, 0)";
+}
 
-	if(memberfunction.value = 'Admin'){
-		text += "Bitte eine Funktion auswählen\n";
-		check++;
+function closeUserPassword(){
+	let close = document.getElementById("idUserPassword");
+	close.style.transform = "translate(-3000px, 0)";
+}
+
+function checkFormNewMember() {
+	let memberfunction = document.getElementById("inputNewMemberFunction").value;
+	let memberpwd = document.getElementById("inputMemberPwd").value;
+	let memberpwdrepeat = document.getElementById("inputMemberPwdRepeat").value;
+	let okSubmit = 0;
+
+	if(memberfunction == 0){
+		alert("Bitte Funktion auswählen.");
+		okSubmit++;
 	}
 
-	if(memberpassword.value != memberpasswordrepeat.value){
-		text += "Passwörter sind nicht gleich.";
-		check++;
+	if(memberpwd != memberpwdrepeat) {
+		alert("Passwörter sind nicht gleich!");
+		okSubmit++;
 	}
 
-	if(check != 0){
-		alert(text);
+	if(okSubmit == 0){
+		document.inputNewMember.submit();
 	}
-} */
+}
+
+function checkFormMemberNewPwd() {
+	let membernewpwd = document.getElementById("inputMemberNewPwd").value;
+	let membernewpwdrepeat = document.getElementById("inputMemberNewPwdRepeat").value;
+
+	if(membernewpwd != membernewpwdrepeat) {
+		alert("Passwörter sind nicht gleich!");
+	} else {
+		document.inputModifyPassword.submit();
+	}
+}
