@@ -48,13 +48,10 @@ class Gallerycategory extends Model {
 		}
 
 		if ($type != "jpg"
-		&& $type != "jpeg"
-		&& $type != "png"
-		&& $type != "gif") {
-			echo "<br><p class='font-bold'>Fehler! Nur \"JPG\",  \"JPEG\", \"PNG\" und \"GIF\" Dateien erlaubt</p>";
+		&& $type != "jpeg") {
+			echo "<br><p class='font-bold'>Fehler! Nur \"JPG\" und \"JPEG\" Dateien erlaubt</p>";
 			$uploadok++;
 		}
-
 
 		if ($uploadok == 0) {
 		move_uploaded_file($tempFile, $uploadfile);
@@ -65,6 +62,9 @@ class Gallerycategory extends Model {
 		$imgHeight = imagesy($im);
 		$newimg = imagescale($im, $imgWidth, $imgHeight);
 		$newfile = imagejpeg($newimg, $uploadfile);
+		
+		imagedestroy($im);
+		imagedestroy($newimg);
 		
 		$newPic = new Picture;
 		$newPic->categoryName = $this->categoryName;

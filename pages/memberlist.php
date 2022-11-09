@@ -1,10 +1,9 @@
-<div class='classTable' id='member'>
+<div>
 	<h1 class='text-3xl font-bold text-center'>Wer sind wir?</h1>
 	<br>
 	<?php
 
 	use \Rl\Models\Member;
-
 if(isset($_SESSION["admin"])){
 	if(isset($_POST['newMember'])) {
 		$newPwd = $_POST['memberpwd'];
