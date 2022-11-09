@@ -361,7 +361,7 @@
 
                 {% set warning = '\"Bist du sicher?\"' %}
                 <p><button name='modifyEventPick' value='{{ event.id }}' class='hover:opacity-40'><img src='img/icons/edit.png' class='w-10 h-10 inline' title='Ändern'></button>
-                <button name='sendNotification' value='{{ event.id }}' onclick='return confirm({{ warning }})' class='hover:opacity-40'><img src='img/icons/done.png' class='w-10 h-10 inline' title='Benachrichtigung senden'></button>
+                <button name='sendNotification' value='{{ event.id }}' onclick='return confirm({{ warning }})' class='hover:opacity-40'><img src='img/icons/email_send.png' class='w-10 h-10 inline' title='Benachrichtigung senden'></button>
                 <button name='deleteEvent' value='{{ event.id }}' onclick='return confirm({{ warning }})' class='hover:opacity-40'><img src='img/icons/delete.png' class='w-10 h-10 inline' title='Löschen'></button></p>
                 <br>
                 {% endif %} 
