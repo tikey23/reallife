@@ -17,10 +17,12 @@ if(isset($_POST['newCandidate'])){
     $address = "recipient1@mailtrap.io";
     $addressName = "Zody";
 
+    $subject = "Real Life Cafe - Helfer Bewerbung";
+
     $report = "<p>Vielen Dank! Deine Anmeldung wurde versandt. Wir werden bald mit Dir Kontakt aufnehmen.</p>";
     $report .="<p><a href='/index.php?page=becomeMember'><span class='underline-offset-0'>Zurück</span></a></p>";
 
-    sendEmail($mailContent, $address, $addressName, $report);
+    sendEmail($mailContent, $address, $addressName, $report, $subject);
 
 } else {
     echo $twig->render('member/becomeMember.twig');
