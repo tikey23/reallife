@@ -12,7 +12,7 @@
             {% endif %}
         {% endfor %}
             {% set warning = '\"Bist du sicher?\"' %}
-            <p><input type='submit' value='Absenden' onclick='return confirm({{ warning }})' class='classButton'></p>
+            <p><button type='submit' onclick='return confirm({{ warning }})' class='classButton'>Absenden</button></p>
         </div>
     </div>
 </form>

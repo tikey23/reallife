@@ -1,7 +1,8 @@
 <?php
 
 use \Rl\Models\Event;
-use \Rl\Models\Month;
+use \Rl\Models\Member;
+require_once('../functions/emailfunctions.php');
 
 function showActualEvent() {
 	global $con;
@@ -89,5 +90,4 @@ function createEventsForMonth($newEventDate, $acutalMonth){
 		}		
 	}
 }
-
 ?>

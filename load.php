@@ -13,6 +13,5 @@ require_once('models/SpecialEvent.php');
 require_once('models/Member.php');
 require_once('models/Picture.php');
 require_once('models/Gallerycategory.php');
-require_once('models/Month.php');
 
 [$con, $twig] = bootstrap();

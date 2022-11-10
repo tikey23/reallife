@@ -12,18 +12,101 @@
 	{% for specialEvent in specialEvents %}
 
 	{% if modifySpecialEventPick == specialEvent.id %}
-		<div class='m-5 border border-solid border-black w-96 rounded-xl bg-violet-100'>
-			<p class='text-2xl text-center font-bold m-3'><input name='specialeventtitle' value='{{ specialEvent.specialeventtitle }}' autofocus></p>
-			<p class='text-xl text-center font-bold m-3'>Datum:<br><input type='date' name='specialeventdate' value='{{ specialEvent.specialeventdate | date('Y-m-d') }}'></p>
-			<p class='text-xl text-center m-3'>Publik:<br><input type='date' name='publicdate' value='{{ specialEvent.publicdate | date('Y-m-d') }}'></p>
+		<div class='m-5 p-5 border border-solid border-black w-96 rounded-xl bg-violet-100'>
+			
+			<div class='flex justify-center'>
+				<div class="form-floating mb-3 xl:w-80">
+            	    <input name='specialeventtitle' value='{{ specialEvent.specialeventtitle }}'class="
+            	    form-control
+            	    block
+            	    w-full
+            	    px-3
+            	    py-1.5
+            	    text-base
+            	    font-normal
+            	    text-gray-700
+            	    bg-white bg-clip-padding
+            	    border border-solid border-gray-300
+            	    rounded
+            	    transition
+            	    ease-in-out
+            	    m-0
+            	    focus:text-gray-700 focus:bg-white focus:border-violet-500 focus:outline-none"
+            	    placeholder="Titel"
+            	    required="required"
+            	    id="inputSpecialeventtitle"
+					autofocus>
+            	    <label for="inputSpecialeventtitle" class="text-gray-700">Titel</label>
+            	</div>
+			</div><br>
+			
+			<div class="flex items-center justify-center">        
+                <div class="datepicker relative form-floating mb-3 xl:w-80">
+                    <input type="date" name='specialeventdate' value='{{ specialEvent.specialeventdate | date('Y-m-d') }}'
+                    class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-violet-500 focus:outline-none"
+                    placeholder="Datum" />
+                    <label for="floatingInput" class="text-gray-700">Datum</label>
+                </div>
+            </div><br>
+			
+			<div class="flex items-center justify-center">        
+                <div class="datepicker relative form-floating mb-3 xl:w-80">
+                    <input type="date" name='publicdate' value='{{ specialEvent.publicdate | date('Y-m-d') }}'
+                    class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-violet-500 focus:outline-none"
+                    placeholder="Publik Datum" />
+                    <label for="floatingInput" class="text-gray-700">Publik Datum</label>
+                </div>
+            </div><br>	
 
-			{% if specialEvent.flyer == NULL %}
-				<p class='text-xl text-center m-3'>Flyer:<br><input type='file' name='flyer'></p>
-			{% else %}
-				<p><center><img src='img/specialevents/{{ specialEvent.flyer }}' class='w-72'></center><input type='file' name='flyer' class='m-5'></p>
+			{% if specialEvent.flyer != NULL %}
+				<p><center><img src='img/specialevents/{{ specialEvent.flyer }}' class='w-72'></center></p>
 			{% endif %}
 
-			<p class='text-xl text-center m-3'><textarea name='descripttext' rows='4' cols='25'>{{ specialEvent.descripttext }}</textarea></p>
+			<div class="flex justify-center">
+              <div class="mb-3 w-96">
+                <label for="formFile" class="form-label inline-block mb-2 text-gray-700">Flyer</label>
+                <input class="form-control
+                block
+                w-full
+                px-3
+                py-1.5
+                text-base
+                font-normal
+                text-gray-700
+                bg-white bg-clip-padding
+                border border-solid border-gray-300
+                rounded
+                transition
+                ease-in-out
+                m-0
+                focus:text-gray-700 focus:bg-white focus:border-violet-500 focus:outline-none" type="file" name='flyer'>
+              </div>
+            </div>
+
+			<div class="flex justify-center">
+				<div class="mb-3 xl:w-96">
+					<textarea name="descripttext"
+					class="
+						form-control
+						block
+						w-full
+						px-3
+						py-1.5
+						text-base
+						font-normal
+						text-gray-700
+						bg-white bg-clip-padding
+						border border-solid border-gray-300
+						rounded
+						transition
+						ease-in-out
+						m-0
+						focus:text-gray-700 focus:bg-white focus:border-violet-500 focus:outline-none"
+					rows="3"
+					cols="25">{{ specialEvent.descripttext }}</textarea>
+				</div>
+			</div>
+
 			<button name='modifySpecialEvent' value='{{ specialEvent.id }}' class='hover:opacity-40'><img src='img/icons/done.png' class='w-10 h-10 inline' title='Ok'></button>
 			<button><img src='img/icons/close.png' class='w-10 h-10 inline hover:opacity-40' title='Abbrechen'></button></p>
 			<br>
@@ -34,7 +117,7 @@
 		<div class='m-5 border border-solid border-black w-96 rounded-xl bg-violet-100'>
 			<p class='text-2xl text-center font-bold m-3'>{{ specialEvent.specialeventtitle }}</p>
 			<p class='text-xl text-center font-bold m-3'>Datum:<br>{{ specialEvent.specialeventdate|date("d. F Y") }}</p>
-			<p class='text-xl text-center m-3'>Publik:<br>{{ specialEvent.publicdate|date("d. F Y") }}</p
+			<p class='text-xl text-center m-3'>Publik:<br>{{ specialEvent.publicdate|date("d. F Y") }}</p>
 			{% if specialEvent.flyer != NULL %}
 				<p><center><img src='img/specialevents/{{ specialEvent.flyer }}' class='w-72'></center></p>
 			{% endif %}
@@ -47,21 +130,104 @@
 	{% endif %}
 	{% endfor %}
 </div>
+
 </form>		
 
 <form action="/index.php?page=adminSpecialEvents" method="post" enctype="multipart/form-data">
 <div class='flex flex-wrap justify-center'>
-	<div class='m-5 border border-solid border-black w-96 rounded-xl bg-violet-100'>
-		<br>
+	<div class='m-5 p-5 border border-solid border-black w-96 rounded-xl bg-violet-100'>
 	    <p class='text-2xl font-bold'>Neuer Spezial Abend erstellen:</p>
 	    {% set now = 'now'|date('Y-m-d') %}
-		<p class='text-2xl text-center font-bold m-3'>Titel:<br><input name='specialeventtitle'></p>
-		<p class='text-xl text-center font-bold m-3'>Datum:<br><input type='date' name='specialeventdate' value='{{ now }}'></p>
-		<p class='text-xl text-center m-3'>Publik:<br><input type='date' name='publicdate' value='{{ now }}'></p>
-		<p class='text-xl text-center m-3'>Flyer:<br><input type='file' name='flyer'></p>	
-		<p class='text-xl text-center m-3'><textarea name='descripttext' rows='4' cols='25'></textarea></p>
-		<button name='createSpecialEvent' class='hover:opacity-40'><img src='img/icons/add_box.png' class='w-10 h-10 inline' title='Ok'></button>
-		<br><br>
+		<br>
+
+		<div class='flex justify-center'>
+			<div class="form-floating mb-3 xl:w-80">
+        	    <input name='specialeventtitle' class="
+        	    form-control
+        	    block
+        	    w-full
+        	    px-3
+        	    py-1.5
+        	    text-base
+        	    font-normal
+        	    text-gray-700
+        	    bg-white bg-clip-padding
+        	    border border-solid border-gray-300
+        	    rounded
+        	    transition
+        	    ease-in-out
+        	    m-0
+        	    focus:text-gray-700 focus:bg-white focus:border-violet-500 focus:outline-none"
+        	    placeholder="Titel"
+        	    required="required"
+        	    id="inputSpecialeventtitle"
+				autofocus>
+        	    <label for="inputSpecialeventtitle" class="text-gray-700">Titel</label>
+        	</div>
+		</div><br>
+		<div class="flex items-center justify-center">        
+            <div class="datepicker relative form-floating mb-3 xl:w-80">
+                <input type="date" name='specialeventdate' value='{{ now }}'
+                class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-violet-500 focus:outline-none"
+                placeholder="Datum" />
+                <label for="floatingInput" class="text-gray-700">Datum</label>
+            </div>
+        </div><br>
+		
+		<div class="flex items-center justify-center">        
+            <div class="datepicker relative form-floating mb-3 xl:w-80">
+                <input type="date" name='publicdate' value='{{ now }}'
+                class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-violet-500 focus:outline-none"
+                placeholder="Publik Datum" />
+                <label for="floatingInput" class="text-gray-700">Publik Datum</label>
+            </div>
+        </div><br>	
+		<div class="flex justify-center">
+          <div class="mb-3 w-96">
+            <label for="formFile" class="form-label inline-block mb-2 text-gray-700">Flyer</label>
+            <input class="form-control
+            block
+            w-full
+            px-3
+            py-1.5
+            text-base
+            font-normal
+            text-gray-700
+            bg-white bg-clip-padding
+            border border-solid border-gray-300
+            rounded
+            transition
+            ease-in-out
+            m-0
+            focus:text-gray-700 focus:bg-white focus:border-violet-500 focus:outline-none" type="file" name='flyer'>
+          </div>
+        </div>
+		<div class="flex justify-center">
+			<div class="mb-3 xl:w-96">
+				<textarea name="descripttext"
+				class="
+					form-control
+					block
+					w-full
+					px-3
+					py-1.5
+					text-base
+					font-normal
+					text-gray-700
+					bg-white bg-clip-padding
+					border border-solid border-gray-300
+					rounded
+					transition
+					ease-in-out
+					m-0
+					focus:text-gray-700 focus:bg-white focus:border-violet-500 focus:outline-none"
+				rows="3"
+				cols="25"
+				placeholder="Beschreibung"></textarea>
+			</div>
+		</div>
+
+		<button name='createSpecialEvent' class='hover:opacity-40'><img src='img/icons/add_box.png' class='w-10 h-10 inline' title='Ok'></button>		
 	</div>
 </div>
 

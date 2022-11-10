@@ -1,0 +1,9 @@
+{% set check = 0%}
+{% for event in events %}
+    {% if member.id in event.availableMembers %}
+        {% if check == 0%}
+            <h1 class='text-3xl font-bold'>Dein nächster Einsatz:<br>{{ event.eventdate | date_format("d. F Y") }}</h1>
+            {% set check = 1 %}
+        {% endif %}
+    {% endif %}
+{% endfor %}

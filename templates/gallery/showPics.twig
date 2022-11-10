@@ -2,15 +2,34 @@
 <form action='/index.php?page=pictures' method='post' enctype='multipart/form-data'>
 
 {% if isAdmin %}
-    <input type='file' name='fileToUpload' id='fileToUpload'>
-    <br>
-    <button name='picUpload' value={{ gallerycategorys.id }} class='classButton'>Hochladen</button>
+    <div class="flex justify-center">
+        <div class="mb-3 w-96">
+            <input class="form-control
+            block
+            w-full
+            px-3
+            py-1.5
+            text-base
+            font-normal
+            text-gray-700
+            bg-white bg-clip-padding
+            border border-solid border-gray-300
+            rounded
+            transition
+            ease-in-out
+            m-0
+            focus:text-gray-700 focus:bg-white focus:border-violet-500 focus:outline-none"
+            type="file" name='fileToUpload[]' id="fileToUpload" multiple>
+        </div>
+    </div>
+    <button name='picUpload' value={{ gallerycategorys.id }} class='hover:opacity-40'><img src='img/icons/add_box.png' class='w-10 h-10 inline' title='Bild hinzufügen'></button>
+
 {% endif %}
 <div class='flex flex-wrap justify-center'>
     {% for picture in pictures %}
         <div>
             <a data-fslightbox="gallery" href='/img/gallery/{{ picture.categoryName }}/{{ picture.picName }}'>
-                <img src='/img/gallery/{{ picture.categoryName }}/{{ picture.picName }}' class='inline w-80 m-2.5 rounded-xl shadow-xl hover:shadow-2xl hover:scale-110'>
+                <img src='/img/gallery/{{ picture.categoryName }}/{{ picture.picName }}' class='inline w-80 m-2.5 rounded-xl shadow-xl hover:shadow-2xl hover:scale-110' title='{{ picture.picName }}'>
             </a><br>
             {% set warning = '\"Bist du sicher?\"' %}
             <button name='deletePicture' value='{{ picture.id }}' onclick='return confirm({{ warning }})' class='hover:opacity-40'><img src='img/icons/delete.png' class='w-10 h-10 inline' title='Löschen'></button>

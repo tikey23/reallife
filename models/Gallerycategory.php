@@ -6,11 +6,11 @@ use Rl\Models\Model;
 
 class Gallerycategory extends Model {
 	protected $table = "gallerycategory";
-	protected $orderBy = "id";
+	protected $orderBy = "galleryDate";
 
 	function newCategory($categoryTitle, $uploadedFile, $tempFile) {
 		global $con;
-			if(!preg_match("/^[a-z0-9äöü]+$/i", $categoryTitle)) {
+			if(!preg_match("/^[a-z0-9äöü ]+$/i", $categoryTitle)) {
 				echo "<p>Fehler! Bitte keine Sonderzeichen benutzen.</p>";
 				echo "<p><a href='/index.php?page=gallery'>Zurück</a></p>";
 				die;
@@ -48,17 +48,23 @@ class Gallerycategory extends Model {
 		}
 
 		if ($type != "jpg"
-		&& $type != "jpeg"
-		&& $type != "png"
-		&& $type != "gif") {
-			echo "<br><p class='font-bold'>Fehler! Nur \"JPG\",  \"JPEG\", \"PNG\" und \"GIF\" Dateien erlaubt</p>";
+		&& $type != "jpeg") {
+			echo "<br><p class='font-bold'>Fehler! Nur \"JPG\" und \"JPEG\" Dateien erlaubt</p>";
 			$uploadok++;
 		}
-
 
 		if ($uploadok == 0) {
 		move_uploaded_file($tempFile, $uploadfile);
 		$picName = basename($uploadedFile);
+
+		$im = imagecreatefromjpeg($uploadfile);
+		$imgWidth = imagesx($im);
+		$imgHeight = imagesy($im);
+		$newimg = imagescale($im, $imgWidth, $imgHeight);
+		$newfile = imagejpeg($newimg, $uploadfile);
+		
+		imagedestroy($im);
+		imagedestroy($newimg);
 		
 		$newPic = new Picture;
 		$newPic->categoryName = $this->categoryName;

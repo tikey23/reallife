@@ -2,7 +2,7 @@
 
 use PHPMailer\PHPMailer\PHPMailer;
 
-function sendEmail($mailContent, $address, $addressName, $report){
+function sendEmail($address, $addressName, $subject, $mailContent, $report){
     include('../config/config.php');
     
     $mail = new PHPMailer();
@@ -16,13 +16,13 @@ function sendEmail($mailContent, $address, $addressName, $report){
 
     $mail->setFrom($Email["fromAddress"], $Email["fromName"]);
     $mail->addReplyTo($Email["replyAddress"], $Email["replyName"]);
-    $mail->addAddress($Email["address"], $Email["adressName"]);
+    $mail->addAddress($address, $addressName);
 
     /* $mail->addCC('cc1@example.com', 'Elena');
     $mail->addBCC('bcc1@example.com', 'Alex'); */
 
 
-    $mail->Subject = 'Test Email via Mailtrap SMTP using PHPMailer';
+    $mail->Subject = $subject;
 
     $mail->isHTML(true);
 

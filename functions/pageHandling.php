@@ -59,10 +59,9 @@ function findAll($objectType, $column = "", $id=0) {
 		foreach($row AS $key => $value) {
 			$object->$key = $value;
 		}
-
 		$collection[] = $object;
 	}
-
+	
 	return $collection;
 }
 

@@ -3,14 +3,19 @@
     <a href="/" class="absolute w-48 -mt-10">
         <img src="/img/logo.png" class="p-1.5 m-auto sm:m-2.5">
     </a>
-
-    <ul class="ml-0 lg:ml-52 block lg:inline-flex gap-4 pt-24 lg:pt-4">
+    
+    <img src="img/icons/menu.png" id="openNaviIcon" class="lg:hidden ml-52 w-12 h-12">
+    <img src="img/icons/close.png" id="closeNaviIcon" class="hidden ml-52 w-12 h-12">
+    
+    
+    <ul id="navi" class="hidden absolute lg:static z-50 bg-violet-200 lg:bg-inherit ml-0 lg:ml-52 lg:inline-flex gap-4 top-12 lg:pt-4 left-48 rounded-b-xl">
         <li><a href="/index.php?page=gallery" class="rounded p-2 transition ease-in-out duration-300 hover:bg-violet-300">Galerie</a></li>
         <li><a href="/index.php?page=memberlist" class="rounded p-2 transition ease-in-out duration-300 hover:bg-violet-300">Wer sind wir?</a></li>
         <li><a href="/index.php?page=becomeMember" class="rounded p-2 transition ease-in-out duration-300 hover:bg-violet-300">Helfer werden</a></li>
         <li><a href="/index.php?page=rules" class="rounded p-2 transition ease-in-out duration-300 hover:bg-violet-300">Regeln</a></li>
         <li><a href="/index.php?page=about" class="rounded p-2 transition ease-in-out duration-300 hover:bg-violet-300">Über uns</a></li>
     </ul>
+    
     <div class="flex justify-end items-center">
         {% if member != NULL %}
             {% include 'global/userLoggedIn.twig' %}
