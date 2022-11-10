@@ -1,0 +1,10 @@
+<div class='
+py-1.5 px-2 border mb-8 rounded
+{% if type == "error" %}
+    bg-red-500 text-red-100 border-red-100
+{% elseif type == "success" %}
+    bg-green-500 text-green-100 border-green-100
+{% endif %}
+'>
+    {{ message|raw }}
+</div>

@@ -16,9 +16,9 @@ if(isset($_POST["modifyPwd"])){
         $memberNewPwd = password_hash($newPwd, PASSWORD_DEFAULT);
         $member->pwd = $memberNewPwd;
         $member->save();
-        echo "Passwort angepasst.";
+        echo $twig->render("components/alert.twig", ["type" => "success", "message" => "Passwort angepasst."]);
     } else {
-        echo "Altes Passwort falsch. Passwort wurde nicht geändert.";
+        echo $twig->render("components/alert.twig", ["type" => "error", "message" => "Altes Passwort falsch. Passwort wurde nicht geändert."]);
     }
 }
 
