@@ -55,7 +55,7 @@ function findAll($objectType, $column = "", $id=0) {
 	if($column == ""){
 		$rows = $con->query("SELECT * FROM {$table} ORDER BY $orderBy")->fetch_all(MYSQLI_ASSOC);
 	} else {
-		$rows = $con->query("SELECT * FROM {$table} WHERE $column = $id")->fetch_all(MYSQLI_ASSOC);
+		$rows = $con->query("SELECT * FROM {$table} WHERE $column = $id ORDER BY $orderBy")->fetch_all(MYSQLI_ASSOC);
 	}
 
 	foreach($rows AS $row) {

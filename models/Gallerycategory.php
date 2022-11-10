@@ -6,7 +6,7 @@ use Rl\Models\Model;
 
 class Gallerycategory extends Model {
 	protected $table = "gallerycategory";
-	protected $orderBy = "galleryDate";
+	protected $orderBy = "galleryDate DESC";
 
 	function newCategory($categoryTitle, $uploadedFile, $tempFile) {
 		global $con, $twig;
