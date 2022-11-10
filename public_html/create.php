@@ -5,6 +5,8 @@
     require_once('../config/config.php');
     $con = new mysqli($DB['hostname'], $DB['username'], $DB['password']);
 
+	if(!$adminPwd || !$leaderPwd || !$helperPwd) die("passwords need to be set in config.php for login");
+
     //$sql = "DROP DATABASE reallife";
     //$con ->query($sql);
 

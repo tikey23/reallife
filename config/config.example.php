@@ -8,9 +8,10 @@ $DB = [
 	"port" => 3306,
 ];
 
-$ADMINPASSWORD = "";
-$MEMBERPASSWORD = "";
-$additionalTitle = "";
+$adminPwd = password_hash("", PASSWORD_DEFAULT);
+$leaderPwd = password_hash("", PASSWORD_DEFAULT);
+$helperPwd = password_hash("", PASSWORD_DEFAULT);
+$zodyPwd = password_hash("", PASSWORD_DEFAULT);
 
 $Email = [
 	"host" => "",
