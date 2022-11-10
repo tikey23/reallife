@@ -28,7 +28,11 @@ function includePage($page = "") {
 	global $ADMINPASSWORD, $twig;
 
 	if (isset($page)) {
-		include "../pages/" . $page . ".php";
+		if(preg_match('/^[a-zA-Z]+$/i',$page)) {
+			include "../pages/" . $page . ".php";
+		} else {
+			die("not allowed");
+		}
 
 		return;
 	}
