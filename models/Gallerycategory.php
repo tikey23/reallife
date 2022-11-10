@@ -54,24 +54,31 @@ class Gallerycategory extends Model {
 		}
 
 		if ($uploadok == 0) {
-		move_uploaded_file($tempFile, $uploadfile);
-		$picName = basename($uploadedFile);
+			move_uploaded_file($tempFile, $uploadfile);
+			$picName = basename($uploadedFile);
+			$image = imagecreatefromjpeg($uploadfile);
 
-		$im = imagecreatefromjpeg($uploadfile);
-		$imgWidth = imagesx($im);
-		$imgHeight = imagesy($im);
-		$newimg = imagescale($im, $imgWidth, $imgHeight);
-		$newfile = imagejpeg($newimg, $uploadfile);
-		
-		imagedestroy($im);
-		imagedestroy($newimg);
-		
-		$newPic = new Picture;
-		$newPic->categoryName = $this->categoryName;
-		$newPic->picName = $picName;
-		$newPic->categoryId = $this->id;
-		$newPic->save();
+			if(filesize($uploadfile) > 1024000) {
+				$imgWidth = imagesx($image);
+				$imgHeight = imagesy($image);
+				$ratio_orig = $imgWidth/$imgHeight;
+				$newWidth = 1500;
+				$newHeight = 1500;
+				if ($newWidth/$newHeight > $ratio_orig) {
+					$newWidth = $newHeight*$ratio_orig;
+				} else {
+					$newHeight = $newWidth/$ratio_orig;
+				}
 
+				$newimg = imagescale($image, $newWidth, $newHeight);
+				imagejpeg($newimg, $uploadfile);
+			}
+
+			$newPic = new Picture;
+			$newPic->categoryName = $this->categoryName;
+			$newPic->picName = $picName;
+			$newPic->categoryId = $this->id;
+			$newPic->save();
 		}
 	}
 
