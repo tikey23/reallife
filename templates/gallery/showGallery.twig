@@ -25,7 +25,12 @@
                 <button name='gallerycategoryId' value='{{ gallerycategory.id }}' class='text-xl hover:scale-110 m-2.5 rounded-xl border border-solid border-black bg-violet-500'>
                 <img src='/img/gallery/{{ gallerycategory.categoryName }}/{{ gallerycategory.titlePic }}' class='w-56 h-56 p-2.5 rounded-xl object-cover object-top'>
                 <p class='font-bold'>{{ gallerycategory.categoryName }}</p><p class='mb-2.5'>
-                {{ gallerycategory.galleryDate | date("d.M.Y") }}</p></button>
+
+                {% if gallerycategory.galleryDate | date("Y") != "1970" %}
+                    {{ gallerycategory.galleryDate | date("d.M.Y") }}
+                {% endif %}
+
+                </p></button>
             </form>
             {% if isAdmin %}
                 {% set warning = '\"Bist du sicher?\"' %}  
