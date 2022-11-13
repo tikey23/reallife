@@ -13,8 +13,8 @@
                 {% include 'buttons/galleryButton.twig' %}
                 {% include 'buttons/membersButton.twig' %}
             {% endif %}
-
-            {% include 'buttons/userButtons.twig' %}
+            {% include 'buttons/contactButton.twig' %}
+            {% include 'buttons/passwordButton.twig' %}
             {% include 'buttons/logout.twig' %}
         </div>
     </div>
@@ -22,6 +22,7 @@
 <div class='flex justify-center'>
     {% include 'user/userAvailable.twig' %}
 </div>
+{% include 'user/userContactInfo.twig' %}
 {% include 'user/userPassword.twig' %}
 
 
