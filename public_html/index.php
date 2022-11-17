@@ -15,6 +15,8 @@ require_once('../load.php');
 	<link rel="stylesheet" href="/css/output.css">
 	<link rel="icon" type="image/png" href="/img/faviconRL.png">
 	<script type="text/javascript" src="/js/navigation.js"></script>
+	<script src="/node_modules/tw-elements/dist/js/index.min.js"></script>
+
 </head>
 <body id="idBody" class='text-lg bg-fixed bg-gradient-to-tr from-violet-300 via-violet-300 to-violet-400'>
 
@@ -27,14 +29,31 @@ if(isset($_SESSION['username'])){
 } else {
 	$loggedInUser = NULL;
 }
-echo $twig->render('global/head.twig', ['additionalTitle' => $additionalTitle, 'member' => $loggedInUser]);
+
+echo $twig->render('global/head.twig', ['additionalTitle' => $additionalTitle, 'member' => $loggedInUser, 'currentPage' => @$_GET['page']]);
+
+$events = showActualEvent();
+$firstEvent = array_shift($events);
+echo $twig->render('home/actualEvents.twig', [
+	"firstEvent" => $firstEvent,
+	"events" => $events,
+]);
+
 ?>
 
-<div id="main" class="text-center bg-violet-200 border border-solid border-black rounded-xl max-w-7xl m-auto p-2 lg:p-8">
+<div class="relative z-20 top-[50vh] md:top-[50vh] xl:top-[70vh] w-full pb-12">
+	<div id="main" class="text-center bg-violet-200 border border-solid border-black rounded-xl max-w-7xl  mx-auto p-2 lg:p-8 ">
 	<?php
 		includePage(@$_GET['page']);
 	?>
+	</div>
+
+	<footer class="block m-12 text-sm text-gray-500 text-center">
+		Diese Seite wurde programmiert von Zody.
+	</footer>
+
 </div>
+
 
 </body>
 </html>

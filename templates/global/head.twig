@@ -1,12 +1,11 @@
 
-<div id="naviBar" class="block lg:fixed z-50 w-full bg-violet-200 borderborder-2 border-gray-300 shadow-xl flex justify-between px-4">
+<div id="naviBar" class="absolute block lg:fixed z-50 w-full bg-violet-200 borderborder-2 border-gray-300 shadow-xl flex justify-between px-4">
     <a href="/" class="absolute w-48 -mt-10">
         <img src="/img/logo.png" class="p-1.5 m-auto sm:m-2.5">
     </a>
     
     <img src="img/icons/menu.png" id="openNaviIcon" class="lg:hidden ml-52 w-12 h-12">
     <img src="img/icons/close.png" id="closeNaviIcon" class="hidden ml-52 w-12 h-12">
-    
     
     <ul id="navi" class="hidden absolute lg:static z-50 bg-violet-200 lg:bg-inherit ml-0 lg:ml-52 lg:inline-flex gap-4 top-12 lg:pt-4 left-48 rounded-b-xl">
         <li><a href="/index.php?page=gallery" class="rounded p-2 transition ease-in-out duration-300 hover:bg-violet-300">Galerie</a></li>
@@ -25,9 +24,30 @@
     </div>
 </div>
 
-<div class="pt-4 lg:pt-16 text-center block">
-    <div class="hidden lg:block m-5 mt-8">
-        <a class="text-5xl font-bold bg-transparent" href="/">Real Life Café {{ additionalTitle }}</a>
-        <h1 class="text-3xl text-gray-700">Herzlich Willkommen!<br/>ようこそ</h1>
+<div class="absolute w-full -mt-12 z-10">
+    <div id="carouselExampleSlidesOnly" class="carousel relative slide" data-bs-ride="carousel">
+        <div class="carousel-inner relative w-full overflow-hidden">
+            <div class="carousel-item active float-left w-full">
+                <img src="/img/slider/IMG_4289.JPG" class="block w-full" />
+            </div>
+            <div class="carousel-item relative float-left w-full">
+                <img src="/img/slider/IMG_5183.JPG" class="block w-full" />
+            </div>
+            <div class="carousel-item relative float-left w-full">
+                <img src="/img/slider/IMG_5859.JPG" class="block w-full" />
+            </div>
+            <div class="carousel-item relative float-left w-full">
+                <img src="/img/slider/IMG_1729.JPG" class="block w-full" />
+            </div>
+            <div class="carousel-item relative float-left w-full">
+                <img src="/img/slider/IMG_1744.JPG" class="block w-full" />
+            </div>
+            <div class="carousel-item relative float-left w-full">
+                <img src="/img/slider/IMG_5128.JPG" class="block w-full" />
+            </div>
+            <div class="carousel-item relative float-left w-full">
+                <img src="/img/slider/IMG_6976.JPG" class="block w-full" />
+            </div>
+        </div>
     </div>
 </div>
