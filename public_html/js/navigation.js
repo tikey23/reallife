@@ -68,6 +68,9 @@ function closeNewCandidateForm(){
 function openUserPassword(){
 	let open = document.getElementById("idUserPassword");
 	open.style.transform = "translate(0, 0)";
+
+	let closeOthers = document.getElementById("idUserContactInfo");
+	closeOthers.style.transform = "translate(-3000px, 0)";
 }
 
 function closeUserPassword(){
@@ -105,4 +108,17 @@ function checkFormMemberNewPwd() {
 	} else {
 		document.inputModifyPassword.submit();
 	}
+}
+
+function openUserContactInfo(){
+	let open = document.getElementById("idUserContactInfo");
+	open.style.transform = "translate(0, 0)";
+
+	let closeOthers = document.getElementById("idUserPassword");
+	closeOthers.style.transform = "translate(-3000px, 0)";
+}
+
+function closeUserContactInfo(){
+	let close = document.getElementById("idUserContactInfo");
+	close.style.transform = "translate(-3000px, 0)";
 }

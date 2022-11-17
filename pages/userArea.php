@@ -9,6 +9,13 @@ $member = findOneByColumn(Member::class, 0, "membername", $_SESSION['username'])
 if($member == NULL) die("not allowed");
 $events = listActualEvent();
 
+if(isset($_POST["userModify"])){
+        $member->e_mail = $_POST['userModifyE_mail'];
+        $member->mobile = $_POST['userModifyMobile'];
+        $member->save();
+        echo $twig->render("components/alert.twig", ["type" => "success", "message" => "Kontaktdaten aktualisiert."]); 
+}
+
 if(isset($_POST["modifyPwd"])){
     $oldpwd = $_POST['oldpwd'];
     if (password_verify($oldpwd, $member->pwd)) {
