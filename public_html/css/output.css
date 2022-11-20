@@ -4683,6 +4683,11 @@ textarea.form-control.is-invalid {
   margin-right: 24rem;
 }
 
+.mx-4 {
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
 .mb-4 {
   margin-bottom: 1rem;
 }
@@ -5717,6 +5722,10 @@ textarea.form-control.is-invalid {
     top: 50vh;
   }
 
+  .md\:top-96 {
+    top: 24rem;
+  }
+
   .md\:w-full {
     width: 100%;
   }
@@ -5745,6 +5754,11 @@ textarea.form-control.is-invalid {
 
   .lg\:top-24 {
     top: 6rem;
+  }
+
+  .lg\:mx-auto {
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .lg\:ml-52 {
@@ -5781,6 +5795,10 @@ textarea.form-control.is-invalid {
 
   .lg\:w-72 {
     width: 18rem;
+  }
+
+  .lg\:w-96 {
+    width: 24rem;
   }
 
   .lg\:bg-inherit {
