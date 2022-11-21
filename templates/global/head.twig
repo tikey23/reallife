@@ -13,7 +13,8 @@
         {% if currentPage == 'becomeMember' %}{% set bgNaviColor = 'bg-violet-300' %}{% else %}{% set bgNaviColor = 'bg-violet-200' %}{% endif %}<li><a href="/index.php?page=becomeMember" class="{{ bgNaviColor }} rounded p-2 transition ease-in-out duration-300 hover:bg-violet-300">Helfer werden</a></li>
         {% if currentPage == 'rules' %}{% set bgNaviColor = 'bg-violet-300' %}{% else %}{% set bgNaviColor = 'bg-violet-200' %}{% endif %}<li><a href="/index.php?page=rules" class="{{ bgNaviColor }} rounded p-2 transition ease-in-out duration-300 hover:bg-violet-300">Regeln</a></li>
         {% if currentPage == 'whereAreWe' %}{% set bgNaviColor = 'bg-violet-300' %}{% else %}{% set bgNaviColor = 'bg-violet-200' %}{% endif %}<li><a href="/index.php?page=whereAreWe" class="{{ bgNaviColor }} rounded p-2 transition ease-in-out duration-300 hover:bg-violet-300">Wo findest du uns?</a></li>
-        {% if currentPage == 'introductions' %}{% set bgNaviColor = 'bg-violet-300' %}{% else %}{% set bgNaviColor = 'bg-violet-200' %}{% endif %}<li><a href="/index.php?page=introductions" class="{{ bgNaviColor }} rounded p-2 transition ease-in-out duration-300 hover:bg-violet-300">Unser Verein</a></li>
+        <span class='hidden'>{% if currentPage == 'introductions' %}{% set bgNaviColor = 'bg-violet-300' %}{% else %}{% set bgNaviColor = 'bg-violet-200' %}{% endif %}<li><a href="/index.php?page=introductions" class="{{ bgNaviColor }} rounded p-2 transition ease-in-out duration-300 hover:bg-violet-300">Unser Verein</a></li>
+        </span>
     </ul>
     
     <div class="flex justify-end items-center">
