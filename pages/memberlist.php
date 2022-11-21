@@ -1,5 +1,5 @@
 <div>
-	<h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900 text-center">Wer sind wir?</h1>
+	<h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900 text-center pt-24">Wer sind wir?</h1>
 	<br>
 	<?php
 
