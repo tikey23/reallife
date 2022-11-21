@@ -49,7 +49,7 @@ echo $twig->render('home/actualEvents.twig', [
 	</div>
 
 	<footer class="block m-12 text-sm text-gray-500 text-center">
-		Diese Seite wurde programmiert von Zody.
+		Diese Seite wurde programmiert von <a href='http://www.karingiang.ch' target='_blank' class='underline'>Zody</a>.
 	</footer>
 
 </div>
