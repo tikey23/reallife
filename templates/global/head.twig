@@ -8,11 +8,13 @@
     <img src="img/icons/close.png" id="closeNaviIcon" class="hidden ml-52 w-12 h-12">
     
     <ul id="navi" class="hidden absolute lg:static z-50 bg-violet-200 lg:bg-inherit ml-0 lg:ml-52 lg:inline-flex gap-4 top-12 lg:pt-4 left-48 rounded-b-xl">
-        <li><a href="/index.php?page=gallery" class="rounded p-2 transition ease-in-out duration-300 hover:bg-violet-300">Galerie</a></li>
-        <li><a href="/index.php?page=memberlist" class="rounded p-2 transition ease-in-out duration-300 hover:bg-violet-300">Wer sind wir?</a></li>
-        <li><a href="/index.php?page=becomeMember" class="rounded p-2 transition ease-in-out duration-300 hover:bg-violet-300">Helfer werden</a></li>
-        <li><a href="/index.php?page=rules" class="rounded p-2 transition ease-in-out duration-300 hover:bg-violet-300">Regeln</a></li>
-        <li><a href="/index.php?page=whereAreWe" class="rounded p-2 transition ease-in-out duration-300 hover:bg-violet-300">Wo findest du uns?</a></li>
+        {% if currentPage == 'gallery' %}{% set bgNaviColor = 'bg-violet-300' %}{% else %}{% set bgNaviColor = 'bg-violet-200' %}{% endif %}<li><a href="/index.php?page=gallery" class="{{ bgNaviColor }} rounded p-2 transition ease-in-out duration-300 hover:bg-violet-300">Galerie</a></li>
+        {% if currentPage == 'memberlist' %}{% set bgNaviColor = 'bg-violet-300' %}{% else %}{% set bgNaviColor = 'bg-violet-200' %}{% endif %}<li><a href="/index.php?page=memberlist" class="{{ bgNaviColor }} rounded p-2 transition ease-in-out duration-300 hover:bg-violet-300">Wer sind wir?</a></li>
+        {% if currentPage == 'becomeMember' %}{% set bgNaviColor = 'bg-violet-300' %}{% else %}{% set bgNaviColor = 'bg-violet-200' %}{% endif %}<li><a href="/index.php?page=becomeMember" class="{{ bgNaviColor }} rounded p-2 transition ease-in-out duration-300 hover:bg-violet-300">Helfer werden</a></li>
+        {% if currentPage == 'rules' %}{% set bgNaviColor = 'bg-violet-300' %}{% else %}{% set bgNaviColor = 'bg-violet-200' %}{% endif %}<li><a href="/index.php?page=rules" class="{{ bgNaviColor }} rounded p-2 transition ease-in-out duration-300 hover:bg-violet-300">Regeln</a></li>
+        {% if currentPage == 'whereAreWe' %}{% set bgNaviColor = 'bg-violet-300' %}{% else %}{% set bgNaviColor = 'bg-violet-200' %}{% endif %}<li><a href="/index.php?page=whereAreWe" class="{{ bgNaviColor }} rounded p-2 transition ease-in-out duration-300 hover:bg-violet-300">Wo findest du uns?</a></li>
+        {% if currentPage == 'introductions' %}{% set bgNaviColor = 'bg-violet-300' %}{% else %}{% set bgNaviColor = 'bg-violet-200' %}{% endif %}<li><a href="/index.php?page=introductions" class="{{ bgNaviColor }} rounded p-2 transition ease-in-out duration-300 hover:bg-violet-300">Unser Verein</a></li>
+        
     </ul>
     
     <div class="flex justify-end items-center">

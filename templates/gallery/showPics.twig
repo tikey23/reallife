@@ -31,8 +31,10 @@
             <a data-fslightbox="gallery" href='/img/gallery/{{ picture.categoryName }}/{{ picture.picName }}'>
                 <img src='/img/gallery/{{ picture.categoryName }}/{{ picture.picName }}' class='inline w-80 m-2.5 rounded-xl shadow-xl hover:shadow-2xl hover:scale-110' title='{{ picture.picName }}'>
             </a><br>
-            {% set warning = '\"Bist du sicher?\"' %}
-            <button name='deletePicture' value='{{ picture.id }}' onclick='return confirm({{ warning }})' class='hover:opacity-40'><img src='img/icons/delete.png' class='w-10 h-10 inline' title='Löschen'></button>
+            {% if isAdmin %}
+                {% set warning = '\"Bist du sicher?\"' %}
+                <button name='deletePicture' value='{{ picture.id }}' onclick='return confirm({{ warning }})' class='hover:opacity-40'><img src='img/icons/delete.png' class='w-10 h-10 inline' title='Löschen'></button>
+            {% endif %}
         </div>
     {% endfor %}
 </div>
