@@ -1,5 +1,5 @@
 /*
-! tailwindcss v3.2.1 | MIT License | https://tailwindcss.com
+! tailwindcss v3.1.8 | MIT License | https://tailwindcss.com
 */
 
 /*
@@ -410,12 +410,6 @@ video {
   height: auto;
 }
 
-/* Make elements with the HTML hidden attribute stay hidden by default */
-
-[hidden] {
-  display: none;
-}
-
 *, ::before, ::after {
   --tw-border-spacing-x: 0;
   --tw-border-spacing-y: 0;
@@ -657,6 +651,23 @@ video {
   box-shadow: 0 0 0 1px #2563eb;
 }
 
+.form-control::-webkit-file-upload-button {
+  padding: 0.375rem 0.75rem;
+  margin: -0.375rem -0.75rem;
+  -webkit-margin-end: 0.75rem;
+          margin-inline-end: 0.75rem;
+  color: #212529;
+  background-color: #e9ecef;
+  pointer-events: none;
+  border-color: inherit;
+  border-style: solid;
+  border-width: 0;
+  border-inline-end-width: 1px;
+  border-radius: 0;
+  -webkit-transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
 .form-control::file-selector-button {
   padding: 0.375rem 0.75rem;
   margin: -0.375rem -0.75rem;
@@ -671,6 +682,10 @@ video {
   border-inline-end-width: 1px;
   border-radius: 0;
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.form-control:hover:not(:disabled):not([readonly])::-webkit-file-upload-button {
+  background-color: #dde0e3;
 }
 
 .form-control:hover:not(:disabled):not([readonly])::file-selector-button {
@@ -2144,6 +2159,7 @@ textarea.form-control.is-invalid {
 }
 
 .sticky-top {
+  position: -webkit-sticky;
   position: sticky;
   top: 0;
   z-index: 1020;
@@ -3093,6 +3109,10 @@ textarea.form-control.is-invalid {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .form-control::-webkit-file-upload-button {
+    -webkit-transition: none;
+    transition: none;
+  }
   .form-control::file-selector-button {
     transition: none;
   }
@@ -3264,6 +3284,7 @@ textarea.form-control.is-invalid {
   }
 
   .sticky-sm-top {
+    position: -webkit-sticky;
     position: sticky;
     top: 0;
     z-index: 1020;
@@ -3342,6 +3363,7 @@ textarea.form-control.is-invalid {
   }
 
   .sticky-md-top {
+    position: -webkit-sticky;
     position: sticky;
     top: 0;
     z-index: 1020;
@@ -3428,6 +3450,7 @@ textarea.form-control.is-invalid {
   }
 
   .sticky-lg-top {
+    position: -webkit-sticky;
     position: sticky;
     top: 0;
     z-index: 1020;
@@ -3510,6 +3533,7 @@ textarea.form-control.is-invalid {
   }
 
   .sticky-xl-top {
+    position: -webkit-sticky;
     position: sticky;
     top: 0;
     z-index: 1020;
@@ -3588,6 +3612,7 @@ textarea.form-control.is-invalid {
   }
 
   .sticky-xxl-top {
+    position: -webkit-sticky;
     position: sticky;
     top: 0;
     z-index: 1020;
@@ -4515,10 +4540,6 @@ textarea.form-control.is-invalid {
   visibility: visible;
 }
 
-.collapse {
-  visibility: collapse;
-}
-
 .static {
   position: static;
 }
@@ -4540,6 +4561,7 @@ textarea.form-control.is-invalid {
 }
 
 .sticky {
+  position: -webkit-sticky;
   position: sticky;
 }
 
@@ -4603,20 +4625,20 @@ textarea.form-control.is-invalid {
   margin: 3rem;
 }
 
-.m-5 {
-  margin: 1.25rem;
-}
-
-.m-3 {
-  margin: 0.75rem;
+.m-2 {
+  margin: 0.5rem;
 }
 
 .m-0 {
   margin: 0px;
 }
 
-.m-2 {
-  margin: 0.5rem;
+.m-5 {
+  margin: 1.25rem;
+}
+
+.m-3 {
+  margin: 0.75rem;
 }
 
 .m-2\.5 {
@@ -4629,10 +4651,6 @@ textarea.form-control.is-invalid {
 
 .m-1 {
   margin: 0.25rem;
-}
-
-.m-10 {
-  margin: 2.5rem;
 }
 
 .mx-auto {
@@ -4649,6 +4667,10 @@ textarea.form-control.is-invalid {
   margin-bottom: 1rem;
 }
 
+.mt-16 {
+  margin-top: 4rem;
+}
+
 .mb-3 {
   margin-bottom: 0.75rem;
 }
@@ -4663,6 +4685,14 @@ textarea.form-control.is-invalid {
 
 .mb-2\.5 {
   margin-bottom: 0.625rem;
+}
+
+.ml-auto {
+  margin-left: auto;
+}
+
+.mr-auto {
+  margin-right: auto;
 }
 
 .-mt-10 {
@@ -4693,8 +4723,12 @@ textarea.form-control.is-invalid {
   margin-bottom: 5rem;
 }
 
-.mt-16 {
-  margin-top: 4rem;
+.mr-5 {
+  margin-right: 1.25rem;
+}
+
+.mt-8 {
+  margin-top: 2rem;
 }
 
 .mb-0 {
@@ -4711,14 +4745,6 @@ textarea.form-control.is-invalid {
 
 .mt-2 {
   margin-top: 0.5rem;
-}
-
-.ml-auto {
-  margin-left: auto;
-}
-
-.mr-auto {
-  margin-right: auto;
 }
 
 .block {
@@ -4797,6 +4823,14 @@ textarea.form-control.is-invalid {
   width: 100%;
 }
 
+.w-24 {
+  width: 6rem;
+}
+
+.w-10 {
+  width: 2.5rem;
+}
+
 .w-96 {
   width: 24rem;
 }
@@ -4805,20 +4839,12 @@ textarea.form-control.is-invalid {
   width: 3rem;
 }
 
-.w-10 {
-  width: 2.5rem;
-}
-
 .w-7 {
   width: 1.75rem;
 }
 
 .w-72 {
   width: 18rem;
-}
-
-.w-24 {
-  width: 6rem;
 }
 
 .w-56 {
@@ -4887,6 +4913,14 @@ textarea.form-control.is-invalid {
   resize: both;
 }
 
+.list-inside {
+  list-style-position: inside;
+}
+
+.list-disc {
+  list-style-type: disc;
+}
+
 .appearance-none {
   -webkit-appearance: none;
      -moz-appearance: none;
@@ -4903,6 +4937,10 @@ textarea.form-control.is-invalid {
 
 .flex-wrap {
   flex-wrap: wrap;
+}
+
+.content-end {
+  align-content: flex-end;
 }
 
 .items-center {
@@ -4955,16 +4993,16 @@ textarea.form-control.is-invalid {
   border-radius: 0.75rem;
 }
 
-.rounded-full {
-  border-radius: 9999px;
-}
-
 .rounded {
   border-radius: 0.25rem;
 }
 
 .rounded-lg {
   border-radius: 0.5rem;
+}
+
+.rounded-full {
+  border-radius: 9999px;
 }
 
 .rounded-2xl {
@@ -5001,6 +5039,11 @@ textarea.form-control.is-invalid {
   border-color: rgb(0 0 0 / var(--tw-border-opacity));
 }
 
+.border-violet-500 {
+  --tw-border-opacity: 1;
+  border-color: rgb(139 92 246 / var(--tw-border-opacity));
+}
+
 .border-gray-300 {
   --tw-border-opacity: 1;
   border-color: rgb(209 213 219 / var(--tw-border-opacity));
@@ -5021,11 +5064,6 @@ textarea.form-control.is-invalid {
   border-color: rgb(229 231 235 / var(--tw-border-opacity));
 }
 
-.border-violet-500 {
-  --tw-border-opacity: 1;
-  border-color: rgb(139 92 246 / var(--tw-border-opacity));
-}
-
 .border-red-700 {
   --tw-border-opacity: 1;
   border-color: rgb(185 28 28 / var(--tw-border-opacity));
@@ -5035,29 +5073,14 @@ textarea.form-control.is-invalid {
   --tw-border-opacity: 0.6;
 }
 
-.bg-violet-200 {
+.bg-zinc-200 {
   --tw-bg-opacity: 1;
-  background-color: rgb(221 214 254 / var(--tw-bg-opacity));
+  background-color: rgb(228 228 231 / var(--tw-bg-opacity));
 }
 
-.bg-violet-100 {
+.bg-\[\#FA5A5A\] {
   --tw-bg-opacity: 1;
-  background-color: rgb(237 233 254 / var(--tw-bg-opacity));
-}
-
-.bg-white {
-  --tw-bg-opacity: 1;
-  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
-}
-
-.bg-red-500 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(239 68 68 / var(--tw-bg-opacity));
-}
-
-.bg-green-500 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(34 197 94 / var(--tw-bg-opacity));
+  background-color: rgb(250 90 90 / var(--tw-bg-opacity));
 }
 
 .bg-violet-500 {
@@ -5070,9 +5093,34 @@ textarea.form-control.is-invalid {
   background-color: rgb(196 181 253 / var(--tw-bg-opacity));
 }
 
-.bg-red-400 {
+.bg-white {
   --tw-bg-opacity: 1;
-  background-color: rgb(248 113 113 / var(--tw-bg-opacity));
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+}
+
+.bg-zinc-50 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(250 250 250 / var(--tw-bg-opacity));
+}
+
+.bg-red-500 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(239 68 68 / var(--tw-bg-opacity));
+}
+
+.bg-green-500 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(34 197 94 / var(--tw-bg-opacity));
+}
+
+.bg-red-600 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(220 38 38 / var(--tw-bg-opacity));
+}
+
+.bg-amber-400 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(251 191 36 / var(--tw-bg-opacity));
 }
 
 .bg-purple-600 {
@@ -5090,8 +5138,13 @@ textarea.form-control.is-invalid {
   background-color: rgb(101 163 13 / var(--tw-bg-opacity));
 }
 
-.bg-violet-500\/30 {
-  background-color: rgb(139 92 246 / 0.3);
+.bg-zinc-50\/30 {
+  background-color: rgb(250 250 250 / 0.3);
+}
+
+.bg-violet-200 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(221 214 254 / var(--tw-bg-opacity));
 }
 
 .bg-blue-600 {
@@ -5103,52 +5156,9 @@ textarea.form-control.is-invalid {
   background-color: transparent;
 }
 
-.bg-red-600 {
+.bg-red-400 {
   --tw-bg-opacity: 1;
-  background-color: rgb(220 38 38 / var(--tw-bg-opacity));
-}
-
-.bg-amber-400 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(251 191 36 / var(--tw-bg-opacity));
-}
-
-.bg-zinc-50 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(250 250 250 / var(--tw-bg-opacity));
-}
-
-.bg-\[\#FA5A5A\] {
-  --tw-bg-opacity: 1;
-  background-color: rgb(250 90 90 / var(--tw-bg-opacity));
-}
-
-.bg-zinc-50\/30 {
-  background-color: rgb(250 250 250 / 0.3);
-}
-
-.bg-zinc-200 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(228 228 231 / var(--tw-bg-opacity));
-}
-
-.bg-gradient-to-tr {
-  background-image: linear-gradient(to top right, var(--tw-gradient-stops));
-}
-
-.from-violet-300 {
-  --tw-gradient-from: #c4b5fd;
-  --tw-gradient-to: rgb(196 181 253 / 0);
-  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
-}
-
-.via-violet-300 {
-  --tw-gradient-to: rgb(196 181 253 / 0);
-  --tw-gradient-stops: var(--tw-gradient-from), #c4b5fd, var(--tw-gradient-to);
-}
-
-.to-violet-400 {
-  --tw-gradient-to: #a78bfa;
+  background-color: rgb(248 113 113 / var(--tw-bg-opacity));
 }
 
 .bg-fixed {
@@ -5175,6 +5185,10 @@ textarea.form-control.is-invalid {
 
 .p-2 {
   padding: 0.5rem;
+}
+
+.p-4 {
+  padding: 1rem;
 }
 
 .p-5 {
@@ -5246,19 +5260,9 @@ textarea.form-control.is-invalid {
   padding-bottom: 6rem;
 }
 
-.px-8 {
-  padding-left: 2rem;
-  padding-right: 2rem;
-}
-
 .py-6 {
   padding-top: 1.5rem;
   padding-bottom: 1.5rem;
-}
-
-.py-2 {
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
 }
 
 .px-2\.5 {
@@ -5346,14 +5350,14 @@ textarea.form-control.is-invalid {
   line-height: 1.5rem;
 }
 
-.text-3xl {
-  font-size: 1.875rem;
-  line-height: 2.25rem;
-}
-
 .text-xs {
   font-size: 0.75rem;
   line-height: 1rem;
+}
+
+.text-5xl {
+  font-size: 3rem;
+  line-height: 1;
 }
 
 .font-bold {
@@ -5435,11 +5439,6 @@ textarea.form-control.is-invalid {
   color: rgb(22 163 74 / var(--tw-text-opacity));
 }
 
-.text-gray-700 {
-  --tw-text-opacity: 1;
-  color: rgb(55 65 81 / var(--tw-text-opacity));
-}
-
 .text-red-100 {
   --tw-text-opacity: 1;
   color: rgb(254 226 226 / var(--tw-text-opacity));
@@ -5448,16 +5447,6 @@ textarea.form-control.is-invalid {
 .text-green-100 {
   --tw-text-opacity: 1;
   color: rgb(220 252 231 / var(--tw-text-opacity));
-}
-
-.text-gray-600 {
-  --tw-text-opacity: 1;
-  color: rgb(75 85 99 / var(--tw-text-opacity));
-}
-
-.text-white {
-  --tw-text-opacity: 1;
-  color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
 .text-black {
@@ -5470,13 +5459,19 @@ textarea.form-control.is-invalid {
   color: rgb(31 41 55 / var(--tw-text-opacity));
 }
 
+.text-gray-600 {
+  --tw-text-opacity: 1;
+  color: rgb(75 85 99 / var(--tw-text-opacity));
+}
+
 .text-red-700 {
   --tw-text-opacity: 1;
   color: rgb(185 28 28 / var(--tw-text-opacity));
 }
 
 .underline {
-  text-decoration-line: underline;
+  -webkit-text-decoration-line: underline;
+          text-decoration-line: underline;
 }
 
 .underline-offset-0 {
@@ -5500,12 +5495,6 @@ textarea.form-control.is-invalid {
 .shadow-xl {
   --tw-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
   --tw-shadow-colored: 0 20px 25px -5px var(--tw-shadow-color), 0 8px 10px -6px var(--tw-shadow-color);
-  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
-}
-
-.shadow {
-  --tw-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
-  --tw-shadow-colored: 0 1px 3px 0 var(--tw-shadow-color), 0 1px 2px -1px var(--tw-shadow-color);
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
@@ -5546,9 +5535,9 @@ textarea.form-control.is-invalid {
 }
 
 .transition {
-  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-backdrop-filter;
+  transition-property: color, background-color, border-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-text-decoration-color, -webkit-backdrop-filter;
   transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
-  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-backdrop-filter;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-text-decoration-color, -webkit-backdrop-filter;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 150ms;
 }
@@ -5585,19 +5574,14 @@ textarea.form-control.is-invalid {
   background-color: rgb(196 181 253 / var(--tw-bg-opacity));
 }
 
-.hover\:bg-blue-700:hover {
-  --tw-bg-opacity: 1;
-  background-color: rgb(29 78 216 / var(--tw-bg-opacity));
-}
-
 .hover\:bg-amber-400:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(251 191 36 / var(--tw-bg-opacity));
 }
 
-.hover\:bg-zinc-50:hover {
+.hover\:bg-blue-700:hover {
   --tw-bg-opacity: 1;
-  background-color: rgb(250 250 250 / var(--tw-bg-opacity));
+  background-color: rgb(29 78 216 / var(--tw-bg-opacity));
 }
 
 .hover\:opacity-40:hover {
@@ -5670,12 +5654,32 @@ textarea.form-control.is-invalid {
 }
 
 @media (min-width: 640px) {
+  .sm\:absolute {
+    position: absolute;
+  }
+
+  .sm\:top-\[60\%\] {
+    top: 60%;
+  }
+
+  .sm\:left-\[40\%\] {
+    left: 40%;
+  }
+
+  .sm\:left-\[35\%\] {
+    left: 35%;
+  }
+
   .sm\:m-2\.5 {
     margin: 0.625rem;
   }
 
   .sm\:m-2 {
     margin: 0.5rem;
+  }
+
+  .sm\:m-5 {
+    margin: 1.25rem;
   }
 
   .sm\:mt-2 {
@@ -5686,12 +5690,20 @@ textarea.form-control.is-invalid {
     margin-right: 1.25rem;
   }
 
+  .sm\:flex {
+    display: flex;
+  }
+
   .sm\:contents {
     display: contents;
   }
 
   .sm\:hidden {
     display: none;
+  }
+
+  .sm\:h-96 {
+    height: 24rem;
   }
 
   .sm\:w-96 {
@@ -5706,6 +5718,10 @@ textarea.form-control.is-invalid {
 
   .sm\:justify-center {
     justify-content: center;
+  }
+
+  .sm\:justify-between {
+    justify-content: space-between;
   }
 
   .sm\:text-3xl {
@@ -5724,20 +5740,8 @@ textarea.form-control.is-invalid {
     top: 50vh;
   }
 
-  .md\:right-20 {
-    right: 5rem;
-  }
-
-  .md\:top-24 {
-    top: 6rem;
-  }
-
   .md\:w-full {
     width: 100%;
-  }
-
-  .md\:w-72 {
-    width: 18rem;
   }
 }
 
