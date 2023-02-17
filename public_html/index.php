@@ -18,7 +18,7 @@ require_once('../load.php');
 	<script src="/node_modules/tw-elements/dist/js/index.min.js"></script>
 
 </head>
-<body id="idBody" class='text-lg bg-fixed bg-gradient-to-tr from-violet-300 via-violet-300 to-violet-400'>
+<body id="idBody" class='text-lg bg-fixed bg-zinc-200'>
 
 <?PHP
 
@@ -42,7 +42,7 @@ echo $twig->render('home/actualEvents.twig', [
 ?>
 
 <div class="relative z-20 top-[50vh] md:top-[50vh] xl:top-[70vh] w-full pb-12">
-	<div id="main" class="text-center bg-violet-200 border border-solid border-black rounded-xl max-w-7xl  mx-auto p-2 lg:p-8 ">
+	<div id="main" class="text-center bg-[#FA5A5A] border border-solid border-black rounded-xl max-w-7xl  mx-auto p-2 lg:p-8 ">
 	<?php
 		includePage(@$_GET['page']);
 	?>

@@ -6,7 +6,7 @@
     {% if modifyMemberPick == member.id %}
     {% if isAdmin %}
 
-        <div class='scale-90 sm:scale-100 w-96 border border-solid border-black rounded-2xl flex justify-center bg-violet-300'>
+        <div class='scale-90 sm:scale-100 w-96 border border-solid border-black rounded-2xl flex justify-center bg-zinc-50'>
             <div></div>
 
             <div class='text-left m-2'>
@@ -21,7 +21,7 @@
                 <input name='memberimg' value='{{ member.memberimg }}' size='30' class='border border-solid border-black'></p>
                 <br>
 
-                <select name='memberfunction'>
+                <select name='memberfunction' class='border border-solid border-black'>
 
                 {% if member.memberfunction == 'Admin' %}
                     <option value='Admin' selected='selected'>Admin</option>
@@ -42,7 +42,7 @@
                 </select>
                 <br>
 
-                <p>Aktiv seit: <input type='date' name='involved_since' value='{{ member.involved_since }}'></p>
+                <p>Aktiv seit: <input type='date' name='involved_since' value='{{ member.involved_since }}' class='border border-solid border-black'></p>
                 <br>
                 
                 <img src='img/icons/email.png' class='w-5 h-5 inline'>: <input name='e_mail' value='{{ member.e_mail }}' size='20' class='border border-solid border-black'><br>
@@ -80,7 +80,7 @@
         <div id='{{ member.id }}' class='m-2 italic opacity-40'>
     {% endif %}
 
-            <div class='scale-90 sm:scale-100 w-96 border border-solid border-black rounded-2xl flex items-center bg-violet-100'>
+            <div class='scale-90 sm:scale-100 w-96 border border-solid border-black rounded-2xl flex items-center bg-zinc-50'>
                 <div>
                     <a href='{{ member.little_akiba }}' target='_blank'><img src='{{ member.memberimg }}' class='w-24 h-24 rounded-full block m-2'></a>
                     {% if member.memberfunction == "Admin" %}

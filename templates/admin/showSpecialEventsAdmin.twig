@@ -3,16 +3,16 @@
 <br>
 
 {% if isShowAllSpecialEvents %}
-    <p><button class="classButton">Nur aktuelle Termine anzeigen</button></p>
+    <p><button class="classButton bg-zinc-50">Nur aktuelle Termine anzeigen</button></p>
 {% else %}
-    <p><button name='showAllSpecialEvents' class="classButton">Alle Termine anzeigen</button></p>
+    <p><button name='showAllSpecialEvents' class="classButton bg-zinc-50">Alle Termine anzeigen</button></p>
 {% endif %}
 
 <div class='flex flex-wrap justify-center'>
 	{% for specialEvent in specialEvents %}
 
 	{% if modifySpecialEventPick == specialEvent.id %}
-		<div class='m-5 p-5 border border-solid border-black w-96 rounded-xl bg-violet-100'>
+		<div class='m-5 p-5 border border-solid border-black w-96 rounded-xl bg-zinc-50'>
 			
 			<div class='flex justify-center'>
 				<div class="form-floating mb-3 xl:w-80">
@@ -31,7 +31,7 @@
             	    transition
             	    ease-in-out
             	    m-0
-            	    focus:text-gray-700 focus:bg-white focus:border-violet-500 focus:outline-none"
+            	    focus:text-gray-700 focus:bg-white focus:border-black focus:outline-none"
             	    placeholder="Titel"
             	    required="required"
             	    id="inputSpecialeventtitle"
@@ -43,7 +43,7 @@
 			<div class="flex items-center justify-center">        
                 <div class="datepicker relative form-floating mb-3 xl:w-80">
                     <input type="date" name='specialeventdate' value='{{ specialEvent.specialeventdate | date('Y-m-d') }}'
-                    class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-violet-500 focus:outline-none"
+                    class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-black focus:outline-none"
                     placeholder="Datum" />
                     <label for="floatingInput" class="text-gray-700">Datum</label>
                 </div>
@@ -52,7 +52,7 @@
 			<div class="flex items-center justify-center">        
                 <div class="datepicker relative form-floating mb-3 xl:w-80">
                     <input type="date" name='publicdate' value='{{ specialEvent.publicdate | date('Y-m-d') }}'
-                    class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-violet-500 focus:outline-none"
+                    class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-black focus:outline-none"
                     placeholder="Publik Datum" />
                     <label for="floatingInput" class="text-gray-700">Publik Datum</label>
                 </div>
@@ -79,7 +79,7 @@
                 transition
                 ease-in-out
                 m-0
-                focus:text-gray-700 focus:bg-white focus:border-violet-500 focus:outline-none" type="file" name='flyer'>
+                focus:text-gray-700 focus:bg-white focus:border-black focus:outline-none" type="file" name='flyer'>
               </div>
             </div>
 
@@ -101,7 +101,7 @@
 						transition
 						ease-in-out
 						m-0
-						focus:text-gray-700 focus:bg-white focus:border-violet-500 focus:outline-none"
+						focus:text-gray-700 focus:bg-white focus:border-black focus:outline-none"
 					rows="3"
 					cols="25">{{ specialEvent.descripttext }}</textarea>
 				</div>
@@ -114,7 +114,7 @@
 
 	{% else %}
 
-		<div class='m-5 border border-solid border-black w-96 rounded-xl bg-violet-100'>
+		<div class='m-5 border border-solid border-black w-96 rounded-xl bg-zinc-50'>
 			<p class='text-2xl text-center font-bold m-3'>{{ specialEvent.specialeventtitle }}</p>
 			<p class='text-xl text-center font-bold m-3'>Datum:<br>{{ specialEvent.specialeventdate|date("d. F Y") }}</p>
 			<p class='text-xl text-center m-3'>Publik:<br>{{ specialEvent.publicdate|date("d. F Y") }}</p>
@@ -135,7 +135,7 @@
 
 <form action="/index.php?page=adminSpecialEvents" method="post" enctype="multipart/form-data">
 <div class='flex flex-wrap justify-center'>
-	<div class='m-5 p-5 border border-solid border-black w-96 rounded-xl bg-violet-100'>
+	<div class='m-5 p-5 border border-solid border-black w-96 rounded-xl bg-zinc-50'>
 	    <p class='text-2xl font-bold'>Neuer Spezial Abend erstellen:</p>
 	    {% set now = 'now'|date('Y-m-d') %}
 		<br>
@@ -157,7 +157,7 @@
         	    transition
         	    ease-in-out
         	    m-0
-        	    focus:text-gray-700 focus:bg-white focus:border-violet-500 focus:outline-none"
+        	    focus:text-gray-700 focus:bg-white focus:border-black focus:outline-none"
         	    placeholder="Titel"
         	    required="required"
         	    id="inputSpecialeventtitle"
@@ -168,7 +168,7 @@
 		<div class="flex items-center justify-center">        
             <div class="datepicker relative form-floating mb-3 xl:w-80">
                 <input type="date" name='specialeventdate' value='{{ now }}'
-                class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-violet-500 focus:outline-none"
+                class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-black focus:outline-none"
                 placeholder="Datum" />
                 <label for="floatingInput" class="text-gray-700">Datum</label>
             </div>
@@ -177,7 +177,7 @@
 		<div class="flex items-center justify-center">        
             <div class="datepicker relative form-floating mb-3 xl:w-80">
                 <input type="date" name='publicdate' value='{{ now }}'
-                class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-violet-500 focus:outline-none"
+                class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-black focus:outline-none"
                 placeholder="Publik Datum" />
                 <label for="floatingInput" class="text-gray-700">Publik Datum</label>
             </div>
@@ -199,7 +199,7 @@
             transition
             ease-in-out
             m-0
-            focus:text-gray-700 focus:bg-white focus:border-violet-500 focus:outline-none" type="file" name='flyer'>
+            focus:text-gray-700 focus:bg-white focus:border-black focus:outline-none" type="file" name='flyer'>
           </div>
         </div>
 		<div class="flex justify-center">
@@ -220,7 +220,7 @@
 					transition
 					ease-in-out
 					m-0
-					focus:text-gray-700 focus:bg-white focus:border-violet-500 focus:outline-none"
+					focus:text-gray-700 focus:bg-white focus:border-black focus:outline-none"
 				rows="3"
 				cols="25"
 				placeholder="Beschreibung"></textarea>
