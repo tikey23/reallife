@@ -1,8 +1,8 @@
 
 {% if isAdmin %}
-    <p><button onclick="openNewMemberForm()" class="flex mx-auto mt-16 text-white bg-violet-500 border-0 py-2 px-8 focus:outline-none hover:bg-violet-300 rounded text-lg">Neues Mitglied</button></p>
+    <p><button onclick="openNewMemberForm()" class="flex mx-auto mt-16 text-black bg-zinc-50 border-0 py-2 px-8 focus:outline-none hover:bg-amber-400 rounded text-lg">Neues Mitglied</button></p>
         <div class='flex justify-center items-center'>
-            <div id="idshowNewMemberForm" class="absolute w-420 h-500 bg-violet-300 text-left p-4 border-4 border-solid border-violet-500 rounded-lg shadow">
+            <div id="idshowNewMemberForm" class="absolute w-420 h-500 bg-[#FA5A5A] text-left p-4 border border-solid border-black rounded-lg shadow">
             <button onclick="closeNewMemberForm()"><img src='/img/icons/close.png' class="top-0 left-0 w-50 h-50 float-left cursor-pointer"></button>
             {% if isAdmin %}
                 {% set now = 'now'|date('Y-m-d') %}
@@ -27,7 +27,7 @@
                     transition
                     ease-in-out
                     m-0
-                    focus:text-gray-700 focus:bg-white focus:border-violet-500 focus:outline-none"
+                    focus:text-gray-700 focus:bg-white focus:border-black focus:outline-none"
                     placeholder="Name"
                     required="required"
                     id="inputNewMemberName">
@@ -50,7 +50,7 @@
                     transition
                     ease-in-out
                     m-0
-                    focus:text-gray-700 focus:bg-white focus:border-violet-500 focus:outline-none"
+                    focus:text-gray-700 focus:bg-white focus:border-black focus:outline-none"
                     placeholder="E-Mail"
                     required="required"
                     id="inputNewMemberEmail">
@@ -73,7 +73,7 @@
                     transition
                     ease-in-out
                     m-0
-                    focus:text-gray-700 focus:bg-white focus:border-violet-500 focus:outline-none"
+                    focus:text-gray-700 focus:bg-white focus:border-black focus:outline-none"
                     placeholder="Handy Nr."
                     id="inputNewMemberMobile">
                     <label for="inputNewMemberMobile" class="text-gray-700">Handy Nr.</label>
@@ -93,7 +93,7 @@
                 transition
                 ease-in-out
                 m-0
-                focus:text-gray-700 focus:bg-white focus:border-violet-500 focus:outline-none" aria-label="Default select example">
+                focus:text-gray-700 focus:bg-white focus:border-black focus:outline-none" aria-label="Default select example">
 
                 <option value='0' selected>Funktion</option>
                 <option value='Admin'>Admin</option>
@@ -117,7 +117,7 @@
                     transition
                     ease-in-out
                     m-0
-                    focus:text-gray-700 focus:bg-white focus:border-violet-500 focus:outline-none"
+                    focus:text-gray-700 focus:bg-white focus:border-black focus:outline-none"
                     placeholder="Passwort"
                     required="required"
                      id="inputMemberPwd">
@@ -140,7 +140,7 @@
                     transition
                     ease-in-out
                     m-0
-                    focus:text-gray-700 focus:bg-white focus:border-violet-500 focus:outline-none"
+                    focus:text-gray-700 focus:bg-white focus:border-black focus:outline-none"
                     placeholder="Passwort wiederholen"
                     required="required"
                     id="inputMemberPwdRepeat">
@@ -164,7 +164,7 @@
                     transition
                     ease-in-out
                     m-0
-                    focus:text-gray-700 focus:bg-white focus:border-violet-500 focus:outline-none"
+                    focus:text-gray-700 focus:bg-white focus:border-black focus:outline-none"
                     placeholder="Little Akiba URL"
                     id="inputNewMemberURL">
                     <label for="inputNewMemberURL" class="text-gray-700">Little Akiba URL</label>
@@ -186,7 +186,7 @@
                     transition
                     ease-in-out
                     m-0
-                    focus:text-gray-700 focus:bg-white focus:border-violet-500 focus:outline-none"
+                    focus:text-gray-700 focus:bg-white focus:border-black focus:outline-none"
                     placeholder="Avatar URL"
                     id="inputNewMemberAvatar">
                     <label for="inputNewMemberAvatar" class="text-gray-700">Avatar URL</label>
@@ -195,7 +195,7 @@
                 <div class="flex items-center justify-center">        
                     <div class="datepicker relative form-floating mb-3 xl:w-80">
                         <input type="date" name='involved_since' value='{{ now }}'
-                        class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-violet-500 focus:outline-none"
+                        class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-black focus:outline-none"
                         placeholder="Entrittsdatum" />
                         <label for="floatingInput" class="text-gray-700">Entrittsdatum</label>
                     </div>

@@ -2,7 +2,7 @@
     {% for gallerycategory in gallerycategories %}
         <div>
             {% if modifyGalleryPick == gallerycategory.id %}
-                <div class='text-xl hover:scale-110 m-2.5 rounded-xl border border-solid border-black bg-violet-500'>
+                <div class='text-xl hover:scale-110 m-2.5 rounded-xl border border-solid border-black bg-zinc-50'>
                     <form action='/index.php?page=gallery' method='post'>
                         <img src='/img/gallery/{{ gallerycategory.categoryName }}/{{ gallerycategory.titlePic }}' class='w-56 h-56 p-2.5 rounded-xl object-cover object-top'>
                         <p><input name='categoryName' value='{{ gallerycategory.categoryName }}' size='12' class='border border-solid border-black'></p>
@@ -20,7 +20,7 @@
                 </div>
             {% else %}
                 <form action='/index.php?page=pictures' method='post'>
-                    <button name='gallerycategoryId' value='{{ gallerycategory.id }}' class='text-xl hover:scale-110 m-2.5 rounded-xl border border-solid border-black bg-violet-500'>
+                    <button name='gallerycategoryId' value='{{ gallerycategory.id }}' class='text-xl hover:scale-110 m-2.5 rounded-xl border border-solid border-black bg-zinc-50'>
                         <img src='/img/gallery/{{ gallerycategory.categoryName }}/{{ gallerycategory.titlePic }}' class='w-56 h-56 p-2.5 rounded-xl object-cover object-top'>
                         <p class='font-bold'>{{ gallerycategory.categoryName }}</p>
                         <p class='mb-2.5'>
@@ -48,14 +48,13 @@
         {% include 'buttons/logout.twig' %}
     {% endif %}
 
-    <div id='newCategoryForm' class='block absolute w-96 border border-solid border-black rounded-xl p-5 bg-violet-300'>
+    <div id='newCategoryForm' class='block absolute w-96 border border-solid border-black rounded-xl p-5 bg-[#FA5A5A]'>
         <form action='/index.php?page=pictures' method='post' enctype='multipart/form-data'>
             <button onclick="closeNewCategoryForm()"><img src='/img/icons/close.png' class="top-0 left-0 w-50 h-50 float-left cursor-pointer"></button>
 
             <h1 class='text-2xl font-bold text-center'>Neue Kategorie</h1>
             <br>
-
-            <div class="form-floating mb-3 xl:w-80">
+            <div class="ml-auto mr-auto form-floating mb-3 xl:w-80">
                 <input name='newCategoryTitle' class="
                 form-control
                 block
@@ -71,7 +70,7 @@
                 transition
                 ease-in-out
                 m-0
-                focus:text-gray-700 focus:bg-white focus:border-violet-500 focus:outline-none"
+                focus:text-gray-700 focus:bg-white focus:border-black focus:outline-none"
                        placeholder="Neue Kategorie"
                        required="required"
                        id="inputNewCategoryTitle"
@@ -84,7 +83,7 @@
                     <div class="flex items-center justify-center">
                         <div class="datepicker relative form-floating mb-3 xl:w-80">
                             <input type="date" name='galleryDate' value='{{ now }}'
-                                   class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-violet-500 focus:outline-none"
+                                   class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-black focus:outline-none"
                                    placeholder="Datum"/>
                             <label for="floatingInput" class="text-gray-700">Datum</label>
                         </div>
@@ -108,7 +107,7 @@
                 transition
                 ease-in-out
                 m-0
-                focus:text-gray-700 focus:bg-white focus:border-violet-500 focus:outline-none" type="file" name='fileToUpload' id="fileToUpload">
+                focus:text-gray-700 focus:bg-white focus:border-black focus:outline-none" type="file" name='fileToUpload' id="fileToUpload">
                         </div>
                     </div>
 
