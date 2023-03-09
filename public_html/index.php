@@ -32,26 +32,34 @@ if(isset($_SESSION['username'])){
 
 echo $twig->render('global/head.twig', ['additionalTitle' => $additionalTitle, 'member' => $loggedInUser, 'currentPage' => @$_GET['page']]);
 
-$events = showActualEvent();
-$firstEvent = array_shift($events);
-echo $twig->render('home/actualEvents.twig', [
-	"firstEvent" => $firstEvent,
-	"events" => $events,
-]);
-
 ?>
 
-<div class="relative z-20 top-[50vh] md:top-[50vh] xl:top-[70vh] w-full pb-12">
-	<div id="main" class="text-center bg-[#FA5A5A] border border-solid border-black rounded-xl max-w-7xl  mx-auto p-2 lg:p-8 ">
-	<?php
-		includePage(@$_GET['page']);
-	?>
+<div class='lg:flex justify-center ml-5 mr-5'>
+
+	<div class='lg:hidden'>
+		<?php
+			include('../pages/events.php');
+		?>
 	</div>
 
+	<div class="relative z-20 top-24 md:top-24 xl:top-24 mx-auto lg:mr-5 pb-12">
+		<div id="main" class="text-center bg-[#FA5A5A] border border-solid border-black rounded-xl max-w-7xl p-2 lg:p-8 ">
+		<?php
+			includePage(@$_GET['page']);
+		?>
+		</div>
+	</div>
+
+	<div class='hidden lg:block'>
+		<?php
+			include('../pages/events.php');
+		?>
+	</div>
+</div>
+<div class='relativ mx-auto pt-12 pb-12'>
 	<footer class="block m-12 text-sm text-gray-500 text-center">
 		Diese Seite wurde programmiert von <a href='http://www.karingiang.ch' target='_blank' class='underline'>Zody</a>.
 	</footer>
-
 </div>
 
 
