@@ -28,7 +28,7 @@
 
     // Create Events
     $sql = "INSERT INTO event (eventdate, active, leader1, leader2, helper1, helper2, helper3, helper4, availableMembers, activeToRegister) values 
-    ('2023-12-02', 1, 1, 2, 3, 1, 2, 4, '1:2:3:4', 0),
+    ('2023-03-17', 1, 1, 2, 3, 1, 2, 4, '1:2:3:4', 0),
     ('2023-12-09', 0, 0, 0, 0, 0, 0, 0, '', 1),
     ('2023-12-16', 0, 0, 0, 0, 0, 0, 0, '', 1),
     ('2023-12-23', 0, 0, 0, 0, 0, 0, 0, '', 1),

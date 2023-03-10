@@ -3,6 +3,10 @@
 use \Rl\Models\Member;
 require_once('../load.php');
 
+if(!isset($_SESSION['demo'])){
+	header("location:/demo.php");
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -42,8 +46,8 @@ echo $twig->render('global/head.twig', ['additionalTitle' => $additionalTitle, '
 		?>
 	</div>
 
-	<div class="relative z-20 top-24 md:top-24 xl:top-24 mx-auto lg:mr-5 pb-12">
-		<div id="main" class="text-center bg-[#FA5A5A] border border-solid border-black rounded-xl max-w-7xl p-2 lg:p-8 ">
+	<div class="relative z-20 top-24 md:top-24 xl:top-24 mx-auto lg:ml-5 lg:mr-5 pb-12">
+		<div id="main" class="text-center bg-[#FA5A5A] border border-solid border-black rounded-xl max-w-7xl p-2 lg:p-8">
 		<?php
 			includePage(@$_GET['page']);
 		?>
