@@ -21,7 +21,7 @@
     <h1 class='font-bold underline mb-5 text-center'>Mitarbeiter Login</h1>
     <div class='flex justify-center'>
         <div class="form-floating mb-3 xl:w-80">
-            <input type='password' name='pwd' class="
+            <input type='password' name='pwddemo' class="
             form-control
             block
             w-full
