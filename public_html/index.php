@@ -38,6 +38,12 @@ echo $twig->render('global/head.twig', ['additionalTitle' => $additionalTitle, '
 
 ?>
 
+<?php
+	/* if(@$_GET['page'] == 'becomeMember'){
+		echo $twig->render('member/becomeMemberForm.twig');
+	} */
+?>
+
 <div class='lg:flex justify-center ml-5 mr-5'>
 
 	<div class='lg:hidden'>
@@ -65,7 +71,6 @@ echo $twig->render('global/head.twig', ['additionalTitle' => $additionalTitle, '
 		Diese Seite wurde programmiert von <a href='http://www.karingiang.ch' target='_blank' class='underline'>Zody</a>.
 	</footer>
 </div>
-
 
 </body>
 </html>
