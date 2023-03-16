@@ -4593,24 +4593,16 @@ textarea.form-control.is-invalid {
   left: 12rem;
 }
 
+.top-96 {
+  top: 24rem;
+}
+
 .right-10 {
   right: 2.5rem;
 }
 
-.left-10 {
-  left: 2.5rem;
-}
-
-.left-auto {
-  left: auto;
-}
-
-.right-auto {
-  right: auto;
-}
-
-.top-96 {
-  top: 24rem;
+.top-80 {
+  top: 20rem;
 }
 
 .z-20 {
@@ -4629,20 +4621,8 @@ textarea.form-control.is-invalid {
   z-index: 10;
 }
 
-.z-40 {
-  z-index: 40;
-}
-
-.z-0 {
-  z-index: 0;
-}
-
 .col-auto {
   grid-column: auto;
-}
-
-.float-right {
-  float: right;
 }
 
 .float-left {
@@ -4923,10 +4903,6 @@ textarea.form-control.is-invalid {
   width: 60%;
 }
 
-.w-\[80\%\] {
-  width: 80%;
-}
-
 .max-w-7xl {
   max-width: 80rem;
 }
@@ -5200,11 +5176,6 @@ textarea.form-control.is-invalid {
   background-color: rgb(248 113 113 / var(--tw-bg-opacity));
 }
 
-.bg-green-600 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(22 163 74 / var(--tw-bg-opacity));
-}
-
 .bg-fixed {
   background-attachment: fixed;
 }
@@ -5346,10 +5317,6 @@ textarea.form-control.is-invalid {
 
 .pb-5 {
   padding-bottom: 1.25rem;
-}
-
-.pb-4 {
-  padding-bottom: 1rem;
 }
 
 .text-left {
@@ -5608,10 +5575,6 @@ textarea.form-control.is-invalid {
 
 .\[hostname\:port\] {
   hostname: port;
-}
-
-.hover\:z-10:hover {
-  z-index: 10;
 }
 
 .hover\:scale-110:hover {
@@ -5889,14 +5852,6 @@ textarea.form-control.is-invalid {
   .lg\:pt-4 {
     padding-top: 1rem;
   }
-
-  .lg\:pb-4 {
-    padding-bottom: 1rem;
-  }
-
-  .lg\:text-justify {
-    text-align: justify;
-  }
 }
 
 @media (min-width: 1280px) {
@@ -5906,6 +5861,10 @@ textarea.form-control.is-invalid {
 
   .xl\:top-\[70vh\] {
     top: 70vh;
+  }
+
+  .xl\:top-96 {
+    top: 24rem;
   }
 
   .xl\:w-80 {
