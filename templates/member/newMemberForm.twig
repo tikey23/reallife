@@ -1,0 +1,206 @@
+        <div class='flex justify-center items-center'>
+            <div id="idshowNewMemberForm" class="absolute w-420 h-500 z-30 bg-[#FA5A5A] text-left p-4 border border-solid border-black rounded-lg shadow">
+            <button onclick="closeNewMemberForm()"><img src='/img/icons/close.png' class="top-0 left-0 w-50 h-50 float-left cursor-pointer"></button>
+                {% set now = 'now'|date('Y-m-d') %}
+                <br>
+                <form name='inputNewMember' action='/index.php?page=memberlist' method='post'>
+                <h1 class='text-3xl font-bold text-center'>Neues Mitglied</h1>
+                <br>
+                <p>
+                <div class="form-floating mb-3 xl:w-80">
+                    <input name='membername' class="
+                    form-control
+                    block
+                    w-full
+                    px-3
+                    py-1.5
+                    text-base
+                    font-normal
+                    text-gray-700
+                    bg-white bg-clip-padding
+                    border border-solid border-gray-300
+                    rounded
+                    transition
+                    ease-in-out
+                    m-0
+                    focus:text-gray-700 focus:bg-white focus:border-black focus:outline-none"
+                    placeholder="Name"
+                    required="required"
+                    id="inputNewMemberName">
+                    <label for="inputNewMemberName" class="text-gray-700">Name</label>
+                </div><br>
+
+                <div class="form-floating mb-3 xl:w-80">
+                    <input type="email" name='e_mail' class="
+                    form-control
+                    block
+                    w-full
+                    px-3
+                    py-1.5
+                    text-base
+                    font-normal
+                    text-gray-700
+                    bg-white bg-clip-padding
+                    border border-solid border-gray-300
+                    rounded
+                    transition
+                    ease-in-out
+                    m-0
+                    focus:text-gray-700 focus:bg-white focus:border-black focus:outline-none"
+                    placeholder="E-Mail"
+                    required="required"
+                    id="inputNewMemberEmail">
+                    <label for="inputNewMemberEmail" class="text-gray-700">E-Mail</label>
+                </div><br>
+                
+                <div class="form-floating mb-3 xl:w-80">
+                    <input name='mobile' class="
+                    form-control
+                    block
+                    w-full
+                    px-3
+                    py-1.5
+                    text-base
+                    font-normal
+                    text-gray-700
+                    bg-white bg-clip-padding
+                    border border-solid border-gray-300
+                    rounded
+                    transition
+                    ease-in-out
+                    m-0
+                    focus:text-gray-700 focus:bg-white focus:border-black focus:outline-none"
+                    placeholder="Handy Nr."
+                    id="inputNewMemberMobile">
+                    <label for="inputNewMemberMobile" class="text-gray-700">Handy Nr.</label>
+                </div><br>
+
+                <select name='memberfunction' id="inputNewMemberFunction" class="form-select appearance-none
+                block
+                w-full
+                px-3
+                py-1.5
+                text-base
+                font-normal
+                text-gray-700
+                bg-white bg-clip-padding bg-no-repeat
+                border border-solid border-gray-300
+                rounded
+                transition
+                ease-in-out
+                m-0
+                focus:text-gray-700 focus:bg-white focus:border-black focus:outline-none" aria-label="Default select example">
+
+                <option value='0' selected>Funktion</option>
+                <option value='Admin'>Admin</option>
+                <option value='Leiter'>Leiter</option>
+                <option value='Helfer'>Helfer</option>
+                </select><br>
+
+                <div class="form-floating mb-3 xl:w-80">
+                    <input type="password" name='memberpwd' size='20' class="
+                    form-control
+                    block
+                    w-full
+                    px-3
+                    py-1.5
+                    text-base
+                    font-normal
+                    text-gray-700
+                    bg-white bg-clip-padding
+                    border border-solid border-gray-300
+                    rounded
+                    transition
+                    ease-in-out
+                    m-0
+                    focus:text-gray-700 focus:bg-white focus:border-black focus:outline-none"
+                    placeholder="Passwort"
+                    required="required"
+                     id="inputMemberPwd">
+                    <label for="inputMemberPwd" class="text-gray-700">Passwort</label>
+                </div><br>
+
+                <div class="form-floating mb-3 xl:w-80">
+                    <input type="password" name='memberpwdrepeat' size='20' class="
+                    form-control
+                    block
+                    w-full
+                    px-3
+                    py-1.5
+                    text-base
+                    font-normal
+                    text-gray-700
+                    bg-white bg-clip-padding
+                    border border-solid border-gray-300
+                    rounded
+                    transition
+                    ease-in-out
+                    m-0
+                    focus:text-gray-700 focus:bg-white focus:border-black focus:outline-none"
+                    placeholder="Passwort wiederholen"
+                    required="required"
+                    id="inputMemberPwdRepeat">
+                    <label for="inputMemberPwdRepeat" class="text-gray-700">Passwort wiederholen</label>
+                </div><br>
+
+                <b><u>Little Akiba:</u></b><br>
+                <div class="form-floating mb-3 xl:w-80">
+                    <input type="url" name='little_akiba' size='20' class="
+                    form-control
+                    block
+                    w-full
+                    px-3
+                    py-1.5
+                    text-base
+                    font-normal
+                    text-gray-700
+                    bg-white bg-clip-padding
+                    border border-solid border-gray-300
+                    rounded
+                    transition
+                    ease-in-out
+                    m-0
+                    focus:text-gray-700 focus:bg-white focus:border-black focus:outline-none"
+                    placeholder="Little Akiba URL"
+                    id="inputNewMemberURL">
+                    <label for="inputNewMemberURL" class="text-gray-700">Little Akiba URL</label>
+                </div><br>
+
+                <div class="form-floating mb-3 xl:w-80">
+                    <input  type="url" name='memberimg' size='20' class="
+                    form-control
+                    block
+                    w-full
+                    px-3
+                    py-1.5
+                    text-base
+                    font-normal
+                    text-gray-700
+                    bg-white bg-clip-padding
+                    border border-solid border-gray-300
+                    rounded
+                    transition
+                    ease-in-out
+                    m-0
+                    focus:text-gray-700 focus:bg-white focus:border-black focus:outline-none"
+                    placeholder="Avatar URL"
+                    id="inputNewMemberAvatar">
+                    <label for="inputNewMemberAvatar" class="text-gray-700">Avatar URL</label>
+                </div><br>
+
+                <div class="flex items-center justify-center">        
+                    <div class="datepicker relative form-floating mb-3 xl:w-80">
+                        <input type="date" name='involved_since' value='{{ now }}'
+                        class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-black focus:outline-none"
+                        placeholder="Entrittsdatum" />
+                        <label for="floatingInput" class="text-gray-700">Entrittsdatum</label>
+                    </div>
+                </div><br>
+                <input type='hidden' name='newMember' value=1>
+                <p><center><a href='javascript:checkFormNewMember()' id="createNewMember"><img src='img/icons/add_box.png' class='w-10 h-10 inline hover:opacity-40' title='Mitglied erstellen'></a></center></p>
+                </form>
+            </div>
+        </div>
+
+
+

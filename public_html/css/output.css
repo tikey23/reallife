@@ -4569,6 +4569,14 @@ textarea.form-control.is-invalid {
   top: 6rem;
 }
 
+.right-10 {
+  right: 2.5rem;
+}
+
+.-top-5 {
+  top: -1.25rem;
+}
+
 .top-0 {
   top: 0px;
 }
@@ -4597,12 +4605,28 @@ textarea.form-control.is-invalid {
   top: 24rem;
 }
 
-.right-10 {
-  right: 2.5rem;
+.-top-96 {
+  top: -24rem;
+}
+
+.-top-80 {
+  top: -20rem;
 }
 
 .top-80 {
   top: 20rem;
+}
+
+.top-auto {
+  top: auto;
+}
+
+.bottom-auto {
+  bottom: auto;
+}
+
+.top-\[50\%\] {
+  top: 50%;
 }
 
 .z-20 {
@@ -5046,6 +5070,10 @@ textarea.form-control.is-invalid {
   border-width: 4px;
 }
 
+.border-2 {
+  border-width: 2px;
+}
+
 .border-l-2 {
   border-left-width: 2px;
 }
@@ -5082,6 +5110,11 @@ textarea.form-control.is-invalid {
 .border-red-700 {
   --tw-border-opacity: 1;
   border-color: rgb(185 28 28 / var(--tw-border-opacity));
+}
+
+.border-white {
+  --tw-border-opacity: 1;
+  border-color: rgb(255 255 255 / var(--tw-border-opacity));
 }
 
 .border-opacity-60 {
@@ -5533,6 +5566,11 @@ textarea.form-control.is-invalid {
   box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
 }
 
+.blur-sm {
+  --tw-blur: blur(4px);
+  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
+}
+
 .blur {
   --tw-blur: blur(8px);
   filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
@@ -5583,6 +5621,11 @@ textarea.form-control.is-invalid {
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
+.hover\:border-black:hover {
+  --tw-border-opacity: 1;
+  border-color: rgb(0 0 0 / var(--tw-border-opacity));
+}
+
 .hover\:bg-violet-100:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(237 233 254 / var(--tw-bg-opacity));
@@ -5601,6 +5644,11 @@ textarea.form-control.is-invalid {
 .hover\:bg-blue-700:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(29 78 216 / var(--tw-bg-opacity));
+}
+
+.hover\:text-black:hover {
+  --tw-text-opacity: 1;
+  color: rgb(0 0 0 / var(--tw-text-opacity));
 }
 
 .hover\:opacity-40:hover {
@@ -5861,10 +5909,6 @@ textarea.form-control.is-invalid {
 
   .xl\:top-\[70vh\] {
     top: 70vh;
-  }
-
-  .xl\:top-96 {
-    top: 24rem;
   }
 
   .xl\:w-80 {
