@@ -74,9 +74,18 @@ if(!isset($_SESSION['demo'])){
 
 <div class='relativ mx-auto pt-12 pb-12'>
 	<footer class="block m-12 text-sm text-gray-500 text-center">
-		Diese Seite wurde programmiert von <a href='http://www.karingiang.ch' target='_blank' class='underline'>Zody</a>.
+		<?php
+			echo $twig->render('global/footer.twig');
+		?>
 	</footer>
 </div>
+
+
+<!-- <div class='relativ mx-auto pt-12 pb-12'>
+	<footer class="block m-12 text-sm text-gray-500 text-center">
+		Diese Seite wurde programmiert von <a href='http://www.karingiang.ch' target='_blank' class='underline'>Zody</a>.
+	</footer>
+</div> -->
 
 </body>
 </html>
