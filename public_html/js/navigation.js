@@ -32,12 +32,14 @@ function openNewMemberForm(){
 	let open = document.getElementById("idshowNewMemberForm");
 	open.style.transform = "translate(0, 0)";
 	this.setBlurSection('blurSection');
+	this.closeFooter();
 }
 
 function closeNewMemberForm(){
 	let close = document.getElementById("idshowNewMemberForm");
 	close.style.transform = "translate(-3000px, 0)";
 	this.unsetBlurSection('blurSection');
+	this.openFooter();
 }
 
 function updateMemberStatus(element, memberid) {
@@ -141,4 +143,15 @@ function setBlurSection(id){
 function unsetBlurSection(id){
 	let body = document.getElementById(id);
 		body.style.filter = "blur(0)";
+}
+
+function openFooter(){
+	let footer = document.getElementById('footerId');
+		footer.style.display = 'unset';
+}
+
+function closeFooter(){
+	let footer = document.getElementById('footerId');
+		footer.setAttribute('style', 'display');
+		footer.style.display = 'none';
 }
