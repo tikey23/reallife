@@ -15,8 +15,16 @@ if (isset($_POST['username'])) {
 		if (password_verify($pwd, $member->pwd)) {
 			if ($member->memberfunction == "Admin") {
 				$_SESSION['admin'] = true;
+				$_SESSION['shift'] = true;
 				$_SESSION['leader'] = true;
 				$_SESSION['helper'] = true;
+			} elseif ($member->memberfunction == "Vorstand") {
+				$_SESSION['leader'] = TRUE;
+				$_SESSION['helper'] = TRUE;
+			} elseif ($member->memberfunction == "Schichtplanung") {
+				$_SESSION['shift'] = true;
+				$_SESSION['leader'] = TRUE;
+				$_SESSION['helper'] = TRUE;
 			} elseif ($member->memberfunction == "Leiter") {
 				$_SESSION['leader'] = TRUE;
 				$_SESSION['helper'] = TRUE;

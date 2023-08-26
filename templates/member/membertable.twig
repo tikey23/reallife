@@ -25,16 +25,36 @@
 
                 {% if member.memberfunction == 'Admin' %}
                     <option value='Admin' selected='selected'>Admin</option>
+                    <option value='Vorstand'>Vorstand</option>
+                    <option value='Schichtplanung'>Schichtplanung</option>
+                    <option value='Leiter'>Leiter</option>
+                    <option value='Helfer'>Helfer</option>
+
+                {% elseif member.memberfunction == 'Vorstand' %}
+                    <option value='Admin'>Admin</option>
+                    <option value='Vorstand' selected='selected'>Vorstand</option>
+                    <option value='Schichtplanung'>Schichtplanung</option>
+                    <option value='Leiter'>Leiter</option>
+                    <option value='Helfer'>Helfer</option>
+
+                {% elseif member.memberfunction == 'Schichtplanung' %}
+                    <option value='Admin'>Admin</option>
+                    <option value='Vorstand'>Vorstand</option>
+                    <option value='Schichtplanung' selected='selected'>Schichtplanung</option>
                     <option value='Leiter'>Leiter</option>
                     <option value='Helfer'>Helfer</option>
 
                 {% elseif member.memberfunction == 'Leiter' %}
                     <option value='Admin'>Admin</option>
-                    <option value='Leiter'selected='selected'>Leiter</option>
+                    <option value='Vorstand'>Vorstand</option>
+                    <option value='Schichtplanung'>Schichtplanung</option>
+                    <option value='Leiter' selected='selected'>Leiter</option>
                     <option value='Helfer'>Helfer</option>
 
                 {% else %}
                     <option value='Admin'>Admin</option>
+                    <option value='Vorstand'>Vorstand</option>
+                    <option value='Schichtplanung'>Schichtplanung</option>
                     <option value='Leiter'>Leiter</option>
                     <option value='Helfer'selected='selected'>Helfer</option>
                 {% endif %}
@@ -86,6 +106,14 @@
                     {% if member.memberfunction == "Admin" %}
                     <span class="text-sm inline-block py-1.5 px-2.5 leading-none text-center whitespace-nowrap align-top font-bold text-white rounded bg-purple-600">
                                                     {{ member.memberfunction }}
+                    </span>
+                    {% elseif member.memberfunction == "Vorstand" %}
+                        <span class="text-sm inline-block py-1.5 px-2.5 leading-none text-center whitespace-nowrap align-top font-bold text-black rounded bg-amber-400">
+                                                        {{ member.memberfunction }}
+                    </span>
+                    {% elseif member.memberfunction == "Schichtplanung" %}
+                        <span class="text-sm inline-block py-1.5 px-2.5 leading-none text-center whitespace-nowrap align-top font-bold text-white rounded bg-purple-400">
+                                                        {{ member.memberfunction }}
                     </span>
                     {% elseif member.memberfunction == "Leiter" %}
                         <span class="text-sm inline-block py-1.5 px-2.5 leading-none text-center whitespace-nowrap align-top font-bold text-white rounded bg-green-500">

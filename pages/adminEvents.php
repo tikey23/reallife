@@ -74,7 +74,8 @@ echo $twig->render('admin/adminEventList.twig', [
 	"events" => $events,
 	"members" => $members,
 	"modifyEventPick" => @$_POST['modifyEventPick'],
-	"isAdmin" => isset($_SESSION['admin'])
+	//"isAdmin" => isset($_SESSION['admin']),
+	"isAdmin" => isset($_SESSION['shift'])
 ]);
 
 ?>

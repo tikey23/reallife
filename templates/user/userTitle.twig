@@ -3,6 +3,10 @@
 <h1 class='text-3xl font-bold text-center'>{{ member.membername }}
     {% if member.memberfunction == "Admin" %}
         <h2 class="text-sm inline-block py-1.5 px-2.5 leading-none text-center whitespace-nowrap align-middle font-bold text-white rounded bg-purple-600">
+    {% elseif member.memberfunction == "Vorstand" %}
+        <h2 class="text-sm inline-block py-1.5 px-2.5 leading-none text-center whitespace-nowrap align-middle font-bold text-black rounded bg-amber-400">
+    {% elseif member.memberfunction == "Schichtplanung" %}
+        <h2 class="text-sm inline-block py-1.5 px-2.5 leading-none text-center whitespace-nowrap align-middle font-bold text-white rounded bg-purple-400">
     {% elseif member.memberfunction == "Leiter" %}
         <h2 class="text-sm inline-block py-1.5 px-2.5 leading-none text-center whitespace-nowrap align-middle font-bold text-white rounded bg-green-500">
     {% elseif member.memberfunction == "Helfer" %}
