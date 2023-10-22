@@ -6,8 +6,8 @@ require_once('../functions/emailfunctions.php');
 use PHPMailer\PHPMailer\PHPMailer;
 
 if(isset($_POST['newCandidate'])){
-    $address = "recipient1@mailtrap.io";
-    $addressName = "Zody";
+    $address = "info@reallifecafe.ch";
+    $addressName = "RL-Webseite";
     
     $subject = "Real Life Cafe - Helfer Bewerbung";
     
@@ -16,10 +16,10 @@ if(isset($_POST['newCandidate'])){
     $mailContent .= "<p>Email: " . $_POST['candidateE_mail'] . "</p>";
     $mailContent .= "<p>Mobile: " . $_POST['candidateMobile'] . "</p>";
     $mailContent .= "<p>Little Akiba Profil: " . $_POST['candidateLittle_akiba'] . "</p>";
-    $mailContent .= "<p>Little Akiba Profil: " . $_POST['avatarLittle_akiba'] . "</p>";
+    $mailContent .= "<p>Little Akiba Avatar: " . $_POST['avatarLittle_akiba'] . "</p>";
     
     $report = "<p>Vielen Dank! Deine Anmeldung wurde versandt. Wir werden bald mit Dir Kontakt aufnehmen.</p>";
-    $report .="<p><a href='/index.php?page=becomeMember'><span class='underline-offset-0'>Zurück</span></a></p>";
+    $report .="<p><a href='https://reallifecafe.ch/index.php?page=becomeMember'><span class='underline-offset-0'>Zurück</span></a></p>";
 
     sendEmail($address, $addressName, $subject, $mailContent, $report);
 

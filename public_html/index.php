@@ -3,10 +3,6 @@
 use \Rl\Models\Member;
 require_once('../load.php');
 
-if(!isset($_SESSION['demo'])){
-	header("location:/demo.php");
-}
-
 ?>
 
 <!DOCTYPE html>
@@ -35,7 +31,6 @@ if(!isset($_SESSION['demo'])){
 	}
 	
 	echo $twig->render('global/head.twig', ['additionalTitle' => $additionalTitle, 'member' => $loggedInUser, 'currentPage' => @$_GET['page']]);
-	
 	?>
 	
 	<?php
@@ -43,7 +38,7 @@ if(!isset($_SESSION['demo'])){
 			echo $twig->render('member/becomeMemberForm.twig');
 		} */
 	?>
-	
+
 	<div class='lg:flex justify-center ml-5 mr-5'>
 	
 		<div class='lg:hidden'>
@@ -51,7 +46,6 @@ if(!isset($_SESSION['demo'])){
 				include('../pages/events.php');
 			?>
 		</div>
-	
 		<div class="relative z-20 top-24 md:top-24 xl:top-24 mx-auto lg:ml-5 lg:mr-5 pb-12">
 			<div id="main" class="text-center bg-[#FA5A5A] border border-solid border-black rounded-xl max-w-7xl p-2 lg:p-8">
 			<?php
@@ -79,13 +73,6 @@ if(!isset($_SESSION['demo'])){
 		?>
 	</footer>
 </div>
-
-
-<!-- <div class='relativ mx-auto pt-12 pb-12'>
-	<footer class="block m-12 text-sm text-gray-500 text-center">
-		Diese Seite wurde programmiert von <a href='http://www.karingiang.ch' target='_blank' class='underline'>Zody</a>.
-	</footer>
-</div> -->
 
 </body>
 </html>

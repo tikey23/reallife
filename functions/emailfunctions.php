@@ -12,7 +12,14 @@ function sendEmail($address, $addressName, $subject, $mailContent, $report){
     $mail->Port = $Email["port"];
     $mail->Username = $Email["username"];
     $mail->Password = $Email["password"];
-    $mail->SMTPSecure = 'tls';
+    $mail->SMTPSecure = 'ssl';
+	$mail->SMTPOptions = array(
+		'ssl' => array(
+			'verify_peer' => false,
+			'verify_peer_name' => false,
+			'allow_self_signed' => true
+		)
+	);
 
     $mail->setFrom($Email["fromAddress"], $Email["fromName"]);
     $mail->addReplyTo($Email["replyAddress"], $Email["replyName"]);
