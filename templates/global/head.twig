@@ -8,12 +8,28 @@
     <img src="img/icons/close.png" id="closeNaviIcon" class="hidden ml-52 w-12 h-12">
     
     <ul id="navi" class="hidden absolute lg:static z-50 bg-red-600 lg:bg-inherit ml-0 lg:ml-52 lg:inline-flex gap-4 top-12 lg:pt-4 left-48 rounded-b-xl">
-        {% if currentPage == 'gallery' %}{% set bgNaviColor = 'bg-amber-400' %}{% else %}{% set bgNaviColor = 'bg-red-600' %}{% endif %}<li><a href="/index.php?page=gallery" class="{{ bgNaviColor }} rounded p-2 transition ease-in-out duration-300 hover:bg-amber-400">Galerie</a></li>
-        {% if currentPage == 'memberlist' %}{% set bgNaviColor = 'bg-amber-400' %}{% else %}{% set bgNaviColor = 'bg-red-600' %}{% endif %}<li><a href="/index.php?page=memberlist" class="{{ bgNaviColor }} rounded p-2 transition ease-in-out duration-300 hover:bg-amber-400">Wer sind wir?</a></li>
-        {% if currentPage == 'becomeMember' %}{% set bgNaviColor = 'bg-amber-400' %}{% else %}{% set bgNaviColor = 'bg-red-600' %}{% endif %}<li><a href="/index.php?page=becomeMember" class="{{ bgNaviColor }} rounded p-2 transition ease-in-out duration-300 hover:bg-amber-400">Helfer werden</a></li>
-        {% if currentPage == 'rules' %}{% set bgNaviColor = 'bg-amber-400' %}{% else %}{% set bgNaviColor = 'bg-red-600' %}{% endif %}<li><a href="/index.php?page=rules" class="{{ bgNaviColor }} rounded p-2 transition ease-in-out duration-300 hover:bg-amber-400">Regeln</a></li>
-        {% if currentPage == 'whereAreWe' %}{% set bgNaviColor = 'bg-amber-400' %}{% else %}{% set bgNaviColor = 'bg-red-600' %}{% endif %}<li><a href="/index.php?page=whereAreWe" class="{{ bgNaviColor }} rounded p-2 transition ease-in-out duration-300 hover:bg-amber-400">Wo findest du uns?</a></li>
-        {% if currentPage == 'introductions' %}{% set bgNaviColor = 'bg-amber-400' %}{% else %}{% set bgNaviColor = 'bg-red-600' %}{% endif %}<li><a href="/index.php?page=introductions" class="{{ bgNaviColor }} rounded p-2 transition ease-in-out duration-300 hover:bg-amber-400">Unser Verein</a></li>
+        {% if currentPage == '' %}{% set bgNaviColor = 'bg-amber-400' %}{% set textColor = 'text-black' %}{% else %}{% set bgNaviColor = 'bg-red-600' %}{% set textColor = 'text-white' %}{% endif %}
+            <li class='mb-4'><a href="/" class="{{ bgNaviColor }} rounded p-2 transition ease-in-out duration-300 hover:bg-amber-400 {{ textColor }} hover:text-black">Home</a></li>
+
+        {% if currentPage == 'gallery' %}{% set bgNaviColor = 'bg-amber-400' %}{% set textColor = 'text-black' %}{% else %}{% set bgNaviColor = 'bg-red-600' %}{% set textColor = 'text-white' %}{% endif %}
+            <li class='mb-4'><a href="/index.php?page=gallery" class="{{ bgNaviColor }} rounded p-2 transition ease-in-out duration-300 hover:bg-amber-400 {{ textColor }} hover:text-black">Galerie</a></li>
+
+        {% if currentPage == 'memberlist' %}{% set bgNaviColor = 'bg-amber-400' %}{% set textColor = 'text-black' %}{% else %}{% set bgNaviColor = 'bg-red-600' %}{% set textColor = 'text-white' %}{% endif %}
+            <li class='mb-4'><a href="/index.php?page=memberlist" class="{{ bgNaviColor }} rounded p-2 transition ease-in-out duration-300 hover:bg-amber-400 {{ textColor }} hover:text-black">Wer sind wir?</a></li>
+
+        {% if currentPage == 'becomeMember' %}{% set bgNaviColor = 'bg-amber-400' %}{% set textColor = 'text-black' %}{% else %}{% set bgNaviColor = 'bg-red-600' %}{% set textColor = 'text-white' %}{% endif %}
+            <li class='mb-4'><a href="/index.php?page=becomeMember" class="{{ bgNaviColor }} rounded p-2 transition ease-in-out duration-300 hover:bg-amber-400 {{ textColor }} hover:text-black">Helfer werden</a></li>
+
+        {% if currentPage == 'rules' %}{% set bgNaviColor = 'bg-amber-400' %}{% set textColor = 'text-black' %}{% else %}{% set bgNaviColor = 'bg-red-600' %}{% set textColor = 'text-white' %}{% endif %}
+            <li class='mb-4'><a href="/index.php?page=rules" class="{{ bgNaviColor }} rounded p-2 transition ease-in-out duration-300 hover:bg-amber-400 {{ textColor }} hover:text-black">Regeln</a></li>
+
+        {% if currentPage == 'whereAreWe' %}{% set bgNaviColor = 'bg-amber-400' %}{% set textColor = 'text-black' %}{% else %}{% set bgNaviColor = 'bg-red-600' %}{% set textColor = 'text-white' %}{% endif %}
+            <li class='mb-4'><a href="/index.php?page=whereAreWe" class="{{ bgNaviColor }} rounded p-2 transition ease-in-out duration-300 hover:bg-amber-400 {{ textColor }} hover:text-black">Wo findest du uns?</a></li>
+
+        {% if currentPage == 'introductions' %}{% set bgNaviColor = 'bg-amber-400' %}{% set textColor = 'text-black' %}{% else %}{% set bgNaviColor = 'bg-red-600' %}{% set textColor = 'text-white' %}{% endif %}
+            <li class='mb-4'><a href="/index.php?page=introductions" class="{{ bgNaviColor }} rounded p-2 transition ease-in-out duration-300 hover:bg-amber-400 {{ textColor }} hover:text-black">Unser Verein</a></li>
+
+        <li class='mb-4'><a href="/logout.php" class="gr-red-600 rounded p-2 transition ease-in-out duration-300 hover:bg-amber-400 text-white hover:text-black">Demo Logout</a></li>
         
     </ul>
     
@@ -26,7 +42,7 @@
     </div>
 </div>
 
-<div class="absolute opacity-30 w-full -mt-12 z-10">
+<div class="absolute opacity-30 w-full -mt-12 z-10 blur-sm">
     <div id="carouselExampleSlidesOnly" class="carousel relative slide" data-bs-ride="carousel">
         <div class="carousel-inner relative w-full overflow-hidden">
             <div class="carousel-item active float-left w-full">

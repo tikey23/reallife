@@ -78,6 +78,8 @@ function createEventsForMonth($newEventDate, $acutalMonth){
 			$event->helper2 = 0;
 			$event->helper3 = 0;
 			$event->helper4 = 0;
+			$event->additive1 = 0;
+			$event->additive2 = 0;
 			$event->activeToRegister = 1;
 			$event->save();
 		}

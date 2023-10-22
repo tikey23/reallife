@@ -20,20 +20,26 @@ function closeNavi(){
 
 function showNewCategoryForm(){
     document.getElementById("newCategoryForm").style.transform = "translate(0, 0)";
+	this.setBlurSection('blurSection');
 }
 
 function closeNewCategoryForm(){
     document.getElementById("newCategoryForm").style.transform = "translate(-3000px, 0)";
+	this.unsetBlurSection('blurSection');
 }
 
 function openNewMemberForm(){
 	let open = document.getElementById("idshowNewMemberForm");
 	open.style.transform = "translate(0, 0)";
+	this.setBlurSection('blurSection');
+	this.closeFooter();
 }
 
 function closeNewMemberForm(){
 	let close = document.getElementById("idshowNewMemberForm");
 	close.style.transform = "translate(-3000px, 0)";
+	this.unsetBlurSection('blurSection');
+	this.openFooter();
 }
 
 function updateMemberStatus(element, memberid) {
@@ -58,16 +64,19 @@ function updateMemberStatus(element, memberid) {
 function openNewCandidateForm(){
 	let open = document.getElementById("idNewCandidateForm");
 	open.style.transform = "translate(0, 0)";
+	this.setBlurSection('blurSection');
 }
 
 function closeNewCandidateForm(){
 	let close = document.getElementById("idNewCandidateForm");
 	close.style.transform = "translate(-3000px, 0)";
+	this.unsetBlurSection('blurSection');
 }
 
 function openUserPassword(){
 	let open = document.getElementById("idUserPassword");
 	open.style.transform = "translate(0, 0)";
+	this.setBlurSection('idUser');
 
 	let closeOthers = document.getElementById("idUserContactInfo");
 	closeOthers.style.transform = "translate(-3000px, 0)";
@@ -76,6 +85,7 @@ function openUserPassword(){
 function closeUserPassword(){
 	let close = document.getElementById("idUserPassword");
 	close.style.transform = "translate(-3000px, 0)";
+	this.unsetBlurSection('idUser');
 }
 
 function checkFormNewMember() {
@@ -113,6 +123,7 @@ function checkFormMemberNewPwd() {
 function openUserContactInfo(){
 	let open = document.getElementById("idUserContactInfo");
 	open.style.transform = "translate(0, 0)";
+	this.setBlurSection('idUser');
 
 	let closeOthers = document.getElementById("idUserPassword");
 	closeOthers.style.transform = "translate(-3000px, 0)";
@@ -121,4 +132,26 @@ function openUserContactInfo(){
 function closeUserContactInfo(){
 	let close = document.getElementById("idUserContactInfo");
 	close.style.transform = "translate(-3000px, 0)";
+	this.unsetBlurSection('idUser');
+}
+
+function setBlurSection(id){
+	let body = document.getElementById(id);
+		body.style.filter = "blur(4px)";
+}
+
+function unsetBlurSection(id){
+	let body = document.getElementById(id);
+		body.style.filter = "blur(0)";
+}
+
+function openFooter(){
+	let footer = document.getElementById('footerId');
+		footer.style.display = 'unset';
+}
+
+function closeFooter(){
+	let footer = document.getElementById('footerId');
+		footer.setAttribute('style', 'display');
+		footer.style.display = 'none';
 }

@@ -3,6 +3,7 @@
 public_html/node_modules/*
 vendor/*
 config/config.php
+config/config.online.php
 public_html/img/gallery/*/*.jpg
 public_html/img/gallery/*/*.jpeg
 public_html/img/gallery/*/*.png

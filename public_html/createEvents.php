@@ -17,6 +17,8 @@
         helper2 INT(255) NOT NULL,
         helper3 INT(255) NOT NULL,
         helper4 INT(255) NOT NULL,
+        additive1 INT(255) NOT NULL,
+        additive2 INT(255) NOT NULL,
         availableMembers VARCHAR(255),
         activeToRegister INT(10) NOT NULL,
         PRIMARY KEY (id)
@@ -27,12 +29,8 @@
     // Beispieldaten
 
     // Create Events
-    $sql = "INSERT INTO event (eventdate, active, leader1, leader2, helper1, helper2, helper3, helper4, availableMembers, activeToRegister) values 
-    ('2023-12-02', 1, 1, 2, 3, 1, 2, 4, '1:2:3:4', 0),
-    ('2023-12-09', 0, 0, 0, 0, 0, 0, 0, '', 1),
-    ('2023-12-16', 0, 0, 0, 0, 0, 0, 0, '', 1),
-    ('2023-12-23', 0, 0, 0, 0, 0, 0, 0, '', 1),
-    ('2023-12-30', 0, 0, 0, 0, 0, 0, 0, '', 1)
+    $sql = "INSERT INTO event (eventdate, active, leader1, leader2, helper1, helper2, helper3, helper4, additive1, additive2, availableMembers, activeToRegister) values 
+    ('2023-12-30', 1, 1, 2, 3, 1, 2, 4, 2, 3, '1:2:3:4', 0)
     ";
     $con ->query($sql);
 

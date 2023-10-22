@@ -27,6 +27,8 @@ if (isset($_POST['createEvent'])) {
 	$event->helper2 = 0;
 	$event->helper3 = 0;
 	$event->helper4 = 0;
+	$event->additive1 = 0;
+	$event->additive2 = 0;
 	$event->activeToRegister = 1;
 	$event->save();
 }
@@ -41,6 +43,8 @@ else if (isset($_POST['modifyEvent'])) {
 	$event->helper2 = $_POST['helper2'];
 	$event->helper3 = $_POST['helper3'];
 	$event->helper4 = $_POST['helper4'];
+	$event->additive1 = $_POST['additive1'];
+	$event->additive2 = $_POST['additive2'];
 	$event->activeToRegister = $_POST['activeToRegister'];
 	$event->save();
 }
@@ -70,7 +74,8 @@ echo $twig->render('admin/adminEventList.twig', [
 	"events" => $events,
 	"members" => $members,
 	"modifyEventPick" => @$_POST['modifyEventPick'],
-	"isAdmin" => isset($_SESSION['admin'])
+	//"isAdmin" => isset($_SESSION['admin']),
+	"isAdmin" => isset($_SESSION['shift'])
 ]);
 
 ?>
