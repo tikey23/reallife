@@ -12,7 +12,7 @@ function sendEmail($address, $addressName, $subject, $mailContent, $report){
     $mail->Port = $Email["port"];
     $mail->Username = $Email["username"];
     $mail->Password = $Email["password"];
-    $mail->SMTPSecure = 'ssl';
+    $mail->SMTPSecure = 'tls';
 	$mail->SMTPOptions = array(
 		'ssl' => array(
 			'verify_peer' => false,

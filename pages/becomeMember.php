@@ -6,7 +6,7 @@ require_once('../functions/emailfunctions.php');
 use PHPMailer\PHPMailer\PHPMailer;
 
 if(isset($_POST['newCandidate'])){
-    $address = "info@reallifecafe.ch";
+    $address = "info@chibicon.ch";
     $addressName = "RL-Webseite";
     
     $subject = "Real Life Cafe - Helfer Bewerbung";
